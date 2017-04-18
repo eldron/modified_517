@@ -2,6 +2,7 @@
 #define __signature__fragment__h
 
 #include "common.h"
+#include "double_list.h"
 
 struct signature_fragment{
 	void * rule_ptr;// points to struct rule
@@ -11,14 +12,9 @@ struct signature_fragment{
 	int min;
 	int max;
 	char * s;// the signature fragment string
+	struct double_list matched_tokens_list; // store the matched tokens from client
 };
 
-void initialize_signature_fragment(struct signature_fragment * f){
-	f->rule_ptr = NULL;
-	f->prev = NULL;
-	f->next = NULL;
-	f->s = NULL;
-	f->relationship = f->min = f->max = 0;
-}
+void initialize_signature_fragment(struct signature_fragment * f);
 
 #endif
