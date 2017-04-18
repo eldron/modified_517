@@ -96,9 +96,12 @@ int main(int argc, char ** args){
 	struct double_list list;// list of relation types and signature fragments to print
 	list.head = list.tail = NULL;
 	int end_flag = 0;
+	int actural_rules_count = 0;
+	int empty_rules_count = 0;
 	while(1){
 		// print malware name
 		printf("%s", s);
+		actural_rules_count++;
 		while(1){
 			memset(s, '\0', LINELEN);
 			if(fgets(s, LINELEN, fin) && s[0] != '\0' && s[0] != '\n'){
@@ -107,9 +110,10 @@ int main(int argc, char ** args){
 					enqueue(&list, s);
 					count++;
 					int type = atoi(s);
+					//fprintf(stderr, "type = %d\n", type);
 					if(type == RELATION_STAR){
 
-					} else if(type == RELATION_EXACT || type == RELATION_MIN || RELATION_MAX){
+					} else if(type == RELATION_EXACT || type == RELATION_MIN || type == RELATION_MAX){
 						memset(s, '\0', LINELEN);
 						fgets(s, LINELEN, fin);
 						enqueue(&list, s);
@@ -128,14 +132,24 @@ int main(int argc, char ** args){
 					fgets(s, LINELEN, fin);
 					enqueue(&list, s);
 					// continue reading the next line
+					//fprintf(stderr, "signatrue fragment is %s", s);
 				} else {
 					// new rule, print count, relation types and signature fragments for the current rule
+					//fprintf(stderr, "new rule\n");
+					//fprintf(stderr, "%s", s);
+					if(count == 0){
+						empty_rules_count++;
+					}
 					printf("%d\n", count);
 					print_list(&list);
 					count = 0;
 					break;
 				}
 			} else {
+				fprintf(stderr, "reached here\n");
+				if(count == 0){
+					empty_rules_count++;
+				}
 				printf("%d\n", count);
 				print_list(&list);
 				count = 0;
@@ -149,6 +163,8 @@ int main(int argc, char ** args){
 		}
 	}
 
+	fprintf(stderr, "actural_rules_count = %d\n", actural_rules_count);
+	fprintf(stderr, "empty_rules_count = %d\n", empty_rules_count);
 	fclose(fin);
 	return 0;
 }
