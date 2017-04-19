@@ -1,6 +1,10 @@
 #ifndef __common__h
 #define __common__h
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #define LINELEN 10000
 #define RELATION_STAR 0 // for *
 #define RELATION_EXACT 1 // for ????

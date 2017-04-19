@@ -14,7 +14,7 @@
 
 struct rule{
 	char * rule_name;
-	struct double_list signature_fragments_list;// stores the signature fragments
+	struct signature_fragment * first_signature_fragment;
 };
 
 void initialize_rule(struct rule * r);

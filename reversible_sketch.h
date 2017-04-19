@@ -10,7 +10,7 @@
 #define K 32 // the number of hash functions for each row
 
 struct reversible_sketch{
-	struct (list_node *) matrix[H][M];
+	struct list_node * matrix[H][M];
 	uint32_t digest[H][M]; // digest bits
 	uint32_t seeds[H][K]; // seeds for the hash functions
 };
