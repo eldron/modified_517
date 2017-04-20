@@ -24,6 +24,58 @@ void read_type(FILE * fin, int * type, int * min, int * max){
 		*max = atoi(c);
 	}
 }
+
+char convert_hex_to_char(char a, char b){
+	unsigned int high;
+	unsigned int low;
+	if('0' <= a && a <= '9'){
+		high = a - '0';
+	} else if('a' <= a && a <= 'f'){
+		high = a - 'a' + 10;
+	} else if('A' <= a && a <= 'F'){
+		high = a - 'A' + 10;
+	} else {
+		fpritnf(stderr, "error in convert_hex_to_char, a = %d", (int) a);
+	}
+
+	if('0' <= b && b <= '9'){
+		low = b - '0';
+	} else if('a' <= b && b <= 'f'){
+		low = b - 'a' + 10;
+	} else if('A' <= b && b <= 'F'){
+		low = b - 'A' + 10;
+	} else {
+		fprintf(stderr, "error in convert_hex_to_char, b = %d\n", (int) b);
+	}
+
+	return (char) ((high << 4) | low);
+}
+// segment a signature fragment, encrypt the tokens, then insert the encrypted tokens into reversible sketch
+void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key){
+	int i;
+	int len = 0;
+	i = 0;
+	while(sf->s[i] != '\n' && sf->s[i] != '\0'){
+		len++;
+		i++;
+	}
+	if(len % 2 != 0){
+		len--;
+	}
+
+	char cipher[TOKEN_SIZE];
+	char * tmp = (char *) malloc((len / 2) * sizeof(char));
+	for(i = 0;i < len / 2;i++){
+		tmp[i] = convert_hex_to_char(sf->s[i * 2], sf->s[i * 2 + 1]);
+	}
+	len = len / 2;
+	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
+		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
+		insert_encrypted_token(rs, cipher, TOKEN_SIZE, sf);
+	}
+
+	free(tmp);
+}
 // read rules and signatures from file
 // file should be the output of rule_eliminator
 // segment signature fragments for each rule, encrypt them, then feed them into the reversible sketch
@@ -99,7 +151,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			add_to_tail(global_signatures_list, node);
 
 			// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
-
+			insert_signature_fragment_to_rs(rs, sig_fra);
 		}
 	}
 
