@@ -90,6 +90,9 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 
 	rules_list->head = rules_list->tail = NULL;
 	int i;
+	int max_signature_fragment_len = 0;
+	int signature_fragments_count = 0;// count the number of signature fragments totally
+	int tokens_count = 0;
 	for(i = 0;i < number_of_rules;i++){
 		// read malware name of this rule
 		memset(s, '\0', LINELEN);
@@ -110,6 +113,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 		memset(s, '\0', LINELEN);
 		fgets(s, LINELEN, fin);
 		int number_of_signatures = atoi(s);
+		signature_fragments_count += number_of_signatures;
 		int j;
 		struct signature_fragment * prev_sf = NULL;
 		for(j = 0;j < number_of_signatures;j++){
@@ -130,6 +134,10 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			len = strlen(s) + 1;
 			sig_fra->s = (char *) malloc(len * sizeof(char));
 			memcpy(sig_fra->s, s, len);
+			if(max_signature_fragment_len < len){
+				max_signature_fragment_len = len;
+			}
+			tokens_count += (len / 2 - 15);
 
 			// set the current rule's first_signature_fragment
 			if(r->first_signature_fragment == NULL){
@@ -151,11 +159,15 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			add_to_tail(global_signatures_list, node);
 
 			// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
-			insert_signature_fragment_to_rs(rs, sig_fra, aes_key);
+			//insert_signature_fragment_to_rs(rs, sig_fra, aes_key);
+			fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
 		}
 	}
 
 	fclose(fin);
+	fprintf(stderr, "max_signature_fragment_len = %d\n", max_signature_fragment_len);
+	fprintf(stderr, "signature_fragments_count = %d\n", signature_fragments_count);
+	fprintf(stderr, "tokens_count = %d\n", tokens_count);
 	return number_of_rules;
 }
 

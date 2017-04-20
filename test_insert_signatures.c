@@ -22,7 +22,7 @@ int check_insert_signatures(struct reversible_sketch * rs, struct signature_frag
 		}
 		len = len / 2;
 		for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
-			AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
+			AES128_ECB_encrypt(&(tmp[i]), key, cipher);
 			if(lookup_encrypted_token(rs, cipher, TOKEN_SIZE)){
 
 			} else {
@@ -62,6 +62,10 @@ int main(int argc, char ** args){
 		return 0;
 	}
 
+	//char * char_pool = (char *) malloc(CHAR_POOL_SIZE);
+	//struct double_list_node * double_list_node_pool = (struct double_list_node *) malloc(DOUBLE_LIST_NODE_POOL_SIZE);
+	//struct list_node * list_node_pool = (struct list_node *) malloc(LIST_NODE_POOL_SIZE);
+
 	struct double_list rules_list;
 	struct double_list global_signatures_list;
 	rules_list.head = rules_list.tail = NULL;
@@ -70,16 +74,18 @@ int main(int argc, char ** args){
 	initialize_reversible_sketch(&rs);
 	uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
 	
+	fprintf(stderr, "before read_rules_from_file\n");
 	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, &global_signatures_list, key);
-	if(check_insert_rules(rs, rules_list, key)){
-		fprintf(stderr, "insert correct\n");
-	} else {
-		fprintf(stderr, "insert wrong\n");
-	}
+	fprintf(stderr, "after read_rules_from_file\n");
+	// if(check_insert_rules(&rs, &rules_list, key)){
+	// 	fprintf(stderr, "insert correct\n");
+	// } else {
+	// 	fprintf(stderr, "insert wrong\n");
+	// }
 	//print_rules_from_list(&rules_list);
 
 	//delete_rules_list(&rules_list);
-
-
+	fprintf(stderr, "size of double_list_node is %u\n", sizeof(struct double_list_node));
+	fprintf(stderr, "size of list_node is %u\n", sizeof(struct list_node));
 	return 0;
 }

@@ -12,6 +12,7 @@ struct signature_fragment{
 	int min;
 	int max;
 	char * s;// the signature fragment string
+	char * signature_fragment_len;// length of the signature fragment
 	struct double_list matched_tokens_list; // store the matched tokens from client
 };
 
