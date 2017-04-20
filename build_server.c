@@ -35,7 +35,7 @@ char convert_hex_to_char(char a, char b){
 	} else if('A' <= a && a <= 'F'){
 		high = a - 'A' + 10;
 	} else {
-		fpritnf(stderr, "error in convert_hex_to_char, a = %d", (int) a);
+		fprintf(stderr, "error in convert_hex_to_char, a = %d", (int) a);
 	}
 
 	if('0' <= b && b <= '9'){
@@ -80,7 +80,7 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 // file should be the output of rule_eliminator
 // segment signature fragments for each rule, encrypt them, then feed them into the reversible sketch
 int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list,
-	struct double_list * global_signatures_list){
+	struct double_list * global_signatures_list, uint8_t * aes_key){
 
 	FILE * fin = fopen(filename, "r");
 	char s[LINELEN];
@@ -151,7 +151,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			add_to_tail(global_signatures_list, node);
 
 			// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
-			insert_signature_fragment_to_rs(rs, sig_fra);
+			insert_signature_fragment_to_rs(rs, sig_fra, aes_key);
 		}
 	}
 

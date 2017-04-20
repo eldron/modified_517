@@ -12,7 +12,7 @@
 #define RELATION_MIN 3// for {20-}
 #define RELATION_MINMAX 4 // for {20-30}
 
-#define TOKEN_SIZE 16;
+#define TOKEN_SIZE 16
 #define ECB 1
 #include "aes.h"
 

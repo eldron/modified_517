@@ -11,11 +11,16 @@
 
 void read_type(FILE * fin, int * type, int * min, int * max);
 
+char convert_hex_to_char(char a, char b);
+
+// segment a signature fragment, encrypt the tokens, then insert the encrypted tokens into reversible sketch
+void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key);
+
 // read rules and signatures from file
 // file should be the output of rule_eliminator
 // segment signature fragments for each rule, encrypt them, then feed them into the reversible sketch
 int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list,
-	struct double_list * signatures_list);
+	struct double_list * signatures_list, uint8_t * aes_key);
 
 // print signature fragments and their relations
 void print_signature_fragments_list(struct double_list * list);

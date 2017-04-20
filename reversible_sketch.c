@@ -78,7 +78,7 @@ struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * 
 // }
 
 void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len, struct signature_fragment * sf){
-	struct list_node * node = loopup_encrypted_token(rs, token, len);
+	struct list_node * node = lookup_encrypted_token(rs, token, len);
 	if(node){
 		// add sf to the encrypted token's signatures_list
 		// check if already exists
@@ -96,14 +96,14 @@ void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len
 		if(found){
 			// do nothing
 		} else {
-			struct list_node * newnode = (struct list_node *) malloc(sizeof(list_node));
+			struct list_node * newnode = (struct list_node *) malloc(sizeof(struct list_node));
 			newnode->next = NULL;
 			newnode->ptr = (void *) sf;
 			push(&(et->signatures_list_head), newnode);
 		}
 	} else {
 		// create an encrypted_token
-		struct encrypted_token * et = (struct encrypted_token *) malloc(sizeof(encrypted_token));
+		struct encrypted_token * et = (struct encrypted_token *) malloc(sizeof(struct encrypted_token));
 		memcpy(et->s, token, len);
 		et->signatures_list_head = NULL;
 		struct list_node * newnode = (struct list_node *) malloc(sizeof(struct list_node));

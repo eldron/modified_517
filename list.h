@@ -1,6 +1,8 @@
 #ifndef __list__h
 #define __list__h
 
+#include <stdio.h>
+
 // single linked list
 struct list_node{
 	void * next;
