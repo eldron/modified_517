@@ -11,7 +11,7 @@
 
 void read_type(FILE * fin, int * type, int * min, int * max);
 
-char convert_hex_to_char(char a, char b);
+uint8_t convert_hex_to_uint8(char a, char b);
 
 // segment a signature fragment, encrypt the tokens, then insert the encrypted tokens into reversible sketch
 void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key);

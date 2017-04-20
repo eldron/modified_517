@@ -25,7 +25,7 @@ void read_type(FILE * fin, int * type, int * min, int * max){
 	}
 }
 
-char convert_hex_to_char(char a, char b){
+uint8_t convert_hex_to_uint8(char a, char b){
 	unsigned int high;
 	unsigned int low;
 	if('0' <= a && a <= '9'){
@@ -35,7 +35,7 @@ char convert_hex_to_char(char a, char b){
 	} else if('A' <= a && a <= 'F'){
 		high = a - 'A' + 10;
 	} else {
-		fprintf(stderr, "error in convert_hex_to_char, a = %d", (int) a);
+		fprintf(stderr, "error in convert_hex_to_uint8, a = %d", (int) a);
 	}
 
 	if('0' <= b && b <= '9'){
@@ -45,10 +45,10 @@ char convert_hex_to_char(char a, char b){
 	} else if('A' <= b && b <= 'F'){
 		low = b - 'A' + 10;
 	} else {
-		fprintf(stderr, "error in convert_hex_to_char, b = %d\n", (int) b);
+		fprintf(stderr, "error in convert_hex_to_uint8, b = %d\n", (int) b);
 	}
 
-	return (char) ((high << 4) | low);
+	return (uint8_t) ((high << 4) | low);
 }
 // segment a signature fragment, encrypt the tokens, then insert the encrypted tokens into reversible sketch
 void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key){
@@ -63,10 +63,10 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 		len--;
 	}
 
-	char cipher[TOKEN_SIZE];
-	char * tmp = (char *) malloc((len / 2) * sizeof(char));
+	uint8_t cipher[TOKEN_SIZE];
+	uint8_t * tmp = (uint8_t *) malloc((len / 2) * sizeof(uint8_t));
 	for(i = 0;i < len / 2;i++){
-		tmp[i] = convert_hex_to_char(sf->s[i * 2], sf->s[i * 2 + 1]);
+		tmp[i] = convert_hex_to_uint8(sf->s[i * 2], sf->s[i * 2 + 1]);
 	}
 	len = len / 2;
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
