@@ -40,42 +40,43 @@ void initialize_memory_pool(struct memory_pool * pool){
 	fprintf(stderr, "initialize_memory_pool succeeded\n");
 }
 
-struct double_list_node * get_free_double_list_node_helper(struct double_list_node * pool, int * idx){
+struct double_list_node * get_free_double_list_node_helper(struct double_list_node * pool, unsigned int * idx){
 	if(*idx >= DOUBLE_LIST_NODE_POOL_SIZE){
-		fprintf(stderr, "double list nodes not enough, idx = %d\n", *idx);
+		fprintf(stderr, "double list nodes not enough, idx = %u\n", *idx);
 		return NULL;
 	} else {
-		int tmp = *idx;
+		unsigned int tmp = *idx;
 		*idx = *idx + 1;
 		return &(pool[tmp]);
 	}
 }
 
-struct list_node * get_free_list_node_helper(struct list_node * pool, int * idx){
+struct list_node * get_free_list_node_helper(struct list_node * pool, unsigned int * idx){
+	//printf("%u\n", *idx);
 	if(*idx >= LIST_NODE_POOL_SIZE){
-		fprintf(stderr, "list nodes not enough, idx = %d\n", *idx);
+		fprintf(stderr, "list nodes not enough, idx = %u\n", *idx);
 		return NULL;
 	} else {
-		int tmp = *idx;
+		unsigned int tmp = *idx;
 		*idx = *idx + 1;
 		return &(pool[tmp]);
 	}
 }
 
-char * get_free_char_buffer_helper(char * pool, int * idx, int len){
+char * get_free_char_buffer_helper(char * pool, unsigned int * idx, int len){
 	if(*idx < CHAR_POOL_SIZE){
-		int tmp = *idx;
+		unsigned int tmp = *idx;
 		*idx = *idx + len;
 		return &(pool[tmp]);
 	} else {
-		fprintf(stderr, "char pool not big enough, idx = %d\n", *idx);
+		fprintf(stderr, "char pool not big enough, idx = %u\n", *idx);
 		return NULL;
 	}
 }
 
-struct rule * get_free_rule_helper(struct rule * pool, int * idx){
+struct rule * get_free_rule_helper(struct rule * pool, unsigned int * idx){
 	if(*idx < RULE_POOL_SIZE){
-		int tmp = *idx;
+		unsigned int tmp = *idx;
 		*idx = *idx + 1;
 		return &(pool[tmp]);
 	} else {
@@ -84,9 +85,9 @@ struct rule * get_free_rule_helper(struct rule * pool, int * idx){
 	}
 }
 
-struct signature_fragment * get_free_signature_fragment_helper(struct signature_fragment * pool, int * idx){
+struct signature_fragment * get_free_signature_fragment_helper(struct signature_fragment * pool, unsigned int * idx){
 	if(*idx < SIGNATURE_FRAGMENT_POOL_SIZE){
-		int tmp = *idx;
+		unsigned int tmp = *idx;
 		*idx = *idx + 1;
 		return &(pool[tmp]);
 	} else {
@@ -95,9 +96,9 @@ struct signature_fragment * get_free_signature_fragment_helper(struct signature_
 	}
 }
 
-struct encrypted_token * get_free_encrypted_token_helper(struct encrypted_token * pool, int * idx){
+struct encrypted_token * get_free_encrypted_token_helper(struct encrypted_token * pool, unsigned int * idx){
 	if(*idx < ENCRYPTED_TOKEN_POOL_SIZE){
-		int tmp = *idx;
+		unsigned int tmp = *idx;
 		*idx = *idx + 1;
 		return &(pool[tmp]);
 	} else {

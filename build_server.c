@@ -163,7 +163,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			add_to_tail(global_signatures_list, node);
 
 			// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
-			//insert_signature_fragment_to_rs(rs, sig_fra, aes_key);
+			insert_signature_fragment_to_rs(rs, sig_fra, aes_key, pool);
 			fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
 		}
 	}

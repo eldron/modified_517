@@ -17,6 +17,10 @@ void initialize_reversible_sketch(struct reversible_sketch * rs){
 			rs->seeds[i][j] = count++;
 		}
 	}
+
+	count++;
+	rs->row_seed = count++;
+	rs->column_seed = count++;
 }
 
 // checks if an encrypted token is in the reversible sketch
@@ -35,10 +39,15 @@ struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * 
 			}
 		}
 	}
+
 	uint32_t hash_value;
-	MurmurHash3_x86_32(token, len, rs->seeds[0][0], (void *) &hash_value);
-	hash_value = hash_value % M;
-	struct list_node * head = rs->matrix[0][hash_value];
+	MurmurHash3_x86_32(token, len, rs->row_seed, (void *) &hash_value);
+	uint32_t row_idx = hash_value % H;
+	MurmurHash3_x86_32(token, len, rs->column_seed, (void *) &hash_value);
+	uint32_t k = hash_value % K;
+	MurmurHash3_x86_32(token, len rs->seeds[row_idx][k], (void *) &hash_value);
+	uint32_t column_idx = hash_value % M;
+	struct list_node * head = rs->matrix[row_idx][column_idx];
 	while(head != NULL){
 		struct encrypted_token * et = (struct encrypted_token *) head->ptr;
 		if(strcmp(token, et->s) == 0){
@@ -49,33 +58,6 @@ struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * 
 	}
 	return head;
 }
-// // checks if a token is in the reversible sketch
-// int lookup_token(struct reversible_sketch * rs, char * token, int len){
-// 	int i;
-// 	int j;
-// 	for(i = 0;i < H;i++){
-// 		for(j = 0;j < K;j++){
-// 			uint32_t hash_value;
-// 			MurmurHash3_x86_32(token, len, rs->seeds[i][j], (void *) &hash_value);
-// 			hash_value = hash_value % M;
-// 			if(rs->digest[i][hash_value] == 0){
-// 				return 0;
-// 			}
-// 		}
-// 	}
-// 	uint32_t hash_value;
-// 	MurmurHash3_x86_32(token, len, rs->seeds[0][0], (void *) &hash_value);
-// 	hash_value = hash_value % M;
-// 	struct list_node * head = rs->matrix[0][hash_value];
-// 	while(head != NULL){
-// 		if(strcmp((char *) head->ptr, token) == 0){
-// 			return 1;
-// 		} else {
-// 			head = (struct list_node *) head->next;
-// 		}
-// 	}
-// 	return 0;
-// }
 
 void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len, struct signature_fragment * sf, struct memory_pool * pool){
 	struct list_node * node = lookup_encrypted_token(rs, token, len);
@@ -115,6 +97,17 @@ void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len
 		push(&(et->signatures_list_head), newnode);
 		// TODO insert this encrypted token to a global encrypted token list, for deletion when system shuts down
 
+		MurmurHash3_x86_32(token, len, rs->row_seed, (void *) &hash_value);
+		uint32_t row_idx = hash_value % H;
+		MurmurHash3_x86_32(token, len, rs->column_seed, (void *) &hash_value);
+		uint32_t k = hash_value % K;
+		MurmurHash3_x86_32(token, len, rs->seeds[row_idx][k], (void *) &hash_value);
+		uint32_t column_idx = hash_value % M;
+		node = get_free_list_node(pool);
+		node->next = NULL;
+		node->ptr = (void *) et;
+		push(&(rs->matrix[row_idx][column_idx]), node);
+
 		int i;
 		int j;
 		for(i = 0;i < H;i++){
@@ -122,36 +115,11 @@ void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len
 				uint32_t hash_value;
 				MurmurHash3_x86_32(token, len, rs->seeds[i][j], (void *) &hash_value);
 				hash_value = hash_value % M;
-				//node = (struct list_node *) malloc(sizeof(struct list_node));
-				node = get_free_list_node(pool);
-				node->next = NULL;
-				node->ptr = (void *) sf;// make them point to the current signature fragment
-				push(&(rs->matrix[i][hash_value]), node);
-				rs->digest[i][hash_value] = 1;
+				rs->digest[i][hash_value] = 1; // still set this bit
 			}
 		}
 	}
 }
-// void insert_token(struct reversible_sketch * rs, char * token, int len){
-// 	if(lookup_token(rs, token, len)){
-// 		return;
-// 	}
-
-// 	int i;
-// 	int j;
-// 	for(i = 0;i < H;i++){
-// 		for(j = 0;j < K;j++){
-// 			uint32_t hash_value;
-// 			MurmurHash3_x86_32(token, len, rs->seeds[i][j], (void *) &hash_value);
-// 			hash_value = hash_value % M;
-// 			struct list_node * node = (struct list_node *) malloc(sizeof(struct list_node));
-// 			node->next = NULL;
-// 			node->ptr = (void *) token;
-// 			push(&(rs->matrix[i][hash_value]), node);
-// 			rs->digest[i][hash_value] = 1;
-// 		}
-// 	}
-// }
 
 void free_reversible_sketch(struct reversible_sketch * rs){
 	int i;

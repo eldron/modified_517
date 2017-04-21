@@ -16,17 +16,17 @@
 
 struct memory_pool{
 	char * char_pool;
-	int char_pool_idx;
+	unsigned int char_pool_idx;
 	struct double_list_node * double_list_node_pool;
-	int double_list_node_pool_idx;
+	unsigned int double_list_node_pool_idx;
 	struct list_node * linked_list_node_pool;
-	int linked_list_node_pool_idx;
+	unsigned int linked_list_node_pool_idx;
 	struct rule * rule_pool;
-	int rule_pool_idx;
+	unsigned int rule_pool_idx;
 	struct signature_fragment * signature_fragment_pool;
-	int signature_fragment_pool_idx;
+	unsigned int signature_fragment_pool_idx;
 	struct encrypted_token * encrypted_token_pool;
-	int encrypted_token_pool_idx;
+	unsigned int encrypted_token_pool_idx;
 };
 
 void initialize_memory_pool(struct memory_pool * pool);
