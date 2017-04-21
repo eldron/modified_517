@@ -77,7 +77,7 @@ struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * 
 // 	return 0;
 // }
 
-void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len, struct signature_fragment * sf){
+void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len, struct signature_fragment * sf, struct memory_pool * pool){
 	struct list_node * node = lookup_encrypted_token(rs, token, len);
 	if(node){
 		// add sf to the encrypted token's signatures_list
@@ -96,17 +96,20 @@ void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len
 		if(found){
 			// do nothing
 		} else {
-			struct list_node * newnode = (struct list_node *) malloc(sizeof(struct list_node));
+			//struct list_node * newnode = (struct list_node *) malloc(sizeof(struct list_node));
+			struct list_node * newnode = get_free_list_node(pool);
 			newnode->next = NULL;
 			newnode->ptr = (void *) sf;
 			push(&(et->signatures_list_head), newnode);
 		}
 	} else {
 		// create an encrypted_token
-		struct encrypted_token * et = (struct encrypted_token *) malloc(sizeof(struct encrypted_token));
+		//struct encrypted_token * et = (struct encrypted_token *) malloc(sizeof(struct encrypted_token));
+		struct encrypted_token * et = get_free_encrypted_token(pool);
 		memcpy(et->s, token, len);
 		et->signatures_list_head = NULL;
-		struct list_node * newnode = (struct list_node *) malloc(sizeof(struct list_node));
+		//struct list_node * newnode = (struct list_node *) malloc(sizeof(struct list_node));
+		struct list_node * newnode = get_free_list_node(pool);
 		newnode->next = NULL;
 		newnode->ptr = (void *) sf;
 		push(&(et->signatures_list_head), newnode);
@@ -119,7 +122,8 @@ void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len
 				uint32_t hash_value;
 				MurmurHash3_x86_32(token, len, rs->seeds[i][j], (void *) &hash_value);
 				hash_value = hash_value % M;
-				node = (struct list_node *) malloc(sizeof(struct list_node));
+				//node = (struct list_node *) malloc(sizeof(struct list_node));
+				node = get_free_list_node(pool);
 				node->next = NULL;
 				node->ptr = (void *) sf;// make them point to the current signature fragment
 				push(&(rs->matrix[i][hash_value]), node);

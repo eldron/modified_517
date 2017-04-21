@@ -51,7 +51,7 @@ uint8_t convert_hex_to_uint8(char a, char b){
 	return (uint8_t) ((high << 4) | low);
 }
 // segment a signature fragment, encrypt the tokens, then insert the encrypted tokens into reversible sketch
-void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key){
+void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key, struct memory_pool * pool){
 	int i;
 	int len = 0;
 	i = 0;
@@ -64,23 +64,21 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 	}
 
 	uint8_t cipher[TOKEN_SIZE];
-	uint8_t * tmp = (uint8_t *) malloc((len / 2) * sizeof(uint8_t));
+	uint8_t tmp[10000];
 	for(i = 0;i < len / 2;i++){
 		tmp[i] = convert_hex_to_uint8(sf->s[i * 2], sf->s[i * 2 + 1]);
 	}
 	len = len / 2;
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
 		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
-		insert_encrypted_token(rs, cipher, TOKEN_SIZE, sf);
+		insert_encrypted_token(rs, cipher, TOKEN_SIZE, sf, pool);
 	}
-
-	free(tmp);
 }
 // read rules and signatures from file
 // file should be the output of rule_eliminator
 // segment signature fragments for each rule, encrypt them, then feed them into the reversible sketch
 int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list,
-	struct double_list * global_signatures_list, uint8_t * aes_key){
+	struct double_list * global_signatures_list, uint8_t * aes_key, struct memory_pool * pool){
 
 	FILE * fin = fopen(filename, "r");
 	char s[LINELEN];
@@ -97,14 +95,17 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 		// read malware name of this rule
 		memset(s, '\0', LINELEN);
 		fgets(s, LINELEN, fin);
-		struct rule * r = (struct rule *) malloc(sizeof(struct rule));
+		//struct rule * r = (struct rule *) malloc(sizeof(struct rule));
+		struct rule * r = get_free_rule(pool);
 		r->first_signature_fragment = NULL;
 		int len = strlen(s) + 1;
-		r->rule_name = (char *) malloc(len * sizeof(char));
+		//r->rule_name = (char *) malloc(len * sizeof(char));
+		r->rule_name = get_free_char_buffer(pool, len);
 		memset(r->rule_name, '\0', len);
 		memcpy(r->rule_name, s, len);
 		// insert the current rule to rules_list
-		struct double_list_node * rulenode = (struct double_list_node *) malloc(sizeof(struct double_list_node));
+		//struct double_list_node * rulenode = (struct double_list_node *) malloc(sizeof(struct double_list_node));
+		struct double_list_node * rulenode = get_free_double_list_node(pool);
 		rulenode->prev = rulenode->next = NULL;
 		rulenode->ptr = (void *) r;
 		add_to_tail(rules_list, rulenode);
@@ -125,14 +126,16 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			// read the current signature fragment
 			memset(s, '\0', LINELEN);
 			fgets(s, LINELEN, fin);
-			struct signature_fragment * sig_fra = (struct signature_fragment *) malloc(sizeof(struct signature_fragment));
+			//struct signature_fragment * sig_fra = (struct signature_fragment *) malloc(sizeof(struct signature_fragment));
+			struct signature_fragment * sig_fra = get_free_signature_fragment(pool);
 			initialize_signature_fragment(sig_fra);
 			sig_fra->relation_type = type;
 			sig_fra->min = min;
 			sig_fra->max = max;
 			sig_fra->rule_ptr = (void *) r;
 			len = strlen(s) + 1;
-			sig_fra->s = (char *) malloc(len * sizeof(char));
+			//sig_fra->s = (char *) malloc(len * sizeof(char));
+			sig_fra->s = get_free_char_buffer(pool, len);
 			memcpy(sig_fra->s, s, len);
 			if(max_signature_fragment_len < len){
 				max_signature_fragment_len = len;
@@ -153,7 +156,8 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			prev_sf = sig_fra;
 
 			// insert the current signature fragment to global signatures_list
-			struct double_list_node * node = (struct double_list_node *) malloc(sizeof(struct double_list_node));
+			//struct double_list_node * node = (struct double_list_node *) malloc(sizeof(struct double_list_node));
+			struct double_list_node * node = get_free_double_list_node(pool);
 			node->prev = node->next = NULL;
 			node->ptr = (void *) sig_fra;
 			add_to_tail(global_signatures_list, node);

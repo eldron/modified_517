@@ -3,7 +3,6 @@
 
 #include "common.h"
 #include "signature_fragment.h"
-#include "reversible_sketch.h"
 
 // delete this later
 #define RELATION_STAR 0
