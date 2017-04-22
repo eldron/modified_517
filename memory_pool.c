@@ -1,43 +1,50 @@
 #include "memory_pool.h"
 
 void initialize_memory_pool(struct memory_pool * pool){
+	unsigned int memory_usage = 0;
 	pool->char_pool_idx = 0;
 	pool->char_pool = (char *) malloc(CHAR_POOL_SIZE * sizeof(char));
 	if(pool->char_pool == NULL){
 		fprintf(stderr, "malloc char_pool failed\n");
 	}
+	memory_usage += (CHAR_POOL_SIZE * sizeof(char));
 
 	pool->double_list_node_pool_idx = 0;
 	pool->double_list_node_pool = (struct double_list_node *) malloc(DOUBLE_LIST_NODE_POOL_SIZE * sizeof(struct double_list_node));
 	if(pool->double_list_node_pool == NULL){
 		fprintf(stderr, "malloc double_list_node_pool failed\n");
 	}
+	memory_usage += (DOUBLE_LIST_NODE_POOL_SIZE * sizeof(struct double_list_node));
 
 	pool->linked_list_node_pool_idx = 0;
 	pool->linked_list_node_pool = (struct list_node *) malloc(LIST_NODE_POOL_SIZE * sizeof(struct list_node));
 	if(pool->linked_list_node_pool == NULL){
 		fprintf(stderr, "malloc linked_list_node_pool failed\n");
 	}
+	memory_usage += (LIST_NODE_POOL_SIZE * sizeof(struct list_node));
 
 	pool->rule_pool_idx = 0;
 	pool->rule_pool = (struct rule *) malloc(RULE_POOL_SIZE * sizeof(struct rule));
 	if(pool->rule_pool == NULL){
 		fprintf(stderr, "malloc rule_pool failed\n");
 	}
+	memory_usage += (RULE_POOL_SIZE * sizeof(struct rule));
 
 	pool->signature_fragment_pool_idx = 0;
 	pool->signature_fragment_pool = (struct signature_fragment *) malloc(SIGNATURE_FRAGMENT_POOL_SIZE * sizeof(struct signature_fragment));
 	if(pool->signature_fragment_pool == NULL){
 		fprintf(stderr, "malloc signature_fragment_pool failed\n");
 	}
+	memory_usage += (SIGNATURE_FRAGMENT_POOL_SIZE * sizeof(struct signature_fragment));
 
 	pool->encrypted_token_pool_idx = 0;
 	pool->encrypted_token_pool = (struct encrypted_token *) malloc(ENCRYPTED_TOKEN_POOL_SIZE * sizeof(struct encrypted_token));
 	if(pool->encrypted_token_pool == NULL){
 		fprintf(stderr, "malloc encrypted_token_pool failed\n");
 	}
+	memory_usage += (ENCRYPTED_TOKEN_POOL_SIZE * sizeof(struct encrypted_token));
 
-	fprintf(stderr, "initialize_memory_pool succeeded\n");
+	fprintf(stderr, "initialize_memory_pool succeeded, memory_usage = %u bytes\n", memory_usage);
 }
 
 struct double_list_node * get_free_double_list_node_helper(struct double_list_node * pool, unsigned int * idx){
@@ -80,7 +87,7 @@ struct rule * get_free_rule_helper(struct rule * pool, unsigned int * idx){
 		*idx = *idx + 1;
 		return &(pool[tmp]);
 	} else {
-		fprintf(stderr, "rule pool not big enough\n");
+		fprintf(stderr, "rule pool not big enough, idx = %u\n", *idx);
 		return NULL;
 	}
 }
@@ -91,7 +98,7 @@ struct signature_fragment * get_free_signature_fragment_helper(struct signature_
 		*idx = *idx + 1;
 		return &(pool[tmp]);
 	} else {
-		fprintf(stderr, "signature fragments pool not big enough\n");
+		fprintf(stderr, "signature fragments pool not big enough, idx = %u\n", *idx);
 		return NULL;
 	}
 }

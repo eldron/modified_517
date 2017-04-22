@@ -35,7 +35,7 @@ uint8_t convert_hex_to_uint8(char a, char b){
 	} else if('A' <= a && a <= 'F'){
 		high = a - 'A' + 10;
 	} else {
-		fprintf(stderr, "error in convert_hex_to_uint8, a = %d", (int) a);
+		fprintf(stderr, "error in convert_hex_to_uint8, a = %d\n", (int) a);
 	}
 
 	if('0' <= b && b <= '9'){
@@ -164,8 +164,10 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 
 			// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
 			insert_signature_fragment_to_rs(rs, sig_fra, aes_key, pool);
-			fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
+			//fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
 		}
+
+		printf("%d %s\n", i, r->rule_name);
 	}
 
 	fclose(fin);

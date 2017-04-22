@@ -45,7 +45,7 @@ struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * 
 	uint32_t row_idx = hash_value % H;
 	MurmurHash3_x86_32(token, len, rs->column_seed, (void *) &hash_value);
 	uint32_t k = hash_value % K;
-	MurmurHash3_x86_32(token, len rs->seeds[row_idx][k], (void *) &hash_value);
+	MurmurHash3_x86_32(token, len, rs->seeds[row_idx][k], (void *) &hash_value);
 	uint32_t column_idx = hash_value % M;
 	struct list_node * head = rs->matrix[row_idx][column_idx];
 	while(head != NULL){
@@ -56,7 +56,7 @@ struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * 
 			head = (struct list_node *) head->next;
 		}
 	}
-	return head;
+	return NULL;
 }
 
 void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len, struct signature_fragment * sf, struct memory_pool * pool){
@@ -95,8 +95,10 @@ void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len
 		newnode->next = NULL;
 		newnode->ptr = (void *) sf;
 		push(&(et->signatures_list_head), newnode);
+		
 		// TODO insert this encrypted token to a global encrypted token list, for deletion when system shuts down
 
+		uint32_t hash_value;
 		MurmurHash3_x86_32(token, len, rs->row_seed, (void *) &hash_value);
 		uint32_t row_idx = hash_value % H;
 		MurmurHash3_x86_32(token, len, rs->column_seed, (void *) &hash_value);

@@ -24,7 +24,7 @@ struct reversible_sketch{
 		column number of the cell.
 	*/
 	uint32_t row_seed;
-	uint32_t colomn_seed;
+	uint32_t column_seed;
 };
 
 void initialize_reversible_sketch(struct reversible_sketch * rs);

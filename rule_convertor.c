@@ -22,6 +22,48 @@ signature
 #define RELATION_MIN 3// for {20-}
 #define RELATION_MINMAX 4 // for {20-30}
 
+int check_rule(char * s){
+	int i = 0;
+	// skip malware name
+	while(s[i] != ':'){
+		//putchar(s[i]);
+		i++;
+	}
+	//putchar('\n');
+	int count = 0;
+	while(1){
+		if(s[i] == ':'){
+			count++;
+			if(count == 3){
+				break;
+			}
+		}
+		i++;
+	}
+	i++;
+	int j = i;// now points to signature
+	while(1){
+		char c = s[j];
+		if(c == '\n' || c == ':' || c == '\0'){
+			break;
+		} else if('0' <= c && c <= '9'){
+
+		} else if('a' <= c && c <= 'f'){
+
+		} else if('A' <= c && c <= 'F'){
+
+		} else if(c == ':' || c == '*' || c == '{' || c == '}' || c == '-' || c == '?' || c == '|' || c == '(' || c == ')'){
+
+		} else {
+			return 0;
+		}
+
+		j++;
+	}
+
+	return 1;
+}
+
 void normalize_line(char * s){
 	int i = 0;
 	// output malware name
@@ -195,13 +237,18 @@ int main(int argc, char ** args){
 	while(1){
 		memset(s, '\0', LINELEN);
 		if(fgets(s, LINELEN, fin)){
-			normalize_line(s);
-			count++;
+			if(check_rule(s)){
+				normalize_line(s);
+				count++;
+			} else {
+				fprintf(stderr, "%s", s);
+			}
 			//fprintf(stderr, "line %d processed\n", count);
 		} else {
 			break;
 		}
 	}
 	fclose(fin);
+	fprintf(stderr, "count = %d\n", count);
 	return 0;
 }

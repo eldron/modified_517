@@ -83,7 +83,7 @@ int main(int argc, char ** args){
 	//print_rules_from_list(&rules_list);
 
 	//delete_rules_list(&rules_list);
-	fprintf(stderr, "size of double_list_node is %lu\n", sizeof(struct double_list_node));
-	fprintf(stderr, "size of list_node is %lu\n", sizeof(struct list_node));
+	//fprintf(stderr, "size of double_list_node is %lu\n", sizeof(struct double_list_node));
+	//fprintf(stderr, "size of list_node is %lu\n", sizeof(struct list_node));
 	return 0;
 }
