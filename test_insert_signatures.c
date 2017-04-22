@@ -26,18 +26,14 @@ int check_insert_signatures(struct reversible_sketch * rs, struct signature_frag
 			if(lookup_encrypted_token(rs, cipher, TOKEN_SIZE)){
 
 			} else {
-				result = 0;
+				return 0;
 			}
 		}
 
-		if(result == 0){
-			return 0;
-		} else {
-			sf = sf->next;
-		}
+		sf = sf->next;
 	}
 
-	return result;
+	return 1;
 }
 // test if signature fragments of all rules are inserted into the reversible sketch
 int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules_list, uint8_t * key){
@@ -45,7 +41,7 @@ int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules
 	while(node){
 		struct rule * r = (struct rule *) node->ptr;
 		if(check_insert_signatures(rs, r->first_signature_fragment, key)){
-
+			fprintf(stderr, "checked %s", r->rule_name);
 		} else {
 			return 0;
 		}
@@ -75,11 +71,11 @@ int main(int argc, char ** args){
 	fprintf(stderr, "before read_rules_from_file\n");
 	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, &global_signatures_list, key, &pool);
 	fprintf(stderr, "after read_rules_from_file\n");
-	// if(check_insert_rules(&rs, &rules_list, key)){
-	// 	fprintf(stderr, "insert correct\n");
-	// } else {
-	// 	fprintf(stderr, "insert wrong\n");
-	// }
+	if(check_insert_rules(&rs, &rules_list, key)){
+		fprintf(stderr, "insert correct\n");
+	} else {
+		fprintf(stderr, "insert wrong\n");
+	}
 	//print_rules_from_list(&rules_list);
 
 	//delete_rules_list(&rules_list);
