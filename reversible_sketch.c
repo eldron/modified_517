@@ -26,7 +26,18 @@ void initialize_reversible_sketch(struct reversible_sketch * rs){
 // checks if an encrypted token is in the reversible sketch
 // return list_node ptr if so
 // return NULL otherwise
-struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * token, int len){
+int compare_token(uint8_t * a, uint8_t * b){
+	int i;
+	for(i = 0;i < TOKEN_SIZE;i++){
+		if(a[i] == b[i]){
+
+		} else {
+			return 0;
+		}
+	}
+	return 1;
+}
+struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, uint8_t * token, int len){
 	int i;
 	int j;
 	for(i = 0;i < H;i++){
@@ -50,7 +61,7 @@ struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * 
 	struct list_node * head = rs->matrix[row_idx][column_idx];
 	while(head != NULL){
 		struct encrypted_token * et = (struct encrypted_token *) head->ptr;
-		if(strcmp(token, et->s) == 0){
+		if(compare_token(token, et->s)){
 			return head;
 		} else {
 			head = (struct list_node *) head->next;
@@ -59,7 +70,7 @@ struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, char * 
 	return NULL;
 }
 
-void insert_encrypted_token(struct reversible_sketch * rs, char * token, int len, struct signature_fragment * sf, struct memory_pool * pool){
+void insert_encrypted_token(struct reversible_sketch * rs, uint8_t * token, int len, struct signature_fragment * sf, struct memory_pool * pool){
 	struct list_node * node = lookup_encrypted_token(rs, token, len);
 	if(node){
 		// add sf to the encrypted token's signatures_list
@@ -138,4 +149,32 @@ void free_reversible_sketch(struct reversible_sketch * rs){
 			}
 		}
 	}
+}
+
+// print the reversible sketch for debug purposes
+void print_encrypted_tokens(struct list_node * head){
+	struct list_node * node = head;
+	while(node){
+		struct encrypted_token * et = (struct encrypted_token *) node->ptr;
+		int i;
+		for(i = 0;i < TOKEN_SIZE;i++){
+			printf("%u ", (uint8_t) et->s[i]);
+		}
+		node = node->next;
+	}
+	printf("\n");
+}
+void print_reversible_sketch(struct reversible_sketch * rs){
+	printf("begin print_reversible_sketch\n");
+	int i;
+	int j;
+	for(i = 0;i < H;i++){
+		for(j = 0;j < M;j++){
+			if(rs->digest[i][j] > 0 && rs->matrix[i][j] != NULL){
+				printf("matrix %d %d:\n", i, j);
+				print_encrypted_tokens(rs->matrix[i][j]);
+			}
+		}
+	}
+	printf("end print_reversible_sketch\n");
 }

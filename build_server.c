@@ -50,6 +50,7 @@ uint8_t convert_hex_to_uint8(char a, char b){
 
 	return (uint8_t) ((high << 4) | low);
 }
+
 // segment a signature fragment, encrypt the tokens, then insert the encrypted tokens into reversible sketch
 void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key, struct memory_pool * pool){
 	int i;
@@ -69,6 +70,17 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 		tmp[i] = convert_hex_to_uint8(sf->s[i * 2], sf->s[i * 2 + 1]);
 	}
 	len = len / 2;
+
+	fprintf(stderr, "signature is\n");
+	for(i = 0;i < len;i++){
+		fprintf(stderr, "%c%c ", sf->s[2 * i], sf->s[2 * i + 1]);
+	}
+	fprintf(stderr, "\ntmp is\n");
+	for(i = 0;i < len;i++){
+		fprintf(stderr, "%u ", tmp[i]);
+	}
+	fprintf(stderr, "\n");
+
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
 		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
 		insert_encrypted_token(rs, cipher, TOKEN_SIZE, sf, pool);
@@ -167,7 +179,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			//fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
 		}
 
-		printf("%d %s\n", i, r->rule_name);
+		//printf("%d %s\n", i, r->rule_name);
 	}
 
 	fclose(fin);
