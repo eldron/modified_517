@@ -137,3 +137,20 @@ struct signature_fragment * get_free_signature_fragment(struct memory_pool * poo
 struct encrypted_token * get_free_encrypted_token(struct memory_pool * pool){
 	return get_free_encrypted_token_helper(pool->encrypted_token_pool, &(pool->encrypted_token_pool_idx));
 }
+
+// free a double list node, swap it with the last used node
+void free_double_list_node(struct memory_pool * pool, struct double_list_node * node){
+	if(pool->double_list_node_pool_idx > 0){
+		struct double_list_node * last_used_node = &(pool->double_list_node_pool[pool->double_list_node_pool_idx - 1]);
+		node->prev = last_used_node->prev;
+		node->next = last_used_node->next;
+		node->ptr = last_used_node->ptr;
+		node->next->prev = node;
+		node->prev->next = node;
+
+		last_used_node->prev = last_used_node->next = last_used_node->ptr = NULL;
+		pool->double_list_node_pool_idx = pool->double_list_node_pool_idx - 1;
+	} else {
+		fprintf(stderr, "impossible in free_double_list_node\n");
+	}
+}
