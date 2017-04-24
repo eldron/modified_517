@@ -138,6 +138,9 @@ int main(int argc, char ** args){
 		fprintf(stderr, "error opening pcap file %s\n", errbuf);
 		return 0;
 	}
+
+	struct double_list matched_rules_list;
+	matched_rules_list.head = matched_rules_list.tail = NULL;
 	while((packet = pcap_next(pcap, &pcap_packet_header)) != NULL){
 		char * payload;
 		int payload_len;
@@ -147,9 +150,28 @@ int main(int argc, char ** args){
 			if(payload_len > TOKEN_SIZE){
 				int i;
 				for(i = 0;i < payload_len - TOKEN_SIZE + 1;i++){
-					
+					struct user_token * ut = get_free_user_token(&pool);
+					ut->offset = i;
+					AES128_ECB_encrypt(&(payload[i]), key, ut->token);
+
+					// new user token arrived, perform additive inspection
+					additive_inspection(ut, rs, pool, &matched_rules_list);
 				}
 			}
+		}
+	}
+	// this should be called when a file inspection is done, or a connection is tared down
+	free_all_user_tokens(&pool);
+
+	if(matched_rules_list.head == NULL){
+		printf("no malware found in file %s\n", args[2]);
+	} else {
+		printf("The following malwares found in file %s\n", args[2]);
+		struct double_list_node * node = matched_rules_list.head;
+		while(node){
+			struct rule * r = (struct rule *) node->ptr;
+			printf("%s", r->rule_name);
+			node = node->next;
 		}
 	}
 	return 0;

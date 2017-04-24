@@ -179,7 +179,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			//fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
 		}
 
-		//printf("%d %s\n", i, r->rule_name);
+		printf("%d %s\n", i, r->rule_name);
 	}
 
 	fclose(fin);
