@@ -90,7 +90,7 @@ int main(int argc, char ** args){
 	} else {
 		fprintf(stderr, "insert wrong\n");
 	}
-	print_rules_from_list(&rules_list);
+	//print_rules_from_list(&rules_list);
 
 	//delete_rules_list(&rules_list);
 	//fprintf(stderr, "size of double_list_node is %lu\n", sizeof(struct double_list_node));

@@ -33,15 +33,5 @@ int check_current_signature_fragment(struct signature_fragment * sf);
 int check_signature_fragments(struct signature_fragment * fsf);
 
 // check if the current rule is matched
-int check_rule(struct rule * r){
-	if(pre_processing_matched_signature_fragment_candidates(r)){
-		if(check_signature_fragments(r->first_signature_fragment)){
-			return 1;
-		} else {
-			return 0;
-		}
-	} else {
-		return 0;
-	}
-}
+int check_rule(struct rule * r);
 #endif

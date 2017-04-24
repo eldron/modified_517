@@ -71,15 +71,15 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 	}
 	len = len / 2;
 
-	fprintf(stderr, "signature is\n");
+	//fprintf(stderr, "signature is\n");
 	for(i = 0;i < len;i++){
-		fprintf(stderr, "%c%c ", sf->s[2 * i], sf->s[2 * i + 1]);
+		//fprintf(stderr, "%c%c ", sf->s[2 * i], sf->s[2 * i + 1]);
 	}
-	fprintf(stderr, "\ntmp is\n");
+	//fprintf(stderr, "\ntmp is\n");
 	for(i = 0;i < len;i++){
-		fprintf(stderr, "%u ", tmp[i]);
+		//fprintf(stderr, "%u ", tmp[i]);
 	}
-	fprintf(stderr, "\n");
+	//fprintf(stderr, "\n");
 
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
 		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);

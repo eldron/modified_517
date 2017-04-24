@@ -6,6 +6,7 @@
 #include "rule.h"
 #include "signature_fragment.h"
 #include "encrypted_token.h"
+#include "user_token.h"
 
 #define CHAR_POOL_SIZE 0x20000000 // 512 MB memory for storing strings
 #define DOUBLE_LIST_NODE_POOL_SIZE 0x00200000 * 2// 4 MB double list nodes
@@ -14,6 +15,7 @@
 #define SIGNATURE_FRAGMENT_POOL_SIZE 0x00100000 // maximum number of signature fragments
 #define ENCRYPTED_TOKEN_POOL_SIZE 0x00800000
 
+#define USER_TOKEN_POOL_SIZE 0x00100000 // 1 MB, should be enough
 struct memory_pool{
 	char * char_pool;
 	unsigned int char_pool_idx;
@@ -27,6 +29,8 @@ struct memory_pool{
 	unsigned int signature_fragment_pool_idx;
 	struct encrypted_token * encrypted_token_pool;
 	unsigned int encrypted_token_pool_idx;
+	struct user_token * user_token_pool;
+	unsigned int user_token_pool_idx;
 };
 
 void initialize_memory_pool(struct memory_pool * pool);
@@ -46,4 +50,12 @@ struct encrypted_token * get_free_encrypted_token(struct memory_pool * pool);
 
 // free a double list node, swap it with the last used node
 void free_double_list_node(struct memory_pool * pool, struct double_list_node * node);
+
+struct user_token * get_free_user_token(struct memory_pool * pool){
+
+}
+
+void free_user_token(struct memory_pool * pool, struct user_token * ut){
+	
+}
 #endif
