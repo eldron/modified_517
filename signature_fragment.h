@@ -6,8 +6,8 @@
 
 struct signature_fragment{
 	void * rule_ptr;// points to struct rule
-	void * prev;// points to the previous signature fragment
-	void * next;// points to the next signature fragment
+	struct signature_fragment * prev;// points to the previous signature fragment
+	struct signature_fragment * next;// points to the next signature fragment
 	int relation_type;// relationship between the the current signature fragment and its previous one, defined in common.h
 	int min;
 	int max;
@@ -17,5 +17,4 @@ struct signature_fragment{
 };
 
 void initialize_signature_fragment(struct signature_fragment * f);
-
 #endif

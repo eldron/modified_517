@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 struct double_list_node{
-	void * prev;
-	void * next;
+	struct double_list_node * prev;
+	struct double_list_node * next;
 	void * ptr;
 };
 

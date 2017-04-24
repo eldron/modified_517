@@ -43,4 +43,7 @@ struct rule * get_free_rule(struct memory_pool * pool);
 struct signature_fragment * get_free_signature_fragment(struct memory_pool * pool);
 
 struct encrypted_token * get_free_encrypted_token(struct memory_pool * pool);
+
+// free a double list node, swap it with the last used node
+void free_double_list_node(struct memory_pool * pool, struct double_list_node * node);
 #endif
