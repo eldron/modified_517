@@ -54,4 +54,6 @@ void free_double_list_node(struct memory_pool * pool, struct double_list_node * 
 struct user_token * get_free_user_token(struct memory_pool * pool);
 // this should be called when a file inspection is done, or connection is tared down
 void free_all_user_tokens(struct memory_pool * pool);
+
+void free_double_list_nodes_from_list(struct memory_pool * pool, struct double_list * list);
 #endif

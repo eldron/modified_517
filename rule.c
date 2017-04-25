@@ -68,50 +68,6 @@ int pre_processing_matched_signature_fragment_candidates(struct rule * r){
 	}
 }
 
-// check if the current signature fragment satisfies relation with its previous one
-int check_current_signature_fragment(struct signature_fragment * sf){
-	if(sf->matched_tokens_list.head == NULL){
-		return 0;
-	} else if(sf->relation_type == RELATION_STAR){
-		return 1;
-	} else if(sf->prev == NULL){
-		return 0;
-	} else {
-		struct double_list_node * node = sf->prev->matched_tokens_list.head;
-		while(node){
-			struct user_token * node_ut = (struct user_token *) node->ptr;
-			struct double_list_node * tmp = sf->matched_tokens_list.head;
-			while(tmp){
-				struct user_token * ut = (struct user_token *) tmp->ptr;
-				if(sf->relation_type == RELATION_EXACT){
-					if(ut->offset == node_ut->offset + sf->min){
-						return 1;
-					}
-				} else if(sf->relation_type == RELATION_MIN){
-					if(ut->offset >= node_ut->offset + sf->min){
-						return 1;
-					}
-				} else if(sf->relation_type == RELATION_MAX){
-					if(ut->offset <= node_ut->offset + sf->max){
-						return 1;
-					}
-				} else if(sf->relation_type == RELATION_MINMAX){
-					if(sf->min <= (ut->offset - node_ut->offset) && (ut->offset - node_ut->offset) <= sf->max){
-						return 1;
-					}
-				} else {
-					fprintf(stderr, "impossible in check_current_signature_fragment, relation_type = %d\n", sf->relation_type);
-				}
-
-				tmp = tmp->next;
-			}
-
-			node = node->next;
-		}
-
-		return 0;
-	}
-}
 // check signature fragment list
 int check_signature_fragments(struct signature_fragment * fsf){
 	struct signature_fragment * sf = fsf;

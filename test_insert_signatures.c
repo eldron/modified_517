@@ -59,6 +59,72 @@ int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules
 	return 1;
 }
 
+// check inspection
+void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, uint8_t * key){
+	struct double_list_node * node = rules_list.head;
+	while(node){
+		struct double_list matched_rules_list;
+		matched_rules_list.head = matched_rules_list.tail = NULL;
+		struct rule * r = (struct rule *) node->ptr;
+		struct signature_fragment * sf = r->first_signature_fragment;
+		int offset = 0;
+		while(sf){
+			int i;
+			int len = 0;
+			i = 0;
+			while(sf->s[i] != '\n' && sf->s[i] != '\0'){
+				len++;
+				i++;
+			}
+			if(len % 2 != 0){
+				len--;
+			}
+
+			uint8_t tmp[10000];
+			for(i = 0;i < len / 2;i++){
+				tmp[i] = convert_hex_to_uint8(sf->s[i * 2], sf->s[i * 2 + 1]);
+			}
+			len = len / 2;
+			if(sf->relation_type == RELATION_STAR){
+
+			} else if(sf->relation_type == RELATION_EXACT || sf->relation_type == RELATION_MIN || sf->relation_type == RELATION_MINMAX){
+				offset += sf->min;
+			} else if(sf->relation_type == RELATION_MAX){
+				offset += sf->max;
+			} else {
+				fprintf(stderr, "impossible in check_inspection_rules\n");
+			}
+
+			for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
+				struct user_token * ut = get_free_user_token(&pool);
+				ut->offset = offset;
+				offset++;
+				AES128_ECB_encrypt(&(tmp[i]), key, ut->token);
+
+				// new user token arrived, perform additive inspection
+				additive_inspection(ut, rs, pool, &matched_rules_list);
+			}
+
+			sf = sf->next;
+		}
+
+		if(matched_rules_list.head == NULL){
+			printf("shit, no malware found for rule %s", r->rule_name);
+		} else {
+			printf("the following malware found for rule %s", r->rule_name);
+			struct double_list * tmp = matched_rules_list.head;
+			while(tmp){
+				printf("%s", ((struct rule *) tmp->ptr)->rule_name);
+				tmp = tmp->next;
+			}
+		}
+
+		// inspection for a file or a connection is done
+		cleanup_after_inspection(pool, rules_list);
+		free_double_list_nodes_from_list(pool, &matched_rules_list);
+	}
+}
+
 // takes the output of rule_normalizer as input
 int main(int argc, char ** args){
 	if(argc != 2){

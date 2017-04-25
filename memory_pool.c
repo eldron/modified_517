@@ -156,17 +156,36 @@ struct encrypted_token * get_free_encrypted_token(struct memory_pool * pool){
 void free_double_list_node(struct memory_pool * pool, struct double_list_node * node){
 	if(pool->double_list_node_pool_idx > 0){
 		struct double_list_node * last_used_node = &(pool->double_list_node_pool[pool->double_list_node_pool_idx - 1]);
-		node->prev = last_used_node->prev;
-		node->next = last_used_node->next;
-		node->ptr = last_used_node->ptr;
-		node->next->prev = node;
-		node->prev->next = node;
+		if(node == last_used_node){
+			node->prev = node->next = NULL;
+			pool->double_list_node_pool_idx = pool->double_list_node_pool_idx - 1;
+		} else {
+			node->prev = last_used_node->prev;
+			node->next = last_used_node->next;
+			node->ptr = last_used_node->ptr;
+			if(node->next){
+				node->next->prev = node;
+			}
+			if(node->prev){
+				node->prev->next = node;
+			}
 
-		last_used_node->prev = last_used_node->next = last_used_node->ptr = NULL;
-		pool->double_list_node_pool_idx = pool->double_list_node_pool_idx - 1;
+			last_used_node->prev = last_used_node->next = last_used_node->ptr = NULL;
+			pool->double_list_node_pool_idx = pool->double_list_node_pool_idx - 1;
+		}
 	} else {
 		fprintf(stderr, "impossible in free_double_list_node\n");
 	}
+}
+
+void free_double_list_nodes_from_list(struct memory_pool * pool, struct double_list * list){
+	struct double_list_node * node = list->head;
+	while(node){
+		struct double_list_node * next = node->next;
+		free_double_list_node(pool, node);
+		node = next;
+	}
+	list->head = list->tail = NULL;
 }
 
 struct user_token * get_free_user_token(struct memory_pool * pool){

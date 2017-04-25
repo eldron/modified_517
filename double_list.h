@@ -12,7 +12,10 @@ struct double_list_node{
 struct double_list{
 	struct double_list_node * head;
 	struct double_list_node * tail;
+	int count;// the number of nodes in the list
 };
+
+void initialize_double_list(struct double_list * list);
 
 void add_to_tail(struct double_list * list, struct double_list_node * node);
 

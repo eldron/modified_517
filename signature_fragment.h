@@ -12,9 +12,17 @@ struct signature_fragment{
 	int min;
 	int max;
 	char * s;// the signature fragment string
-	char * signature_fragment_len;// length of the signature fragment
 	struct double_list matched_tokens_list; // store the matched tokens from client
+	int number_of_tokens;// the number of tokens for this signature fragment, set during building the reversible sketch
+	int first_user_token_offset;// set during inspection
 };
 
 void initialize_signature_fragment(struct signature_fragment * f);
+
+static int compare_uint32_t(const void * a, const void * b);
+// check if the number of user tokens matches, and if their offsets are sonsecutive
+int check_matched_tokens(struct signature_fragment * sf);
+
+// check if the current signature fragment satisfies relation with its previous one
+int check_current_signature_fragment(struct signature_fragment * sf);
 #endif

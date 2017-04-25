@@ -27,8 +27,6 @@ int compare_ptr(const void * a, const void * b);
 // check if they are same
 int pre_processing_matched_signature_fragment_candidates(struct rule * r);
 
-// check if the current signature fragment satisfies relation with its previous one
-int check_current_signature_fragment(struct signature_fragment * sf);
 // check signature fragment list
 int check_signature_fragments(struct signature_fragment * fsf);
 

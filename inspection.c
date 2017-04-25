@@ -62,3 +62,19 @@ int additive_inspection(struct user_token * ut, struct reversible_sketch * rs, s
 		return 0;
 	}
 }
+
+
+void cleanup_after_inspection(struct memory_pool * pool, struct double_list * rules_list){
+	free_all_user_tokens(pool);
+	struct double_list_node * node = rules_list.head;
+	while(node){
+		struct rule * r = (struct rule *) node->ptr;
+		free_double_list_nodes_from_list(pool, &(r->matched_signature_fragments_candidates_list));
+		struct signature_fragment * sf = r->first_signature_fragment;
+		while(sf){
+			free_double_list_nodes_from_list(pool, &(sf->matched_tokens_list));
+			sf = sf->next;
+		}
+		node = node->next;
+	}
+}
