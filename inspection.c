@@ -53,7 +53,7 @@ int additive_inspection(struct user_token * ut, struct reversible_sketch * rs, s
 			head = head->next;
 		}
 
-		if(matched_rules_list.head == NULL){
+		if(matched_rules_list->head == NULL){
 			return 0;
 		} else {
 			return 1;
@@ -66,7 +66,7 @@ int additive_inspection(struct user_token * ut, struct reversible_sketch * rs, s
 
 void cleanup_after_inspection(struct memory_pool * pool, struct double_list * rules_list){
 	free_all_user_tokens(pool);
-	struct double_list_node * node = rules_list.head;
+	struct double_list_node * node = rules_list->head;
 	while(node){
 		struct rule * r = (struct rule *) node->ptr;
 		free_double_list_nodes_from_list(pool, &(r->matched_signature_fragments_candidates_list));

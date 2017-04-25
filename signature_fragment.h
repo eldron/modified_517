@@ -15,6 +15,7 @@ struct signature_fragment{
 	struct double_list matched_tokens_list; // store the matched tokens from client
 	int number_of_tokens;// the number of tokens for this signature fragment, set during building the reversible sketch
 	int first_user_token_offset;// set during inspection
+	int signature_fragment_len;// the number of bytes of the signature fragment, set during building the reversible sketch
 };
 
 void initialize_signature_fragment(struct signature_fragment * f);

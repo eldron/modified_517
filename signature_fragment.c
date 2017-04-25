@@ -79,26 +79,26 @@ int check_current_signature_fragment(struct signature_fragment * sf){
 		return 0;
 	} else {
 		if(sf->relation_type == RELATION_EXACT){
-			if(sf->prev->first_user_token_offset + sf->prev->number_of_tokens + sf->min + 1 == sf->first_user_token_offset){
+			if(sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->min == sf->first_user_token_offset){
 				return 1;
 			} else {
 				return 0;
 			}
 		} else if(sf->relation_type == RELATION_MIN){
-			if(sf->prev->first_user_token_offset + sf->prev->number_of_tokens + sf->min + 1 <= sf->first_user_token_offset){
+			if(sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->min <= sf->first_user_token_offset){
 				return 1;
 			} else {
 				return 0;
 			}
 		} else if(sf->relation_type == RELATION_MAX){
-			if(sf->prev->first_user_token_offset + sf->prev->number_of_tokens + sf->max + 1 >= sf->first_user_token_offset){
+			if(sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->max >= sf->first_user_token_offset){
 				return 1;
 			} else {
 				return 0;
 			}
 		} else if(sf->relation_type == RELATION_MINMAX){
-			if(sf->prev->first_user_token_offset + sf->prev->number_of_tokens + sf->min + 1 <= sf->first_user_token_offset &&
-				sf->first_user_token_offset <= sf->prev->first_user_token_offset + sf->prev->number_of_tokens + sf->max + 1){
+			if(sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->min <= sf->first_user_token_offset &&
+				sf->first_user_token_offset <= sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->max){
 				return 1;
 			} else {
 				return 0;

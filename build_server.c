@@ -81,6 +81,8 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 	}
 	//fprintf(stderr, "\n");
 
+	sf->number_of_tokens = len - TOKEN_SIZE + 1;
+	sf->signature_fragment_len = len;
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
 		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
 		insert_encrypted_token(rs, cipher, TOKEN_SIZE, sf, pool);
@@ -179,7 +181,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			//fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
 		}
 
-		printf("%d %s\n", i, r->rule_name);
+		fprintf(stderr, "%d %s\n", i, r->rule_name);
 	}
 
 	fclose(fin);

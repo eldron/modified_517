@@ -1,4 +1,5 @@
 #include "build_server.h"
+#include "inspection.h"
 
 void print_cipher(uint8_t * cipher){
 	int i;
@@ -7,6 +8,7 @@ void print_cipher(uint8_t * cipher){
 	}
 	printf("\n");
 }
+
 int check_insert_signatures(struct reversible_sketch * rs, struct signature_fragment * fsf, uint8_t * key){
 	struct signature_fragment * sf = fsf;
 	while(sf){
@@ -61,11 +63,12 @@ int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules
 
 // check inspection
 void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, uint8_t * key){
-	struct double_list_node * node = rules_list.head;
+	struct double_list_node * node = rules_list->head;
 	while(node){
 		struct double_list matched_rules_list;
 		matched_rules_list.head = matched_rules_list.tail = NULL;
 		struct rule * r = (struct rule *) node->ptr;
+		fprintf(stderr, "checking rule %s\n", r->rule_name);
 		struct signature_fragment * sf = r->first_signature_fragment;
 		int offset = 0;
 		while(sf){
@@ -96,7 +99,7 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 			}
 
 			for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
-				struct user_token * ut = get_free_user_token(&pool);
+				struct user_token * ut = get_free_user_token(pool);
 				ut->offset = offset;
 				offset++;
 				AES128_ECB_encrypt(&(tmp[i]), key, ut->token);
@@ -105,6 +108,7 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 				additive_inspection(ut, rs, pool, &matched_rules_list);
 			}
 
+			offset += TOKEN_SIZE;
 			sf = sf->next;
 		}
 
@@ -112,7 +116,7 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 			printf("shit, no malware found for rule %s", r->rule_name);
 		} else {
 			printf("the following malware found for rule %s", r->rule_name);
-			struct double_list * tmp = matched_rules_list.head;
+			struct double_list_node * tmp = matched_rules_list.head;
 			while(tmp){
 				printf("%s", ((struct rule *) tmp->ptr)->rule_name);
 				tmp = tmp->next;
@@ -122,6 +126,9 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 		// inspection for a file or a connection is done
 		cleanup_after_inspection(pool, rules_list);
 		free_double_list_nodes_from_list(pool, &matched_rules_list);
+
+		node = node->next;
+		fprintf(stderr, "checked rule %s\n", r->rule_name);
 	}
 }
 
@@ -134,6 +141,7 @@ int main(int argc, char ** args){
 
 	struct memory_pool pool;
 	initialize_memory_pool(&pool);
+	fprintf(stderr, "initialized memory_pool\n");
 
 	struct double_list rules_list;
 	struct double_list global_signatures_list;
@@ -141,25 +149,23 @@ int main(int argc, char ** args){
 	global_signatures_list.head = global_signatures_list.tail = NULL;
 	struct reversible_sketch rs;
 	initialize_reversible_sketch(&rs);
-	printf("reversible sketch initialized\n");
-	print_reversible_sketch(&rs);
+	fprintf(stderr, "reversible sketch initialized\n");
+	//print_reversible_sketch(&rs);
 
 	uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
 	
 	fprintf(stderr, "before read_rules_from_file\n");
 	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, &global_signatures_list, key, &pool);
 	fprintf(stderr, "after read_rules_from_file\n");
-	print_reversible_sketch(&rs);
+	//print_reversible_sketch(&rs);
 
-	if(check_insert_rules(&rs, &rules_list, key)){
-		fprintf(stderr, "insert correct\n");
-	} else {
-		fprintf(stderr, "insert wrong\n");
-	}
-	//print_rules_from_list(&rules_list);
-
-	//delete_rules_list(&rules_list);
-	//fprintf(stderr, "size of double_list_node is %lu\n", sizeof(struct double_list_node));
-	//fprintf(stderr, "size of list_node is %lu\n", sizeof(struct list_node));
+	// if(check_insert_rules(&rs, &rules_list, key)){
+	// 	fprintf(stderr, "insert correct\n");
+	// } else {
+	// 	fprintf(stderr, "insert wrong\n");
+	// }
+	fprintf(stderr, "before check_inspection_rules\n");
+	check_inspection_rules(&rs, &pool, &rules_list, key);
+	fprintf(stderr, "after check_insert_signatures\n");
 	return 0;
 }

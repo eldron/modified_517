@@ -8,8 +8,9 @@
 #include "signature_fragment.h"
 #include "memory_pool.h"
 
-#define H 256 // the number of rows of the reversible sketch
-#define M 256 // the number of columns of the reversible sketch
+// TODO set these three parameters according to the number of tokens
+#define H 64 // the number of rows of the reversible sketch
+#define M 4096 // the number of columns of the reversible sketch
 #define K 8 // the number of hash functions for each row
 
 struct reversible_sketch{

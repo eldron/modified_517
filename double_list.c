@@ -1,7 +1,7 @@
 #include "double_list.h"
 
 void initialize_double_list(struct double_list * list){
-	list->head = list->tail = NULL:
+	list->head = list->tail = NULL;
 	list->count = 0;
 }
 

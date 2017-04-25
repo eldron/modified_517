@@ -38,8 +38,12 @@ int pre_processing_matched_signature_fragment_candidates(struct rule * r){
 	}
 
 	if(counter_one == counter_two){
-		struct signature_fragment ** a = (struct signature_fragment **) malloc(counter_one * sizeof(void *));
-		struct signature_fragment ** b = (struct signature_fragment **) malloc(counter_one * sizeof(void *));
+		if(counter_one > 10000){
+			fprintf(stderr, "counter_one = %d, larger than 10000\n", counter_one);
+			return 0;
+		}
+		struct signature_fragment * a[10000];
+		struct signature_fragment * b[10000];
 		int idx = 0;
 		sf = r->first_signature_fragment;
 		while(sf){

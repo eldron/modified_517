@@ -5,7 +5,7 @@ all:
 	gcc rule_eliminator.c -o rule_eliminator
 	gcc rule_normalizer.c double_list.c -o rule_normalizer
 	gcc test_read_rules.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c -o test_read_rules
-	gcc test_insert_signatures.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c -o test_insert_signatures
+	gcc test_insert_signatures.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c -o test_insert_signatures
 
 clean:
 	rm -f rule_stats
@@ -15,3 +15,4 @@ clean:
 	rm -f rule_normalizer
 	rm -f test_read_rules
 	rm -f test_insert_signatures
+	rm -f test_inspection
