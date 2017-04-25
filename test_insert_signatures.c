@@ -64,11 +64,12 @@ int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules
 // check inspection
 void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, uint8_t * key){
 	struct double_list_node * node = rules_list->head;
+	int count = 0;
 	while(node){
 		struct double_list matched_rules_list;
 		matched_rules_list.head = matched_rules_list.tail = NULL;
 		struct rule * r = (struct rule *) node->ptr;
-		fprintf(stderr, "checking rule %s\n", r->rule_name);
+		fprintf(stderr, "%d checking rule %s\n", count, r->rule_name);
 		struct signature_fragment * sf = r->first_signature_fragment;
 		int offset = 0;
 		while(sf){
@@ -128,7 +129,8 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 		free_double_list_nodes_from_list(pool, &matched_rules_list);
 
 		node = node->next;
-		fprintf(stderr, "checked rule %s\n", r->rule_name);
+		fprintf(stderr, "%d checked rule %s\n", count, r->rule_name);
+		count++;
 	}
 }
 

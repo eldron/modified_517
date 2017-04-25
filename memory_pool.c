@@ -158,6 +158,7 @@ void free_double_list_node(struct memory_pool * pool, struct double_list_node * 
 		struct double_list_node * last_used_node = &(pool->double_list_node_pool[pool->double_list_node_pool_idx - 1]);
 		if(node == last_used_node){
 			node->prev = node->next = NULL;
+			node->ptr = NULL;
 			pool->double_list_node_pool_idx = pool->double_list_node_pool_idx - 1;
 		} else {
 			node->prev = last_used_node->prev;
@@ -182,6 +183,8 @@ void free_double_list_nodes_from_list(struct memory_pool * pool, struct double_l
 	struct double_list_node * node = list->head;
 	while(node){
 		struct double_list_node * next = node->next;
+		node->prev = node->next = NULL;
+		node->ptr = NULL;
 		free_double_list_node(pool, node);
 		node = next;
 	}
