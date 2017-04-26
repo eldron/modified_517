@@ -81,7 +81,7 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 	}
 	//fprintf(stderr, "\n");
 
-	sf->number_of_tokens = len - TOKEN_SIZE + 1;
+	//sf->number_of_tokens = len - TOKEN_SIZE + 1;
 	sf->signature_fragment_len = len;
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
 		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);

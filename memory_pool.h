@@ -9,7 +9,7 @@
 #include "user_token.h"
 
 #define CHAR_POOL_SIZE 0x20000000 // 512 MB memory for storing strings
-#define DOUBLE_LIST_NODE_POOL_SIZE 0x00200000 * 2// 4 MB double list nodes
+#define DOUBLE_LIST_NODE_POOL_SIZE 0x00800000 * 3// 24 MB double list nodes
 #define LIST_NODE_POOL_SIZE 0x00800000 * 3 // 24 MB list nodes
 #define RULE_POOL_SIZE 0x00080000 // maximum number of rules
 #define SIGNATURE_FRAGMENT_POOL_SIZE 0x00100000 // maximum number of signature fragments
