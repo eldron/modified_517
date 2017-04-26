@@ -7,9 +7,12 @@ void initialize_signature_fragment(struct signature_fragment * f){
 	f->next = NULL;
 	f->s = NULL;
 	f->relation_type = f->min = f->max = 0;
-	f->matched_tokens_list.head = f->matched_tokens_list.tail = NULL;
+	//f->matched_tokens_list.head = f->matched_tokens_list.tail = NULL;
+	initialize_double_list(&(f->matched_tokens_list));
+	initialize_double_list(&(f->encrypted_tokens_list));
 	f->number_of_tokens = 0;
 	f->first_user_token_offset = 0;
+	f->signature_fragment_len = 0;
 }
 
 static int compare_uint32_t(const void * a, const void * b){
@@ -23,7 +26,29 @@ static int compare_uint32_t(const void * a, const void * b){
 		return 1;
 	}
 }
-// check if the number of user tokens matches, and if their offsets are sonsecutive
+// check if the number of user tokens matches, and if their offsets are sonsecutive, then check with the encrypted tokens
+int check_matched_tokens(struct signature_fragment * sf){
+	if(sf->matched_tokens_list.count >= sf->number_of_tokens){
+		// the matched tokens list should be sorted by use token's offset value during insertion
+		int i;
+		struct double_list_node * start_node = sf->matched_tokens_list.dummy_head.next;
+		for(i = 0;i < sf->matched_tokens_list.count - sf->encrypted_tokens_list.count + 1;i++){
+			// check if the user tokens' offsets are consecutive, then check with the encrypted tokens
+			struct double_list_node * tmp = start_node;
+			int j;
+			for(j = 0;j < sf->encrypted_tokens_list.count - 1;j++){
+				struct user_token * ut = (struct user_token *) tmp->ptr;
+				struct user_token * next_ut = (struct user_token *) (tmp->next->ptr);
+				if(ut->offset + 1 == next_ut->offset){
+
+				} else {
+
+				}
+			}
+			start_node = start_node->next;
+		}
+	}
+}
 int check_matched_tokens(struct signature_fragment * sf){
 	if(sf->matched_tokens_list.count >= sf->number_of_tokens){
 		if(sf->number_of_tokens > 10000){
@@ -31,9 +56,10 @@ int check_matched_tokens(struct signature_fragment * sf){
 			return 0;
 		} else {
 			uint32_t offsets[10000];
-			struct double_list_node * node = sf->matched_tokens_list.head;
+			//struct double_list_node * node = sf->matched_tokens_list.head;
+			struct double_list_node * node = sf->matched_tokens_list.dummy_head.next;
 			int idx = 0;
-			while(node){
+			while(node && node != &(sf->matched_tokens_list.dummy_tail)){
 				struct user_token * ut = (struct user_token *) node->ptr;
 				offsets[idx] = ut->offset;
 				idx++;
@@ -71,7 +97,7 @@ int check_current_signature_fragment(struct signature_fragment * sf){
 		return 0;
 	}
 	
-	if(sf->matched_tokens_list.head == NULL){
+	if(sf->matched_tokens_list.count == 0){
 		return 0;
 	} else if(sf->relation_type == RELATION_STAR){
 		return 1;

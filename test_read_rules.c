@@ -11,8 +11,10 @@ int main(int argc, char ** args){
 
 	struct double_list rules_list;
 	struct double_list global_signatures_list;
-	rules_list.head = rules_list.tail = NULL;
-	global_signatures_list.head = global_signatures_list.tail = NULL;
+	//rules_list.head = rules_list.tail = NULL;
+	initialize_double_list(&rules_list);
+	//global_signatures_list.head = global_signatures_list.tail = NULL;
+	initialize_double_list(&global_signatures_list);
 	int number_of_rules = read_rules_from_file(args[1], NULL, &rules_list, &global_signatures_list, NULL, NULL);
 
 	print_rules_from_list(&rules_list);

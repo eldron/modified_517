@@ -3,6 +3,8 @@
 void initialize_rule(struct rule * r){
 	r->rule_name = NULL;
 	r->first_signature_fragment = NULL;
+	//r->matched_signature_fragments_candidates_list.head = r->matched_signature_fragments_candidates_list.tail = NULL;
+	initialize_double_list(&(r->matched_signature_fragments_candidates_list));
 }
 
 // compare two pointers, used in qsort
@@ -31,8 +33,9 @@ int pre_processing_matched_signature_fragment_candidates(struct rule * r){
 	}
 
 	int counter_two = 0;
-	struct double_list_node * node = r->matched_signature_fragments_candidates_list.head;
-	while(node){
+	//struct double_list_node * node = r->matched_signature_fragments_candidates_list.head;
+	struct double_list_node * node = r->matched_signature_fragments_candidates_list.dummy_head.next;
+	while(node && node != &(r->matched_signature_fragments_candidates_list.dummy_tail)){
 		counter_two++;
 		node = node->next;
 	}
@@ -52,9 +55,10 @@ int pre_processing_matched_signature_fragment_candidates(struct rule * r){
 			sf = sf->next;
 		}
 
-		node = r->matched_signature_fragments_candidates_list.head;
+		//node = r->matched_signature_fragments_candidates_list.head;
+		node = r->matched_signature_fragments_candidates_list.dummy_head.next;
 		idx = 0;
-		while(node){
+		while(node != &(r->matched_signature_fragments_candidates_list.dummy_tail)){
 			b[idx] = (struct signature_fragment *) node->ptr;
 			idx++;
 			node = node->next;

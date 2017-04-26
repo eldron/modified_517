@@ -89,7 +89,7 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 	}
 }
 // read rules and signatures from file
-// file should be the output of rule_eliminator
+// file should be the output of rule_normalizer
 // segment signature fragments for each rule, encrypt them, then feed them into the reversible sketch
 int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list,
 	struct double_list * global_signatures_list, uint8_t * aes_key, struct memory_pool * pool){
@@ -100,7 +100,8 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 	fgets(s, LINELEN, fin);
 	int number_of_rules = atoi(s);
 
-	rules_list->head = rules_list->tail = NULL;
+	//rules_list->head = rules_list->tail = NULL;
+	initialize_double_list(rules_list);
 	int i;
 	int max_signature_fragment_len = 0;
 	int signature_fragments_count = 0;// count the number of signature fragments totally
@@ -228,16 +229,18 @@ void print_signature_fragments(struct signature_fragment * fsf){
 void print_rules_from_list(struct double_list * rules_list){
 	// count the number of rules
 	int number_of_rules = 0;
-	struct double_list_node * node = rules_list->head;
-	while(node){
+	//struct double_list_node * node = rules_list->head;
+	struct double_list_node * node = rules_list->dummy_head.next;
+	while(node && node != &(rules_list->dummy_tail)){
 		number_of_rules++;
 		node = node->next;
 	}
 	printf("%d\n", number_of_rules);
 
 	// print the rules
-	node = rules_list->head;
-	while(node){
+	//node = rules_list->head;
+	node = rules_list->dummy_head.next;
+	while(node != &(rules_list->dummy_tail)){
 		// print malware name
 		struct rule * r = (struct rule *) node->ptr;
 		printf("%s", r->rule_name);

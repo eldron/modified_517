@@ -180,15 +180,15 @@ void free_double_list_node(struct memory_pool * pool, struct double_list_node * 
 }
 
 void free_double_list_nodes_from_list(struct memory_pool * pool, struct double_list * list){
-	struct double_list_node * node = list->head;
-	while(node){
-		struct double_list_node * next = node->next;
-		node->prev = node->next = NULL;
-		node->ptr = NULL;
-		free_double_list_node(pool, node);
-		node = next;
+	struct double_list_node * node = NULL;
+	while(1){
+		node = remove_from_head(list);
+		if(node){
+			free_double_list_node(pool, node);
+		} else {
+			return;
+		}
 	}
-	list->head = list->tail = NULL;
 }
 
 struct user_token * get_free_user_token(struct memory_pool * pool){

@@ -10,8 +10,8 @@ struct double_list_node{
 };
 
 struct double_list{
-	struct double_list_node * head;
-	struct double_list_node * tail;
+	struct double_list_node dummy_head;
+	struct double_list_node dummy_tail;
 	int count;// the number of nodes in the list
 };
 

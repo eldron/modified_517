@@ -50,20 +50,23 @@ void print_relation(int type, int min, int max){
 }
 
 void print_list(struct double_list * list){
-	struct double_list_node * tmp = list->head;
-	while(tmp){
+	//struct double_list_node * tmp = list->head;
+	struct double_list_node * tmp = list->dummy_head.next;
+	while(tmp != &(list->dummy_tail)){
 		printf("%s", (char *) tmp->ptr);
 		free((void *) tmp->ptr);
 		tmp = tmp->next;
 	}
 	// delete the list
-	tmp = list->head;
-	list->head = list->tail = NULL;
-	while(tmp){
+	//tmp = list->head;
+	tmp = list->dummy_head.next;
+	//list->head = list->tail = NULL;
+	while(tmp && tmp != &(list->dummy_tail)){
 		struct double_list_node * t = tmp;
 		tmp = tmp->next;
 		free(t);
 	}
+	initialize_double_list(list);
 }
 
 void enqueue(struct double_list * list, char * s){
@@ -79,7 +82,7 @@ void enqueue(struct double_list * list, char * s){
 
 int main(int argc, char ** args){
 	if(argc != 2){
-		fprintf(stderr, "usage: %s filename\n", args[1]);
+		fprintf(stderr, "usage: %s filename\n", args[0]);
 		return 0;
 	}
 
@@ -94,7 +97,8 @@ int main(int argc, char ** args){
 	memset(s, '\0', LINELEN);
 	fgets(s, LINELEN, fin);
 	struct double_list list;// list of relation types and signature fragments to print
-	list.head = list.tail = NULL;
+	//list.head = list.tail = NULL;
+	initialize_double_list(&list);
 	int end_flag = 0;
 	int actural_rules_count = 0;
 	int empty_rules_count = 0;

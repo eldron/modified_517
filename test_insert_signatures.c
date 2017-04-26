@@ -31,8 +31,8 @@ int check_insert_signatures(struct reversible_sketch * rs, struct signature_frag
 		len = len / 2;
 		for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
 			AES128_ECB_encrypt(&(tmp[i]), key, cipher);
-			printf("looking for: ");
-			print_cipher(cipher);
+			//printf("looking for: ");
+			//print_cipher(cipher);
 			
 			if(lookup_encrypted_token(rs, cipher, TOKEN_SIZE)){
 
@@ -48,8 +48,9 @@ int check_insert_signatures(struct reversible_sketch * rs, struct signature_frag
 }
 // test if signature fragments of all rules are inserted into the reversible sketch
 int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules_list, uint8_t * key){
-	struct double_list_node * node = rules_list->head;
-	while(node){
+	//struct double_list_node * node = rules_list->head;
+	struct double_list_node * node = rules_list->dummy_head.next;
+	while(node && node != &(rules_list->dummy_tail)){
 		struct rule * r = (struct rule *) node->ptr;
 		if(check_insert_signatures(rs, r->first_signature_fragment, key)){
 			fprintf(stderr, "checked %s", r->rule_name);
@@ -63,11 +64,13 @@ int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules
 
 // check inspection
 void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, uint8_t * key){
-	struct double_list_node * node = rules_list->head;
+	//struct double_list_node * node = rules_list->head;
+	struct double_list_node * node = rules_list->dummy_head.next;
 	int count = 0;
-	while(node){
+	while(node && node != &(rules_list->dummy_tail)){
 		struct double_list matched_rules_list;
-		matched_rules_list.head = matched_rules_list.tail = NULL;
+		//matched_rules_list.head = matched_rules_list.tail = NULL;
+		initialize_double_list(&matched_rules_list);
 		struct rule * r = (struct rule *) node->ptr;
 		fprintf(stderr, "%d checking rule %s\n", count, r->rule_name);
 		struct signature_fragment * sf = r->first_signature_fragment;
@@ -113,21 +116,24 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 			sf = sf->next;
 		}
 
-		if(matched_rules_list.head == NULL){
+		if(matched_rules_list.count == 0){
 			printf("shit, no malware found for rule %s", r->rule_name);
 		} else {
 			printf("the following malware found for rule %s", r->rule_name);
-			struct double_list_node * tmp = matched_rules_list.head;
-			while(tmp){
+			//struct double_list_node * tmp = matched_rules_list.head;
+			struct double_list_node * tmp = matched_rules_list.dummy_head.next;
+			while(tmp && tmp != &(matched_rules_list.dummy_tail)){
 				printf("%s", ((struct rule *) tmp->ptr)->rule_name);
 				tmp = tmp->next;
 			}
 		}
 
 		// inspection for a file or a connection is done
+		//printf("before cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 		cleanup_after_inspection(pool, rules_list);
 		free_double_list_nodes_from_list(pool, &matched_rules_list);
-
+		//printf("after cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
+		
 		node = node->next;
 		fprintf(stderr, "%d checked rule %s\n", count, r->rule_name);
 		count++;
@@ -147,8 +153,10 @@ int main(int argc, char ** args){
 
 	struct double_list rules_list;
 	struct double_list global_signatures_list;
-	rules_list.head = rules_list.tail = NULL;
-	global_signatures_list.head = global_signatures_list.tail = NULL;
+	//rules_list.head = rules_list.tail = NULL;
+	//global_signatures_list.head = global_signatures_list.tail = NULL;
+	initialize_double_list(&rules_list);
+	initialize_double_list(&global_signatures_list);
 	struct reversible_sketch rs;
 	initialize_reversible_sketch(&rs);
 	fprintf(stderr, "reversible sketch initialized\n");
