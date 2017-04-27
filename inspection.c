@@ -1,4 +1,11 @@
 #include "inspection.h"
+#include "user_token.h"
+#include "reversible_sketch.h"
+#include "memory_pool.h"
+#include "double_list.h"
+#include "encrypted_token.h"
+#include "signature_fragment.h"
+#include "rule.h"
 
 // real-time detection
 // called on every user token arrival
@@ -15,7 +22,8 @@ int additive_inspection(struct user_token * ut, struct reversible_sketch * rs, s
 			dln->prev = dln->next = NULL;
 			dln->ptr = (void *) ut;
 			add_to_tail(&(sf->matched_tokens_list), dln);
-			if(check_matched_tokens(sf)){
+
+			if(check_matched_tokens(pool, sf)){
 				// add the signature fragment to the corresponding rule's matched_signature_fragments_candidates_list
 				int found = 0;
 				struct rule * r = (struct rule *) sf->rule_ptr;
@@ -44,7 +52,7 @@ int additive_inspection(struct user_token * ut, struct reversible_sketch * rs, s
 		while(head){
 			struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
 			struct rule * r = (struct rule *) sf->rule_ptr;
-			if(check_rule(r)){
+			if(check_rule(pool, r)){
 				// add the matched rule to matched_rules_list
 				int found = 0;
 				struct double_list_node * tmp = matched_rules_list->dummy_head.next;

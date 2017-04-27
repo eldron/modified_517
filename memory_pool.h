@@ -1,12 +1,12 @@
 #ifndef __memory_pool__h
 #define __memory_pool__h
 
-#include "list.h"
-#include "double_list.h"
-#include "rule.h"
-#include "signature_fragment.h"
-#include "encrypted_token.h"
-#include "user_token.h"
+struct list_node;
+struct double_list;
+struct rule;
+struct signature_fragment;
+struct encrypted_token;
+struct user_token;
 
 #define CHAR_POOL_SIZE 0x20000000 // 512 MB memory for storing strings
 #define DOUBLE_LIST_NODE_POOL_SIZE 0x00800000 * 3// 24 MB double list nodes

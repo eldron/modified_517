@@ -2,11 +2,11 @@
 #define __reversible__sketch__h
 
 #include <stdint.h>
-#include "list.h"
-#include "murmur3.h"
-#include "encrypted_token.h"
-#include "signature_fragment.h"
-#include "memory_pool.h"
+
+struct list_node;
+struct signature_fragment;
+struct memory_pool;
+struct reversible_sketch;
 
 // TODO set these three parameters according to the number of tokens
 #define H 64 // the number of rows of the reversible sketch

@@ -2,13 +2,12 @@
 #define __build__server__h
 
 #include "common.h"
-#include "double_list.h"
-#include "list.h"
-#include "murmur3.h"
-#include "reversible_sketch.h"
-#include "rule.h"
-#include "signature_fragment.h"
-#include "memory_pool.h"
+
+struct double_list;
+struct reversible_sketch;
+struct rule;
+struct memory_pool;
+struct signature_fragment;
 
 void read_type(FILE * fin, int * type, int * min, int * max);
 

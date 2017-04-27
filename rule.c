@@ -1,4 +1,6 @@
 #include "rule.h"
+#include "signature_fragment.h"
+#include "memory_pool.h"
 
 void initialize_rule(struct rule * r){
 	r->rule_name = NULL;
@@ -32,14 +34,7 @@ int pre_processing_matched_signature_fragment_candidates(struct rule * r){
 		sf = sf->next;
 	}
 
-	int counter_two = 0;
-	//struct double_list_node * node = r->matched_signature_fragments_candidates_list.head;
-	struct double_list_node * node = r->matched_signature_fragments_candidates_list.dummy_head.next;
-	while(node && node != &(r->matched_signature_fragments_candidates_list.dummy_tail)){
-		counter_two++;
-		node = node->next;
-	}
-
+	int counter_two = r->matched_signature_fragments_candidates_list.count;
 	if(counter_one == counter_two){
 		if(counter_one > 10000){
 			fprintf(stderr, "counter_one = %d, larger than 10000\n", counter_one);
@@ -56,9 +51,9 @@ int pre_processing_matched_signature_fragment_candidates(struct rule * r){
 		}
 
 		//node = r->matched_signature_fragments_candidates_list.head;
-		node = r->matched_signature_fragments_candidates_list.dummy_head.next;
+		struct double_list_node * node = r->matched_signature_fragments_candidates_list.dummy_head.next;
 		idx = 0;
-		while(node != &(r->matched_signature_fragments_candidates_list.dummy_tail)){
+		while(node && node != &(r->matched_signature_fragments_candidates_list.dummy_tail)){
 			b[idx] = (struct signature_fragment *) node->ptr;
 			idx++;
 			node = node->next;
@@ -77,10 +72,11 @@ int pre_processing_matched_signature_fragment_candidates(struct rule * r){
 }
 
 // check signature fragment list
-int check_signature_fragments(struct signature_fragment * fsf){
+int check_signature_fragments(struct memory_pool * pool, struct signature_fragment * fsf){
 	struct signature_fragment * sf = fsf;
 	while(sf){
-		if(check_current_signature_fragment(sf)){
+		if(check_current_signature_fragment(pool, sf)){
+			//printf("check_current_signature_fragment passed fro signature fragment %s", sf->s);
 			sf = sf->next;
 		} else {
 			return 0;
@@ -91,9 +87,10 @@ int check_signature_fragments(struct signature_fragment * fsf){
 }
 
 // check if the current rule is matched
-int check_rule(struct rule * r){
+int check_rule(struct memory_pool * pool, struct rule * r){
 	if(pre_processing_matched_signature_fragment_candidates(r)){
-		if(check_signature_fragments(r->first_signature_fragment)){
+		//printf("passed pre_processing_matched_signature_fragment_candidates\n");
+		if(check_signature_fragments(pool, r->first_signature_fragment)){
 			return 1;
 		} else {
 			return 0;

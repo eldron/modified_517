@@ -1,14 +1,10 @@
 #ifndef __inspection__h__
 #define __inspection__h__
 
-#include "user_token.h"
-#include "reversible_sketch.h"
-#include "signature_fragment.h"
-#include "double_list.h"
-#include "list.h"
-#include "rule.h"
-#include "memory_pool.h"
-#include "encrypted_token.h"
+struct user_token;
+struct reversible_sketch;
+struct memory_pool;
+struct double_list;
 
 // real-time detection
 // called on every user token arrival

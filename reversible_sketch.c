@@ -1,4 +1,11 @@
 #include "reversible_sketch.h"
+#include <stdint.h>
+#include "list.h"
+#include "murmur3.h"
+#include "signature_fragment.h"
+#include "memory_pool.h"
+#include "reversible_sketch.h"
+#include "encrypted_token.h"
 
 void initialize_reversible_sketch(struct reversible_sketch * rs){
 	int i;
@@ -96,23 +103,11 @@ void insert_encrypted_token(struct reversible_sketch * rs, uint8_t * token, int 
 			push(&(et->signatures_list_head), newnode);
 		}
 
-		// add the encrypted token to the signature fragment's encrypted_tokens_list, check if already exists
-		// found = 0;
-		// struct double_list_node * tmp = sf->encrypted_tokens_list.dummy_head.next;
-		// while(tmp && tmp != &(sf->encrypted_tokens_list.dummy_tail)){
-		// 	if(tmp->ptr == et){
-		// 		found = 1;
-		// 		break;
-		// 	} else {
-		// 		tmp = tmp->next;
-		// 	}
-		// }
-		//if(found == 0){
-			struct double_list_node * tmp = get_free_double_list_node(pool);
-			tmp->prev = tmp->next = NULL;
-			tmp->ptr = (void *) et;
-			add_to_tail(&(sf->encrypted_tokens_list), tmp);
-		//}
+		// add the encrypted token to the signature fragment's encrypted_tokens_list
+		struct double_list_node * tmp = get_free_double_list_node(pool);
+		tmp->prev = tmp->next = NULL;
+		tmp->ptr = (void *) et;
+		add_to_tail(&(sf->encrypted_tokens_list), tmp);
 	} else {
 		// create an encrypted_token
 		//struct encrypted_token * et = (struct encrypted_token *) malloc(sizeof(struct encrypted_token));

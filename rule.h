@@ -2,16 +2,10 @@
 #define __rule__h
 
 #include "common.h"
-#include "signature_fragment.h"
 #include "double_list.h"
-#include "user_token.h"
 
-// delete this later
-#define RELATION_STAR 0
-#define RELATION_EXACT 1
-#define RELATION_MAX 2 // for {-20}
-#define RELATION_MIN 3// for {20-}
-#define RELATION_MINMAX 4 // for {20-30}
+struct signature_fragment;
+struct memory_pool;
 
 struct rule{
 	char * rule_name;
@@ -28,8 +22,8 @@ int compare_ptr(const void * a, const void * b);
 int pre_processing_matched_signature_fragment_candidates(struct rule * r);
 
 // check signature fragment list
-int check_signature_fragments(struct signature_fragment * fsf);
+int check_signature_fragments(struct memory_pool * pool, struct signature_fragment * fsf);
 
 // check if the current rule is matched
-int check_rule(struct rule * r);
+int check_rule(struct memory_pool * pool, struct rule * r);
 #endif

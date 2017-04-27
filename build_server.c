@@ -1,4 +1,11 @@
 #include "build_server.h"
+#include "double_list.h"
+#include "list.h"
+#include "murmur3.h"
+#include "reversible_sketch.h"
+#include "rule.h"
+#include "signature_fragment.h"
+#include "memory_pool.h"
 
 void read_type(FILE * fin, int * type, int * min, int * max){
 	char c[10];
@@ -87,6 +94,11 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
 		insert_encrypted_token(rs, cipher, TOKEN_SIZE, sf, pool);
 	}
+
+	//if(sf->encrypted_tokens_list.count != sf->signature_fragment_len - TOKEN_SIZE + 1){
+	//fprintf(stderr, "signature fragment: %s", sf->s);
+	//fprintf(stderr, "error in insert_signature_fragment_to_rs, sf->signature_fragment_len = %d, sf->encrypted_tokens_list.count = %d\n", sf->signature_fragment_len, sf->encrypted_tokens_list.count);
+	//}
 }
 // read rules and signatures from file
 // file should be the output of rule_normalizer

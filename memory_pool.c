@@ -1,4 +1,10 @@
 #include "memory_pool.h"
+#include "list.h"
+#include "double_list.h"
+#include "rule.h"
+#include "signature_fragment.h"
+#include "encrypted_token.h"
+#include "user_token.h"
 
 void initialize_memory_pool(struct memory_pool * pool){
 	unsigned int memory_usage = 0;
