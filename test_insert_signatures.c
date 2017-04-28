@@ -6,6 +6,7 @@
 #include "memory_pool.h"
 #include "user_token.h"
 #include "list.h"
+
 void print_cipher(uint8_t * cipher){
 	int i;
 	for(i = 0;i < TOKEN_SIZE;i++){
@@ -74,6 +75,7 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 	int count = 0;
 	int matched_rules_count = 0;
 	int failed_rules_count = 0;
+	int checked_rules_count = 0;
 
 	while(node && node != &(rules_list->dummy_tail)){
 		struct double_list matched_rules_list;
@@ -140,6 +142,8 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 					tmp = tmp->next;
 				}
 			}
+
+			checked_rules_count++;
 		}
 
 		// inspection for a file or a connection is done
@@ -153,7 +157,7 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 		count++;
 	}
 
-	printf("%d rules checked\n", count);
+	printf("%d rules checked\n", checked_rules_count);
 	printf("%d rules matched\n", matched_rules_count);
 	printf("%d rules failed\n", failed_rules_count);
 }

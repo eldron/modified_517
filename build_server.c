@@ -182,16 +182,19 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			}
 			prev_sf = sig_fra;
 
-			// insert the current signature fragment to global signatures_list
-			//struct double_list_node * node = (struct double_list_node *) malloc(sizeof(struct double_list_node));
-			struct double_list_node * node = get_free_double_list_node(pool);
-			node->prev = node->next = NULL;
-			node->ptr = (void *) sig_fra;
-			add_to_tail(global_signatures_list, node);
-
-			// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
-			insert_signature_fragment_to_rs(rs, sig_fra, aes_key, pool);
-			//fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
+			if(global_signatures_list){
+				// insert the current signature fragment to global signatures_list
+				//struct double_list_node * node = (struct double_list_node *) malloc(sizeof(struct double_list_node));
+				struct double_list_node * node = get_free_double_list_node(pool);
+				node->prev = node->next = NULL;
+				node->ptr = (void *) sig_fra;
+				add_to_tail(global_signatures_list, node);
+			}
+			if(rs){
+				// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
+				insert_signature_fragment_to_rs(rs, sig_fra, aes_key, pool);
+				//fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
+			}
 		}
 
 		fprintf(stderr, "%d %s\n", i, r->rule_name);

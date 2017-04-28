@@ -6,6 +6,8 @@ all:
 	gcc rule_normalizer.c double_list.c -o rule_normalizer
 	gcc test_read_rules.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c -o test_read_rules
 	gcc test_insert_signatures.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c -o test_insert_signatures
+	gcc cloud_dpi_server.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c -o cloud_dpi_server
+	gcc cloud_dpi_client.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c -o cloud_dpi_client
 
 clean:
 	rm -f rule_stats
@@ -15,4 +17,5 @@ clean:
 	rm -f rule_normalizer
 	rm -f test_read_rules
 	rm -f test_insert_signatures
-	rm -f test_inspection
+	rm -f cloud_dpi_server
+	rm -f cloud_dpi_client
