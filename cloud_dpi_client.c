@@ -14,6 +14,73 @@
 #include "user_token.h"
 #include "list.h"
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <dirent.h>
+
+int is_regular_file(const char *path){
+    struct stat path_stat;
+    stat(path, &path_stat);
+    return S_ISREG(path_stat.st_mode);
+}
+
+void check_files(char * pathname, uint8_t * key, int socket_fd){
+	struct user_token file_end_token;
+	memset(&file_end_token, 0, sizeof(struct user_token));
+	struct dirent * dir = NULL;
+	DIR * d = opendir(pathname);
+	if(d){
+		while((dir = readdir(d)) != NULL){
+			if(is_regular_file(dir->d_name)){
+				// read file content, generate user tokens, send the tokens to server
+				FILE * fin = fopen(dir->d_name, "r");
+				fseek(fin, 0L, SEEK_END);
+				int filesize = ftell(fin);
+				rewind(fin);
+				char * s = (char *) malloc(filesize * sizeof(char));
+				char c;
+				int idx = 0;
+				while((c = fgetc(fin)) != EOF){
+					s[idx] = c;
+					idx++;
+				}
+				if(idx != filesize){
+					fprintf(stderr, "error in reading the file content\n");
+				}
+				if(filesize < TOKEN_SIZE){
+					// send file end token
+					int bytes_sent = write(socket_fd, &file_end_token, sizeof(struct user_token));
+					if(bytes_sent != sizeof(struct user_token)){
+						fprintf(stderr, "error in sending file_end_token, bytes_sent = %d\n", bytes_sent);
+					}
+				} else {
+					uint32_t i;
+					for(i = 0;i < filesize - TOKEN_SIZE + 1;i++){
+						struct user_token ut;
+						ut->offset = htonl(i);
+						AES128_ECB_encrypt(&(s[i]), key, ut.token);
+						// send the user token to server
+						int bytes_sent = write(socket_fd, &ut, sizeof(struct user_token));
+						if(bytes_sent != sizeof(struct user_token)){
+							fprintf(stderr, "error in check_rules, bytes_sent = %d\n", bytes_sent);
+						}
+					}
+					// send file end token
+					int bytes_sent = write(socket_fd, &file_end_token, sizeof(struct user_token));
+					if(bytes_sent != sizeof(struct user_token)){
+						fprintf(stderr, "error in sending file_end_token, bytes_sent = %d\n", bytes_sent);
+					}
+				}
+
+				free(s);
+				fclose(fin);
+			}
+		}
+	} else {
+		fprintf(stderr, "error opening directory %s\n". pathname);
+	}
+}
+
 // check inspection
 void check_rules(struct double_list * rules_list, uint8_t * key, int socket_fd){
 	struct user_token file_end_token;
@@ -80,8 +147,8 @@ void check_rules(struct double_list * rules_list, uint8_t * key, int socket_fd){
 }
 
 int main(int argc, char ** args){
-	if(argc != 4){
-		fprintf(stderr, "usage: %s file_name, server_address, server_port\n", args[0]);
+	if(argc != 5){
+		fprintf(stderr, "usage: %s rules_file_name server_address server_port path\n", args[0]);
 		return 0;
 	}
 
@@ -109,8 +176,8 @@ int main(int argc, char ** args){
 		exit(1);
 	}
 
-	check_rules(&rules_list, key, client_fd);
-	
+	//check_rules(&rules_list, key, client_fd);
+	check_files(args[4], key, client_fd);
 	close(client_fd);
 	return 0;
 }
