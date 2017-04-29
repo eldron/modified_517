@@ -122,18 +122,21 @@ int main(int argc, char ** args){
 		fprintf(stderr, "binded server socket\n");
 	}
 	// listen for the incoming connection
-	if(listen(server_socket_fd, 1) < 0){
+	if(listen(server_socket_fd, 10) < 0){
 		fprintf(stderr, "listen server socket failed\n");
 		return 0;
 	}
-	// wait for the client to connect
-	unsigned int client_address_len = sizeof(client_address);
-	if((client_socket_fd = accept(server_socket_fd, (struct sockaddr *) &client_address, &client_address_len)) < 0){
-		fprintf(stderr, "accept client connection failed\n");
-		return 0;
+
+	while(1){
+		// wait for the client to connect
+		unsigned int client_address_len = sizeof(client_address);
+		if((client_socket_fd = accept(server_socket_fd, (struct sockaddr *) &client_address, &client_address_len)) < 0){
+			fprintf(stderr, "accept client connection failed\n");
+			return 0;
+		}
+		fprintf(stderr, "accepted client connection\n");
+		// perform DPI on the user tokens sent from client
+		handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
 	}
-	fprintf(stderr, "accepted client connection\n");
-	// perform DPI on the user tokens sent from client
-	handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
 	return 0;
 }
