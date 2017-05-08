@@ -1,5 +1,6 @@
 #include "reversible_sketch.h"
 #include <stdint.h>
+#include <stdlib.h>
 #include "list.h"
 #include "murmur3.h"
 #include "signature_fragment.h"
@@ -10,6 +11,22 @@
 void initialize_reversible_sketch(struct reversible_sketch * rs){
 	int i;
 	int j;
+	int mem_used = 0;
+	for(i = 0;i < H;i++){
+		rs->matrix[i] = (struct list_node **) malloc(M * sizeof(void *));
+		if(rs->matrix[i] == NULL){
+			fprintf(stderr, "i = %d failed to alloc matrix\n", i);
+		} else {
+			mem_used += (M * sizeof(void *));
+		}
+		rs->digest[i] = (uint8_t *) malloc(M * sizeof(uint8_t));
+		if(rs->digest[i] == NULL){
+			fprintf(stderr, "i =  %d, failed to alloc digest\n", i);
+		} else {
+			mem_used += (M * sizeof(uint8_t));
+		}
+	}
+	fprintf(stderr, "%d bytes malloced in initialize_reversible_sketch\n", mem_used);
 	for(i = 0;i < H;i++){
 		for(j = 0;j < M;j++){
 			rs->matrix[i][j] = NULL;
@@ -18,16 +35,20 @@ void initialize_reversible_sketch(struct reversible_sketch * rs){
 	}
 
 	// too simple seeds for the hash functions, change them later
-	int count = 0;
+	srand(0);
+	//int count = 0;
 	for(i = 0;i < H;i++){
 		for(j = 0;j < K;j++){
-			rs->seeds[i][j] = count++;
+			//rs->seeds[i][j] = count++;
+			rs->seeds[i][j] = rand();
 		}
 	}
 
-	count++;
-	rs->row_seed = count++;
-	rs->column_seed = count++;
+	//count++;
+	//rs->row_seed = count++;
+	//rs->column_seed = count++;
+	rs->row_seed = rand();
+	rs->column_seed = rand();
 }
 
 // checks if an encrypted token is in the reversible sketch

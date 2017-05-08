@@ -179,6 +179,7 @@ void free_double_list_node(struct memory_pool * pool, struct double_list_node * 
 
 			last_used_node->prev = last_used_node->next = last_used_node->ptr = NULL;
 			pool->double_list_node_pool_idx = pool->double_list_node_pool_idx - 1;
+			fprintf(stderr, "shit happended here\n");
 		}
 	} else {
 		fprintf(stderr, "impossible in free_double_list_node\n");

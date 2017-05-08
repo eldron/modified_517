@@ -11,6 +11,8 @@ struct rule{
 	char * rule_name;
 	struct signature_fragment * first_signature_fragment;// modified during building the reversible sketch
 	struct double_list matched_signature_fragments_candidates_list;// a list of matched signature fragment candidates, need further processing to confirm
+	uint8_t matched;// set during inspection, should be cleared after inspection for a file or a connection
+	uint8_t checked_during_batch_inspection;// set during inspection batch inspection, cleared after each batch inspection
 };
 
 void initialize_rule(struct rule * r);

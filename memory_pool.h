@@ -8,12 +8,13 @@ struct signature_fragment;
 struct encrypted_token;
 struct user_token;
 
-#define CHAR_POOL_SIZE 0x20000000 // 512 MB memory for storing strings
-#define DOUBLE_LIST_NODE_POOL_SIZE 0x00800000 * 3// 24 MB double list nodes
-#define LIST_NODE_POOL_SIZE 0x00800000 * 3 // 24 MB list nodes
-#define RULE_POOL_SIZE 0x00080000 // maximum number of rules
+// totally approximately 1GB
+#define CHAR_POOL_SIZE (368 * 1024 * 1024)// 368 MB memory for storing strings
+#define DOUBLE_LIST_NODE_POOL_SIZE (80 * 1024 * 1024)// 2 * (the number of rules) + the number of encrypted tokens + the number of signature fragments
+#define LIST_NODE_POOL_SIZE (20 * 1024 * 1024) // the number of encrypoted tokens + the number of signature fragments
+#define RULE_POOL_SIZE 131072 // maximum number of rules
 #define SIGNATURE_FRAGMENT_POOL_SIZE 0x00100000 // maximum number of signature fragments
-#define ENCRYPTED_TOKEN_POOL_SIZE 0x00800000
+#define ENCRYPTED_TOKEN_POOL_SIZE 0x00800000 // 8MB
 #define USER_TOKEN_POOL_SIZE 0x00100000 // 1 MB, should be enough
 
 struct memory_pool{

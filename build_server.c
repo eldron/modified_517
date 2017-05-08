@@ -103,8 +103,7 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 // read rules and signatures from file
 // file should be the output of rule_normalizer
 // segment signature fragments for each rule, encrypt them, then feed them into the reversible sketch
-int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list,
-	struct double_list * global_signatures_list, uint8_t * aes_key, struct memory_pool * pool){
+int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list, struct double_list * global_signatures_list, uint8_t * aes_key, struct memory_pool * pool){
 
 	FILE * fin = fopen(filename, "r");
 	char s[LINELEN];
@@ -118,6 +117,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 	int max_signature_fragment_len = 0;
 	int signature_fragments_count = 0;// count the number of signature fragments totally
 	int tokens_count = 0;
+	int max_rule_len = 0;
 	for(i = 0;i < number_of_rules;i++){
 		// read malware name of this rule
 		memset(s, '\0', LINELEN);
@@ -144,6 +144,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 		signature_fragments_count += number_of_signatures;
 		int j;
 		struct signature_fragment * prev_sf = NULL;
+		int tmp_tokens_count = 0;
 		for(j = 0;j < number_of_signatures;j++){
 			// read relation type, min, max
 			int type;
@@ -168,7 +169,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 				max_signature_fragment_len = len;
 			}
 			tokens_count += (len / 2 - 15);
-
+			tmp_tokens_count += (len / 2 - 15);
 			// set the current rule's first_signature_fragment
 			if(r->first_signature_fragment == NULL){
 				r->first_signature_fragment = sig_fra;
@@ -182,28 +183,33 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			}
 			prev_sf = sig_fra;
 
-			if(global_signatures_list){
-				// insert the current signature fragment to global signatures_list
-				//struct double_list_node * node = (struct double_list_node *) malloc(sizeof(struct double_list_node));
-				struct double_list_node * node = get_free_double_list_node(pool);
-				node->prev = node->next = NULL;
-				node->ptr = (void *) sig_fra;
-				add_to_tail(global_signatures_list, node);
-			}
+			// if(global_signatures_list){
+			// 	// insert the current signature fragment to global signatures_list
+			// 	//struct double_list_node * node = (struct double_list_node *) malloc(sizeof(struct double_list_node));
+			// 	struct double_list_node * node = get_free_double_list_node(pool);
+			// 	node->prev = node->next = NULL;
+			// 	node->ptr = (void *) sig_fra;
+			// 	add_to_tail(global_signatures_list, node);
+			// }
 			if(rs){
 				// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
 				insert_signature_fragment_to_rs(rs, sig_fra, aes_key, pool);
 				//fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
 			}
 		}
-
-		fprintf(stderr, "%d %s\n", i, r->rule_name);
+		if(tmp_tokens_count > max_rule_len){
+			max_rule_len = tmp_tokens_count;
+		}
+		if(i % 10000 == 0){
+			fprintf(stderr, "%d %s\n", i, r->rule_name);
+		}
 	}
 
 	fclose(fin);
 	fprintf(stderr, "max_signature_fragment_len = %d\n", max_signature_fragment_len);
 	fprintf(stderr, "signature_fragments_count = %d\n", signature_fragments_count);
 	fprintf(stderr, "tokens_count = %d\n", tokens_count);
+	fprintf(stderr, "max_rule_len = %d\n", max_rule_len);
 	return number_of_rules;
 }
 

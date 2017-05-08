@@ -56,3 +56,13 @@ struct double_list_node * remove_from_head(struct double_list * list){
 		return NULL;
 	}
 }
+
+void delete_node_from_list(struct double_list * list, struct double_list_node * node){
+	if(list->count > 0){
+		list->count = list->count - 1;
+		node->prev->next = node->next;
+		node->next->prev = node->prev;
+		node->next = node->prev = NULL;
+		node->ptr = NULL;
+	}
+}

@@ -16,4 +16,5 @@
 #define ECB 1
 #include "aes.h"
 
+#define BATCH_SIZE 2000 // the number of user tokens received from client for batch inspection
 #endif

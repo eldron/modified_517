@@ -22,4 +22,6 @@ void add_to_tail(struct double_list * list, struct double_list_node * node);
 void add_to_head(struct double_list * list, struct double_list_node * node);
 
 struct double_list_node * remove_from_head(struct double_list * list);
+
+void delete_node_from_list(struct double_list * list, struct double_list_node * node);
 #endif

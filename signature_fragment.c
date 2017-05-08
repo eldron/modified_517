@@ -16,6 +16,8 @@ void initialize_signature_fragment(struct signature_fragment * f){
 	//f->number_of_tokens = 0;
 	//f->first_user_token_offset = 0;
 	f->signature_fragment_len = 0;
+	f->added_to_rule = 0;
+	f->added_to_list_during_batch_inspection = 0;
 }
 
 static int compare_uint32_t(const void * a, const void * b){
@@ -105,9 +107,9 @@ int check_matched_tokens(struct memory_pool * pool, struct signature_fragment * 
 
 // check if the current signature fragment satisfies relation with its previous one
 int check_current_signature_fragment(struct memory_pool * pool, struct signature_fragment * sf){
-	if(check_matched_tokens(pool, sf) == 0){
-		return 0;
-	}
+	// if(check_matched_tokens(pool, sf) == 0){
+	// 	return 0;
+	// }
 	
 	if(sf->matched_tokens_list.count == 0){
 		return 0;
@@ -149,38 +151,5 @@ int check_current_signature_fragment(struct memory_pool * pool, struct signature
 			node = node->next;
 		}
 		return 0;
-		// if(sf->relation_type == RELATION_EXACT){
-		// 	// printf("sf->prev->first_user_token_offset = %d\n", sf->prev->first_user_token_offset);
-		// 	// printf("sf->prev->signature_fragment_len = %d\n", sf->prev->signature_fragment_len);
-		// 	// printf("sf->min = %d\n", sf->min);
-		// 	// printf("sf->first_user_token_offset = %d\n", sf->first_user_token_offset);
-		// 	if(sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->min == sf->first_user_token_offset){
-		// 		return 1;
-		// 	} else {
-		// 		return 0;
-		// 	}
-		// } else if(sf->relation_type == RELATION_MIN){
-		// 	if(sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->min <= sf->first_user_token_offset){
-		// 		return 1;
-		// 	} else {
-		// 		return 0;
-		// 	}
-		// } else if(sf->relation_type == RELATION_MAX){
-		// 	if(sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->max >= sf->first_user_token_offset){
-		// 		return 1;
-		// 	} else {
-		// 		return 0;
-		// 	}
-		// } else if(sf->relation_type == RELATION_MINMAX){
-		// 	if(sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->min <= sf->first_user_token_offset &&
-		// 		sf->first_user_token_offset <= sf->prev->first_user_token_offset + sf->prev->signature_fragment_len + sf->max){
-		// 		return 1;
-		// 	} else {
-		// 		return 0;
-		// 	}
-		// } else {
-		// 	fprintf(stderr, "impossible in check_current_signature_fragment\n");
-		// 	return 0;
-		// }
 	}
 }

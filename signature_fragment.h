@@ -21,8 +21,10 @@ struct signature_fragment{
 	int signature_fragment_len;// the number of bytes of the signature fragment, set during building the reversible sketch
 	// point to the encrypted tokens of the signature fragment, set during building the recersible sketch
 	// this list is naturally if the encrypted tokens are added to the tail of the list
-	struct double_list encrypted_tokens_list;
+	struct double_list encrypted_tokens_list;// set during building the reversible sketch
 	struct double_list first_user_token_offsets_list;// set during inspection, use double_list_node->ptr as unsigned int
+	uint8_t added_to_rule;// modified during inspection, should be cleared after inspection for a file or a connection
+	uint8_t added_to_list_during_batch_inspection;// modified during batch inspection, should be cleared after each batch inspection
 };
 
 void initialize_signature_fragment(struct signature_fragment * f);

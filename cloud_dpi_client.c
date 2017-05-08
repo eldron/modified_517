@@ -121,6 +121,7 @@ void check_rules(struct double_list * rules_list, uint8_t * key, int socket_fd){
 // 	close(client_fd);
 // 	return 0;
 // }
+
 int is_file(const char *path){
     struct stat path_stat;
     stat(path, &path_stat);
@@ -163,12 +164,16 @@ void print_files(char * pathname){
 }
 
 void check_files(char * pathname, uint8_t * key, int socket_fd){
+	char * s = (char *) malloc(10 * 1024 * 1024);
 	struct user_token file_end_token;
 	memset(&file_end_token, 0, sizeof(struct user_token));
+	struct user_token user_tokens_batch[BATCH_SIZE + 1];
+
 	struct dirent * dir = NULL;
 	DIR * d = opendir(pathname);
 	char filename[10000];
 	if(d){
+		fprintf(stderr, "opened dir\n");
 		while((dir = readdir(d)) != NULL){
 			if(is_file(dir->d_name)){
 				// read file content, generate user tokens, send the tokens to server
@@ -182,7 +187,7 @@ void check_files(char * pathname, uint8_t * key, int socket_fd){
 					int filesize = ftell(fin);
 					//fprintf(stderr, "filesize = %d\n", filesize);
 					fseek(fin, 0L, SEEK_SET);
-					char * s = (char *) malloc(filesize * sizeof(char));
+					//char * s = (char *) malloc(filesize * sizeof(char));
 					//fprintf(stderr, "after malloc\n");
 					int c;
 					int idx = 0;
@@ -192,9 +197,12 @@ void check_files(char * pathname, uint8_t * key, int socket_fd){
 					}
 					if(idx != filesize){
 						fprintf(stderr, "error in reading the file content, filesize = %d, idx = %d\n", filesize, idx);
+					} else {
+						printf("file %s read complete, filesize = %d bytes\n", filename, filesize);
 					}
 					
 					if(filesize < TOKEN_SIZE){
+						printf("filesize smaller than TOKEN_SIZE\n");
 						// send file end token
 						if(socket_fd > 0){
 							int bytes_sent = write(socket_fd, &file_end_token, sizeof(struct user_token));
@@ -204,38 +212,80 @@ void check_files(char * pathname, uint8_t * key, int socket_fd){
 						}
 					} else {
 						uint32_t i;
-						for(i = 0;i < filesize - TOKEN_SIZE + 1;i++){
-							struct user_token ut;
-							ut.offset = htonl(i);
-							AES128_ECB_encrypt(&(s[i]), key, ut.token);
-							// send the user token to server
-							if(socket_fd > 0){
-								int bytes_sent = write(socket_fd, &ut, sizeof(struct user_token));
-								if(bytes_sent != sizeof(struct user_token)){
-									fprintf(stderr, "error in check_rules, bytes_sent = %d\n", bytes_sent);
+						// for(i = 0;i < filesize - TOKEN_SIZE + 1;i++){
+						// 	struct user_token ut;
+						// 	ut.offset = htonl(i);
+						// 	AES128_ECB_encrypt(&(s[i]), key, ut.token);
+						// 	// send the user token to server
+						// 	if(socket_fd > 0){
+						// 		int bytes_sent = write(socket_fd, &ut, sizeof(struct user_token));
+						// 		if(bytes_sent != sizeof(struct user_token)){
+						// 			fprintf(stderr, "error in check_rules, bytes_sent = %d\n", bytes_sent);
+						// 		}
+						// 	}
+						// }
+						// // send file end token
+						// if(socket_fd > 0){
+						// 	int bytes_sent = write(socket_fd, &file_end_token, sizeof(struct user_token));
+						// 	if(bytes_sent != sizeof(struct user_token)){
+						// 		fprintf(stderr, "error in sending file_end_token, bytes_sent = %d\n", bytes_sent);
+						// 	}
+						// }
+						i = 0;
+						int j;
+						int tokens_sent = 0;
+						while(i < filesize - TOKEN_SIZE +1){
+							for(j = 0;j < BATCH_SIZE;j++){
+								user_tokens_batch[j].offset = htonl(i);
+								AES128_ECB_encrypt(&(s[i]), key, user_tokens_batch[j].token);
+								i++;
+								if(i == filesize - TOKEN_SIZE + 1){
+									// reached the end of this file
+									// send user tokens, then send file end token
+									if(socket_fd > 0){
+										memset(&user_tokens_batch[j + 1], 0, sizeof(struct user_token));
+										int bytes_sent = write(socket_fd, user_tokens_batch, (j + 2) * sizeof(struct user_token));
+										if(bytes_sent != (j + 2) * sizeof(struct user_token)){
+											fprintf(stderr, "bytes_sent = %d, should sent %lu\n", bytes_sent, (j + 2) * sizeof(struct user_token));
+										} else {
+											tokens_sent += (j + 1);
+											//fprintf(stderr, "%d user tokens sent to server\n", tokens_sent);
+										}
+									}
+									break;
+								}
+							}
+
+							if(i < filesize - TOKEN_SIZE + 1){
+								// file end not reached, sent the BATCH_SIZE user tokens
+								if(socket_fd > 0){
+									int bytes_sent = write(socket_fd, user_tokens_batch, BATCH_SIZE * sizeof(struct user_token));
+									if(bytes_sent != BATCH_SIZE * sizeof(struct user_token)){
+										fprintf(stderr, "should have sent %lu, actually sent %d\n", BATCH_SIZE & sizeof(struct user_token), bytes_sent);
+									} else {
+										tokens_sent += BATCH_SIZE;
+										//fprintf(stderr, "%d user tokens sent to server\n", tokens_sent);
+									}
 								}
 							}
 						}
-						// send file end token
-						if(socket_fd > 0){
-							int bytes_sent = write(socket_fd, &file_end_token, sizeof(struct user_token));
-							if(bytes_sent != sizeof(struct user_token)){
-								fprintf(stderr, "error in sending file_end_token, bytes_sent = %d\n", bytes_sent);
-							}
-						}
+						printf("tokens sent for file %s\n", filename);
 					}
 
-					free(s);
+					//free(s);
 					fclose(fin);
 				} else {
-					fprintf(stderr, "can not open file %s, error: %s\n", dir->d_name, strerror(errno	));
+					fprintf(stderr, "can not open file %s, error: %s\n", filename, strerror(errno));
 				}
+			} else {
+				fprintf(stderr, "%s is not file\n", dir->d_name);
 			}
 		}
 		closedir(d);
 	} else {
 		fprintf(stderr, "error opening directory %s, error: %s\n", pathname, strerror(errno));
 	}
+	free(s);
 }
 
 int main(int argc, char ** args){

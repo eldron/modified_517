@@ -9,13 +9,13 @@ struct memory_pool;
 struct reversible_sketch;
 
 // TODO set these three parameters according to the number of tokens
-#define H 64 // the number of rows of the reversible sketch
-#define M 4096 // the number of columns of the reversible sketch
-#define K 8 // the number of hash functions for each row
+#define H 8 // the number of rows of the reversible sketch
+#define M (24 * 1024 * 1024) // the number of columns of the reversible sketch
+#define K 32 // the number of hash functions for each row
 
 struct reversible_sketch{
-	struct list_node * matrix[H][M];
-	int digest[H][M]; // digest bits
+	struct list_node ** matrix[H];
+	uint8_t * digest[H]; // digest bits
 	uint32_t seeds[H][K]; // seeds for the hash functions
 
 	/*

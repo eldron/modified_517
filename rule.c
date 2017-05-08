@@ -5,6 +5,8 @@
 void initialize_rule(struct rule * r){
 	r->rule_name = NULL;
 	r->first_signature_fragment = NULL;
+	r->matched = 0;
+	r->checked_during_batch_inspection = 0;
 	//r->matched_signature_fragments_candidates_list.head = r->matched_signature_fragments_candidates_list.tail = NULL;
 	initialize_double_list(&(r->matched_signature_fragments_candidates_list));
 }

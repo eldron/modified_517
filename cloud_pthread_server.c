@@ -14,76 +14,17 @@
 #include "user_token.h"
 #include "list.h"
 
-#define TOKENS_IN_ONE_PACKET 70
+#define BUF_SIZE 1024 // TODO change this later
+#define BATCH_SIZE 10000
 
-void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * pool, uint8_t * key, struct double_list * rules_list, int client_socket_fd){
-	struct user_token received_tokens[BATCH_SIZE * 2];
-	struct user_token file_end_token;
-	memset(&file_end_token, 0, sizeof(struct user_token));
-	struct double_list matched_rules_list;
-	initialize_double_list(&matched_rules_list);
-
-	int files_checked_count = 0;
-	int files_dangerous_count = 0;
-	int files_clean_count = 0;
-	int reset_offset = pool->double_list_node_pool_idx;
-	fprintf(stderr, "reset_offset = %d\n", reset_offset);
-	char buffer[TOKENS_IN_ONE_PACKET * sizeof(struct user_token)];
-	int count = 0;
-	int bytes_received = 0;
-	while(1){
-		count = recv(client_socket_fd, buffer, TOKENS_IN_ONE_PACKET * sizeof(struct user_token), 0);
-		if(count <= 0){
-			// connection may be closed
-			break;
-		} else {
-			char * ptr = (char *) received_tokens;
-			memcpy(ptr + bytes_received, buffer, count);
-			bytes_received += count;
-			if(bytes_received % sizeof(struct user_token) == 0){
-				int tokens_received = bytes_received / sizeof(struct user_token);
-				if(memcmp(&file_end_token, &(received_tokens[tokens_received - 1]), sizeof(struct user_token)) == 0){
-					// end of a file
-					//fprintf(stderr, "batch_inspection called, the number of tokens = %d\n", tokens_received - 1);
-					batch_inspection(received_tokens, tokens_received - 1, rs, pool, &matched_rules_list);
-					if(matched_rules_list.count == 0){
-						printf("no malware found for file %d\n", files_checked_count);
-						files_clean_count++;
-					} else {
-						files_dangerous_count++;
-						printf("the following malware found for file %d\n", files_checked_count);
-						struct double_list_node * node = matched_rules_list.dummy_head.next;
-						while(node && node != &(matched_rules_list.dummy_tail)){
-							struct rule * r = (struct rule *) node->ptr;
-							printf("%s", r->rule_name);
-							node = node->next;
-						}
-					}
-
-					bytes_received = 0;
-					files_checked_count++;
-					cleanup_after_batch_inspection(pool, rules_list, reset_offset);
-					initialize_double_list(&matched_rules_list);
-				}
-			} else if(bytes_received > BATCH_SIZE * sizeof(struct user_token)){
-				int i = 0;
-				for(i = 0;i < BATCH_SIZE;i++){
-					received_tokens[i].offset = htonl(received_tokens[i].offset);
-				}
-				//fprintf(stderr, "batch_inspection called, the number of tokens is %d\n", BATCH_SIZE);
-				batch_inspection(received_tokens, BATCH_SIZE, rs, pool, &matched_rules_list);
-				char * ptr = (char *) received_tokens;
-				memcpy(ptr, ptr + BATCH_SIZE * sizeof(struct user_token), bytes_received - BATCH_SIZE * sizeof(struct user_token));
-				bytes_received -= BATCH_SIZE * sizeof(struct user_token);
-			}
-		}
-	}
+void handle_client(struct reversible_sketch * rs, struct memory_pool * pool, uint8_t * key, struct double_list * rules_list, int client_socket_fd){
+	char * buffer = (char *) malloc(BATCH_SIZE * sizeof(struct user_token));
+	
 }
-
 void handle_client(struct reversible_sketch * rs, struct memory_pool * pool, uint8_t * key, struct double_list * rules_list, int client_socket_fd){
 	struct user_token file_end_token;// indicates the end of a file
 	memset(&file_end_token, 0, sizeof(struct user_token));
-	char buf[BATCH_SIZE * sizeof(struct user_token)];
+	char buf[BUF_SIZE];
 	// TODO simple implementation, read one user token one time, change this later
 	int count = 0;
 	int user_token_size = sizeof(struct user_token);
@@ -123,7 +64,7 @@ void handle_client(struct reversible_sketch * rs, struct memory_pool * pool, uin
 					printf("\n");
 				}
 				// end of a file, clean up
-				cleanup_after_additive_inspection(pool, rules_list);
+				cleanup_after_inspection(pool, rules_list);
 				free_double_list_nodes_from_list(pool, &matched_rules_list);
 			} else {
 				tokens_count++;
@@ -131,6 +72,7 @@ void handle_client(struct reversible_sketch * rs, struct memory_pool * pool, uin
 				printf("checked token %d\n", tokens_count);
 			}
 		} else {
+			fprintf(stderr, "this should not happen\n");
 			break;
 		}
 	}
@@ -202,8 +144,7 @@ int main(int argc, char ** args){
 		}
 		fprintf(stderr, "accepted client connection\n");
 		// perform DPI on the user tokens sent from client
-		//handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
-		batch_handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
+		handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
 	}
 	return 0;
 }
