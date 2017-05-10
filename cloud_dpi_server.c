@@ -48,16 +48,23 @@ void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * poo
 					batch_inspection(received_tokens, tokens_received - 1, rs, pool, &matched_rules_list);
 					if(matched_rules_list.count == 0){
 						printf("no malware found for file %d\n", files_checked_count);
+						write(client_socket_fd, "no malware found for file\n", strlen("no malware found for file\n"));
+						char c = 0xff;
+						write(client_socket_fd, &c, 1);
 						files_clean_count++;
 					} else {
 						files_dangerous_count++;
 						printf("the following malware found for file %d\n", files_checked_count);
+						write(client_socket_fd, "the following malware found for file\n", strlen("the following malware found for file\n"));
 						struct double_list_node * node = matched_rules_list.dummy_head.next;
 						while(node && node != &(matched_rules_list.dummy_tail)){
 							struct rule * r = (struct rule *) node->ptr;
 							printf("%s", r->rule_name);
+							write(client_socket_fd, r->rule_name, strlen(r->rule_name));
 							node = node->next;
 						}
+						char c = 0xff;
+						write(client_socket_fd, &c, 1);
 					}
 
 					bytes_received = 0;
@@ -78,66 +85,6 @@ void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * poo
 			}
 		}
 	}
-}
-
-void handle_client(struct reversible_sketch * rs, struct memory_pool * pool, uint8_t * key, struct double_list * rules_list, int client_socket_fd){
-	struct user_token file_end_token;// indicates the end of a file
-	memset(&file_end_token, 0, sizeof(struct user_token));
-	char buf[BATCH_SIZE * sizeof(struct user_token)];
-	// TODO simple implementation, read one user token one time, change this later
-	int count = 0;
-	int user_token_size = sizeof(struct user_token);
-	struct double_list matched_rules_list;
-	initialize_double_list(&matched_rules_list);
-
-	int files_checked_count = 0;
-	int files_dangerous_count = 0;
-	int files_clean_count = 0;
-	int tokens_count = 0;
-	while(1){
-		count = recv(client_socket_fd, buf, user_token_size, 0);
-		if(count < 0){
-			// connection may be closed
-			break;
-		} else if(count == user_token_size){
-			struct user_token * ut = get_free_user_token(pool);
-			uint32_t * ptr = (uint32_t *) buf;
-			ut->offset = ntohl(*ptr);
-			memcpy(ut->token, buf + sizeof(uint32_t), TOKEN_SIZE);
-
-			if(memcmp(ut, &file_end_token, sizeof(struct user_token)) == 0){
-				files_checked_count++;
-				fprintf(stderr, "checked file %d\n", files_checked_count);
-				if(matched_rules_list.count == 0){
-					files_clean_count++;
-					printf("no malware found for file %d\n\n", files_checked_count);
-				} else {
-					files_dangerous_count++;
-					printf("the following malwares found for file %d\n", files_checked_count);
-					struct double_list_node * node = matched_rules_list.dummy_head.next;
-					while(node && node != &(matched_rules_list.dummy_tail)){
-						struct rule * r = (struct rule *) node->ptr;
-						printf("%s", r->rule_name);
-						node = node->next;
-					}
-					printf("\n");
-				}
-				// end of a file, clean up
-				cleanup_after_additive_inspection(pool, rules_list);
-				free_double_list_nodes_from_list(pool, &matched_rules_list);
-			} else {
-				tokens_count++;
-				additive_inspection(ut, rs, pool, &matched_rules_list);
-				printf("checked token %d\n", tokens_count);
-			}
-		} else {
-			break;
-		}
-	}
-
-	printf("files_checked_count = %d\n", files_checked_count);
-	printf("files_dangerous_count = %d\n", files_dangerous_count);
-	printf("files_clean_count = %d\n", files_clean_count);
 }
 
 int main(int argc, char ** args){

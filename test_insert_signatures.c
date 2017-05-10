@@ -171,6 +171,7 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 	int matched_rules_count = 0;
 	int failed_rules_count = 0;
 	int checked_rules_count = 0;
+	int reset_offset = pool->double_list_node_pool_idx;
 
 	while(node && node != &(rules_list->dummy_tail)){
 		struct double_list matched_rules_list;
@@ -243,7 +244,7 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 
 		// inspection for a file or a connection is done
 		//printf("before cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
-		cleanup_after_additive_inspection(pool, rules_list);
+		cleanup_after_batch_inspection(pool, rules_list, reset_offset);
 		free_double_list_nodes_from_list(pool, &matched_rules_list);
 		//printf("after cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 		

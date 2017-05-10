@@ -90,26 +90,6 @@ int additive_inspection(struct user_token * ut, struct reversible_sketch * rs, s
 	}
 }
 
-
-void cleanup_after_additive_inspection(struct memory_pool * pool, struct double_list * rules_list){
-	free_all_user_tokens(pool);
-	//struct double_list_node * node = rules_list->head;
-	struct double_list_node * node = rules_list->dummy_head.next;
-	while(node && node != &(rules_list->dummy_tail)){
-		struct rule * r = (struct rule *) node->ptr;
-		r->matched = 0;
-		free_double_list_nodes_from_list(pool, &(r->matched_signature_fragments_candidates_list));
-		struct signature_fragment * sf = r->first_signature_fragment;
-		while(sf){
-			sf->added_to_rule = 0;
-			free_double_list_nodes_from_list(pool, &(sf->matched_tokens_list));
-			free_double_list_nodes_from_list(pool, &(sf->first_user_token_offsets_list));
-			sf = sf->next;
-		}
-		node = node->next;
-	}
-}
-
 // batch inspection
 // called when BATCH_SIZE user tokens have been received
 void batch_inspection(struct user_token * uts, int length, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list){

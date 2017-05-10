@@ -10,10 +10,6 @@ struct double_list;
 // called on every user token arrival
 int additive_inspection(struct user_token * ut, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list);
 
-// clean up, free user_tokens and double_list_nodes allocaled during inspection
-// this should be called everytime when inspection for a file or a connection is done
-void cleanup_after_additive_inspection(struct memory_pool * pool, struct double_list * rules_list);
-
 // batch inspection
 // called when BATCH_SIZE user tokens have been received
 void batch_inspection(struct user_token * uts, int length, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list);
