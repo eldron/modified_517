@@ -12,14 +12,14 @@
 #include "reversible_sketch.h"
 #include "rule.h"
 #include "memory_pool.h"
-#include "user_token.h"
+#include "client_user_token.h"
 #include "list.h"
 
 #define TOKENS_IN_ONE_PACKET 70
 
 void check_files(char * pathname, uint8_t * key, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list){
 	char * s = (char *) malloc(10 * 1024 * 1024);
-	struct user_token user_tokens_batch[BATCH_SIZE + 1];
+	struct client_user_token user_tokens_batch[BATCH_SIZE + 1];
 	struct dirent * dir = NULL;
 	DIR * d = opendir(pathname);
 	char filename[10000];

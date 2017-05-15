@@ -58,6 +58,16 @@ uint8_t convert_hex_to_uint8(char a, char b){
 	return (uint8_t) ((high << 4) | low);
 }
 
+int count_arrearance_times(uint8_t * plain_token, uint8_t * plain_signature_fragment, int len){
+	int count = 0;
+	int i;
+	for(i = 0;i < len - TOKEN_SIZE + 1;i++){
+		if(memcmp(plain_token, &(plain_signature_fragment[i]), TOKEN_SIZE) == 0){
+			count++;
+		}
+	}
+	return count;
+}
 // segment a signature fragment, encrypt the tokens, then insert the encrypted tokens into reversible sketch
 void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key, struct memory_pool * pool){
 	int i;
@@ -88,11 +98,12 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 	}
 	//fprintf(stderr, "\n");
 
-	//sf->number_of_tokens = len - TOKEN_SIZE + 1;
+	sf->number_of_encrypted_tokens = len - TOKEN_SIZE + 1;
 	sf->signature_fragment_len = len;
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
 		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
-		insert_encrypted_token(rs, cipher, TOKEN_SIZE, sf, pool);
+		int arrearance_times = count_arrearance_times(&(tmp[i]), tmp, len);
+		insert_encrypted_token(rs, i, cipher, arrearance_times, TOKEN_SIZE, sf, pool);
 	}
 
 	//if(sf->encrypted_tokens_list.count != sf->signature_fragment_len - TOKEN_SIZE + 1){
@@ -104,7 +115,6 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 // file should be the output of rule_normalizer
 // segment signature fragments for each rule, encrypt them, then feed them into the reversible sketch
 int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list, struct double_list * global_signatures_list, uint8_t * aes_key, struct memory_pool * pool){
-
 	FILE * fin = fopen(filename, "r");
 	char s[LINELEN];
 	memset(s, '\0', LINELEN);
@@ -141,6 +151,7 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 		memset(s, '\0', LINELEN);
 		fgets(s, LINELEN, fin);
 		int number_of_signatures = atoi(s);
+		r->number_of_signature_fragments = number_of_signatures;
 		signature_fragments_count += number_of_signatures;
 		int j;
 		struct signature_fragment * prev_sf = NULL;
@@ -183,14 +194,6 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 			}
 			prev_sf = sig_fra;
 
-			// if(global_signatures_list){
-			// 	// insert the current signature fragment to global signatures_list
-			// 	//struct double_list_node * node = (struct double_list_node *) malloc(sizeof(struct double_list_node));
-			// 	struct double_list_node * node = get_free_double_list_node(pool);
-			// 	node->prev = node->next = NULL;
-			// 	node->ptr = (void *) sig_fra;
-			// 	add_to_tail(global_signatures_list, node);
-			// }
 			if(rs){
 				// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
 				insert_signature_fragment_to_rs(rs, sig_fra, aes_key, pool);

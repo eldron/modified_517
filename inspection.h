@@ -5,14 +5,15 @@ struct user_token;
 struct reversible_sketch;
 struct memory_pool;
 struct double_list;
+struct client_user_token;
 
 // real-time detection
 // called on every user token arrival
-int additive_inspection(struct user_token * ut, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list);
+int additive_inspection(struct client_user_token * ut, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list);
 
 // batch inspection
 // called when BATCH_SIZE user tokens have been received
-void batch_inspection(struct user_token * uts, int length, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list);
+void batch_inspection(struct client_user_token * uts, int length, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list);
 
 // clean up after batch inspection for a connection
 // should be done by this way: reset all user tokens, reset offset for double list node pool

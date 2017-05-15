@@ -13,6 +13,7 @@ struct rule{
 	struct double_list matched_signature_fragments_candidates_list;// a list of matched signature fragment candidates, need further processing to confirm
 	uint8_t matched;// set during inspection, should be cleared after inspection for a file or a connection
 	uint8_t checked_during_batch_inspection;// set during inspection batch inspection, cleared after each batch inspection
+	uint32_t number_of_signature_fragments;// set during building the reversible sketch
 };
 
 void initialize_rule(struct rule * r);

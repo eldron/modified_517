@@ -29,37 +29,6 @@ int is_file(const char *path){
 	}
 }
 
-void print_files(char * pathname){
-	DIR * d = opendir(pathname);
-	struct dirent * dir = NULL;
-	char filename[10000];
-	if(d){
-		while((dir = readdir(d)) != NULL){
-			if(is_file(dir->d_name)){
-				memset(filename, '\0', 10000);
-				memcpy(filename, pathname, strlen(pathname));
-				memcpy(&(filename[strlen(pathname)]), dir->d_name, strlen(dir->d_name));
-
-				FILE * fin = fopen(filename, "r");
-				if(fin){
-					char c;
-					while((c = fgetc(fin)) != EOF){
-						//putchar(c);
-					}
-					fclose(fin);
-				} else {
-					fprintf(stderr, "error opening file %s: %s\n", filename, strerror(errno));
-				}
-			} else {
-				fprintf(stderr, "%s is not a regular file\n", dir->d_name);
-			}
-		}
-		closedir(d);
-	} else {
-		fprintf(stderr, "open path %s failed\n", pathname);
-	}
-}
-
 void check_files(char * pathname, uint8_t * key, int socket_fd){
 	char * s = (char *) malloc(10 * 1024 * 1024);
 	struct client_user_token file_end_token;
@@ -69,7 +38,6 @@ void check_files(char * pathname, uint8_t * key, int socket_fd){
 	struct dirent * dir = NULL;
 	DIR * d = opendir(pathname);
 	char filename[10000];
-	char buffer[10000];
 	if(d){
 		fprintf(stderr, "opened dir\n");
 		while((dir = readdir(d)) != NULL){
@@ -151,26 +119,21 @@ void check_files(char * pathname, uint8_t * key, int socket_fd){
 						//printf("tokens sent for file %s\n", filename);
 						
 						// read inspection results from server
-						while(1){
-							int len = read(socket_fd, buffer, 10000);
-							int k;
-							int end_flag = 0;
-							char end_char = (char) 0xff;
-							for(k = 0;k < len;k++){
-								if(buffer[k] == end_char){
-									//fprintf(stderr, "end_flag set\n");
-									end_flag = 1;
-									break;
-								} else if(buffer[k] == '\0'){
-
-								} else {
-									putchar(buffer[k]);
-								}
-							}
-							if(end_flag){
-								break;
-							}
+						// read two uint32_t counters
+						uint32_t matched_tokens_count;
+						uint32_t unmatched_tokens_count;
+						int len = read(socket_fd, &matched_tokens_count, sizeof(uint32_t));
+						if(len != sizeof(uint32_t)){
+							fprintf(stderr, "fuck\n");
 						}
+						len = read(socket_fd, &unmatched_tokens_count, sizeof(uint32_t));
+						if(len != sizeof(uint32_t)){
+							fprintf(stderr, "shit\n");
+						}
+						matched_tokens_count = ntohl(matched_tokens_count);
+						unmatched_tokens_count = ntohl(unmatched_tokens_count);
+						printf("matched_tokens_count = %d\n", matched_tokens_count);
+						printf("unmatched_tokens_count = %d\n", unmatched_tokens_count);
 					}
 
 					//free(s);
@@ -215,7 +178,7 @@ int main(int argc, char ** args){
 		fprintf(stderr, "connected to server\n");
 	}
 	check_files(pathname, key, client_fd);
-	// close(client_fd);
+	close(client_fd);
 
 	return 0;
 }

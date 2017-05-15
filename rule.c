@@ -90,7 +90,7 @@ int check_signature_fragments(struct memory_pool * pool, struct signature_fragme
 
 // check if the current rule is matched
 int check_rule(struct memory_pool * pool, struct rule * r){
-	if(pre_processing_matched_signature_fragment_candidates(r)){
+	if(/*pre_processing_matched_signature_fragment_candidates(r)*/ r->number_of_signature_fragments == r->matched_signature_fragments_candidates_list.count){
 		//printf("passed pre_processing_matched_signature_fragment_candidates\n");
 		if(check_signature_fragments(pool, r->first_signature_fragment)){
 			return 1;

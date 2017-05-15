@@ -4,8 +4,11 @@
 #include "reversible_sketch.h"
 #include "rule.h"
 #include "memory_pool.h"
-#include "user_token.h"
+#include "server_user_token.h"
+#include "client_user_token.h"
 #include "list.h"
+#include "sfet.h"
+#include "encrypted_token.h"
 
 void print_cipher(uint8_t * cipher){
 	int i;
@@ -74,13 +77,15 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 	int matched_rules_count = 0;
 	int failed_rules_count = 0;
 	int checked_rules_count = 0;
-	struct user_token uts[BATCH_SIZE];
+	struct client_user_token uts[BATCH_SIZE];
+	unsigned int reset_offset = pool->double_list_node_pool_idx;
 
 	while(node && node != &(rules_list->dummy_tail)){
 		struct rule * r = (struct rule *) node->ptr;
 		if(r->first_signature_fragment){
-			unsigned int reset_offset = pool->double_list_node_pool_idx;
-			fprintf(stderr, "%d checking rule %s\n", checked_rules_count, r->rule_name);
+			// if(checked_rules_count % 10000 == 0){
+			// 	fprintf(stderr, "%d checking rule %s\n", checked_rules_count, r->rule_name);
+			// }
 			//fprintf(stderr, "before checking, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 			struct double_list matched_rules_list;
 			initialize_double_list(&matched_rules_list);
@@ -115,7 +120,7 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 				}
 
 				for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
-					struct user_token * ut = &(uts[tokens_count]);
+					struct client_user_token * ut = &(uts[tokens_count]);
 					ut->offset = offset;
 					offset++;
 					AES128_ECB_encrypt(&(tmp[i]), key, ut->token);
@@ -151,7 +156,9 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 				}
 			}
 			cleanup_after_batch_inspection(pool, rules_list, reset_offset);
-			fprintf(stderr, "%d checked rule %s\n", checked_rules_count, r->rule_name);
+			if(checked_rules_count % 10000 == 0){
+				fprintf(stderr, "%d checked rule %s\n", checked_rules_count, r->rule_name);
+			}
 			checked_rules_count++;
 			//fprintf(stderr, "after checking, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 		}
@@ -211,14 +218,14 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 
 				//printf("new signature_fragment\n");
 				for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
-					struct user_token * ut = get_free_user_token(pool);
-					ut->offset = offset;
+					struct client_user_token ut;
+					ut.offset = offset;
 					offset++;
-					AES128_ECB_encrypt(&(tmp[i]), key, ut->token);
+					AES128_ECB_encrypt(&(tmp[i]), key, ut.token);
 
 					//printf("generated new user_token, ut->offset = %u\n", ut->offset);
 					// new user token arrived, perform additive inspection
-					additive_inspection(ut, rs, pool, &matched_rules_list);
+					additive_inspection(&ut, rs, pool, &matched_rules_list);
 				}
 
 				offset = offset + TOKEN_SIZE - 1;
@@ -245,7 +252,7 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 		// inspection for a file or a connection is done
 		//printf("before cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 		cleanup_after_batch_inspection(pool, rules_list, reset_offset);
-		free_double_list_nodes_from_list(pool, &matched_rules_list);
+		//free_double_list_nodes_from_list(pool, &matched_rules_list);
 		//printf("after cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 		
 		node = node->next;
@@ -256,6 +263,69 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 	printf("%d rules checked\n", checked_rules_count);
 	printf("%d rules matched\n", matched_rules_count);
 	printf("%d rules failed\n", failed_rules_count);
+}
+
+// check the number of indexes of an encrypted token
+void check_number_of_indexes_of_encrypted_token(struct reversible_sketch * rs){
+	uint32_t counters[10000];
+	int i;
+	for(i = 0;i < 10000;i++){
+		counters[i] = 0;
+	}
+	int max = 0;
+	int j;
+	for(i = 0;i < H;i++){
+		for(j = 0;j < M;j++){
+			struct list_node * node = rs->matrix[i][j];
+			while(node){
+				struct encrypted_token * et = (struct encrypted_token *) node->ptr;
+				struct list_node * head = et->signatures_list_head;
+				while(head){
+					struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
+					counters[sfet->number_of_idxes]++;
+					if(sfet->number_of_idxes > max){
+						max = sfet->number_of_idxes;
+					}
+					head = head->next;
+				}
+				node = node->next;
+			}
+		}
+	}
+
+	for(i = 0;i <= max;i++){
+		fprintf(stderr, "%d %d\n", i, counters[i]);
+	}
+}
+// check the length of lists of the generated reversible sketch
+void check_list_length_of_reversible_sketch(struct reversible_sketch * rs){
+	int i;
+	int j;
+	int counters_length = 30 * 1024 * 1024;
+	uint32_t * counters = (uint32_t *) malloc(sizeof(uint32_t) * counters_length);
+	for(i = 0;i < counters_length;i++){
+		counters[i] = 0;
+	}
+	int max_length = 0;
+	for(i = 0;i < H;i++){
+		for(j = 0;j < M;j++){
+			int count = 0;
+			struct list_node * node = rs->matrix[i][j];
+			while(node){
+				count++;
+				node = node->next;
+			}
+			if(count > max_length){
+				max_length = count;
+			}
+			counters[count]++;
+		}
+	}
+
+	for(i = 0;i <= max_length;i++){
+		printf("%d %u\n", i, counters[i]);
+	}
+	free(counters);
 }
 
 // takes the output of rule_normalizer as input
@@ -295,5 +365,8 @@ int main(int argc, char ** args){
 	fprintf(stderr, "before batch_check_inspection_rules\n");
 	batch_check_inspection_rules(&rs, &pool, &rules_list, key);
 	fprintf(stderr, "after batch_check_inspection_rules\n");
+
+	check_number_of_indexes_of_encrypted_token(&rs);
+	//check_list_length_of_reversible_sketch(&rs);
 	return 0;
 }

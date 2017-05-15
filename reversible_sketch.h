@@ -34,7 +34,7 @@ int compare_token(uint8_t * a, uint8_t * b);
 // checks if a token is in the reversible sketch
 struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, uint8_t * token, int len);
 
-void insert_encrypted_token(struct reversible_sketch * rs, uint8_t * token, int len, struct signature_fragment * sf, struct memory_pool * pool);
+void insert_encrypted_token(struct reversible_sketch * rs, uint32_t token_idx, uint8_t * token, int arrearance_times, int len, struct signature_fragment * sf, struct memory_pool * pool);
 
 void free_reversible_sketch(struct reversible_sketch * rs);
 

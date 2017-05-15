@@ -16,21 +16,16 @@
 
 #define TOKENS_IN_ONE_PACKET 70
 
-void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * pool, uint8_t * key, struct double_list * rules_list, int client_socket_fd){
+void handle_client(struct reversible_sketch * rs,  int client_socket_fd){
 	struct client_user_token received_tokens[BATCH_SIZE * 2];
 	struct client_user_token file_end_token;
 	memset(&file_end_token, 0, sizeof(struct client_user_token));
-	struct double_list matched_rules_list;
-	initialize_double_list(&matched_rules_list);
-
-	int files_checked_count = 0;
-	int files_dangerous_count = 0;
-	int files_clean_count = 0;
-	int reset_offset = pool->double_list_node_pool_idx;
-	fprintf(stderr, "reset_offset = %d\n", reset_offset);
 	char buffer[TOKENS_IN_ONE_PACKET * sizeof(struct client_user_token)];
+
 	int count = 0;
 	int bytes_received = 0;
+	uint32_t matched_tokens_count = 0;
+	uint32_t unmatched_tokens_count = 0;
 	while(1){
 		count = recv(client_socket_fd, buffer, TOKENS_IN_ONE_PACKET * sizeof(struct client_user_token), 0);
 		if(count <= 0){
@@ -44,41 +39,42 @@ void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * poo
 				int tokens_received = bytes_received / sizeof(struct client_user_token);
 				if(memcmp(&file_end_token, &(received_tokens[tokens_received - 1]), sizeof(struct client_user_token)) == 0){
 					// end of a file
-					//fprintf(stderr, "batch_inspection called, the number of tokens = %d\n", tokens_received - 1);
-					batch_inspection(received_tokens, tokens_received - 1, rs, pool, &matched_rules_list);
-					if(matched_rules_list.count == 0){
-						printf("no malware found for file %d\n", files_checked_count);
-						write(client_socket_fd, "no malware found for file\n", strlen("no malware found for file\n"));
-						char c = 0xff;
-						write(client_socket_fd, &c, 1);
-						files_clean_count++;
-					} else {
-						files_dangerous_count++;
-						printf("the following malware found for file %d\n", files_checked_count);
-						write(client_socket_fd, "the following malware found for file\n", strlen("the following malware found for file\n"));
-						struct double_list_node * node = matched_rules_list.dummy_head.next;
-						while(node && node != &(matched_rules_list.dummy_tail)){
-							struct rule * r = (struct rule *) node->ptr;
-							printf("%s", r->rule_name);
-							write(client_socket_fd, r->rule_name, strlen(r->rule_name));
-							node = node->next;
+					//batch_inspection(received_tokens, tokens_received - 1, rs, pool, &matched_rules_list);
+					// lookup the tokens
+					int i;
+					for(i = 0;i < tokens_received - 1;i++){
+						struct list_node * node = lookup_encrypted_token(rs, received_tokens[i].token, TOKEN_SIZE);
+						if(node){
+							matched_tokens_count++;
+						} else {
+							unmatched_tokens_count++;
 						}
-						char c = 0xff;
-						write(client_socket_fd, &c, 1);
 					}
 
+					matched_tokens_count = htonl(matched_tokens_count);
+					unmatched_tokens_count = htonl(unmatched_tokens_count);
+					write(client_socket_fd, &matched_tokens_count, sizeof(uint32_t));
+					write(client_socket_fd, &unmatched_tokens_count, sizeof(uint32_t));
+
+					count = 0;
 					bytes_received = 0;
-					files_checked_count++;
-					cleanup_after_batch_inspection(pool, rules_list, reset_offset);
-					initialize_double_list(&matched_rules_list);
+					matched_tokens_count = 0;
+					unmatched_tokens_count = 0;
 				}
 			} else if(bytes_received > BATCH_SIZE * sizeof(struct client_user_token)){
 				int i = 0;
 				for(i = 0;i < BATCH_SIZE;i++){
 					received_tokens[i].offset = htonl(received_tokens[i].offset);
 				}
-				//fprintf(stderr, "batch_inspection called, the number of tokens is %d\n", BATCH_SIZE);
-				batch_inspection(received_tokens, BATCH_SIZE, rs, pool, &matched_rules_list);
+				// lookup the tokens
+				for(i = 0;i < BATCH_SIZE;i++){
+					struct list_node * node = lookup_encrypted_token(rs, received_tokens[i].token, TOKEN_SIZE);
+					if(node){
+						matched_tokens_count++;
+					} else {
+						unmatched_tokens_count++;
+					}
+				}
 				char * ptr = (char *) received_tokens;
 				memcpy(ptr, ptr + BATCH_SIZE * sizeof(struct client_user_token), bytes_received - BATCH_SIZE * sizeof(struct client_user_token));
 				bytes_received -= BATCH_SIZE * sizeof(struct client_user_token);
@@ -148,9 +144,8 @@ int main(int argc, char ** args){
 			return 0;
 		}
 		fprintf(stderr, "accepted client connection\n");
-		// perform DPI on the user tokens sent from client
-		//handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
-		batch_handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
+
+		handle_client(&rs, client_socket_fd);
 	}
 	return 0;
 }
