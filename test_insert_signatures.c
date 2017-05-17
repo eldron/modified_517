@@ -84,7 +84,7 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 		struct rule * r = (struct rule *) node->ptr;
 		if(r->first_signature_fragment){
 			// if(checked_rules_count % 10000 == 0){
-			// 	fprintf(stderr, "%d checking rule %s\n", checked_rules_count, r->rule_name);
+			 	fprintf(stderr, "%d checking rule %s\n", checked_rules_count, r->rule_name);
 			// }
 			//fprintf(stderr, "before checking, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 			struct double_list matched_rules_list;
@@ -128,7 +128,7 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 					tokens_count++;
 					if(tokens_count == BATCH_SIZE){
 						//fprintf(stderr, "before batch_inspection, tokens_count = %d\n", tokens_count);
-						batch_inspection(uts, BATCH_SIZE, rs, pool, &matched_rules_list);
+						batch_inspection_with_sut_array(uts, BATCH_SIZE, rs, pool, &matched_rules_list);
 						tokens_count = 0;
 					}
 				}
@@ -139,7 +139,7 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 
 			if(tokens_count > 0){
 				//fprintf(stderr, "before batch_inspection, tokens_count = %d\n", tokens_count);
-				batch_inspection(uts, tokens_count, rs, pool, &matched_rules_list);
+				batch_inspection_with_sut_array(uts, tokens_count, rs, pool, &matched_rules_list);
 				tokens_count = 0;
 			}
 			if(matched_rules_list.count == 0){
@@ -156,9 +156,9 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 				}
 			}
 			cleanup_after_batch_inspection(pool, rules_list, reset_offset);
-			if(checked_rules_count % 10000 == 0){
+			//if(checked_rules_count % 10000 == 0){
 				fprintf(stderr, "%d checked rule %s\n", checked_rules_count, r->rule_name);
-			}
+			//}
 			checked_rules_count++;
 			//fprintf(stderr, "after checking, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 		}
@@ -265,38 +265,38 @@ void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * 
 	printf("%d rules failed\n", failed_rules_count);
 }
 
-// check the number of indexes of an encrypted token
-void check_number_of_indexes_of_encrypted_token(struct reversible_sketch * rs){
-	uint32_t counters[10000];
-	int i;
-	for(i = 0;i < 10000;i++){
-		counters[i] = 0;
-	}
-	int max = 0;
-	int j;
-	for(i = 0;i < H;i++){
-		for(j = 0;j < M;j++){
-			struct list_node * node = rs->matrix[i][j];
-			while(node){
-				struct encrypted_token * et = (struct encrypted_token *) node->ptr;
-				struct list_node * head = et->signatures_list_head;
-				while(head){
-					struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
-					counters[sfet->number_of_idxes]++;
-					if(sfet->number_of_idxes > max){
-						max = sfet->number_of_idxes;
-					}
-					head = head->next;
-				}
-				node = node->next;
-			}
-		}
-	}
+// // check the number of indexes of an encrypted token
+// void check_number_of_indexes_of_encrypted_token(struct reversible_sketch * rs){
+// 	uint32_t counters[10000];
+// 	int i;
+// 	for(i = 0;i < 10000;i++){
+// 		counters[i] = 0;
+// 	}
+// 	int max = 0;
+// 	int j;
+// 	for(i = 0;i < H;i++){
+// 		for(j = 0;j < M;j++){
+// 			struct list_node * node = rs->matrix[i][j];
+// 			while(node){
+// 				struct encrypted_token * et = (struct encrypted_token *) node->ptr;
+// 				struct list_node * head = et->signatures_list_head;
+// 				while(head){
+// 					struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
+// 					counters[sfet->number_of_idxes]++;
+// 					if(sfet->number_of_idxes > max){
+// 						max = sfet->number_of_idxes;
+// 					}
+// 					head = head->next;
+// 				}
+// 				node = node->next;
+// 			}
+// 		}
+// 	}
 
-	for(i = 0;i <= max;i++){
-		fprintf(stderr, "%d %d\n", i, counters[i]);
-	}
-}
+// 	for(i = 0;i <= max;i++){
+// 		fprintf(stderr, "%d %d\n", i, counters[i]);
+// 	}
+// }
 // check the length of lists of the generated reversible sketch
 void check_list_length_of_reversible_sketch(struct reversible_sketch * rs){
 	int i;
@@ -366,7 +366,7 @@ int main(int argc, char ** args){
 	batch_check_inspection_rules(&rs, &pool, &rules_list, key);
 	fprintf(stderr, "after batch_check_inspection_rules\n");
 
-	check_number_of_indexes_of_encrypted_token(&rs);
+	//check_number_of_indexes_of_encrypted_token(&rs);
 	//check_list_length_of_reversible_sketch(&rs);
 	return 0;
 }

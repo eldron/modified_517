@@ -17,9 +17,16 @@ void initialize_signature_fragment(struct signature_fragment * f){
 	initialize_double_list(&(f->first_user_token_offsets_list));
 	f->added_to_rule = 0;
 	f->added_to_list_during_batch_inspection = 0;
-	f->matched_user_tokens = NULL;
+	//f->matched_user_tokens = NULL;
 	f->number_of_matched_user_tokens = 0;
-	f->max_length_of_matched_user_token_array = 0;
+	//f->max_length_of_matched_user_token_array = 0;
+	f->first_server_user_token = NULL;
+	f->last_server_user_token = NULL;
+	f->current_sut = NULL;
+	f->encrypted_tokens_array = NULL;
+	f->encrypted_tokens_array_idx = 0;
+	f->matched_sut_array = NULL;
+	f->max_length_of_sut_array = 0;
 }
 
 static int compare_uint32_t(const void * a, const void * b){
@@ -34,30 +41,133 @@ static int compare_uint32_t(const void * a, const void * b){
 	}
 }
 
-int check_server_user_token_index(struct server_user_token * sut, int idx){
-	int i;
-	for(i = 0;i < sut->length;i++){
-		if(sut->matched_idx_array[i] == idx){
-			return 1;
-		}
+// offset, matched_idx_array and length of sut should be set
+void add_server_user_token_to_sf(struct signature_fragment * sf, struct server_user_token * sut){
+	if(sf->last_server_user_token == NULL){
+		sf->first_server_user_token = sf->last_server_user_token = sf->current_sut = sut;
+		sf->number_of_matched_user_tokens = 1;
+	} else {
+		sf->last_server_user_token->next = sut;
+		sf->last_server_user_token = sut;
+		sf->number_of_matched_user_tokens++;
 	}
-	return 0;
+	if(sf->number_of_encrypted_tokens > 1){
+		if(sf->number_of_matched_user_tokens < sf->number_of_encrypted_tokens){
+
+		} else {
+			sf->current_sut->after_number_of_encrypted_tokens = sut;
+			sf->current_sut = sf->current_sut->next;
+		}
+	} else {
+
+	}
 }
+
+// int check_server_user_token_index(struct server_user_token * sut, int idx){
+// 	int i;
+// 	for(i = 0;i < sut->length;i++){
+// 		if(sut->matched_idx_array[i] == idx){
+// 			return 1;
+// 		}
+// 	}
+// 	return 0;
+// }
 // check if the number of user tokens matches, and if their offsets are consecutive, then check if the matched indexes are correct
 int check_matched_tokens(struct memory_pool * pool, struct signature_fragment * sf){
 	initialize_double_list(&(sf->first_user_token_offsets_list));
 	if(sf->number_of_matched_user_tokens >= sf->number_of_encrypted_tokens){
-		// the matched user tokens should be natually sorted by the user token's offset
+		// the matched server user tokens should be natually sorted by the offset
+		struct server_user_token * sut = sf->first_server_user_token;
+		if(sf->number_of_encrypted_tokens == 1){
+			while(sut){
+				uint32_t offset = sut->offset;
+				struct double_list_node * offsetnode = get_free_double_list_node(pool);
+				offsetnode->prev = offsetnode->next = NULL;
+				if(sizeof(void *) == 4){
+					// 32 bit machine
+					uint32_t * ptr = (uint32_t *) &(offsetnode->ptr);
+					*ptr = offset;
+				} else if(sizeof(void *) == 8){
+					// 64 bit machine
+					uint64_t * ptr = (uint64_t *) &(offsetnode->ptr);
+					*ptr = offset;
+				} else {
+					fprintf(stderr, "impossible in check_matched_tokens, sizeof(void *) = %lu\n", sizeof(void *));
+				}
+				add_to_tail(&(sf->first_user_token_offsets_list), offsetnode);
+				sut = sut->next;
+			}
+
+			return 1;
+		}
+
+		int i;
+		for(i = 0;i < sf->number_of_matched_user_tokens - sf->number_of_encrypted_tokens + 1;i++){
+			if(sut->after_number_of_encrypted_tokens == NULL){
+				fprintf(stderr, "number_of_matched_user_tokens = %d\n number_of_encrypted_tokens = %d", sf->number_of_matched_user_tokens, sf->number_of_encrypted_tokens);
+				fprintf(stderr, "shit\n");
+				exit(1);
+			}
+			if(sut->offset + sf->number_of_encrypted_tokens - 1 == sut->after_number_of_encrypted_tokens->offset){
+				uint32_t j;
+				int consecutive = 1;
+				struct server_user_token * tmpsut = sut;
+				for(j = 0;j < sf->number_of_encrypted_tokens;j++){
+					// if(check_server_user_token_index(tmpsut, j)){
+
+					// } else {
+					// 	consecutive = 0;
+					// 	break;
+					// }
+					if(tmpsut->matched_et == sf->encrypted_tokens_array[j]){
+
+					} else {
+						consecutive = 0;
+						break;
+					}
+					tmpsut = tmpsut->next;
+				}
+
+				if(consecutive){
+					uint32_t offset = sut->offset;
+					struct double_list_node * offsetnode = get_free_double_list_node(pool);
+					offsetnode->prev = offsetnode->next = NULL;
+					if(sizeof(void *) == 4){
+						// 32 bit machine
+						uint32_t * ptr = (uint32_t *) &(offsetnode->ptr);
+						*ptr = offset;
+					} else if(sizeof(void *) == 8){
+						// 64 bit machine
+						uint64_t * ptr = (uint64_t *) &(offsetnode->ptr);
+						*ptr = offset;
+					} else {
+						fprintf(stderr, "impossible in check_matched_tokens, sizeof(void *) = %lu\n", sizeof(void *));
+					}
+					add_to_tail(&(sf->first_user_token_offsets_list), offsetnode);
+				}
+			}
+
+			sut = sut->next;
+		}
+
+		return (sf->first_user_token_offsets_list.count > 0);
+	} else {
+		return 0;
+	}
+}
+
+int check_matched_tokens_with_array(struct memory_pool * pool, struct signature_fragment * sf){
+	initialize_double_list(&sf->first_user_token_offsets_list);
+	if(sf->number_of_matched_user_tokens >= sf->number_of_encrypted_tokens){
+		// the matched server user tokens should be natually sorted by the token's offset
 		int i;
 		for(i = 0;i < sf->number_of_matched_user_tokens - sf->number_of_encrypted_tokens + 1;i++){
 			int count = sf->number_of_encrypted_tokens;
-			if(sf->matched_user_tokens[i].offset + count - 1 == sf->matched_user_tokens[i + count - 1].offset){
-				uint32_t j;
+			if(sf->matched_sut_array[i].offset + count - 1 == sf->matched_sut_array[i + count - 1].offset){
+				int j;
 				int consecutive = 1;
 				for(j = 0;j < count;j++){
-					int flag = 0;
-
-					if(/*sf->matched_user_tokens[i + j].matched_idx == j*/check_server_user_token_index(&(sf->matched_user_tokens[i + j]), j)){
+					if(sf->matched_sut_array[i + j].matched_et == sf->encrypted_tokens_array[j]){
 
 					} else {
 						consecutive = 0;
@@ -66,7 +176,7 @@ int check_matched_tokens(struct memory_pool * pool, struct signature_fragment * 
 				}
 
 				if(consecutive){
-					uint32_t offset = sf->matched_user_tokens[i].offset;
+					uint32_t offset = sf->matched_sut_array[i].offset;
 					struct double_list_node * offsetnode = get_free_double_list_node(pool);
 					offsetnode->prev = offsetnode->next = NULL;
 					if(sizeof(void *) == 4){
@@ -90,6 +200,52 @@ int check_matched_tokens(struct memory_pool * pool, struct signature_fragment * 
 		return 0;
 	}
 }
+// int check_matched_tokens(struct memory_pool * pool, struct signature_fragment * sf){
+// 	initialize_double_list(&(sf->first_user_token_offsets_list));
+// 	if(sf->number_of_matched_user_tokens >= sf->number_of_encrypted_tokens){
+// 		// the matched user tokens should be natually sorted by the user token's offset
+// 		int i;
+// 		for(i = 0;i < sf->number_of_matched_user_tokens - sf->number_of_encrypted_tokens + 1;i++){
+// 			int count = sf->number_of_encrypted_tokens;
+// 			if(sf->matched_user_tokens[i].offset + count - 1 == sf->matched_user_tokens[i + count - 1].offset){
+// 				uint32_t j;
+// 				int consecutive = 1;
+// 				for(j = 0;j < count;j++){
+// 					int flag = 0;
+
+// 					if(/*sf->matched_user_tokens[i + j].matched_idx == j*/check_server_user_token_index(&(sf->matched_user_tokens[i + j]), j)){
+
+// 					} else {
+// 						consecutive = 0;
+// 						break;
+// 					}
+// 				}
+
+// 				if(consecutive){
+// 					uint32_t offset = sf->matched_user_tokens[i].offset;
+// 					struct double_list_node * offsetnode = get_free_double_list_node(pool);
+// 					offsetnode->prev = offsetnode->next = NULL;
+// 					if(sizeof(void *) == 4){
+// 						// 32 bit machine
+// 						uint32_t * ptr = (uint32_t *) &(offsetnode->ptr);
+// 						*ptr = offset;
+// 					} else if(sizeof(void *) == 8){
+// 						// 64 bit machine
+// 						uint64_t * ptr = (uint64_t *) &(offsetnode->ptr);
+// 						*ptr = offset;
+// 					} else {
+// 						fprintf(stderr, "impossible in check_matched_tokens, sizeof(void *) = %lu\n", sizeof(void *));
+// 					}
+// 					add_to_tail(&(sf->first_user_token_offsets_list), offsetnode);
+// 				}
+// 			}
+// 		}
+
+// 		return (sf->first_user_token_offsets_list.count > 0);
+// 	} else {
+// 		return 0;
+// 	}
+// }
 // // check if the number of user tokens matches, and if their offsets are sonsecutive, then check with the encrypted tokens
 // int check_matched_tokens(struct memory_pool * pool, struct signature_fragment * sf){
 // 	initialize_double_list(&(sf->first_user_token_offsets_list));
@@ -260,5 +416,26 @@ int check_current_signature_fragment(struct memory_pool * pool, struct signature
 			node = node->next;
 		}
 		return 0;
+	}
+}
+
+void add_to_sut_array(struct memory_pool * pool, struct signature_fragment * sf, struct server_user_token * sut){
+	if(sf->number_of_matched_user_tokens > 0){
+		if(sf->number_of_matched_user_tokens < sf->max_length_of_sut_array){
+			memcpy(&(sf->matched_sut_array[sf->number_of_matched_user_tokens]), sut, sizeof(struct server_user_token));
+			sf->number_of_matched_user_tokens++;
+		} else {
+			struct server_user_token * tmp = get_free_sut_array(pool, 2 * sf->max_length_of_sut_array);
+			memcpy(tmp, sf->matched_sut_array, sf->max_length_of_sut_array * sizeof(struct server_user_token));
+			sf->max_length_of_sut_array *= 2;
+			sf->matched_sut_array = tmp;
+			memcpy(&(sf->matched_sut_array[sf->number_of_matched_user_tokens]), sut, sizeof(struct server_user_token));
+			sf->number_of_matched_user_tokens++;
+		}
+	} else {
+		sf->matched_sut_array = get_free_sut_array(pool, ALLOCATE_ARRAY_SIZE);
+		sf->max_length_of_sut_array = ALLOCATE_ARRAY_SIZE;
+		memcpy(&(sf->matched_sut_array[sf->number_of_matched_user_tokens]), sut, sizeof(struct server_user_token));
+		sf->number_of_matched_user_tokens++;
 	}
 }

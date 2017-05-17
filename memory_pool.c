@@ -66,13 +66,13 @@ void initialize_memory_pool(struct memory_pool * pool){
 	// }
 	// memory_usage += USER_TOKEN_POOL_SIZE * sizeof(struct user_token);
 
-	pool->sfet_pool = (struct signature_fragment_inside_encrypted_token *) malloc(SFET_POOL_SIZE * sizeof(struct signature_fragment_inside_encrypted_token));
-	pool->sfet_pool_idx = 0;
-	if(pool->sfet_pool == NULL){
-		fprintf(stderr, "malloc sfet_pool failed\n");
-		exit(1);
-	}
-	memory_usage += SFET_POOL_SIZE * sizeof(struct signature_fragment_inside_encrypted_token);
+	// pool->sfet_pool = (struct signature_fragment_inside_encrypted_token *) malloc(SFET_POOL_SIZE * sizeof(struct signature_fragment_inside_encrypted_token));
+	// pool->sfet_pool_idx = 0;
+	// if(pool->sfet_pool == NULL){
+	// 	fprintf(stderr, "malloc sfet_pool failed\n");
+	// 	exit(1);
+	// }
+	// memory_usage += SFET_POOL_SIZE * sizeof(struct signature_fragment_inside_encrypted_token);
 	
 	pool->server_user_token_pool = (struct server_user_token *) malloc(SERVER_USER_TOKEN_POOL_SIZE * sizeof(struct server_user_token));
 	pool->server_user_token_pool_idx = 0;
@@ -82,13 +82,21 @@ void initialize_memory_pool(struct memory_pool * pool){
 	}
 	memory_usage += SERVER_USER_TOKEN_POOL_SIZE * sizeof(struct server_user_token);
 
-	pool->uint32_pool_idx = 0;
-	pool->uint32_pool = (uint32_t *) malloc(UINT32_POOL_SIZE * sizeof(uint32_t));
-	if(pool->uint32_pool == NULL){
-		fprintf(stderr, "malloc uint32_pool failed\n");
+	// pool->uint32_pool_idx = 0;
+	// pool->uint32_pool = (uint32_t *) malloc(UINT32_POOL_SIZE * sizeof(uint32_t));
+	// if(pool->uint32_pool == NULL){
+	// 	fprintf(stderr, "malloc uint32_pool failed\n");
+	// 	exit(1);
+	// }
+	// memory_usage += UINT32_POOL_SIZE * sizeof(uint32_t);
+
+	pool->et_ptr_pool = (struct encrypted_token **) malloc(ET_PTR_POOL_SIZE * sizeof(void *));
+	pool->et_ptr_pool_idx = 0;
+	if(pool->et_ptr_pool == NULL){
+		fprintf(stderr, "malloc uint32_t failed\n");
 		exit(1);
 	}
-	memory_usage += UINT32_POOL_SIZE * sizeof(uint32_t);
+	memory_usage += ET_PTR_POOL_SIZE * sizeof(void *);
 
 	fprintf(stderr, "initialize_memory_pool succeeded, memory_usage = %u bytes\n", memory_usage);
 }
@@ -249,39 +257,78 @@ void free_double_list_node(struct memory_pool * pool, struct double_list_node * 
 // 	}
 // }
 
-struct signature_fragment_inside_encrypted_token * get_free_sfet(struct memory_pool * pool){
-	if(pool->sfet_pool_idx >= SFET_POOL_SIZE){
-		fprintf(stderr, "not enough sfet\n");
-		return NULL;
-	} else {
-		pool->sfet_pool_idx++;
-		return &(pool->sfet_pool[pool->sfet_pool_idx - 1]);
-	}
-}
+// struct signature_fragment_inside_encrypted_token * get_free_sfet(struct memory_pool * pool){
+// 	if(pool->sfet_pool_idx >= SFET_POOL_SIZE){
+// 		fprintf(stderr, "not enough sfet\n");
+// 		return NULL;
+// 	} else {
+// 		pool->sfet_pool_idx++;
+// 		return &(pool->sfet_pool[pool->sfet_pool_idx - 1]);
+// 	}
+// }
 
 // this should be called when a file inspection is done, or a connection is tared down
 void free_all_server_user_tokens(struct memory_pool * pool){
 	pool->server_user_token_pool_idx = 0;
 }
 
-struct server_user_token * get_free_server_user_token_array(struct memory_pool * pool, int length){
+struct server_user_token * get_free_server_user_token(struct memory_pool * pool){
+	if(pool->server_user_token_pool_idx >= SERVER_USER_TOKEN_POOL_SIZE){
+		fprintf(stderr, "not enough server user tokens");
+		return NULL;
+	} else {
+		struct server_user_token * tmp = &(pool->server_user_token_pool[pool->server_user_token_pool_idx]);
+		pool->server_user_token_pool_idx++;
+
+		tmp->offset = 0;
+		//tmp->matched_idx_array = NULL;
+		//tmp->length = 0;
+		tmp->next = NULL;
+		tmp->after_number_of_encrypted_tokens = NULL;
+		tmp->matched_et = NULL;
+		return tmp;
+	}
+}
+// struct server_user_token * get_free_server_user_token_array(struct memory_pool * pool, int length){
+// 	if(pool->server_user_token_pool_idx + length > SERVER_USER_TOKEN_POOL_SIZE){
+// 		fprintf(stderr, "not enough server user tokens\n");
+// 		return NULL;
+// 	} else {
+// 		struct server_user_token * tmp = &(pool->server_user_token_pool[pool->server_user_token_pool_idx]);
+// 		pool->server_user_token_pool_idx += length;
+// 		return tmp;
+// 	}
+// }
+
+// uint32_t * get_free_uint32_array(struct memory_pool * pool, int length){
+// 	if(pool->uint32_pool_idx + length > UINT32_POOL_SIZE){
+// 		fprintf(stderr, "not enough uint32_t\n");
+// 		return NULL;
+// 	} else {
+// 		uint32_t * tmp = &(pool->uint32_pool[pool->uint32_pool_idx]);
+// 		pool->uint32_pool_idx += length;
+// 		return tmp;
+// 	}
+// }
+
+struct encrypted_token ** get_free_et_ptr_array(struct memory_pool * pool, int length){
+	if(pool->et_ptr_pool_idx + length > ET_PTR_POOL_SIZE){
+		fprintf(stderr, "not enough et ptr\n");
+		return NULL;
+	} else {
+		struct encrypted_token ** tmp = &(pool->et_ptr_pool[pool->et_ptr_pool_idx]);
+		pool->et_ptr_pool_idx += length;
+		return tmp;
+	}
+}
+
+struct server_user_token * get_free_sut_array(struct memory_pool * pool, int length){
 	if(pool->server_user_token_pool_idx + length > SERVER_USER_TOKEN_POOL_SIZE){
 		fprintf(stderr, "not enough server user tokens\n");
 		return NULL;
 	} else {
 		struct server_user_token * tmp = &(pool->server_user_token_pool[pool->server_user_token_pool_idx]);
 		pool->server_user_token_pool_idx += length;
-		return tmp;
-	}
-}
-
-uint32_t * get_free_uint32_array(struct memory_pool * pool, int length){
-	if(pool->uint32_pool_idx + length > UINT32_POOL_SIZE){
-		fprintf(stderr, "not enough uint32_t\n");
-		return NULL;
-	} else {
-		uint32_t * tmp = &(pool->uint32_pool[pool->uint32_pool_idx]);
-		pool->uint32_pool_idx += length;
 		return tmp;
 	}
 }

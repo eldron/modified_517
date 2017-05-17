@@ -106,9 +106,7 @@ void insert_encrypted_token(struct reversible_sketch * rs, uint32_t token_idx, u
 		struct list_node * head = et->signatures_list_head;
 		int found = 0;
 		while(head){
-			struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
-			if(sfet->sf == sf){
-				add_index_to_sfet(sfet, pool, appearance_times, token_idx);
+			if(head->ptr == sf){
 				found = 1;
 				break;
 			} else {
@@ -118,17 +116,9 @@ void insert_encrypted_token(struct reversible_sketch * rs, uint32_t token_idx, u
 		if(found){
 			// do nothing
 		} else {
-			// struct list_node * newnode = get_free_list_node(pool);
-			// newnode->next = NULL;
-			// newnode->ptr = (void *) sf;
-			// push(&(et->signatures_list_head), newnode);
-			struct signature_fragment_inside_encrypted_token * sfet = get_free_sfet(pool);
-			init_sfet(sfet);
-			sfet->sf = sf;
-			add_index_to_sfet(sfet, pool, appearance_times, token_idx);
 			struct list_node * newnode = get_free_list_node(pool);
 			newnode->next = NULL;
-			newnode->ptr = (void *) sfet;
+			newnode->ptr = (void *) sf;
 			push(&(et->signatures_list_head), newnode);
 		}
 
@@ -137,6 +127,8 @@ void insert_encrypted_token(struct reversible_sketch * rs, uint32_t token_idx, u
 		// tmp->prev = tmp->next = NULL;
 		// tmp->ptr = (void *) et;
 		// add_to_tail(&(sf->encrypted_tokens_list), tmp);
+		sf->encrypted_tokens_array[sf->encrypted_tokens_array_idx] = et;
+		sf->encrypted_tokens_array_idx++;
 	} else {
 		// create an encrypted_token
 		//struct encrypted_token * et = (struct encrypted_token *) malloc(sizeof(struct encrypted_token));
@@ -144,17 +136,9 @@ void insert_encrypted_token(struct reversible_sketch * rs, uint32_t token_idx, u
 		memcpy(et->s, token, len);
 		et->signatures_list_head = NULL;
 
-		// struct list_node * newnode = get_free_list_node(pool);
-		// newnode->next = NULL;
-		// newnode->ptr = (void *) sf;
-		// push(&(et->signatures_list_head), newnode);
-		struct signature_fragment_inside_encrypted_token * sfet = get_free_sfet(pool);
-		init_sfet(sfet);
-		sfet->sf = sf;
-		add_index_to_sfet(sfet, pool, appearance_times, token_idx);
 		struct list_node * newnode = get_free_list_node(pool);
 		newnode->next = NULL;
-		newnode->ptr = (void *) sfet;
+		newnode->ptr = (void *) sf;
 		push(&(et->signatures_list_head), newnode);
 
 		// // add the encrypted token to the signature fragment's encrypted_tokens_list
@@ -162,6 +146,8 @@ void insert_encrypted_token(struct reversible_sketch * rs, uint32_t token_idx, u
 		// tmp->prev = tmp->next = NULL;
 		// tmp->ptr = (void *) et;
 		// add_to_tail(&(sf->encrypted_tokens_list), tmp);
+		sf->encrypted_tokens_array[sf->encrypted_tokens_array_idx] = et;
+		sf->encrypted_tokens_array_idx++;
 
 		// TODO insert this encrypted token to a global encrypted token list, for deletion when system shuts down
 

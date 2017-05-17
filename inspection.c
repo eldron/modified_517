@@ -18,31 +18,15 @@ int additive_inspection(struct client_user_token * ut, struct reversible_sketch 
 		struct list_node * head = et->signatures_list_head;
 		while(head){
 			// add the server user token to the signature fragment's matched_user_tokens array
-			struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
-			struct signature_fragment * sf = sfet->sf;
-			struct server_user_token sut;
-			sut.offset = ut->offset;
-			sut.matched_idx_array = sfet->index_array;
-			sut.length = sfet->number_of_idxes;
-
-			if(sf->number_of_matched_user_tokens > 0){
-				if(sf->number_of_matched_user_tokens < sf->max_length_of_matched_user_token_array){
-					memcpy(&(sf->matched_user_tokens[sf->number_of_matched_user_tokens]), &sut, sizeof(struct server_user_token));
-					sf->number_of_matched_user_tokens++;
-				} else {
-					//fprintf(stderr, "fuck, reallocate matched_user_tokens for signature fragment\n");
-					struct server_user_token * tmp = get_free_server_user_token_array(pool, BATCH_SIZE + sf->max_length_of_matched_user_token_array);
-					memcpy(tmp, sf->matched_user_tokens, sf->number_of_matched_user_tokens * sizeof(struct server_user_token));
-					sf->max_length_of_matched_user_token_array += BATCH_SIZE;
-					sf->matched_user_tokens = tmp;
-					memcpy(&(sf->matched_user_tokens[sf->number_of_matched_user_tokens]), &sut, sizeof(struct server_user_token));
-					sf->number_of_matched_user_tokens++;
-				}
-			} else {
-				sf->matched_user_tokens = get_free_server_user_token_array(pool, BATCH_SIZE);
-				memcpy(&(sf->matched_user_tokens[sf->number_of_matched_user_tokens]), &sut, sizeof(struct server_user_token));
-				sf->number_of_matched_user_tokens++;
-			}
+			//struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
+			//struct signature_fragment * sf = sfet->sf;
+			struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
+			struct server_user_token * sut = get_free_server_user_token(pool);
+			sut->offset = ut->offset;
+			sut->matched_et = et;
+			//sut->matched_idx_array = sfet->index_array;
+			//sut->length = sfet->number_of_idxes;
+			add_server_user_token_to_sf(sf, sut);
 
 			if(check_matched_tokens(pool, sf)){
 				// add the signature fragment to the corresponding rule's matched_signature_fragments_candidates_list
@@ -62,8 +46,9 @@ int additive_inspection(struct client_user_token * ut, struct reversible_sketch 
 		// add the matched rules to matched_rules_list
 		head = et->signatures_list_head;
 		while(head){
-			struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
-			struct signature_fragment * sf = sfet->sf;
+			//struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
+			//struct signature_fragment * sf = sfet->sf;
+			struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
 			struct rule * r = (struct rule *) sf->rule_ptr;
 			if(r->matched){
 
@@ -102,32 +87,15 @@ void batch_inspection(struct client_user_token * uts, int length, struct reversi
 			struct list_node * head = et->signatures_list_head;
 			while(head){
 				// add the user token to the signature fragment's matched_user_tokens array
-				struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
-				struct signature_fragment * sf = sfet->sf;
-				struct server_user_token sut;
-				sut.offset = ut->offset;
-				sut.matched_idx_array = sfet->index_array;
-				sut.length = sfet->number_of_idxes;
-
-				if(sf->number_of_matched_user_tokens > 0){
-					if(sf->number_of_matched_user_tokens < sf->max_length_of_matched_user_token_array){
-						memcpy(&(sf->matched_user_tokens[sf->number_of_matched_user_tokens]), &sut, sizeof(struct server_user_token));
-						sf->number_of_matched_user_tokens++;
-					} else {
-						//fprintf(stderr, "fuck, reallocate matched_user_tokens for signature fragment\n");
-						struct server_user_token * tmp = get_free_server_user_token_array(pool, BATCH_SIZE + sf->max_length_of_matched_user_token_array);
-						memcpy(tmp, sf->matched_user_tokens, sf->number_of_matched_user_tokens * sizeof(struct server_user_token));
-						sf->max_length_of_matched_user_token_array += BATCH_SIZE;
-						sf->matched_user_tokens = tmp;
-						memcpy(&(sf->matched_user_tokens[sf->number_of_matched_user_tokens]), &sut, sizeof(struct server_user_token));
-						sf->number_of_matched_user_tokens++;
-					}
-				} else {
-					sf->matched_user_tokens = get_free_server_user_token_array(pool, BATCH_SIZE);
-					sf->max_length_of_matched_user_token_array = BATCH_SIZE;
-					memcpy(&(sf->matched_user_tokens[sf->number_of_matched_user_tokens]), &sut, sizeof(struct server_user_token));
-					sf->number_of_matched_user_tokens++;
-				}
+				//struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
+				//struct signature_fragment * sf = sfet->sf;
+				struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
+				struct server_user_token * sut = get_free_server_user_token(pool);
+				sut->offset = ut->offset;
+				sut->matched_et = et;
+				//sut->matched_idx_array= sfet->index_array;
+				//sut->length = sfet->number_of_idxes;
+				add_server_user_token_to_sf(sf, sut);
 
 				// add the signature fragment to a local candidate signature fragment list
 				if(sf->added_to_list_during_batch_inspection){
@@ -215,6 +183,118 @@ void batch_inspection(struct client_user_token * uts, int length, struct reversi
 	}
 }
 
+void batch_inspection_with_sut_array(struct client_user_token * uts, int length, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list){
+	int i;
+	struct double_list local_signature_fragment_list;
+	initialize_double_list(&local_signature_fragment_list);
+	for(i = 0;i < length;i++){
+		struct list_node * node = lookup_encrypted_token(rs, uts[i].token, TOKEN_SIZE);
+		struct client_user_token * ut = &(uts[i]);
+		if(node){
+			struct encrypted_token * et = (struct encrypted_token *) node->ptr;
+			struct list_node * head = et->signatures_list_head;
+			while(head){
+				// add the user token to the signature fragment's matched_user_tokens array
+				//struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
+				//struct signature_fragment * sf = sfet->sf;
+				struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
+				// struct server_user_token * sut = get_free_server_user_token(pool);
+				// sut->offset = ut->offset;
+				// sut->matched_et = et;
+				struct server_user_token sut;
+				sut.offset = ut->offset;
+				sut.matched_et = et;
+				//sut->matched_idx_array= sfet->index_array;
+				//sut->length = sfet->number_of_idxes;
+				//add_server_user_token_to_sf(sf, sut);
+				add_to_sut_array(pool, sf, &sut);
+
+				// add the signature fragment to a local candidate signature fragment list
+				if(sf->added_to_list_during_batch_inspection){
+
+				} else {
+					sf->added_to_list_during_batch_inspection = 1;
+					struct double_list_node * dln = get_free_double_list_node(pool);
+					dln->prev = dln->next = NULL;
+					dln->ptr = (void *) sf;
+					add_to_tail(&local_signature_fragment_list, dln);
+				}
+
+				head = head->next;
+			}
+		}
+	}
+
+	//fprintf(stderr, "before filter the signature fragments\n");
+
+	// filter the signature fragments
+	if(local_signature_fragment_list.count > 0){
+		struct double_list_node * node = local_signature_fragment_list.dummy_head.next;
+		while(node && node != &(local_signature_fragment_list.dummy_tail)){
+			struct signature_fragment * sf = (struct signature_fragment *) node->ptr;
+			int check_result = check_matched_tokens_with_array(pool, sf);
+			//fprintf(stderr, "after check_matched_tokens\n");
+			if(check_result){
+				// add the signature fragment to the corresponding rule's matched_signature_fragments_candidates_list
+				struct rule * r = (struct rule *) sf->rule_ptr;
+				if(sf->added_to_rule == 0){
+					sf->added_to_rule = 1;
+					struct double_list_node * dln = get_free_double_list_node(pool);
+					dln->prev = dln->next = NULL;
+					dln->ptr = (void *) sf;
+					add_to_tail(&(r->matched_signature_fragments_candidates_list), dln);
+				}
+				node = node->next;
+			} else {
+				// remove the signature fragment from the local_signature_fragment_list
+				sf->added_to_list_during_batch_inspection = 0;
+				node = node->next;
+			}
+		}
+	}
+
+	//fprintf(stderr, "before check rules\n");
+
+	// check rules
+	if(local_signature_fragment_list.count > 0){
+		struct double_list_node * node = local_signature_fragment_list.dummy_head.next;
+		while(node && node != &(local_signature_fragment_list.dummy_tail)){
+			struct signature_fragment * sf = (struct signature_fragment *) node->ptr;
+			if(sf->added_to_list_during_batch_inspection){
+				struct rule * r = (struct rule *) sf->rule_ptr;
+				if(r->matched){
+
+				} else if(r->checked_during_batch_inspection){
+
+				} else {
+					r->checked_during_batch_inspection = 1;
+					if(check_rule(pool, r)){
+						// add the matched rule to matched_rules_list
+						r->matched = 1;
+						struct double_list_node * dln = get_free_double_list_node(pool);
+						dln->prev = dln->next = NULL;
+						dln->ptr = (void *) r;
+						add_to_tail(matched_rules_list, dln);
+					}
+				}
+			}
+
+			node = node->next;
+		}
+	}
+
+	//fprintf(stderr, "before clear local_signature_fragment_list\n");
+	// no need to clea local signature fragment list
+	struct double_list_node * node = local_signature_fragment_list.dummy_head.next;
+	while(node && node != &(local_signature_fragment_list.dummy_tail)){
+		struct signature_fragment * sf = (struct signature_fragment *) node->ptr;
+		sf->added_to_list_during_batch_inspection = 0;
+		struct rule * r = (struct rule *) sf->rule_ptr;
+		r->checked_during_batch_inspection = 0;
+		node = node->next;
+	}
+}
+
 // clean up after batch inspection for a connection
 // should be done by this way: reset all user tokens, reset offset for double list node pool
 // write the code in inspection for a file or a connection
@@ -229,12 +309,15 @@ void cleanup_after_batch_inspection(struct memory_pool * pool, struct double_lis
 		initialize_double_list(&(r->matched_signature_fragments_candidates_list));
 		struct signature_fragment * sf = r->first_signature_fragment;
 		while(sf){
+			initialize_double_list(&(sf->first_user_token_offsets_list));
 			sf->added_to_rule = 0;
 			sf->added_to_list_during_batch_inspection = 0;
-			sf->matched_user_tokens = NULL;
 			sf->number_of_matched_user_tokens = 0;
-			sf->max_length_of_matched_user_token_array = 0;
-			initialize_double_list(&(sf->first_user_token_offsets_list));
+			sf->first_server_user_token = NULL;
+			sf->last_server_user_token = NULL;
+			sf->current_sut = NULL;
+			sf->matched_sut_array = NULL;
+			sf->max_length_of_sut_array = 0;
 			sf = sf->next;
 		}
 		node = node->next;

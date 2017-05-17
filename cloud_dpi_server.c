@@ -45,7 +45,7 @@ void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * poo
 				if(memcmp(&file_end_token, &(received_tokens[tokens_received - 1]), sizeof(struct client_user_token)) == 0){
 					// end of a file
 					//fprintf(stderr, "batch_inspection called, the number of tokens = %d\n", tokens_received - 1);
-					batch_inspection(received_tokens, tokens_received - 1, rs, pool, &matched_rules_list);
+					batch_inspection_with_sut_array(received_tokens, tokens_received - 1, rs, pool, &matched_rules_list);
 					if(matched_rules_list.count == 0){
 						printf("no malware found for file %d\n", files_checked_count);
 						write(client_socket_fd, "no malware found for file\n", strlen("no malware found for file\n"));
@@ -78,7 +78,7 @@ void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * poo
 					received_tokens[i].offset = htonl(received_tokens[i].offset);
 				}
 				//fprintf(stderr, "batch_inspection called, the number of tokens is %d\n", BATCH_SIZE);
-				batch_inspection(received_tokens, BATCH_SIZE, rs, pool, &matched_rules_list);
+				batch_inspection_with_sut_array(received_tokens, BATCH_SIZE, rs, pool, &matched_rules_list);
 				char * ptr = (char *) received_tokens;
 				memcpy(ptr, ptr + BATCH_SIZE * sizeof(struct client_user_token), bytes_received - BATCH_SIZE * sizeof(struct client_user_token));
 				bytes_received -= BATCH_SIZE * sizeof(struct client_user_token);

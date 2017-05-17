@@ -4,14 +4,14 @@ all:
 	gcc rule_filter.c -o rule_filter
 	gcc rule_eliminator.c -o rule_eliminator
 	gcc rule_normalizer.c double_list.c -o rule_normalizer
-	gcc test_read_rules.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c sfet.c -o test_read_rules
-	gcc test_insert_signatures.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c sfet.c -o test_insert_signatures
-	gcc cloud_dpi_server.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c sfet.c -o cloud_dpi_server
-	gcc cloud_dpi_client.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c sfet.c -o cloud_dpi_client
-	gcc test_check_local_files.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c sfet.c -o test_check_local_files
-	gcc check_one_file.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c sfet.c -o check_one_file
-	gcc test_search_speed_server.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c sfet.c -o test_search_speed_server
-	gcc test_search_speed_client.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c sfet.c -o test_search_speed_client
+	gcc test_read_rules.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c -o test_read_rules
+	gcc test_insert_signatures.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c -o test_insert_signatures
+	gcc cloud_dpi_server.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c -o cloud_dpi_server
+	gcc cloud_dpi_client.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c -o cloud_dpi_client
+	gcc test_check_local_files.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c -o test_check_local_files
+	gcc check_one_file.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c -o check_one_file
+	gcc test_search_speed_server.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c inspection.c -o test_search_speed_server
+	gcc test_search_speed_client.c build_server.c double_list.c rule.c signature_fragment.c aes.c reversible_sketch.c murmur3.c list.c memory_pool.c -o test_search_speed_client
 
 clean:
 	rm -f rule_stats

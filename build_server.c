@@ -100,6 +100,7 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 
 	sf->number_of_encrypted_tokens = len - TOKEN_SIZE + 1;
 	sf->signature_fragment_len = len;
+	sf->encrypted_tokens_array = get_free_et_ptr_array(pool, sf->number_of_encrypted_tokens);
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
 		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
 		int arrearance_times = count_arrearance_times(&(tmp[i]), tmp, len);
