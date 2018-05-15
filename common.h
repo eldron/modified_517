@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
+#include "sha256.h"
 
 #define LINELEN 10000
 #define RELATION_STAR 0 // for *
@@ -13,8 +15,9 @@
 #define RELATION_MINMAX 4 // for {20-30}
 
 #define TOKEN_SIZE 16
-#define ECB 1
-#include "aes.h"
+// #define ECB 1
+// #include "aes.h"
 
-#define BATCH_SIZE 2000 // the number of user tokens received from client for batch inspection
+#define HASHED_TOKEN_SIZE 32
+#define BATCH_SIZE 1000 // the number of user tokens received from client for batch inspection
 #endif

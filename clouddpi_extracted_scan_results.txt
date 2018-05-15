@@ -1,0 +1,1111 @@
+file extractedPcap/extractedPcap/5c917c207c35af12a1c6746119c5b82b.pcap read complete, filesize = 4303 bytes
+no malware found for file extractedPcap/extractedPcap/5c917c207c35af12a1c6746119c5b82b.pcap
+file extractedPcap/extractedPcap/1169ceed2739a329f570d19dc124a47e.pcap read complete, filesize = 13677 bytes
+no malware found for file extractedPcap/extractedPcap/1169ceed2739a329f570d19dc124a47e.pcap
+file extractedPcap/extractedPcap/0ec46ee21b3f42abda8bf924b18a6564.pcap read complete, filesize = 310416 bytes
+the following malware found for file extractedPcap/extractedPcap/0ec46ee21b3f42abda8bf924b18a6564.pcap
+Win.Worm.F_zippwd-2
+Win.Exploit.TCP-1
+Win.Worm.Mydoom-38
+Win.Trojan.FakeAV-152
+Win.Trojan.Dropper-146
+Win.Adware.Screensaver-1
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+Html.Phishing.Bank-1109
+file extractedPcap/extractedPcap/1d7d22bf59d223473d37d9ef07deca57.pcap read complete, filesize = 10459 bytes
+the following malware found for file extractedPcap/extractedPcap/1d7d22bf59d223473d37d9ef07deca57.pcap
+Win.Trojan.Feebs-97
+file extractedPcap/extractedPcap/069dc8cb27538f2ba636fa1408d8ca27.pcap read complete, filesize = 6921 bytes
+no malware found for file extractedPcap/extractedPcap/069dc8cb27538f2ba636fa1408d8ca27.pcap
+file extractedPcap/extractedPcap/849235931b9ba4844904f57bcc458c86.pcap read complete, filesize = 27775 bytes
+the following malware found for file extractedPcap/extractedPcap/849235931b9ba4844904f57bcc458c86.pcap
+Win.Exploit.TCP-1
+file extractedPcap/extractedPcap/454b27e5a97d69b4745ab1b0259b6c4b.pcap read complete, filesize = 7556 bytes
+no malware found for file extractedPcap/extractedPcap/454b27e5a97d69b4745ab1b0259b6c4b.pcap
+file extractedPcap/extractedPcap/8172f70ef7bcc4f57ae7de96629fdca1.pcap read complete, filesize = 6395 bytes
+no malware found for file extractedPcap/extractedPcap/8172f70ef7bcc4f57ae7de96629fdca1.pcap
+file extractedPcap/extractedPcap/3cb4ce5fc60ebff1285def867fe7064e.pcap read complete, filesize = 411696 bytes
+no malware found for file extractedPcap/extractedPcap/3cb4ce5fc60ebff1285def867fe7064e.pcap
+file extractedPcap/extractedPcap/84d4f81e588fa517bf981f725c65b4cb.pcap read complete, filesize = 306547 bytes
+the following malware found for file extractedPcap/extractedPcap/84d4f81e588fa517bf981f725c65b4cb.pcap
+Win.Worm.F_zippwd-2
+Win.Exploit.TCP-1
+Win.Worm.Mydoom-38
+Win.Trojan.FakeAV-152
+Win.Trojan.Dropper-146
+Win.Adware.Screensaver-1
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+file extractedPcap/extractedPcap/6dc34add3fc68a117911db3f2522dff4.pcap read complete, filesize = 549 bytes
+no malware found for file extractedPcap/extractedPcap/6dc34add3fc68a117911db3f2522dff4.pcap
+file extractedPcap/extractedPcap/38d19afdacdd9273226281b3fa3be22e.pcap read complete, filesize = 412417 bytes
+the following malware found for file extractedPcap/extractedPcap/38d19afdacdd9273226281b3fa3be22e.pcap
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+file extractedPcap/extractedPcap/4f1421073b4420fea22f8cf7e5b42408.pcap read complete, filesize = 943936 bytes
+the following malware found for file extractedPcap/extractedPcap/4f1421073b4420fea22f8cf7e5b42408.pcap
+Win.Exploit.TCP-1
+Win.Trojan.IRCBot-396
+Win.Trojan.Zbot-1311
+Win.Downloader.Banload-78
+Win.Trojan.Mailbomber-3
+Win.Trojan.Delf-1518
+file extractedPcap/extractedPcap/6463700d77f11756eb54a3b6307cb194.pcap read complete, filesize = 926 bytes
+no malware found for file extractedPcap/extractedPcap/6463700d77f11756eb54a3b6307cb194.pcap
+file extractedPcap/extractedPcap/7b6ccaee1e950c39c413921ce19a4b83.pcap read complete, filesize = 1061503 bytes
+no malware found for file extractedPcap/extractedPcap/7b6ccaee1e950c39c413921ce19a4b83.pcap
+file extractedPcap/extractedPcap/43a2e02a56e1db74d4d2413dd5a163d6.pcap read complete, filesize = 1654434 bytes
+no malware found for file extractedPcap/extractedPcap/43a2e02a56e1db74d4d2413dd5a163d6.pcap
+file extractedPcap/extractedPcap/7d5f4e8c9c8c9cbb24191789644a8f96.pcap read complete, filesize = 38591 bytes
+the following malware found for file extractedPcap/extractedPcap/7d5f4e8c9c8c9cbb24191789644a8f96.pcap
+Win.Exploit.TCP-1
+file extractedPcap/extractedPcap/0acf394b858342cb903e518f397436bc.pcap read complete, filesize = 18012 bytes
+the following malware found for file extractedPcap/extractedPcap/0acf394b858342cb903e518f397436bc.pcap
+Win.Exploit.TCP-1
+file extractedPcap/extractedPcap/607d49f75379605998897d2fd92e3cb4.pcap read complete, filesize = 19846 bytes
+no malware found for file extractedPcap/extractedPcap/607d49f75379605998897d2fd92e3cb4.pcap
+file extractedPcap/extractedPcap/40c832c533d316603d14ae36ee2de782.pcap read complete, filesize = 10318 bytes
+no malware found for file extractedPcap/extractedPcap/40c832c533d316603d14ae36ee2de782.pcap
+file extractedPcap/extractedPcap/5cd43e6cc898a8b2295336b90e26d4b7.pcap read complete, filesize = 203440 bytes
+the following malware found for file extractedPcap/extractedPcap/5cd43e6cc898a8b2295336b90e26d4b7.pcap
+Win.Exploit.TCP-1
+Win.Trojan.Dampt-1
+Win.Trojan.Zbot-1311
+file extractedPcap/extractedPcap/26b8f45f55599580de38170fd6ac1e6d.pcap read complete, filesize = 272576 bytes
+the following malware found for file extractedPcap/extractedPcap/26b8f45f55599580de38170fd6ac1e6d.pcap
+Win.Exploit.TCP-1
+Win.Trojan.IRCBot-396
+Win.Worm.F_zippwd-2
+Win.Trojan.FakeAV-152
+file extractedPcap/extractedPcap/54f9787734feeb27c39b978c9f38ef69.pcap read complete, filesize = 5646 bytes
+no malware found for file extractedPcap/extractedPcap/54f9787734feeb27c39b978c9f38ef69.pcap
+file extractedPcap/extractedPcap/68480ec6c22e427437581eee38781332.pcap read complete, filesize = 795137 bytes
+the following malware found for file extractedPcap/extractedPcap/68480ec6c22e427437581eee38781332.pcap
+Win.Worm.F_zippwd-2
+Win.Exploit.TCP-1
+Win.Trojan.Packed-150
+Win.Downloader.72726-1
+Win.Trojan.Game-3
+Win.Trojan.IRCBot-396
+Win.Dropper.Agent-34362
+Html.Trojan.VBSpy-1
+Win.Trojan.Crypted-4
+Win.Trojan.Agent-34734
+Win.Trojan.Dampt-1
+file extractedPcap/extractedPcap/4244d3d206b5513e674b980b444b3c86.pcap read complete, filesize = 111336 bytes
+the following malware found for file extractedPcap/extractedPcap/4244d3d206b5513e674b980b444b3c86.pcap
+Win.Exploit.TCP-1
+file extractedPcap/extractedPcap/1be0bb48248c6d1d55666f0cf0b4393f.pcap read complete, filesize = 3922 bytes
+no malware found for file extractedPcap/extractedPcap/1be0bb48248c6d1d55666f0cf0b4393f.pcap
+file extractedPcap/extractedPcap/0263c7a26cc7ec532d8e47ddca17573f.pcap read complete, filesize = 9000 bytes
+no malware found for file extractedPcap/extractedPcap/0263c7a26cc7ec532d8e47ddca17573f.pcap
+file extractedPcap/extractedPcap/07450a809968ea88d7b44fc96fc26ba0.pcap read complete, filesize = 984334 bytes
+the following malware found for file extractedPcap/extractedPcap/07450a809968ea88d7b44fc96fc26ba0.pcap
+Win.Worm.F_zippwd-2
+Win.Downloader.Tibs-53
+Win.Exploit.TCP-1
+Win.Trojan.FakeAV-152
+Win.Trojan.Packed-150
+Win.Dropper.Agent-34362
+Win.Trojan.Dropper-146
+file extractedPcap/extractedPcap/5a664156d73bdbebfd2bfb2cb70fa8ee.pcap read complete, filesize = 2767 bytes
+no malware found for file extractedPcap/extractedPcap/5a664156d73bdbebfd2bfb2cb70fa8ee.pcap
+file extractedPcap/extractedPcap/0e64c21c89d90861e1e2cf1810b12f6d.pcap read complete, filesize = 3346 bytes
+no malware found for file extractedPcap/extractedPcap/0e64c21c89d90861e1e2cf1810b12f6d.pcap
+file extractedPcap/extractedPcap/6d74c235347b5f83a7b13bf7b275d5e6.pcap read complete, filesize = 5901 bytes
+no malware found for file extractedPcap/extractedPcap/6d74c235347b5f83a7b13bf7b275d5e6.pcap
+file extractedPcap/extractedPcap/0113e94f0479375c8e7c86c6827adb5c.pcap read complete, filesize = 3440 bytes
+no malware found for file extractedPcap/extractedPcap/0113e94f0479375c8e7c86c6827adb5c.pcap
+file extractedPcap/extractedPcap/4105dffec51478e1f9f6987e052692b8.pcap read complete, filesize = 767600 bytes
+the following malware found for file extractedPcap/extractedPcap/4105dffec51478e1f9f6987e052692b8.pcap
+Win.Worm.F_zippwd-2
+file extractedPcap/extractedPcap/59c063cad3d10bceb80ca98c37edc51f.pcap read complete, filesize = 372723 bytes
+the following malware found for file extractedPcap/extractedPcap/59c063cad3d10bceb80ca98c37edc51f.pcap
+Win.Worm.F_zippwd-2
+Win.Exploit.TCP-1
+Win.Trojan.FakeAV-152
+Win.Trojan.Dropper-146
+Win.Adware.Screensaver-1
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+Html.Phishing.Bank-1109
+file extractedPcap/extractedPcap/42ebf6a31ebe294f3f670cd929662448.pcap read complete, filesize = 987 bytes
+no malware found for file extractedPcap/extractedPcap/42ebf6a31ebe294f3f670cd929662448.pcap
+file extractedPcap/extractedPcap/1facb28757f84e6a87dc7f96de07e5e2.pcap read complete, filesize = 377667 bytes
+the following malware found for file extractedPcap/extractedPcap/1facb28757f84e6a87dc7f96de07e5e2.pcap
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+file extractedPcap/extractedPcap/82bb8674dbd5c7f13ef68a24e33dac3c.pcap read complete, filesize = 133258 bytes
+the following malware found for file extractedPcap/extractedPcap/82bb8674dbd5c7f13ef68a24e33dac3c.pcap
+Win.Exploit.TCP-1
+file extractedPcap/extractedPcap/6595f363a498e7ebe76e171747779f1f.pcap read complete, filesize = 984 bytes
+no malware found for file extractedPcap/extractedPcap/6595f363a498e7ebe76e171747779f1f.pcap
+file extractedPcap/extractedPcap/0ca6821b1ab7f4d8971705846efc0375.pcap read complete, filesize = 3099 bytes
+no malware found for file extractedPcap/extractedPcap/0ca6821b1ab7f4d8971705846efc0375.pcap
+file extractedPcap/extractedPcap/380e62cfeedbcab185b16054b114b34b.pcap read complete, filesize = 4576 bytes
+the following malware found for file extractedPcap/extractedPcap/380e62cfeedbcab185b16054b114b34b.pcap
+Win.Worm.F_zippwd-2
+file extractedPcap/extractedPcap/2a3f71610128d18afb5634adfc895b2b.pcap read complete, filesize = 3782 bytes
+no malware found for file extractedPcap/extractedPcap/2a3f71610128d18afb5634adfc895b2b.pcap
+file extractedPcap/extractedPcap/3102096c4fb02104f5bacf96ef2075e9.pcap read complete, filesize = 372081 bytes
+the following malware found for file extractedPcap/extractedPcap/3102096c4fb02104f5bacf96ef2075e9.pcap
+Win.Worm.F_zippwd-2
+Win.Exploit.TCP-1
+Win.Worm.Mydoom-38
+Win.Trojan.FakeAV-152
+Win.Trojan.Dropper-146
+Win.Adware.Screensaver-1
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+Html.Phishing.Bank-1109
+file extractedPcap/extractedPcap/83a8c3a66ce51a167a004d9ba7bd6b5f.pcap read complete, filesize = 4228 bytes
+the following malware found for file extractedPcap/extractedPcap/83a8c3a66ce51a167a004d9ba7bd6b5f.pcap
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+file extractedPcap/extractedPcap/4d1cf408bbc9b7d58b1cbde3efc9e7a7.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/4d1cf408bbc9b7d58b1cbde3efc9e7a7.pcap
+file extractedPcap/extractedPcap/05ac1e2923d263eda396ebd1ee543e7d.pcap read complete, filesize = 2347 bytes
+no malware found for file extractedPcap/extractedPcap/05ac1e2923d263eda396ebd1ee543e7d.pcap
+file extractedPcap/extractedPcap/4b27f99eb0beb52bc6ac7e6da972b6f0.pcap read complete, filesize = 411115 bytes
+no malware found for file extractedPcap/extractedPcap/4b27f99eb0beb52bc6ac7e6da972b6f0.pcap
+file extractedPcap/extractedPcap/0e90b8f993d754255eca3e07b13c0134.pcap read complete, filesize = 209 bytes
+no malware found for file extractedPcap/extractedPcap/0e90b8f993d754255eca3e07b13c0134.pcap
+file extractedPcap/extractedPcap/6769e91151bb2e5f6899177955af51c0.pcap read complete, filesize = 48780 bytes
+the following malware found for file extractedPcap/extractedPcap/6769e91151bb2e5f6899177955af51c0.pcap
+Win.Exploit.TCP-1
+Win.Trojan.FakeAV-152
+Win.Trojan.Packed-150
+file extractedPcap/extractedPcap/83a4b69d05dd13d93ff52332a51e44b6.pcap read complete, filesize = 1778 bytes
+no malware found for file extractedPcap/extractedPcap/83a4b69d05dd13d93ff52332a51e44b6.pcap
+file extractedPcap/extractedPcap/0a68622e6049ec71f9a4383a07dc3829.pcap read complete, filesize = 1291129 bytes
+no malware found for file extractedPcap/extractedPcap/0a68622e6049ec71f9a4383a07dc3829.pcap
+file extractedPcap/extractedPcap/024354951a4fd098ef158b6749fb8c17.pcap read complete, filesize = 370952 bytes
+the following malware found for file extractedPcap/extractedPcap/024354951a4fd098ef158b6749fb8c17.pcap
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+file extractedPcap/extractedPcap/32a77d509410033bab756664665f1e70.pcap read complete, filesize = 373039 bytes
+the following malware found for file extractedPcap/extractedPcap/32a77d509410033bab756664665f1e70.pcap
+Win.Worm.F_zippwd-2
+Win.Exploit.TCP-1
+Win.Worm.Mydoom-38
+Win.Trojan.FakeAV-152
+Win.Trojan.Dropper-146
+Win.Adware.Screensaver-1
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+Html.Phishing.Bank-1109
+file extractedPcap/extractedPcap/042192e4ff815e758560a8ea19115577.pcap read complete, filesize = 358021 bytes
+the following malware found for file extractedPcap/extractedPcap/042192e4ff815e758560a8ea19115577.pcap
+Win.Exploit.TCP-1
+Win.Trojan.IRCBot-396
+Win.Downloader.Tibs-53
+file extractedPcap/extractedPcap/76defdf929a6a6487b3afbc3dff4d065.pcap read complete, filesize = 1994 bytes
+no malware found for file extractedPcap/extractedPcap/76defdf929a6a6487b3afbc3dff4d065.pcap
+file extractedPcap/extractedPcap/72cbe2b78be03cf9c81cee542b6ab020.pcap read complete, filesize = 398610 bytes
+no malware found for file extractedPcap/extractedPcap/72cbe2b78be03cf9c81cee542b6ab020.pcap
+file extractedPcap/extractedPcap/658ba4abce6d8751d2805af913e13dab.pcap read complete, filesize = 6993 bytes
+no malware found for file extractedPcap/extractedPcap/658ba4abce6d8751d2805af913e13dab.pcap
+file extractedPcap/extractedPcap/361dde4d99239b0db64dd92075ababd1.pcap read complete, filesize = 9454 bytes
+no malware found for file extractedPcap/extractedPcap/361dde4d99239b0db64dd92075ababd1.pcap
+file extractedPcap/extractedPcap/29ca0ee9807387f2dd8223f33193c132.pcap read complete, filesize = 2181 bytes
+no malware found for file extractedPcap/extractedPcap/29ca0ee9807387f2dd8223f33193c132.pcap
+file extractedPcap/extractedPcap/0abaa109c601e8da9c6edf8f512dff0f.pcap read complete, filesize = 909 bytes
+no malware found for file extractedPcap/extractedPcap/0abaa109c601e8da9c6edf8f512dff0f.pcap
+file extractedPcap/extractedPcap/443977fe8e794cace611dc6be682b8d4.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/443977fe8e794cace611dc6be682b8d4.pcap
+file extractedPcap/extractedPcap/6f47923a795febce7bf057a9f67f177f.pcap read complete, filesize = 11687 bytes
+no malware found for file extractedPcap/extractedPcap/6f47923a795febce7bf057a9f67f177f.pcap
+file extractedPcap/extractedPcap/0c2f6e629d71d10ee77aed549930b5c1.pcap read complete, filesize = 3368 bytes
+no malware found for file extractedPcap/extractedPcap/0c2f6e629d71d10ee77aed549930b5c1.pcap
+file extractedPcap/extractedPcap/40eac12fe3a9a779026de271e22dc8ce.pcap read complete, filesize = 53121 bytes
+the following malware found for file extractedPcap/extractedPcap/40eac12fe3a9a779026de271e22dc8ce.pcap
+Legacy.Trojan.Agent-35282
+Legacy.Trojan.Agent-35281
+Win.Trojan.Feebs-81
+Win.Trojan.Feebs-80
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+file extractedPcap/extractedPcap/061bb3bf1ed9da7647f5f9398cfb2db4.pcap read complete, filesize = 362889 bytes
+the following malware found for file extractedPcap/extractedPcap/061bb3bf1ed9da7647f5f9398cfb2db4.pcap
+Legacy.Trojan.Agent-35282
+Legacy.Trojan.Agent-35281
+Win.Trojan.Feebs-81
+Win.Trojan.Feebs-80
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+Html.Phishing.Bank-1109
+Win.Adware.Multiplug-5
+file extractedPcap/extractedPcap/485ad803670ae05482faa5e328b4d671.pcap read complete, filesize = 154867 bytes
+the following malware found for file extractedPcap/extractedPcap/485ad803670ae05482faa5e328b4d671.pcap
+Win.Exploit.URLSpoof-1
+Win.Exploit.URLSpoof-2
+Win.Exploit.TCP-1
+Win.Trojan.Banker-6380
+Win.Worm.F_zippwd-2
+Win.Trojan.IRCBot-396
+Win.Trojan.Dampt-1
+file extractedPcap/extractedPcap/6c012f90423c34c6bcb896d200eea866.pcap read complete, filesize = 9520 bytes
+no malware found for file extractedPcap/extractedPcap/6c012f90423c34c6bcb896d200eea866.pcap
+file extractedPcap/extractedPcap/301839915b7aa4c63786c3223c240925.pcap read complete, filesize = 3927 bytes
+no malware found for file extractedPcap/extractedPcap/301839915b7aa4c63786c3223c240925.pcap
+file extractedPcap/extractedPcap/7ba9c5db82bb78059c1638a4b495e55e.pcap read complete, filesize = 24192273 bytes
+no malware found for file extractedPcap/extractedPcap/7ba9c5db82bb78059c1638a4b495e55e.pcap
+file extractedPcap/extractedPcap/81fb6c20fde060dba80295db3327a5f8.pcap read complete, filesize = 101733 bytes
+no malware found for file extractedPcap/extractedPcap/81fb6c20fde060dba80295db3327a5f8.pcap
+file extractedPcap/extractedPcap/050e3c8a517ab762cbaec795a108394a.pcap read complete, filesize = 802 bytes
+no malware found for file extractedPcap/extractedPcap/050e3c8a517ab762cbaec795a108394a.pcap
+file extractedPcap/extractedPcap/52ea662fd01601d8e9e8425ab032afe3.pcap read complete, filesize = 2568 bytes
+no malware found for file extractedPcap/extractedPcap/52ea662fd01601d8e9e8425ab032afe3.pcap
+file extractedPcap/extractedPcap/529e8bde9f9d3e92bb951b110c371b05.pcap read complete, filesize = 4239 bytes
+no malware found for file extractedPcap/extractedPcap/529e8bde9f9d3e92bb951b110c371b05.pcap
+file extractedPcap/extractedPcap/758db3d0ffbdbd4fe64b496540aee53a.pcap read complete, filesize = 360884 bytes
+no malware found for file extractedPcap/extractedPcap/758db3d0ffbdbd4fe64b496540aee53a.pcap
+file extractedPcap/extractedPcap/3fef4de9a2e4a23641bfd37f91226f54.pcap read complete, filesize = 7543 bytes
+no malware found for file extractedPcap/extractedPcap/3fef4de9a2e4a23641bfd37f91226f54.pcap
+file extractedPcap/extractedPcap/329d89e477b62de96b2bed185dc6579c.pcap read complete, filesize = 107238 bytes
+no malware found for file extractedPcap/extractedPcap/329d89e477b62de96b2bed185dc6579c.pcap
+file extractedPcap/extractedPcap/02f41eb4d6c291a225a610d3b8a77f9c.pcap read complete, filesize = 161451 bytes
+no malware found for file extractedPcap/extractedPcap/02f41eb4d6c291a225a610d3b8a77f9c.pcap
+file extractedPcap/extractedPcap/4f6936ad674bc1ca4f620ff3adade0d1.pcap read complete, filesize = 9382 bytes
+no malware found for file extractedPcap/extractedPcap/4f6936ad674bc1ca4f620ff3adade0d1.pcap
+file extractedPcap/extractedPcap/112a273c48aa2b8587d41a4f7fd9b6a1.pcap read complete, filesize = 1026 bytes
+no malware found for file extractedPcap/extractedPcap/112a273c48aa2b8587d41a4f7fd9b6a1.pcap
+file extractedPcap/extractedPcap/2a5213a13682d2242daba8d892112d0d.pcap read complete, filesize = 155519 bytes
+no malware found for file extractedPcap/extractedPcap/2a5213a13682d2242daba8d892112d0d.pcap
+file extractedPcap/extractedPcap/62b7b8cdd6bcd00a7f473ea8330e4d1a.pcap read complete, filesize = 7615 bytes
+no malware found for file extractedPcap/extractedPcap/62b7b8cdd6bcd00a7f473ea8330e4d1a.pcap
+file extractedPcap/extractedPcap/3f3670d89205fea3a7f953fa18016fd1.pcap read complete, filesize = 238798 bytes
+no malware found for file extractedPcap/extractedPcap/3f3670d89205fea3a7f953fa18016fd1.pcap
+file extractedPcap/extractedPcap/1108ddcd7a2154f6820b618c73cb6ade.pcap read complete, filesize = 161539 bytes
+no malware found for file extractedPcap/extractedPcap/1108ddcd7a2154f6820b618c73cb6ade.pcap
+file extractedPcap/extractedPcap/27b6a95606b8d69549e66d1e3e2e9c8e.pcap read complete, filesize = 29610 bytes
+no malware found for file extractedPcap/extractedPcap/27b6a95606b8d69549e66d1e3e2e9c8e.pcap
+file extractedPcap/extractedPcap/2535529a3c9134687dcd30e89fed26da.pcap read complete, filesize = 4284 bytes
+no malware found for file extractedPcap/extractedPcap/2535529a3c9134687dcd30e89fed26da.pcap
+file extractedPcap/extractedPcap/3e52b3194704095ed982aadbadcd97cc.pcap read complete, filesize = 366918 bytes
+no malware found for file extractedPcap/extractedPcap/3e52b3194704095ed982aadbadcd97cc.pcap
+file extractedPcap/extractedPcap/58c249fcaa81ef1126e7f62050cefb91.pcap read complete, filesize = 399068 bytes
+no malware found for file extractedPcap/extractedPcap/58c249fcaa81ef1126e7f62050cefb91.pcap
+file extractedPcap/extractedPcap/3569fb4d4359177d66e95d8235b81e0c.pcap read complete, filesize = 492010 bytes
+no malware found for file extractedPcap/extractedPcap/3569fb4d4359177d66e95d8235b81e0c.pcap
+file extractedPcap/extractedPcap/7f87f170afc619edce135babf25c4fc7.pcap read complete, filesize = 390923 bytes
+no malware found for file extractedPcap/extractedPcap/7f87f170afc619edce135babf25c4fc7.pcap
+file extractedPcap/extractedPcap/68cc248995960e0126eda9e5e3aa1b1a.pcap read complete, filesize = 4303 bytes
+no malware found for file extractedPcap/extractedPcap/68cc248995960e0126eda9e5e3aa1b1a.pcap
+file extractedPcap/extractedPcap/56557fe0f55874f5294077b8c4cf16b0.pcap read complete, filesize = 213749 bytes
+no malware found for file extractedPcap/extractedPcap/56557fe0f55874f5294077b8c4cf16b0.pcap
+file extractedPcap/extractedPcap/4c574b542e546462cd1583604e1c0d92.pcap read complete, filesize = 2172 bytes
+no malware found for file extractedPcap/extractedPcap/4c574b542e546462cd1583604e1c0d92.pcap
+file extractedPcap/extractedPcap/6f24f7d795044fb6db9de911e903e52d.pcap read complete, filesize = 303288 bytes
+no malware found for file extractedPcap/extractedPcap/6f24f7d795044fb6db9de911e903e52d.pcap
+file extractedPcap/extractedPcap/6aa8aeca2cfc8d09008e6b5ee56e9a82.pcap read complete, filesize = 973 bytes
+no malware found for file extractedPcap/extractedPcap/6aa8aeca2cfc8d09008e6b5ee56e9a82.pcap
+file extractedPcap/extractedPcap/06c2b75cf3e409b68f2446a932d72db0.pcap read complete, filesize = 448619 bytes
+no malware found for file extractedPcap/extractedPcap/06c2b75cf3e409b68f2446a932d72db0.pcap
+file extractedPcap/extractedPcap/83dfc8ffcc72dab82ec0735f365e4a92.pcap read complete, filesize = 476956 bytes
+no malware found for file extractedPcap/extractedPcap/83dfc8ffcc72dab82ec0735f365e4a92.pcap
+file extractedPcap/extractedPcap/00ab8b3c1d3ec95a32a568f61c8da159.pcap read complete, filesize = 717717 bytes
+no malware found for file extractedPcap/extractedPcap/00ab8b3c1d3ec95a32a568f61c8da159.pcap
+file extractedPcap/extractedPcap/77ad050493868bdb31f15dbb9677b8d9.pcap read complete, filesize = 1293 bytes
+no malware found for file extractedPcap/extractedPcap/77ad050493868bdb31f15dbb9677b8d9.pcap
+file extractedPcap/extractedPcap/5fc88ae4429ef4204744eb993fb742c5.pcap read complete, filesize = 1943 bytes
+no malware found for file extractedPcap/extractedPcap/5fc88ae4429ef4204744eb993fb742c5.pcap
+file extractedPcap/extractedPcap/57dbe00b86aa122ed07768187c3fc575.pcap read complete, filesize = 1045235 bytes
+no malware found for file extractedPcap/extractedPcap/57dbe00b86aa122ed07768187c3fc575.pcap
+file extractedPcap/extractedPcap/01c238df4be05ecafdf0642ffdc58b0b.pcap read complete, filesize = 1072 bytes
+no malware found for file extractedPcap/extractedPcap/01c238df4be05ecafdf0642ffdc58b0b.pcap
+file extractedPcap/extractedPcap/2eed62a5eaf61335dd9759318d90a7dc.pcap read complete, filesize = 379679 bytes
+no malware found for file extractedPcap/extractedPcap/2eed62a5eaf61335dd9759318d90a7dc.pcap
+file extractedPcap/extractedPcap/4c9eae393116bb5d094d136d4c07f249.pcap read complete, filesize = 2172 bytes
+no malware found for file extractedPcap/extractedPcap/4c9eae393116bb5d094d136d4c07f249.pcap
+file extractedPcap/extractedPcap/0992c25f54b995329d2e14bb732676ca.pcap read complete, filesize = 2119 bytes
+no malware found for file extractedPcap/extractedPcap/0992c25f54b995329d2e14bb732676ca.pcap
+file extractedPcap/extractedPcap/2e99eba55573baf0505356486b811dfe.pcap read complete, filesize = 1156 bytes
+no malware found for file extractedPcap/extractedPcap/2e99eba55573baf0505356486b811dfe.pcap
+file extractedPcap/extractedPcap/0366a8479e08df48fdec9c6a22e85110.pcap read complete, filesize = 10351 bytes
+no malware found for file extractedPcap/extractedPcap/0366a8479e08df48fdec9c6a22e85110.pcap
+file extractedPcap/extractedPcap/6e3f625577597294d4f75d32cfdaa784.pcap read complete, filesize = 10030 bytes
+no malware found for file extractedPcap/extractedPcap/6e3f625577597294d4f75d32cfdaa784.pcap
+file extractedPcap/extractedPcap/2578465034d29c28e216129e3379882f.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/2578465034d29c28e216129e3379882f.pcap
+file extractedPcap/extractedPcap/49d79e5755b7e017171b88114e96dff4.pcap read complete, filesize = 63422 bytes
+no malware found for file extractedPcap/extractedPcap/49d79e5755b7e017171b88114e96dff4.pcap
+file extractedPcap/extractedPcap/1c27a1713342f1bdbe11d9cee84dbcfd.pcap read complete, filesize = 28344 bytes
+no malware found for file extractedPcap/extractedPcap/1c27a1713342f1bdbe11d9cee84dbcfd.pcap
+file extractedPcap/extractedPcap/070f414ebbc5f2fe917d5082936f3a09.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/070f414ebbc5f2fe917d5082936f3a09.pcap
+file extractedPcap/extractedPcap/4b3c7ccf90b158bdbb18b3b6b92eebce.pcap read complete, filesize = 172994 bytes
+no malware found for file extractedPcap/extractedPcap/4b3c7ccf90b158bdbb18b3b6b92eebce.pcap
+file extractedPcap/extractedPcap/330b8f3bdb5e6841a712712494e8d898.pcap read complete, filesize = 358341 bytes
+no malware found for file extractedPcap/extractedPcap/330b8f3bdb5e6841a712712494e8d898.pcap
+file extractedPcap/extractedPcap/18987dbcc30df340b40f7a98edf56c8c.pcap read complete, filesize = 9789 bytes
+no malware found for file extractedPcap/extractedPcap/18987dbcc30df340b40f7a98edf56c8c.pcap
+file extractedPcap/extractedPcap/0aadd1b977c422ac84e6409686ab218d.pcap read complete, filesize = 2178 bytes
+no malware found for file extractedPcap/extractedPcap/0aadd1b977c422ac84e6409686ab218d.pcap
+file extractedPcap/extractedPcap/71aeb70a8495f3b65990744a8af463c6.pcap read complete, filesize = 7013 bytes
+no malware found for file extractedPcap/extractedPcap/71aeb70a8495f3b65990744a8af463c6.pcap
+file extractedPcap/extractedPcap/33ba100fb38f91838de7929cd47f823d.pcap read complete, filesize = 146981 bytes
+no malware found for file extractedPcap/extractedPcap/33ba100fb38f91838de7929cd47f823d.pcap
+file extractedPcap/extractedPcap/04208e40db9309d85af033e687358191.pcap read complete, filesize = 37666 bytes
+no malware found for file extractedPcap/extractedPcap/04208e40db9309d85af033e687358191.pcap
+file extractedPcap/extractedPcap/58e9184b5a33d9afbf4b0cf521746a2a.pcap read complete, filesize = 4239 bytes
+no malware found for file extractedPcap/extractedPcap/58e9184b5a33d9afbf4b0cf521746a2a.pcap
+file extractedPcap/extractedPcap/00de5418810d5077b3ee7e5b2c1ee8c9.pcap read complete, filesize = 3153 bytes
+no malware found for file extractedPcap/extractedPcap/00de5418810d5077b3ee7e5b2c1ee8c9.pcap
+file extractedPcap/extractedPcap/75f5dd4cfbe17888e69d0212fee5efe2.pcap read complete, filesize = 1790 bytes
+no malware found for file extractedPcap/extractedPcap/75f5dd4cfbe17888e69d0212fee5efe2.pcap
+file extractedPcap/extractedPcap/0dd1e774e33702642a3e650cdf771fbc.pcap read complete, filesize = 1046 bytes
+no malware found for file extractedPcap/extractedPcap/0dd1e774e33702642a3e650cdf771fbc.pcap
+file extractedPcap/extractedPcap/7f05c1946a59096a4b905e7a49e1ec42.pcap read complete, filesize = 354551 bytes
+no malware found for file extractedPcap/extractedPcap/7f05c1946a59096a4b905e7a49e1ec42.pcap
+file extractedPcap/extractedPcap/24af4fde5cdbc28410585a474b0b72d3.pcap read complete, filesize = 13519 bytes
+no malware found for file extractedPcap/extractedPcap/24af4fde5cdbc28410585a474b0b72d3.pcap
+file extractedPcap/extractedPcap/76a15dae88d4cfe7eaa1c486b5fcd6e0.pcap read complete, filesize = 15115 bytes
+no malware found for file extractedPcap/extractedPcap/76a15dae88d4cfe7eaa1c486b5fcd6e0.pcap
+file extractedPcap/extractedPcap/30cf53f10cfa19f14e74eca11883e9d3.pcap read complete, filesize = 125653 bytes
+no malware found for file extractedPcap/extractedPcap/30cf53f10cfa19f14e74eca11883e9d3.pcap
+file extractedPcap/extractedPcap/7e5fa7c92d50ae01a4c19a92ff9aa453.pcap read complete, filesize = 2316 bytes
+no malware found for file extractedPcap/extractedPcap/7e5fa7c92d50ae01a4c19a92ff9aa453.pcap
+file extractedPcap/extractedPcap/06f7245180f01a2736e792ab5703c9ec.pcap read complete, filesize = 398062 bytes
+no malware found for file extractedPcap/extractedPcap/06f7245180f01a2736e792ab5703c9ec.pcap
+file extractedPcap/extractedPcap/442ab7d948283319dc9163e2ffd2af8d.pcap read complete, filesize = 7543 bytes
+no malware found for file extractedPcap/extractedPcap/442ab7d948283319dc9163e2ffd2af8d.pcap
+file extractedPcap/extractedPcap/56281ae20856a1025ac78b5c2c48cc2f.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/56281ae20856a1025ac78b5c2c48cc2f.pcap
+file extractedPcap/extractedPcap/414d3f59d6f397405d55dd2f8fbd053b.pcap read complete, filesize = 19316 bytes
+no malware found for file extractedPcap/extractedPcap/414d3f59d6f397405d55dd2f8fbd053b.pcap
+file extractedPcap/extractedPcap/2c114ad7acf2970004948850d8929502.pcap read complete, filesize = 12602 bytes
+no malware found for file extractedPcap/extractedPcap/2c114ad7acf2970004948850d8929502.pcap
+file extractedPcap/extractedPcap/5af056792865b8e8e554d0cdf7614587.pcap read complete, filesize = 26672 bytes
+no malware found for file extractedPcap/extractedPcap/5af056792865b8e8e554d0cdf7614587.pcap
+file extractedPcap/extractedPcap/6eac59bad9078a4095ea6a793d39e1b5.pcap read complete, filesize = 10822 bytes
+no malware found for file extractedPcap/extractedPcap/6eac59bad9078a4095ea6a793d39e1b5.pcap
+file extractedPcap/extractedPcap/2b54f6de8c57ca7611be0a13d2a23043.pcap read complete, filesize = 78691 bytes
+no malware found for file extractedPcap/extractedPcap/2b54f6de8c57ca7611be0a13d2a23043.pcap
+file extractedPcap/extractedPcap/18787a25a71021bec296a35ebe2ea65e.pcap read complete, filesize = 575452 bytes
+no malware found for file extractedPcap/extractedPcap/18787a25a71021bec296a35ebe2ea65e.pcap
+file extractedPcap/extractedPcap/21983031ace89149e911fad634d972e7.pcap read complete, filesize = 4072 bytes
+no malware found for file extractedPcap/extractedPcap/21983031ace89149e911fad634d972e7.pcap
+file extractedPcap/extractedPcap/57e3210b1871ed965ce857ed5c1684dd.pcap read complete, filesize = 3927 bytes
+no malware found for file extractedPcap/extractedPcap/57e3210b1871ed965ce857ed5c1684dd.pcap
+file extractedPcap/extractedPcap/0c8df72c47ed92f2f1000fc233a3e029.pcap read complete, filesize = 727682 bytes
+no malware found for file extractedPcap/extractedPcap/0c8df72c47ed92f2f1000fc233a3e029.pcap
+file extractedPcap/extractedPcap/2720e3cc5e5d93ddfd12a8c1ea4ef535.pcap read complete, filesize = 410543 bytes
+no malware found for file extractedPcap/extractedPcap/2720e3cc5e5d93ddfd12a8c1ea4ef535.pcap
+file extractedPcap/extractedPcap/0a4c6777f700c7e2f3934104648bd783.pcap read complete, filesize = 3368 bytes
+no malware found for file extractedPcap/extractedPcap/0a4c6777f700c7e2f3934104648bd783.pcap
+file extractedPcap/extractedPcap/85f601f2a9f079cc2f7d8deb22687518.pcap read complete, filesize = 629695 bytes
+no malware found for file extractedPcap/extractedPcap/85f601f2a9f079cc2f7d8deb22687518.pcap
+file extractedPcap/extractedPcap/064f44f261743f7e9897b8befea26383.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/064f44f261743f7e9897b8befea26383.pcap
+file extractedPcap/extractedPcap/713a946a8cba33cbdb2ed7b1234b114e.pcap read complete, filesize = 1087 bytes
+no malware found for file extractedPcap/extractedPcap/713a946a8cba33cbdb2ed7b1234b114e.pcap
+file extractedPcap/extractedPcap/231aca563b031a88e68c917684f3efac.pcap read complete, filesize = 9319 bytes
+no malware found for file extractedPcap/extractedPcap/231aca563b031a88e68c917684f3efac.pcap
+file extractedPcap/extractedPcap/6f422a32ab3f667f37277fa4dcb74416.pcap read complete, filesize = 95188 bytes
+no malware found for file extractedPcap/extractedPcap/6f422a32ab3f667f37277fa4dcb74416.pcap
+file extractedPcap/extractedPcap/2e14e6b3b56585d47caf8b7c193d4eb9.pcap read complete, filesize = 1993 bytes
+no malware found for file extractedPcap/extractedPcap/2e14e6b3b56585d47caf8b7c193d4eb9.pcap
+file extractedPcap/extractedPcap/6cf660c3d11d2a8def784583ce020591.pcap read complete, filesize = 4152 bytes
+no malware found for file extractedPcap/extractedPcap/6cf660c3d11d2a8def784583ce020591.pcap
+file extractedPcap/extractedPcap/0d43eeee63d1e78a5a6d3f05105707c1.pcap read complete, filesize = 11123 bytes
+no malware found for file extractedPcap/extractedPcap/0d43eeee63d1e78a5a6d3f05105707c1.pcap
+file extractedPcap/extractedPcap/366eacc3ad8cef074dd7513a21b6ce7c.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/366eacc3ad8cef074dd7513a21b6ce7c.pcap
+file extractedPcap/extractedPcap/84c4130fed3871dfc09765f3509b6c92.pcap read complete, filesize = 104030 bytes
+no malware found for file extractedPcap/extractedPcap/84c4130fed3871dfc09765f3509b6c92.pcap
+file extractedPcap/extractedPcap/602842ea30b4ad7029fabc94165fc383.pcap read complete, filesize = 5217 bytes
+no malware found for file extractedPcap/extractedPcap/602842ea30b4ad7029fabc94165fc383.pcap
+file extractedPcap/extractedPcap/5b3d1c04cb16b5604cd76d9f808cd003.pcap read complete, filesize = 457091 bytes
+no malware found for file extractedPcap/extractedPcap/5b3d1c04cb16b5604cd76d9f808cd003.pcap
+file extractedPcap/extractedPcap/40f713b6f4f01b1e51a22526e23de626.pcap read complete, filesize = 312600 bytes
+no malware found for file extractedPcap/extractedPcap/40f713b6f4f01b1e51a22526e23de626.pcap
+file extractedPcap/extractedPcap/0ba370487e37fa76a742e57e8a387669.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/0ba370487e37fa76a742e57e8a387669.pcap
+file extractedPcap/extractedPcap/002a95be499059b2980dda0a77f22124.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/002a95be499059b2980dda0a77f22124.pcap
+file extractedPcap/extractedPcap/194d40227958d82e18353424f1e7189a.pcap read complete, filesize = 7543 bytes
+no malware found for file extractedPcap/extractedPcap/194d40227958d82e18353424f1e7189a.pcap
+file extractedPcap/extractedPcap/6541e8cc670518a70c2845d67b704d0e.pcap read complete, filesize = 9039 bytes
+no malware found for file extractedPcap/extractedPcap/6541e8cc670518a70c2845d67b704d0e.pcap
+file extractedPcap/extractedPcap/3317db7715168b0eea094216ecdf8070.pcap read complete, filesize = 48636 bytes
+no malware found for file extractedPcap/extractedPcap/3317db7715168b0eea094216ecdf8070.pcap
+file extractedPcap/extractedPcap/21b4388d4647ffa40988c961dde8887c.pcap read complete, filesize = 908 bytes
+no malware found for file extractedPcap/extractedPcap/21b4388d4647ffa40988c961dde8887c.pcap
+file extractedPcap/extractedPcap/2aade02ef9c138a4014154fd74026f94.pcap read complete, filesize = 381418 bytes
+no malware found for file extractedPcap/extractedPcap/2aade02ef9c138a4014154fd74026f94.pcap
+file extractedPcap/extractedPcap/1d339a34a888f13387db7dc8091f056e.pcap read complete, filesize = 105298 bytes
+no malware found for file extractedPcap/extractedPcap/1d339a34a888f13387db7dc8091f056e.pcap
+file extractedPcap/extractedPcap/2b3c0b78ce543cb2d1c76b3d4f425606.pcap read complete, filesize = 391817 bytes
+no malware found for file extractedPcap/extractedPcap/2b3c0b78ce543cb2d1c76b3d4f425606.pcap
+file extractedPcap/extractedPcap/2275f713cb9f3faf51ab46e9e8fe2937.pcap read complete, filesize = 4327 bytes
+no malware found for file extractedPcap/extractedPcap/2275f713cb9f3faf51ab46e9e8fe2937.pcap
+file extractedPcap/extractedPcap/822cf29abb18211139c4ec2ab5a512d8.pcap read complete, filesize = 194915 bytes
+no malware found for file extractedPcap/extractedPcap/822cf29abb18211139c4ec2ab5a512d8.pcap
+file extractedPcap/extractedPcap/733d04fefd7600cd006e6c58a4dca249.pcap read complete, filesize = 12879 bytes
+no malware found for file extractedPcap/extractedPcap/733d04fefd7600cd006e6c58a4dca249.pcap
+file extractedPcap/extractedPcap/6b1239697874576d67488ccfd6eb5615.pcap read complete, filesize = 2430312 bytes
+no malware found for file extractedPcap/extractedPcap/6b1239697874576d67488ccfd6eb5615.pcap
+file extractedPcap/extractedPcap/091b1bdd8ea5200e5afac6f36323f6d7.pcap read complete, filesize = 1018363 bytes
+no malware found for file extractedPcap/extractedPcap/091b1bdd8ea5200e5afac6f36323f6d7.pcap
+file extractedPcap/extractedPcap/754c5754bd7dee3b500449503a2f1edc.pcap read complete, filesize = 15746 bytes
+no malware found for file extractedPcap/extractedPcap/754c5754bd7dee3b500449503a2f1edc.pcap
+file extractedPcap/extractedPcap/1f20809b82856051532d26d73e5efc42.pcap read complete, filesize = 2337 bytes
+no malware found for file extractedPcap/extractedPcap/1f20809b82856051532d26d73e5efc42.pcap
+file extractedPcap/extractedPcap/32d6550e80fdb16e61e2b3dadf2668a9.pcap read complete, filesize = 3368 bytes
+no malware found for file extractedPcap/extractedPcap/32d6550e80fdb16e61e2b3dadf2668a9.pcap
+file extractedPcap/extractedPcap/35d76440be0946bfb941e0d11116959a.pcap read complete, filesize = 362847 bytes
+no malware found for file extractedPcap/extractedPcap/35d76440be0946bfb941e0d11116959a.pcap
+file extractedPcap/extractedPcap/5a0e700d59e40754ce05f08666b106a0.pcap read complete, filesize = 192780 bytes
+no malware found for file extractedPcap/extractedPcap/5a0e700d59e40754ce05f08666b106a0.pcap
+file extractedPcap/extractedPcap/682ea6178b7e95033e235de703adb7cd.pcap read complete, filesize = 2616 bytes
+no malware found for file extractedPcap/extractedPcap/682ea6178b7e95033e235de703adb7cd.pcap
+file extractedPcap/extractedPcap/0cf951cb84434e661ef3ff9b13e6ee7f.pcap read complete, filesize = 985 bytes
+no malware found for file extractedPcap/extractedPcap/0cf951cb84434e661ef3ff9b13e6ee7f.pcap
+file extractedPcap/extractedPcap/5118975f52871c49bd82ca69754685dc.pcap read complete, filesize = 397223 bytes
+no malware found for file extractedPcap/extractedPcap/5118975f52871c49bd82ca69754685dc.pcap
+file extractedPcap/extractedPcap/2827879c312cacceb3b5191608e7dcb6.pcap read complete, filesize = 1832 bytes
+no malware found for file extractedPcap/extractedPcap/2827879c312cacceb3b5191608e7dcb6.pcap
+file extractedPcap/extractedPcap/07406bd64de49ca3cd7b25fceb6b56f9.pcap read complete, filesize = 4232 bytes
+no malware found for file extractedPcap/extractedPcap/07406bd64de49ca3cd7b25fceb6b56f9.pcap
+file extractedPcap/extractedPcap/2a01aac5fa264bf5898c690ab877964e.pcap read complete, filesize = 5577 bytes
+no malware found for file extractedPcap/extractedPcap/2a01aac5fa264bf5898c690ab877964e.pcap
+file extractedPcap/extractedPcap/0a52131eebbee1df877767875ab32352.pcap read complete, filesize = 160584 bytes
+no malware found for file extractedPcap/extractedPcap/0a52131eebbee1df877767875ab32352.pcap
+file extractedPcap/extractedPcap/637458185a87d1c8c8c68fc490b6cbae.pcap read complete, filesize = 16297 bytes
+no malware found for file extractedPcap/extractedPcap/637458185a87d1c8c8c68fc490b6cbae.pcap
+file extractedPcap/extractedPcap/3741cc50ca000fc943369f9cbed915bd.pcap read complete, filesize = 48441 bytes
+no malware found for file extractedPcap/extractedPcap/3741cc50ca000fc943369f9cbed915bd.pcap
+file extractedPcap/extractedPcap/05e8e3fe026a1ed469c5c554c62c0879.pcap read complete, filesize = 2156 bytes
+no malware found for file extractedPcap/extractedPcap/05e8e3fe026a1ed469c5c554c62c0879.pcap
+file extractedPcap/extractedPcap/1296ae5073b6711a15f6642bf3ca54c7.pcap read complete, filesize = 765417 bytes
+no malware found for file extractedPcap/extractedPcap/1296ae5073b6711a15f6642bf3ca54c7.pcap
+file extractedPcap/extractedPcap/2baf590c5fc6cffd32fe4f8dc767d809.pcap read complete, filesize = 9382 bytes
+no malware found for file extractedPcap/extractedPcap/2baf590c5fc6cffd32fe4f8dc767d809.pcap
+file extractedPcap/extractedPcap/373256fe7538680274cc619c4c357134.pcap read complete, filesize = 44503 bytes
+no malware found for file extractedPcap/extractedPcap/373256fe7538680274cc619c4c357134.pcap
+file extractedPcap/extractedPcap/718e648e939c9bcbf8b27f93a7b5146d.pcap read complete, filesize = 142904 bytes
+no malware found for file extractedPcap/extractedPcap/718e648e939c9bcbf8b27f93a7b5146d.pcap
+file extractedPcap/extractedPcap/2dd28df3cf1b1c347ac8437e4c5e0dfe.pcap read complete, filesize = 7615 bytes
+no malware found for file extractedPcap/extractedPcap/2dd28df3cf1b1c347ac8437e4c5e0dfe.pcap
+file extractedPcap/extractedPcap/4e4e8124f4fdcb7f9f733429765a2463.pcap read complete, filesize = 1133 bytes
+no malware found for file extractedPcap/extractedPcap/4e4e8124f4fdcb7f9f733429765a2463.pcap
+file extractedPcap/extractedPcap/1771164b4172cd81b192eeeaa3d2ade6.pcap read complete, filesize = 397755 bytes
+no malware found for file extractedPcap/extractedPcap/1771164b4172cd81b192eeeaa3d2ade6.pcap
+file extractedPcap/extractedPcap/1cbd17c036659e437bb7e951b8efc7e0.pcap read complete, filesize = 979 bytes
+no malware found for file extractedPcap/extractedPcap/1cbd17c036659e437bb7e951b8efc7e0.pcap
+file extractedPcap/extractedPcap/497010ab4526b7a28943fb70b59085f7.pcap read complete, filesize = 1156 bytes
+no malware found for file extractedPcap/extractedPcap/497010ab4526b7a28943fb70b59085f7.pcap
+file extractedPcap/extractedPcap/2a2b2769c86533263bfb1e1d55932c42.pcap read complete, filesize = 131054 bytes
+no malware found for file extractedPcap/extractedPcap/2a2b2769c86533263bfb1e1d55932c42.pcap
+file extractedPcap/extractedPcap/1f8b0aec370d0ef56b592ce6de2b72d3.pcap read complete, filesize = 390915 bytes
+no malware found for file extractedPcap/extractedPcap/1f8b0aec370d0ef56b592ce6de2b72d3.pcap
+file extractedPcap/extractedPcap/81c294fc81f8b0e9555571f62a78018c.pcap read complete, filesize = 1292 bytes
+no malware found for file extractedPcap/extractedPcap/81c294fc81f8b0e9555571f62a78018c.pcap
+file extractedPcap/extractedPcap/70443f6a58953ad671f26e69b77b6a9c.pcap read complete, filesize = 4232 bytes
+no malware found for file extractedPcap/extractedPcap/70443f6a58953ad671f26e69b77b6a9c.pcap
+file extractedPcap/extractedPcap/1963b05165d295427f6b7c77c0479bbb.pcap read complete, filesize = 392164 bytes
+no malware found for file extractedPcap/extractedPcap/1963b05165d295427f6b7c77c0479bbb.pcap
+file extractedPcap/extractedPcap/0639bab5b1e10258171d1a66089ad56a.pcap read complete, filesize = 4261 bytes
+no malware found for file extractedPcap/extractedPcap/0639bab5b1e10258171d1a66089ad56a.pcap
+file extractedPcap/extractedPcap/5d0863510b45dc3baf94704c9ccb1436.pcap read complete, filesize = 3927 bytes
+no malware found for file extractedPcap/extractedPcap/5d0863510b45dc3baf94704c9ccb1436.pcap
+file extractedPcap/extractedPcap/32f5b63c1a2c70dd10ca7cd6e8b029dd.pcap read complete, filesize = 11515 bytes
+no malware found for file extractedPcap/extractedPcap/32f5b63c1a2c70dd10ca7cd6e8b029dd.pcap
+file extractedPcap/extractedPcap/311a6b8151687e5d41ef536910184cb5.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/311a6b8151687e5d41ef536910184cb5.pcap
+file extractedPcap/extractedPcap/256436f36a4cef481cede60d6feacd99.pcap read complete, filesize = 11814 bytes
+no malware found for file extractedPcap/extractedPcap/256436f36a4cef481cede60d6feacd99.pcap
+file extractedPcap/extractedPcap/181435abac001b7235833cd39b358e74.pcap read complete, filesize = 487600 bytes
+no malware found for file extractedPcap/extractedPcap/181435abac001b7235833cd39b358e74.pcap
+file extractedPcap/extractedPcap/47f975e24d556918b9fda506e124fd8f.pcap read complete, filesize = 47108 bytes
+no malware found for file extractedPcap/extractedPcap/47f975e24d556918b9fda506e124fd8f.pcap
+file extractedPcap/extractedPcap/43864b2f0c38b8d9192954e812890ac2.pcap read complete, filesize = 141383 bytes
+no malware found for file extractedPcap/extractedPcap/43864b2f0c38b8d9192954e812890ac2.pcap
+file extractedPcap/extractedPcap/5038fcb87e94d2e6fbae18f8e8ac039d.pcap read complete, filesize = 1013 bytes
+no malware found for file extractedPcap/extractedPcap/5038fcb87e94d2e6fbae18f8e8ac039d.pcap
+file extractedPcap/extractedPcap/3ac1c020f54d74abed127197102131fe.pcap read complete, filesize = 176133 bytes
+no malware found for file extractedPcap/extractedPcap/3ac1c020f54d74abed127197102131fe.pcap
+file extractedPcap/extractedPcap/555ccb6852be95f6465c9770ffc86664.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/555ccb6852be95f6465c9770ffc86664.pcap
+file extractedPcap/extractedPcap/59bb7347cc7d44b364264e19a22d794d.pcap read complete, filesize = 1095 bytes
+no malware found for file extractedPcap/extractedPcap/59bb7347cc7d44b364264e19a22d794d.pcap
+file extractedPcap/extractedPcap/2bfd2335aeee669c5b784b99448b947b.pcap read complete, filesize = 286182 bytes
+no malware found for file extractedPcap/extractedPcap/2bfd2335aeee669c5b784b99448b947b.pcap
+file extractedPcap/extractedPcap/06b2453e05c3590f239b898ecb18286a.pcap read complete, filesize = 212668 bytes
+no malware found for file extractedPcap/extractedPcap/06b2453e05c3590f239b898ecb18286a.pcap
+file extractedPcap/extractedPcap/21594cc9e318d3c29448c77ca36f0739.pcap read complete, filesize = 4167 bytes
+no malware found for file extractedPcap/extractedPcap/21594cc9e318d3c29448c77ca36f0739.pcap
+file extractedPcap/extractedPcap/10afbebe3ce87eef852a51b8c34e0ae3.pcap read complete, filesize = 369135 bytes
+no malware found for file extractedPcap/extractedPcap/10afbebe3ce87eef852a51b8c34e0ae3.pcap
+file extractedPcap/extractedPcap/2ae1756d0c048fd9cb68bfb3cad9cfd2.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/2ae1756d0c048fd9cb68bfb3cad9cfd2.pcap
+file extractedPcap/extractedPcap/3b6e577bbad8c677207e3163ddf1549d.pcap read complete, filesize = 24050 bytes
+no malware found for file extractedPcap/extractedPcap/3b6e577bbad8c677207e3163ddf1549d.pcap
+file extractedPcap/extractedPcap/332494d08846b39bb896966273aa1fd0.pcap read complete, filesize = 408682 bytes
+no malware found for file extractedPcap/extractedPcap/332494d08846b39bb896966273aa1fd0.pcap
+file extractedPcap/extractedPcap/7ee5e2e440d4dd43f6b18c5435c40336.pcap read complete, filesize = 2424 bytes
+no malware found for file extractedPcap/extractedPcap/7ee5e2e440d4dd43f6b18c5435c40336.pcap
+file extractedPcap/extractedPcap/3823dbe373d97ffbb6289193c8673d9e.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/3823dbe373d97ffbb6289193c8673d9e.pcap
+file extractedPcap/extractedPcap/75d8d4b3d9ca04a2c3054f1dced3d283.pcap read complete, filesize = 2086 bytes
+no malware found for file extractedPcap/extractedPcap/75d8d4b3d9ca04a2c3054f1dced3d283.pcap
+file extractedPcap/extractedPcap/0d268feecc238a6e5493c1e3ca16ed36.pcap read complete, filesize = 5483 bytes
+no malware found for file extractedPcap/extractedPcap/0d268feecc238a6e5493c1e3ca16ed36.pcap
+file extractedPcap/extractedPcap/65ca127bcde4b35c3e2994aa2bbbf569.pcap read complete, filesize = 408926 bytes
+no malware found for file extractedPcap/extractedPcap/65ca127bcde4b35c3e2994aa2bbbf569.pcap
+file extractedPcap/extractedPcap/175d6af8833a7e171d0321062e773e53.pcap read complete, filesize = 619161 bytes
+no malware found for file extractedPcap/extractedPcap/175d6af8833a7e171d0321062e773e53.pcap
+file extractedPcap/extractedPcap/54de65ab8058381011e5cfab280a8021.pcap read complete, filesize = 135929 bytes
+no malware found for file extractedPcap/extractedPcap/54de65ab8058381011e5cfab280a8021.pcap
+file extractedPcap/extractedPcap/64be26c1ee730d3dd2f61a03780f6e30.pcap read complete, filesize = 1943 bytes
+no malware found for file extractedPcap/extractedPcap/64be26c1ee730d3dd2f61a03780f6e30.pcap
+file extractedPcap/extractedPcap/7f1ab5683cdc62341f554465be4a1193.pcap read complete, filesize = 8690 bytes
+no malware found for file extractedPcap/extractedPcap/7f1ab5683cdc62341f554465be4a1193.pcap
+file extractedPcap/extractedPcap/0aa7bf6689578dd858905779cdcf6430.pcap read complete, filesize = 47024 bytes
+no malware found for file extractedPcap/extractedPcap/0aa7bf6689578dd858905779cdcf6430.pcap
+file extractedPcap/extractedPcap/7dad8f3e3cca2e963055ccb2d7af7e64.pcap read complete, filesize = 890 bytes
+no malware found for file extractedPcap/extractedPcap/7dad8f3e3cca2e963055ccb2d7af7e64.pcap
+file extractedPcap/extractedPcap/3c7470ec0e46faebcb16be7fada25168.pcap read complete, filesize = 29893 bytes
+no malware found for file extractedPcap/extractedPcap/3c7470ec0e46faebcb16be7fada25168.pcap
+file extractedPcap/extractedPcap/19d66af7544f6961d17f20dc0a67727d.pcap read complete, filesize = 4239 bytes
+no malware found for file extractedPcap/extractedPcap/19d66af7544f6961d17f20dc0a67727d.pcap
+file extractedPcap/extractedPcap/1a136382cc5477cf0e1fd3dbb6fcd103.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/1a136382cc5477cf0e1fd3dbb6fcd103.pcap
+file extractedPcap/extractedPcap/72bd8b8ee1193b3ea047f51f5dcd08e1.pcap read complete, filesize = 471495 bytes
+no malware found for file extractedPcap/extractedPcap/72bd8b8ee1193b3ea047f51f5dcd08e1.pcap
+file extractedPcap/extractedPcap/18334750ca6e0b084c940905b53a7cc4.pcap read complete, filesize = 437113 bytes
+no malware found for file extractedPcap/extractedPcap/18334750ca6e0b084c940905b53a7cc4.pcap
+file extractedPcap/extractedPcap/383ee7bd2ce0a9c752502b07584a5224.pcap read complete, filesize = 387324 bytes
+no malware found for file extractedPcap/extractedPcap/383ee7bd2ce0a9c752502b07584a5224.pcap
+file extractedPcap/extractedPcap/49ac63df22f680303a3f8f94a734d3d3.pcap read complete, filesize = 201595 bytes
+no malware found for file extractedPcap/extractedPcap/49ac63df22f680303a3f8f94a734d3d3.pcap
+file extractedPcap/extractedPcap/828a3655200a68d4a6243c607bc65635.pcap read complete, filesize = 46952 bytes
+no malware found for file extractedPcap/extractedPcap/828a3655200a68d4a6243c607bc65635.pcap
+file extractedPcap/extractedPcap/7b6c2642d9b81e1aa5c983ac1857ef55.pcap read complete, filesize = 455657 bytes
+no malware found for file extractedPcap/extractedPcap/7b6c2642d9b81e1aa5c983ac1857ef55.pcap
+file extractedPcap/extractedPcap/6edd662dbe078045b99fd2adcc02950b.pcap read complete, filesize = 95400 bytes
+no malware found for file extractedPcap/extractedPcap/6edd662dbe078045b99fd2adcc02950b.pcap
+file extractedPcap/extractedPcap/82a77bd1e20874e2ca3420b5fd5b422a.pcap read complete, filesize = 186 bytes
+no malware found for file extractedPcap/extractedPcap/82a77bd1e20874e2ca3420b5fd5b422a.pcap
+file extractedPcap/extractedPcap/1794cdd710d6b7ba8b1b60f9ea7afcc9.pcap read complete, filesize = 361976 bytes
+no malware found for file extractedPcap/extractedPcap/1794cdd710d6b7ba8b1b60f9ea7afcc9.pcap
+file extractedPcap/extractedPcap/39a1c97600038ec6b4c70d279ffc5c31.pcap read complete, filesize = 591320 bytes
+no malware found for file extractedPcap/extractedPcap/39a1c97600038ec6b4c70d279ffc5c31.pcap
+file extractedPcap/extractedPcap/37ccba4c7e89345d0a198f9466e80452.pcap read complete, filesize = 414078 bytes
+no malware found for file extractedPcap/extractedPcap/37ccba4c7e89345d0a198f9466e80452.pcap
+file extractedPcap/extractedPcap/775ba9bd1073dd53eb41726d940ce55d.pcap read complete, filesize = 2751 bytes
+no malware found for file extractedPcap/extractedPcap/775ba9bd1073dd53eb41726d940ce55d.pcap
+file extractedPcap/extractedPcap/3bde9516caa509e6d5c9c441cab8ae6d.pcap read complete, filesize = 107232 bytes
+no malware found for file extractedPcap/extractedPcap/3bde9516caa509e6d5c9c441cab8ae6d.pcap
+file extractedPcap/extractedPcap/49a0ea721770c685b75caa9d85bbe8b9.pcap read complete, filesize = 9382 bytes
+no malware found for file extractedPcap/extractedPcap/49a0ea721770c685b75caa9d85bbe8b9.pcap
+file extractedPcap/extractedPcap/04cff19d40e74bccf63ec4ceace89341.pcap read complete, filesize = 3552 bytes
+no malware found for file extractedPcap/extractedPcap/04cff19d40e74bccf63ec4ceace89341.pcap
+file extractedPcap/extractedPcap/0b2431752298db88f368bcaec2a00d5d.pcap read complete, filesize = 64630 bytes
+no malware found for file extractedPcap/extractedPcap/0b2431752298db88f368bcaec2a00d5d.pcap
+file extractedPcap/extractedPcap/757fa04671b81f4efe8a08d727a5fa5e.pcap read complete, filesize = 11816 bytes
+no malware found for file extractedPcap/extractedPcap/757fa04671b81f4efe8a08d727a5fa5e.pcap
+file extractedPcap/extractedPcap/090bd8e0dc22a95faf9735960df7f27e.pcap read complete, filesize = 25770 bytes
+no malware found for file extractedPcap/extractedPcap/090bd8e0dc22a95faf9735960df7f27e.pcap
+file extractedPcap/extractedPcap/282f61c3519b4d2695d5e28ef19aad64.pcap read complete, filesize = 966922 bytes
+no malware found for file extractedPcap/extractedPcap/282f61c3519b4d2695d5e28ef19aad64.pcap
+file extractedPcap/extractedPcap/793c8f564ef5f09331d96571d7895421.pcap read complete, filesize = 366433 bytes
+no malware found for file extractedPcap/extractedPcap/793c8f564ef5f09331d96571d7895421.pcap
+file extractedPcap/extractedPcap/11a8fd8b37aec366c2b054e96e74c60b.pcap read complete, filesize = 4181 bytes
+no malware found for file extractedPcap/extractedPcap/11a8fd8b37aec366c2b054e96e74c60b.pcap
+file extractedPcap/extractedPcap/3578574cfc482c6424baa154571e3711.pcap read complete, filesize = 391059 bytes
+no malware found for file extractedPcap/extractedPcap/3578574cfc482c6424baa154571e3711.pcap
+file extractedPcap/extractedPcap/192890966a0136cba915821220422378.pcap read complete, filesize = 4223 bytes
+no malware found for file extractedPcap/extractedPcap/192890966a0136cba915821220422378.pcap
+file extractedPcap/extractedPcap/1ba4ce14a4b79c157cecb9c1f4f0eb78.pcap read complete, filesize = 410276 bytes
+no malware found for file extractedPcap/extractedPcap/1ba4ce14a4b79c157cecb9c1f4f0eb78.pcap
+file extractedPcap/extractedPcap/1b36ff478a694b3592be153506f9bdc7.pcap read complete, filesize = 333766 bytes
+no malware found for file extractedPcap/extractedPcap/1b36ff478a694b3592be153506f9bdc7.pcap
+file extractedPcap/extractedPcap/6d8e440b2418467e00156ef449b08b50.pcap read complete, filesize = 14687 bytes
+no malware found for file extractedPcap/extractedPcap/6d8e440b2418467e00156ef449b08b50.pcap
+file extractedPcap/extractedPcap/6d20de6b094555bbc2ae0c8a1ffd0cd7.pcap read complete, filesize = 631871 bytes
+no malware found for file extractedPcap/extractedPcap/6d20de6b094555bbc2ae0c8a1ffd0cd7.pcap
+file extractedPcap/extractedPcap/6f9a83559bcd52a765f8433654478507.pcap read complete, filesize = 147663 bytes
+no malware found for file extractedPcap/extractedPcap/6f9a83559bcd52a765f8433654478507.pcap
+file extractedPcap/extractedPcap/2f9a8fedeae4537e8d2a48e7d6f497b4.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/2f9a8fedeae4537e8d2a48e7d6f497b4.pcap
+file extractedPcap/extractedPcap/4a0734839a031fcf0dd22faeadc5b120.pcap read complete, filesize = 149206 bytes
+no malware found for file extractedPcap/extractedPcap/4a0734839a031fcf0dd22faeadc5b120.pcap
+file extractedPcap/extractedPcap/21da9fdefb08242d6d7e6c17d898e539.pcap read complete, filesize = 398120 bytes
+no malware found for file extractedPcap/extractedPcap/21da9fdefb08242d6d7e6c17d898e539.pcap
+file extractedPcap/extractedPcap/4db449790f6d342c5d8f1403e305fa4f.pcap read complete, filesize = 3779 bytes
+no malware found for file extractedPcap/extractedPcap/4db449790f6d342c5d8f1403e305fa4f.pcap
+file extractedPcap/extractedPcap/3bb459bfec3084bd7676a206252c7006.pcap read complete, filesize = 9045 bytes
+no malware found for file extractedPcap/extractedPcap/3bb459bfec3084bd7676a206252c7006.pcap
+file extractedPcap/extractedPcap/40efdb08e2b58b3e3b960a28e77aa4b1.pcap read complete, filesize = 4551 bytes
+no malware found for file extractedPcap/extractedPcap/40efdb08e2b58b3e3b960a28e77aa4b1.pcap
+file extractedPcap/extractedPcap/4ff6e682e179f8c57f812521abe553ed.pcap read complete, filesize = 3610339 bytes
+no malware found for file extractedPcap/extractedPcap/4ff6e682e179f8c57f812521abe553ed.pcap
+file extractedPcap/extractedPcap/824acd9343be5c2fd1401b2a15da09bd.pcap read complete, filesize = 1706 bytes
+no malware found for file extractedPcap/extractedPcap/824acd9343be5c2fd1401b2a15da09bd.pcap
+file extractedPcap/extractedPcap/6f484f4c142e0384269717b08c063b51.pcap read complete, filesize = 239711 bytes
+no malware found for file extractedPcap/extractedPcap/6f484f4c142e0384269717b08c063b51.pcap
+file extractedPcap/extractedPcap/156dc22bc6068d4dd5bfcf0c8aea5748.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/156dc22bc6068d4dd5bfcf0c8aea5748.pcap
+file extractedPcap/extractedPcap/56c97941d91e2e0d83b9bf337b716ed9.pcap read complete, filesize = 2007 bytes
+no malware found for file extractedPcap/extractedPcap/56c97941d91e2e0d83b9bf337b716ed9.pcap
+file extractedPcap/extractedPcap/62fdd999620781f56e871378df9691a2.pcap read complete, filesize = 119623 bytes
+no malware found for file extractedPcap/extractedPcap/62fdd999620781f56e871378df9691a2.pcap
+file extractedPcap/extractedPcap/4d106868658da0ee422f52ea376f274c.pcap read complete, filesize = 37666 bytes
+no malware found for file extractedPcap/extractedPcap/4d106868658da0ee422f52ea376f274c.pcap
+file extractedPcap/extractedPcap/6a18226efb0315562ef8ac067ba416e1.pcap read complete, filesize = 2019 bytes
+no malware found for file extractedPcap/extractedPcap/6a18226efb0315562ef8ac067ba416e1.pcap
+file extractedPcap/extractedPcap/68c3641357defa63fea52cec141439c5.pcap read complete, filesize = 365650 bytes
+no malware found for file extractedPcap/extractedPcap/68c3641357defa63fea52cec141439c5.pcap
+file extractedPcap/extractedPcap/647c326ed6c827a38a1ffb02742e5f20.pcap read complete, filesize = 141155 bytes
+no malware found for file extractedPcap/extractedPcap/647c326ed6c827a38a1ffb02742e5f20.pcap
+file extractedPcap/extractedPcap/6be725c651240aeedb7a8b3f4cbbfabe.pcap read complete, filesize = 229245 bytes
+no malware found for file extractedPcap/extractedPcap/6be725c651240aeedb7a8b3f4cbbfabe.pcap
+file extractedPcap/extractedPcap/35796dcbff14d112bc6eb574541c1c4d.pcap read complete, filesize = 11823 bytes
+no malware found for file extractedPcap/extractedPcap/35796dcbff14d112bc6eb574541c1c4d.pcap
+file extractedPcap/extractedPcap/5a43ed9c605968e459aca474afa251f4.pcap read complete, filesize = 987 bytes
+no malware found for file extractedPcap/extractedPcap/5a43ed9c605968e459aca474afa251f4.pcap
+file extractedPcap/extractedPcap/044d3038955edc55f47c07eb69e5829a.pcap read complete, filesize = 7433 bytes
+no malware found for file extractedPcap/extractedPcap/044d3038955edc55f47c07eb69e5829a.pcap
+file extractedPcap/extractedPcap/5fe4900a7b3352308cf358664d25f7df.pcap read complete, filesize = 728467 bytes
+no malware found for file extractedPcap/extractedPcap/5fe4900a7b3352308cf358664d25f7df.pcap
+file extractedPcap/extractedPcap/2e02ab2ed770424054fcfc26e9172946.pcap read complete, filesize = 351750 bytes
+no malware found for file extractedPcap/extractedPcap/2e02ab2ed770424054fcfc26e9172946.pcap
+file extractedPcap/extractedPcap/6fbeeea3df390d10666b7074f882cd10.pcap read complete, filesize = 363578 bytes
+no malware found for file extractedPcap/extractedPcap/6fbeeea3df390d10666b7074f882cd10.pcap
+file extractedPcap/extractedPcap/6605fe6b612f4e5622bdd9d602faa092.pcap read complete, filesize = 2176 bytes
+no malware found for file extractedPcap/extractedPcap/6605fe6b612f4e5622bdd9d602faa092.pcap
+file extractedPcap/extractedPcap/41259995ee1f8fd01f81fc006fda9037.pcap read complete, filesize = 2723694 bytes
+no malware found for file extractedPcap/extractedPcap/41259995ee1f8fd01f81fc006fda9037.pcap
+file extractedPcap/extractedPcap/7acd81c7c529bc7ebfa1afe80fd6c6ea.pcap read complete, filesize = 116154 bytes
+no malware found for file extractedPcap/extractedPcap/7acd81c7c529bc7ebfa1afe80fd6c6ea.pcap
+file extractedPcap/extractedPcap/13bc818662524a11202e8a92e246735a.pcap read complete, filesize = 355291 bytes
+no malware found for file extractedPcap/extractedPcap/13bc818662524a11202e8a92e246735a.pcap
+file extractedPcap/extractedPcap/5d0b65b3be330cbbaad2b0893b02660b.pcap read complete, filesize = 58855 bytes
+no malware found for file extractedPcap/extractedPcap/5d0b65b3be330cbbaad2b0893b02660b.pcap
+file extractedPcap/extractedPcap/6aecbc6f7da8a67bdfc65784e7c23c47.pcap read complete, filesize = 149089 bytes
+no malware found for file extractedPcap/extractedPcap/6aecbc6f7da8a67bdfc65784e7c23c47.pcap
+file extractedPcap/extractedPcap/0054d815c68632d22bfa357555bcf4b3.pcap read complete, filesize = 4383 bytes
+no malware found for file extractedPcap/extractedPcap/0054d815c68632d22bfa357555bcf4b3.pcap
+file extractedPcap/extractedPcap/79686bb66d430e220db45b43da904f51.pcap read complete, filesize = 815329 bytes
+no malware found for file extractedPcap/extractedPcap/79686bb66d430e220db45b43da904f51.pcap
+file extractedPcap/extractedPcap/390f710181079084fc32efb786a631f6.pcap read complete, filesize = 3549 bytes
+no malware found for file extractedPcap/extractedPcap/390f710181079084fc32efb786a631f6.pcap
+file extractedPcap/extractedPcap/049d5a392c0491b8218064fc40202687.pcap read complete, filesize = 835597 bytes
+no malware found for file extractedPcap/extractedPcap/049d5a392c0491b8218064fc40202687.pcap
+file extractedPcap/extractedPcap/105de05fe7351d0eeed7c163cd2da447.pcap read complete, filesize = 1003 bytes
+no malware found for file extractedPcap/extractedPcap/105de05fe7351d0eeed7c163cd2da447.pcap
+file extractedPcap/extractedPcap/48b4fc9de3b08b9f89d861eb0fe1c933.pcap read complete, filesize = 4217 bytes
+no malware found for file extractedPcap/extractedPcap/48b4fc9de3b08b9f89d861eb0fe1c933.pcap
+file extractedPcap/extractedPcap/1e558c97f97c2443b981f5f9f5c85809.pcap read complete, filesize = 2710664 bytes
+no malware found for file extractedPcap/extractedPcap/1e558c97f97c2443b981f5f9f5c85809.pcap
+file extractedPcap/extractedPcap/078521ea8217abb27c36e949397e9cc8.pcap read complete, filesize = 4138 bytes
+no malware found for file extractedPcap/extractedPcap/078521ea8217abb27c36e949397e9cc8.pcap
+file extractedPcap/extractedPcap/40d3162bc061cb5aeddfa3fab62d5e09.pcap read complete, filesize = 6086 bytes
+no malware found for file extractedPcap/extractedPcap/40d3162bc061cb5aeddfa3fab62d5e09.pcap
+file extractedPcap/extractedPcap/10d5eb5ee208f516c3547d2bda2321a8.pcap read complete, filesize = 2860 bytes
+no malware found for file extractedPcap/extractedPcap/10d5eb5ee208f516c3547d2bda2321a8.pcap
+file extractedPcap/extractedPcap/27c3a5743682387320d658b198348b77.pcap read complete, filesize = 9382 bytes
+no malware found for file extractedPcap/extractedPcap/27c3a5743682387320d658b198348b77.pcap
+file extractedPcap/extractedPcap/24407c3d9c77b960b906f9d595d6bd83.pcap read complete, filesize = 38744 bytes
+no malware found for file extractedPcap/extractedPcap/24407c3d9c77b960b906f9d595d6bd83.pcap
+file extractedPcap/extractedPcap/1a632be4463b7c6e40e8bf21af1dfdc9.pcap read complete, filesize = 271785 bytes
+no malware found for file extractedPcap/extractedPcap/1a632be4463b7c6e40e8bf21af1dfdc9.pcap
+file extractedPcap/extractedPcap/5afdb39874d51c163459e45ff4bde733.pcap read complete, filesize = 3447 bytes
+no malware found for file extractedPcap/extractedPcap/5afdb39874d51c163459e45ff4bde733.pcap
+file extractedPcap/extractedPcap/749201194bb8eeb9469e15fa20791e7d.pcap read complete, filesize = 405970 bytes
+no malware found for file extractedPcap/extractedPcap/749201194bb8eeb9469e15fa20791e7d.pcap
+file extractedPcap/extractedPcap/835351c45d7470ddaec3c7ad16a00229.pcap read complete, filesize = 1609 bytes
+no malware found for file extractedPcap/extractedPcap/835351c45d7470ddaec3c7ad16a00229.pcap
+file extractedPcap/extractedPcap/124d36e0c3573eb9f69d0a40558888be.pcap read complete, filesize = 186 bytes
+no malware found for file extractedPcap/extractedPcap/124d36e0c3573eb9f69d0a40558888be.pcap
+file extractedPcap/extractedPcap/7e1a432ae85fdcf745f49df9cfe75d52.pcap read complete, filesize = 12101 bytes
+no malware found for file extractedPcap/extractedPcap/7e1a432ae85fdcf745f49df9cfe75d52.pcap
+file extractedPcap/extractedPcap/56ac66b1a02d2ca75a42016276299793.pcap read complete, filesize = 4239 bytes
+no malware found for file extractedPcap/extractedPcap/56ac66b1a02d2ca75a42016276299793.pcap
+file extractedPcap/extractedPcap/002b31fb8db9b555f526ea6dd423cfcb.pcap read complete, filesize = 3440 bytes
+no malware found for file extractedPcap/extractedPcap/002b31fb8db9b555f526ea6dd423cfcb.pcap
+file extractedPcap/extractedPcap/0d81cd7ab6ffd41176d9703f34e9a9a7.pcap read complete, filesize = 1263 bytes
+no malware found for file extractedPcap/extractedPcap/0d81cd7ab6ffd41176d9703f34e9a9a7.pcap
+file extractedPcap/extractedPcap/00e99ed13224765abc06f9ba9b2ff3f6.pcap read complete, filesize = 3440 bytes
+no malware found for file extractedPcap/extractedPcap/00e99ed13224765abc06f9ba9b2ff3f6.pcap
+file extractedPcap/extractedPcap/5120035758687b694e82637e4b6243f0.pcap read complete, filesize = 5117 bytes
+no malware found for file extractedPcap/extractedPcap/5120035758687b694e82637e4b6243f0.pcap
+file extractedPcap/extractedPcap/52987b11361e02a25be993727aa95048.pcap read complete, filesize = 45064 bytes
+no malware found for file extractedPcap/extractedPcap/52987b11361e02a25be993727aa95048.pcap
+file extractedPcap/extractedPcap/787bd19c34bd6e5edc255bc1ca25317a.pcap read complete, filesize = 434646 bytes
+no malware found for file extractedPcap/extractedPcap/787bd19c34bd6e5edc255bc1ca25317a.pcap
+file extractedPcap/extractedPcap/5a027787cc08bb551565d0a799174120.pcap read complete, filesize = 453455 bytes
+no malware found for file extractedPcap/extractedPcap/5a027787cc08bb551565d0a799174120.pcap
+file extractedPcap/extractedPcap/0d02600d3346946ceeb323a18a5da6f0.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/0d02600d3346946ceeb323a18a5da6f0.pcap
+file extractedPcap/extractedPcap/29669370401c5a1ce5c9e8356236299f.pcap read complete, filesize = 186 bytes
+no malware found for file extractedPcap/extractedPcap/29669370401c5a1ce5c9e8356236299f.pcap
+file extractedPcap/extractedPcap/5a23aa4fca7fb6bd4c7ab521cbc42ac6.pcap read complete, filesize = 7615 bytes
+no malware found for file extractedPcap/extractedPcap/5a23aa4fca7fb6bd4c7ab521cbc42ac6.pcap
+file extractedPcap/extractedPcap/709f2169fffb1b9b2e160d26e3e97814.pcap read complete, filesize = 2176 bytes
+no malware found for file extractedPcap/extractedPcap/709f2169fffb1b9b2e160d26e3e97814.pcap
+file extractedPcap/extractedPcap/47cc87402e6b5b3a14c66a8b16b3624b.pcap read complete, filesize = 749343 bytes
+no malware found for file extractedPcap/extractedPcap/47cc87402e6b5b3a14c66a8b16b3624b.pcap
+file extractedPcap/extractedPcap/56342ee43681c3c06af1251648e04e14.pcap read complete, filesize = 56459 bytes
+no malware found for file extractedPcap/extractedPcap/56342ee43681c3c06af1251648e04e14.pcap
+file extractedPcap/extractedPcap/45af2e0189a42849dc4f5a0f37b322d6.pcap read complete, filesize = 9319 bytes
+no malware found for file extractedPcap/extractedPcap/45af2e0189a42849dc4f5a0f37b322d6.pcap
+file extractedPcap/extractedPcap/82e85ce181a92df3af7b35a6c65e719d.pcap read complete, filesize = 160407 bytes
+no malware found for file extractedPcap/extractedPcap/82e85ce181a92df3af7b35a6c65e719d.pcap
+file extractedPcap/extractedPcap/01990624deb60ffcec800b385304fe20.pcap read complete, filesize = 3832 bytes
+no malware found for file extractedPcap/extractedPcap/01990624deb60ffcec800b385304fe20.pcap
+file extractedPcap/extractedPcap/56a0b3cf6778cdcda8028a52cf8cf4a6.pcap read complete, filesize = 143673 bytes
+no malware found for file extractedPcap/extractedPcap/56a0b3cf6778cdcda8028a52cf8cf4a6.pcap
+file extractedPcap/extractedPcap/449bf2d99c5d479aba9aff5bb60a4311.pcap read complete, filesize = 403011 bytes
+no malware found for file extractedPcap/extractedPcap/449bf2d99c5d479aba9aff5bb60a4311.pcap
+file extractedPcap/extractedPcap/83fa3b72d565be04d6f406db59af0e26.pcap read complete, filesize = 977 bytes
+no malware found for file extractedPcap/extractedPcap/83fa3b72d565be04d6f406db59af0e26.pcap
+file extractedPcap/extractedPcap/51dcc9b2e354c0636afb07da3dfb0afc.pcap read complete, filesize = 486946 bytes
+no malware found for file extractedPcap/extractedPcap/51dcc9b2e354c0636afb07da3dfb0afc.pcap
+file extractedPcap/extractedPcap/542a2d3496cd90fac23c27e7eea054de.pcap read complete, filesize = 13129 bytes
+no malware found for file extractedPcap/extractedPcap/542a2d3496cd90fac23c27e7eea054de.pcap
+file extractedPcap/extractedPcap/4c914ddb0957b8ffac22f3ac8ded6a2b.pcap read complete, filesize = 23948 bytes
+no malware found for file extractedPcap/extractedPcap/4c914ddb0957b8ffac22f3ac8ded6a2b.pcap
+file extractedPcap/extractedPcap/68c72d39f6030088f0808534e14dd332.pcap read complete, filesize = 14998 bytes
+no malware found for file extractedPcap/extractedPcap/68c72d39f6030088f0808534e14dd332.pcap
+file extractedPcap/extractedPcap/22e212bcb63e3f6e3e5f3786a4bd747b.pcap read complete, filesize = 201843 bytes
+no malware found for file extractedPcap/extractedPcap/22e212bcb63e3f6e3e5f3786a4bd747b.pcap
+file extractedPcap/extractedPcap/24e94f3f0676e60c893167ade7b7c00a.pcap read complete, filesize = 4225 bytes
+no malware found for file extractedPcap/extractedPcap/24e94f3f0676e60c893167ade7b7c00a.pcap
+file extractedPcap/extractedPcap/1adbc261081d1378ea3dc119ac21915e.pcap read complete, filesize = 186 bytes
+no malware found for file extractedPcap/extractedPcap/1adbc261081d1378ea3dc119ac21915e.pcap
+file extractedPcap/extractedPcap/0b912bb920a5bf56a9d9f354a2fb4be4.pcap read complete, filesize = 4643 bytes
+no malware found for file extractedPcap/extractedPcap/0b912bb920a5bf56a9d9f354a2fb4be4.pcap
+file extractedPcap/extractedPcap/69e9fa38d880d6323d4674928282c913.pcap read complete, filesize = 36622 bytes
+no malware found for file extractedPcap/extractedPcap/69e9fa38d880d6323d4674928282c913.pcap
+file extractedPcap/extractedPcap/22e58565a33107382611b0b2e13144df.pcap read complete, filesize = 4239 bytes
+no malware found for file extractedPcap/extractedPcap/22e58565a33107382611b0b2e13144df.pcap
+file extractedPcap/extractedPcap/83edba938eb49684943214de3f2efe36.pcap read complete, filesize = 472936 bytes
+no malware found for file extractedPcap/extractedPcap/83edba938eb49684943214de3f2efe36.pcap
+file extractedPcap/extractedPcap/8186ce9e64d54c42f511b5a0964e46a4.pcap read complete, filesize = 844487 bytes
+no malware found for file extractedPcap/extractedPcap/8186ce9e64d54c42f511b5a0964e46a4.pcap
+file extractedPcap/extractedPcap/16c5266008d961154e1001e3230c8832.pcap read complete, filesize = 94771 bytes
+no malware found for file extractedPcap/extractedPcap/16c5266008d961154e1001e3230c8832.pcap
+file extractedPcap/extractedPcap/2881d4b18a44cb50dc346be71b1ff561.pcap read complete, filesize = 372093 bytes
+no malware found for file extractedPcap/extractedPcap/2881d4b18a44cb50dc346be71b1ff561.pcap
+file extractedPcap/extractedPcap/42745499e9cfdb0e092e562fe9f2f671.pcap read complete, filesize = 26820 bytes
+no malware found for file extractedPcap/extractedPcap/42745499e9cfdb0e092e562fe9f2f671.pcap
+file extractedPcap/extractedPcap/3593863f6098533c49ecbe50dfdbf3c5.pcap read complete, filesize = 21720 bytes
+no malware found for file extractedPcap/extractedPcap/3593863f6098533c49ecbe50dfdbf3c5.pcap
+file extractedPcap/extractedPcap/75f272233eeb2082066e47bdac71afab.pcap read complete, filesize = 105043 bytes
+no malware found for file extractedPcap/extractedPcap/75f272233eeb2082066e47bdac71afab.pcap
+file extractedPcap/extractedPcap/770fde86ffe47bc11a4a6925982c1ed7.pcap read complete, filesize = 20552 bytes
+no malware found for file extractedPcap/extractedPcap/770fde86ffe47bc11a4a6925982c1ed7.pcap
+file extractedPcap/extractedPcap/6cdac4ac126532010e62ea3114e1341a.pcap read complete, filesize = 376170 bytes
+no malware found for file extractedPcap/extractedPcap/6cdac4ac126532010e62ea3114e1341a.pcap
+file extractedPcap/extractedPcap/2098b365be538ede5c2ee8120f72caf2.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/2098b365be538ede5c2ee8120f72caf2.pcap
+file extractedPcap/extractedPcap/786c838a913ec94c35cebf8a0b915df2.pcap read complete, filesize = 367012 bytes
+no malware found for file extractedPcap/extractedPcap/786c838a913ec94c35cebf8a0b915df2.pcap
+file extractedPcap/extractedPcap/38a0cada156eee51e9c72828f72e1571.pcap read complete, filesize = 116816 bytes
+no malware found for file extractedPcap/extractedPcap/38a0cada156eee51e9c72828f72e1571.pcap
+file extractedPcap/extractedPcap/3a3ca97ec1fe86a2c3c316933263af2a.pcap read complete, filesize = 488073 bytes
+no malware found for file extractedPcap/extractedPcap/3a3ca97ec1fe86a2c3c316933263af2a.pcap
+file extractedPcap/extractedPcap/512b581c84e9d96ed59960585b3b9388.pcap read complete, filesize = 17193 bytes
+no malware found for file extractedPcap/extractedPcap/512b581c84e9d96ed59960585b3b9388.pcap
+file extractedPcap/extractedPcap/25ff39ce30101b70d9ee808752c91034.pcap read complete, filesize = 3373 bytes
+no malware found for file extractedPcap/extractedPcap/25ff39ce30101b70d9ee808752c91034.pcap
+file extractedPcap/extractedPcap/586ab4e50afca73030032acdca8faecc.pcap read complete, filesize = 2309 bytes
+no malware found for file extractedPcap/extractedPcap/586ab4e50afca73030032acdca8faecc.pcap
+file extractedPcap/extractedPcap/827e0578f0237cfff3d95d1a14918f42.pcap read complete, filesize = 982 bytes
+no malware found for file extractedPcap/extractedPcap/827e0578f0237cfff3d95d1a14918f42.pcap
+file extractedPcap/extractedPcap/5d248d62c910652ba685c73b6e6b6b63.pcap read complete, filesize = 199847 bytes
+no malware found for file extractedPcap/extractedPcap/5d248d62c910652ba685c73b6e6b6b63.pcap
+file extractedPcap/extractedPcap/6fd3b62e88a63e3c672a34d5a9fe7d60.pcap read complete, filesize = 9637243 bytes
+no malware found for file extractedPcap/extractedPcap/6fd3b62e88a63e3c672a34d5a9fe7d60.pcap
+file extractedPcap/extractedPcap/3fc07a6e06e178d6cd2d8b8be14df2a9.pcap read complete, filesize = 1019 bytes
+no malware found for file extractedPcap/extractedPcap/3fc07a6e06e178d6cd2d8b8be14df2a9.pcap
+file extractedPcap/extractedPcap/72fcde95538e4672c5f8bc4824e9ca55.pcap read complete, filesize = 421434 bytes
+no malware found for file extractedPcap/extractedPcap/72fcde95538e4672c5f8bc4824e9ca55.pcap
+file extractedPcap/extractedPcap/1fde22918db4a6ca25dd4eb918fc1929.pcap read complete, filesize = 906520 bytes
+no malware found for file extractedPcap/extractedPcap/1fde22918db4a6ca25dd4eb918fc1929.pcap
+file extractedPcap/extractedPcap/06f62d682f45caa88e0b0979bbcdad69.pcap read complete, filesize = 2151 bytes
+no malware found for file extractedPcap/extractedPcap/06f62d682f45caa88e0b0979bbcdad69.pcap
+file extractedPcap/extractedPcap/0b2e0c96648465cb2d713c72a5d14252.pcap read complete, filesize = 4159 bytes
+no malware found for file extractedPcap/extractedPcap/0b2e0c96648465cb2d713c72a5d14252.pcap
+file extractedPcap/extractedPcap/2ddaa5ecbcca46d3b30dde6411e735f7.pcap read complete, filesize = 4311 bytes
+no malware found for file extractedPcap/extractedPcap/2ddaa5ecbcca46d3b30dde6411e735f7.pcap
+file extractedPcap/extractedPcap/5c067aa640a07d9473a9e5312ad287e0.pcap read complete, filesize = 13725 bytes
+no malware found for file extractedPcap/extractedPcap/5c067aa640a07d9473a9e5312ad287e0.pcap
+file extractedPcap/extractedPcap/268b2991bcfda7e48808580ab08ec548.pcap read complete, filesize = 145975 bytes
+no malware found for file extractedPcap/extractedPcap/268b2991bcfda7e48808580ab08ec548.pcap
+file extractedPcap/extractedPcap/0d63919659eac4db1e0f19a81165aee7.pcap read complete, filesize = 549819 bytes
+no malware found for file extractedPcap/extractedPcap/0d63919659eac4db1e0f19a81165aee7.pcap
+file extractedPcap/extractedPcap/3c3f96dd3b05c64fd9565ee8b3287c77.pcap read complete, filesize = 4152 bytes
+no malware found for file extractedPcap/extractedPcap/3c3f96dd3b05c64fd9565ee8b3287c77.pcap
+file extractedPcap/extractedPcap/40dd0f48184b6cac75f19497d97266a9.pcap read complete, filesize = 18396 bytes
+no malware found for file extractedPcap/extractedPcap/40dd0f48184b6cac75f19497d97266a9.pcap
+file extractedPcap/extractedPcap/4a3516b842339dff20366aa08a6985f2.pcap read complete, filesize = 2765 bytes
+no malware found for file extractedPcap/extractedPcap/4a3516b842339dff20366aa08a6985f2.pcap
+file extractedPcap/extractedPcap/6fd373f168c5109f390cf77aef29c460.pcap read complete, filesize = 203296 bytes
+no malware found for file extractedPcap/extractedPcap/6fd373f168c5109f390cf77aef29c460.pcap
+file extractedPcap/extractedPcap/19482c0b59f224923e3ca150ade5b2f7.pcap read complete, filesize = 125177 bytes
+no malware found for file extractedPcap/extractedPcap/19482c0b59f224923e3ca150ade5b2f7.pcap
+file extractedPcap/extractedPcap/05d09feb4a8d61b5c2bc8ceb03cfacb8.pcap read complete, filesize = 2744 bytes
+no malware found for file extractedPcap/extractedPcap/05d09feb4a8d61b5c2bc8ceb03cfacb8.pcap
+file extractedPcap/extractedPcap/0608754bdf2ecc0e2623e89757933708.pcap read complete, filesize = 14050 bytes
+no malware found for file extractedPcap/extractedPcap/0608754bdf2ecc0e2623e89757933708.pcap
+file extractedPcap/extractedPcap/290fd1afb6e8fef790050608718a561e.pcap read complete, filesize = 320735 bytes
+no malware found for file extractedPcap/extractedPcap/290fd1afb6e8fef790050608718a561e.pcap
+file extractedPcap/extractedPcap/68d746815b226129ca255ebf0029c4a2.pcap read complete, filesize = 154209 bytes
+no malware found for file extractedPcap/extractedPcap/68d746815b226129ca255ebf0029c4a2.pcap
+file extractedPcap/extractedPcap/6421298277f156354b081bb2cb554896.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/6421298277f156354b081bb2cb554896.pcap
+file extractedPcap/extractedPcap/85b0740deceb2103bf41cfa27d46d9c1.pcap read complete, filesize = 2094 bytes
+no malware found for file extractedPcap/extractedPcap/85b0740deceb2103bf41cfa27d46d9c1.pcap
+file extractedPcap/extractedPcap/76a82ed8258c95ebcb7126308aa15e8c.pcap read complete, filesize = 354081 bytes
+no malware found for file extractedPcap/extractedPcap/76a82ed8258c95ebcb7126308aa15e8c.pcap
+file extractedPcap/extractedPcap/3ce351124956b29545f0fcb0bdade2d9.pcap read complete, filesize = 138747 bytes
+no malware found for file extractedPcap/extractedPcap/3ce351124956b29545f0fcb0bdade2d9.pcap
+file extractedPcap/extractedPcap/289056032a0c11f17b9a7042874aca1e.pcap read complete, filesize = 460387 bytes
+no malware found for file extractedPcap/extractedPcap/289056032a0c11f17b9a7042874aca1e.pcap
+file extractedPcap/extractedPcap/137cc07c9f10bae876ada8d35f13d020.pcap read complete, filesize = 206676 bytes
+no malware found for file extractedPcap/extractedPcap/137cc07c9f10bae876ada8d35f13d020.pcap
+file extractedPcap/extractedPcap/257e98ad76fd0df497ea7e775c08bcb1.pcap read complete, filesize = 286303 bytes
+no malware found for file extractedPcap/extractedPcap/257e98ad76fd0df497ea7e775c08bcb1.pcap
+file extractedPcap/extractedPcap/836902ca50ae670823e360bfe0a2e697.pcap read complete, filesize = 176765 bytes
+no malware found for file extractedPcap/extractedPcap/836902ca50ae670823e360bfe0a2e697.pcap
+file extractedPcap/extractedPcap/6d6f487e738ffa019dc97e175f9c8095.pcap read complete, filesize = 93475 bytes
+no malware found for file extractedPcap/extractedPcap/6d6f487e738ffa019dc97e175f9c8095.pcap
+file extractedPcap/extractedPcap/6224d78e00b7fb3ff191c6349bdbb626.pcap read complete, filesize = 1005 bytes
+no malware found for file extractedPcap/extractedPcap/6224d78e00b7fb3ff191c6349bdbb626.pcap
+file extractedPcap/extractedPcap/716c080c58cd99c610a9f0ab29672e78.pcap read complete, filesize = 23937 bytes
+no malware found for file extractedPcap/extractedPcap/716c080c58cd99c610a9f0ab29672e78.pcap
+file extractedPcap/extractedPcap/7c47f6948f2836a3d3ef0fc73df69bd4.pcap read complete, filesize = 3926 bytes
+no malware found for file extractedPcap/extractedPcap/7c47f6948f2836a3d3ef0fc73df69bd4.pcap
+file extractedPcap/extractedPcap/52e5abce185a7fd60a5200bb805c759c.pcap read complete, filesize = 367929 bytes
+no malware found for file extractedPcap/extractedPcap/52e5abce185a7fd60a5200bb805c759c.pcap
+file extractedPcap/extractedPcap/4f41ed05b495f0ed54985188b46191be.pcap read complete, filesize = 18569 bytes
+no malware found for file extractedPcap/extractedPcap/4f41ed05b495f0ed54985188b46191be.pcap
+file extractedPcap/extractedPcap/534ed63bdc542a2b2bfbe3da1c5a14bd.pcap read complete, filesize = 80918 bytes
+no malware found for file extractedPcap/extractedPcap/534ed63bdc542a2b2bfbe3da1c5a14bd.pcap
+file extractedPcap/extractedPcap/807beb8c2f0826b0a20e5bca9b81b55d.pcap read complete, filesize = 500708 bytes
+no malware found for file extractedPcap/extractedPcap/807beb8c2f0826b0a20e5bca9b81b55d.pcap
+file extractedPcap/extractedPcap/196f646c8725e074369b40edd0d151c2.pcap read complete, filesize = 122415 bytes
+no malware found for file extractedPcap/extractedPcap/196f646c8725e074369b40edd0d151c2.pcap
+file extractedPcap/extractedPcap/82679ee4be447b2bdf23d6f0a1ca807a.pcap read complete, filesize = 4775 bytes
+no malware found for file extractedPcap/extractedPcap/82679ee4be447b2bdf23d6f0a1ca807a.pcap
+file extractedPcap/extractedPcap/55c81480b40978a28e411dfbc1037dd1.pcap read complete, filesize = 48780 bytes
+no malware found for file extractedPcap/extractedPcap/55c81480b40978a28e411dfbc1037dd1.pcap
+file extractedPcap/extractedPcap/07c1532e2502f5f364a418909997b1c9.pcap read complete, filesize = 11500 bytes
+no malware found for file extractedPcap/extractedPcap/07c1532e2502f5f364a418909997b1c9.pcap
+file extractedPcap/extractedPcap/3ad1114341c786740cde849b0525cd64.pcap read complete, filesize = 1148837 bytes
+no malware found for file extractedPcap/extractedPcap/3ad1114341c786740cde849b0525cd64.pcap
+file extractedPcap/extractedPcap/58faff0be1e0c96e92b7f15651609287.pcap read complete, filesize = 1791 bytes
+no malware found for file extractedPcap/extractedPcap/58faff0be1e0c96e92b7f15651609287.pcap
+file extractedPcap/extractedPcap/7d8f39d2e0d2b7638677f3b3f01319d2.pcap read complete, filesize = 83443 bytes
+no malware found for file extractedPcap/extractedPcap/7d8f39d2e0d2b7638677f3b3f01319d2.pcap
+file extractedPcap/extractedPcap/32a3365b46c0bd61c79139a991b8261b.pcap read complete, filesize = 9319 bytes
+no malware found for file extractedPcap/extractedPcap/32a3365b46c0bd61c79139a991b8261b.pcap
+file extractedPcap/extractedPcap/0bddc8c40e20c6f3a29e32ff7bababdc.pcap read complete, filesize = 1444282 bytes
+no malware found for file extractedPcap/extractedPcap/0bddc8c40e20c6f3a29e32ff7bababdc.pcap
+file extractedPcap/extractedPcap/2b3c486b8b543067b1f99a1acb2e035d.pcap read complete, filesize = 3855 bytes
+no malware found for file extractedPcap/extractedPcap/2b3c486b8b543067b1f99a1acb2e035d.pcap
+file extractedPcap/extractedPcap/48d0f18f96e46a0e8370751d9afc08ed.pcap read complete, filesize = 937598 bytes
+no malware found for file extractedPcap/extractedPcap/48d0f18f96e46a0e8370751d9afc08ed.pcap
+file extractedPcap/extractedPcap/19e2ad522810823ddd92de43468be3a7.pcap read complete, filesize = 390924 bytes
+no malware found for file extractedPcap/extractedPcap/19e2ad522810823ddd92de43468be3a7.pcap
+file extractedPcap/extractedPcap/0d0df9a7e35e38167b0806706b294d75.pcap read complete, filesize = 3212 bytes
+no malware found for file extractedPcap/extractedPcap/0d0df9a7e35e38167b0806706b294d75.pcap
+file extractedPcap/extractedPcap/3210925ab23c02b0cdc2716307483b71.pcap read complete, filesize = 106654 bytes
+no malware found for file extractedPcap/extractedPcap/3210925ab23c02b0cdc2716307483b71.pcap
+file extractedPcap/extractedPcap/344674e8f66c709774709c856b654d7f.pcap read complete, filesize = 9500 bytes
+no malware found for file extractedPcap/extractedPcap/344674e8f66c709774709c856b654d7f.pcap
+file extractedPcap/extractedPcap/064f174e76b78bdb4bb30146f6530701.pcap read complete, filesize = 45899 bytes
+no malware found for file extractedPcap/extractedPcap/064f174e76b78bdb4bb30146f6530701.pcap
+file extractedPcap/extractedPcap/58930075c5955542ed4693ddc46f20e7.pcap read complete, filesize = 16113 bytes
+no malware found for file extractedPcap/extractedPcap/58930075c5955542ed4693ddc46f20e7.pcap
+file extractedPcap/extractedPcap/73b17b0f37c5fb46461442d387890cc6.pcap read complete, filesize = 2354 bytes
+no malware found for file extractedPcap/extractedPcap/73b17b0f37c5fb46461442d387890cc6.pcap
+file extractedPcap/extractedPcap/51e1a9d52ab2ad4672fe7adf2e29172e.pcap read complete, filesize = 1002 bytes
+no malware found for file extractedPcap/extractedPcap/51e1a9d52ab2ad4672fe7adf2e29172e.pcap
+file extractedPcap/extractedPcap/02725b9d1c38566d807c42346101924e.pcap read complete, filesize = 2342791 bytes
+no malware found for file extractedPcap/extractedPcap/02725b9d1c38566d807c42346101924e.pcap
+file extractedPcap/extractedPcap/549d22cee3c130a964e55eff808e2fc7.pcap read complete, filesize = 10176 bytes
+no malware found for file extractedPcap/extractedPcap/549d22cee3c130a964e55eff808e2fc7.pcap
+file extractedPcap/extractedPcap/377aafd0acc5c8fc25de889c33dbc0cb.pcap read complete, filesize = 45842 bytes
+no malware found for file extractedPcap/extractedPcap/377aafd0acc5c8fc25de889c33dbc0cb.pcap
+file extractedPcap/extractedPcap/7d991604c3a1c9f2071aafa51ef53a46.pcap read complete, filesize = 14804 bytes
+no malware found for file extractedPcap/extractedPcap/7d991604c3a1c9f2071aafa51ef53a46.pcap
+file extractedPcap/extractedPcap/6dfc023bdde7bf50e3c396f5f368fcfc.pcap read complete, filesize = 9390 bytes
+no malware found for file extractedPcap/extractedPcap/6dfc023bdde7bf50e3c396f5f368fcfc.pcap
+file extractedPcap/extractedPcap/322a201301d3321a3118e9493fd7b505.pcap read complete, filesize = 384216 bytes
+no malware found for file extractedPcap/extractedPcap/322a201301d3321a3118e9493fd7b505.pcap
+file extractedPcap/extractedPcap/212ecc4f3e710f53e26c079958ef9296.pcap read complete, filesize = 9382 bytes
+no malware found for file extractedPcap/extractedPcap/212ecc4f3e710f53e26c079958ef9296.pcap
+file extractedPcap/extractedPcap/068413b21590b938110390ed7be648a0.pcap read complete, filesize = 385509 bytes
+no malware found for file extractedPcap/extractedPcap/068413b21590b938110390ed7be648a0.pcap
+file extractedPcap/extractedPcap/4b525050a28fac3cd716571687640ac7.pcap read complete, filesize = 3148 bytes
+no malware found for file extractedPcap/extractedPcap/4b525050a28fac3cd716571687640ac7.pcap
+file extractedPcap/extractedPcap/0f892d29c958b2cd975c94077c4b9e39.pcap read complete, filesize = 1019 bytes
+no malware found for file extractedPcap/extractedPcap/0f892d29c958b2cd975c94077c4b9e39.pcap
+file extractedPcap/extractedPcap/6583e986b9a41f406c2847a2d17b5394.pcap read complete, filesize = 169412 bytes
+no malware found for file extractedPcap/extractedPcap/6583e986b9a41f406c2847a2d17b5394.pcap
+file extractedPcap/extractedPcap/4ab6b3e1d657f2c6c4b7c00d07efcb8c.pcap read complete, filesize = 15422 bytes
+no malware found for file extractedPcap/extractedPcap/4ab6b3e1d657f2c6c4b7c00d07efcb8c.pcap
+file extractedPcap/extractedPcap/5a39188d03c2dbb5a46b76fe854467b5.pcap read complete, filesize = 1863 bytes
+no malware found for file extractedPcap/extractedPcap/5a39188d03c2dbb5a46b76fe854467b5.pcap
+file extractedPcap/extractedPcap/6fcbdef22434ee3e9c4b9566963cca38.pcap read complete, filesize = 287133 bytes
+no malware found for file extractedPcap/extractedPcap/6fcbdef22434ee3e9c4b9566963cca38.pcap
+file extractedPcap/extractedPcap/846d1729220b38df3b5d636a89c379fe.pcap read complete, filesize = 3696 bytes
+no malware found for file extractedPcap/extractedPcap/846d1729220b38df3b5d636a89c379fe.pcap
+file extractedPcap/extractedPcap/7fbcea666bb98957adb6aa8642d2e4bf.pcap read complete, filesize = 224875 bytes
+no malware found for file extractedPcap/extractedPcap/7fbcea666bb98957adb6aa8642d2e4bf.pcap
+file extractedPcap/extractedPcap/11f60745d13517aeeada44904f6cd78c.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/11f60745d13517aeeada44904f6cd78c.pcap
+file extractedPcap/extractedPcap/25f8b7fcc2c6d019412191f6b3df00f9.pcap read complete, filesize = 1849707 bytes
+no malware found for file extractedPcap/extractedPcap/25f8b7fcc2c6d019412191f6b3df00f9.pcap
+file extractedPcap/extractedPcap/7028dec6c8d38858b5d5015ae5bd0ed7.pcap read complete, filesize = 9310 bytes
+no malware found for file extractedPcap/extractedPcap/7028dec6c8d38858b5d5015ae5bd0ed7.pcap
+file extractedPcap/extractedPcap/683361a55d442f1e42a379c74d2e4e1a.pcap read complete, filesize = 11816 bytes
+no malware found for file extractedPcap/extractedPcap/683361a55d442f1e42a379c74d2e4e1a.pcap
+file extractedPcap/extractedPcap/470dca82ed9954a6abb2cdbc3e4fbc85.pcap read complete, filesize = 4145 bytes
+no malware found for file extractedPcap/extractedPcap/470dca82ed9954a6abb2cdbc3e4fbc85.pcap
+file extractedPcap/extractedPcap/61691fc4b29ef1a356844ba143a554e3.pcap read complete, filesize = 4521 bytes
+no malware found for file extractedPcap/extractedPcap/61691fc4b29ef1a356844ba143a554e3.pcap
+file extractedPcap/extractedPcap/2a1dbf95468deb79042a572a6e7a0df9.pcap read complete, filesize = 15461 bytes
+no malware found for file extractedPcap/extractedPcap/2a1dbf95468deb79042a572a6e7a0df9.pcap
+file extractedPcap/extractedPcap/307217bfb0318ffd985bade1ae6d7900.pcap read complete, filesize = 10583 bytes
+no malware found for file extractedPcap/extractedPcap/307217bfb0318ffd985bade1ae6d7900.pcap
+file extractedPcap/extractedPcap/6b583ec0452bc275d23ef57ff5851ee4.pcap read complete, filesize = 1310 bytes
+no malware found for file extractedPcap/extractedPcap/6b583ec0452bc275d23ef57ff5851ee4.pcap
+file extractedPcap/extractedPcap/3c9178edd95465fd235d5b738693b447.pcap read complete, filesize = 205429 bytes
+no malware found for file extractedPcap/extractedPcap/3c9178edd95465fd235d5b738693b447.pcap
+file extractedPcap/extractedPcap/6c885d4be82cdaa3a047067f50678dc9.pcap read complete, filesize = 8399 bytes
+no malware found for file extractedPcap/extractedPcap/6c885d4be82cdaa3a047067f50678dc9.pcap
+file extractedPcap/extractedPcap/117f4fa4be5bb12f8a1d09d549922891.pcap read complete, filesize = 3922 bytes
+no malware found for file extractedPcap/extractedPcap/117f4fa4be5bb12f8a1d09d549922891.pcap
+file extractedPcap/extractedPcap/84459dbb4e7ad6a9c051897a8ea17869.pcap read complete, filesize = 156019 bytes
+no malware found for file extractedPcap/extractedPcap/84459dbb4e7ad6a9c051897a8ea17869.pcap
+file extractedPcap/extractedPcap/2f1b0e04561bad8abe8a57dd0d6d96d0.pcap read complete, filesize = 3512 bytes
+no malware found for file extractedPcap/extractedPcap/2f1b0e04561bad8abe8a57dd0d6d96d0.pcap
+file extractedPcap/extractedPcap/600726d43ebc3e9e1ba84a98ffb2b03c.pcap read complete, filesize = 998 bytes
+no malware found for file extractedPcap/extractedPcap/600726d43ebc3e9e1ba84a98ffb2b03c.pcap
+file extractedPcap/extractedPcap/7440d13bc96433d1249c86f2ab7808c5.pcap read complete, filesize = 722023 bytes
+no malware found for file extractedPcap/extractedPcap/7440d13bc96433d1249c86f2ab7808c5.pcap
+file extractedPcap/extractedPcap/13c0348f76ddb80e41901a39eaa1488f.pcap read complete, filesize = 808030 bytes
+no malware found for file extractedPcap/extractedPcap/13c0348f76ddb80e41901a39eaa1488f.pcap
+file extractedPcap/extractedPcap/77d3f62c4b88f8ee1915d59824e40dab.pcap read complete, filesize = 9472 bytes
+no malware found for file extractedPcap/extractedPcap/77d3f62c4b88f8ee1915d59824e40dab.pcap
+file extractedPcap/extractedPcap/16bf4514889dc251fc6a46bfe62771b8.pcap read complete, filesize = 658401 bytes
+no malware found for file extractedPcap/extractedPcap/16bf4514889dc251fc6a46bfe62771b8.pcap
+file extractedPcap/extractedPcap/85c76e173face5180872cf5018ec9e53.pcap read complete, filesize = 133476 bytes
+no malware found for file extractedPcap/extractedPcap/85c76e173face5180872cf5018ec9e53.pcap
+file extractedPcap/extractedPcap/32cd04a54a31665460a210918dc8749f.pcap read complete, filesize = 2731548 bytes
+no malware found for file extractedPcap/extractedPcap/32cd04a54a31665460a210918dc8749f.pcap
+file extractedPcap/extractedPcap/84526171b1504f4a44ff470b8aba9bbc.pcap read complete, filesize = 4159 bytes
+no malware found for file extractedPcap/extractedPcap/84526171b1504f4a44ff470b8aba9bbc.pcap
+file extractedPcap/extractedPcap/3b77c9c21ee69723fb65216970a7ed19.pcap read complete, filesize = 4804 bytes
+no malware found for file extractedPcap/extractedPcap/3b77c9c21ee69723fb65216970a7ed19.pcap
+file extractedPcap/extractedPcap/07fcf2f2bd3471426f47f3a74474262a.pcap read complete, filesize = 1214867 bytes
+no malware found for file extractedPcap/extractedPcap/07fcf2f2bd3471426f47f3a74474262a.pcap
+file extractedPcap/extractedPcap/30b97ec4af06ba34396d6222ee110514.pcap read complete, filesize = 361260 bytes
+no malware found for file extractedPcap/extractedPcap/30b97ec4af06ba34396d6222ee110514.pcap
+file extractedPcap/extractedPcap/09fc23767106899e713f2815bb28f647.pcap read complete, filesize = 230532 bytes
+no malware found for file extractedPcap/extractedPcap/09fc23767106899e713f2815bb28f647.pcap
+file extractedPcap/extractedPcap/609e24dc4b7b4451edc3e485022db8bc.pcap read complete, filesize = 287001 bytes
+no malware found for file extractedPcap/extractedPcap/609e24dc4b7b4451edc3e485022db8bc.pcap
+file extractedPcap/extractedPcap/5cf80c069c3d2ebf55d383e8cebbcf30.pcap read complete, filesize = 912 bytes
+no malware found for file extractedPcap/extractedPcap/5cf80c069c3d2ebf55d383e8cebbcf30.pcap
+file extractedPcap/extractedPcap/1742d2b101ceca49d63f8dad6742acdd.pcap read complete, filesize = 186 bytes
+no malware found for file extractedPcap/extractedPcap/1742d2b101ceca49d63f8dad6742acdd.pcap
+file extractedPcap/extractedPcap/7238db36c79686e01d666b188cc34108.pcap read complete, filesize = 979 bytes
+no malware found for file extractedPcap/extractedPcap/7238db36c79686e01d666b188cc34108.pcap
+file extractedPcap/extractedPcap/5451701afb74f4396a4e721ce0426a10.pcap read complete, filesize = 396757 bytes
+no malware found for file extractedPcap/extractedPcap/5451701afb74f4396a4e721ce0426a10.pcap
+file extractedPcap/extractedPcap/7297842c28ce3887e5532ea75e823acc.pcap read complete, filesize = 407712 bytes
+no malware found for file extractedPcap/extractedPcap/7297842c28ce3887e5532ea75e823acc.pcap
+file extractedPcap/extractedPcap/1a545b5c03fa29b03e8317c281cb630c.pcap read complete, filesize = 3067 bytes
+no malware found for file extractedPcap/extractedPcap/1a545b5c03fa29b03e8317c281cb630c.pcap
+file extractedPcap/extractedPcap/4791eaddc981da8ae9c454cfd0af48e0.pcap read complete, filesize = 10573 bytes
+no malware found for file extractedPcap/extractedPcap/4791eaddc981da8ae9c454cfd0af48e0.pcap
+file extractedPcap/extractedPcap/240c2f839ee5f4ecfb1ae6e6fd78f33a.pcap read complete, filesize = 464647 bytes
+no malware found for file extractedPcap/extractedPcap/240c2f839ee5f4ecfb1ae6e6fd78f33a.pcap
+file extractedPcap/extractedPcap/13a12ccf9b491fb0ef57b0e5a10dcf6d.pcap read complete, filesize = 177342 bytes
+no malware found for file extractedPcap/extractedPcap/13a12ccf9b491fb0ef57b0e5a10dcf6d.pcap
+file extractedPcap/extractedPcap/56136817fccdced8bdce73eda4982f49.pcap read complete, filesize = 155292 bytes
+no malware found for file extractedPcap/extractedPcap/56136817fccdced8bdce73eda4982f49.pcap
+file extractedPcap/extractedPcap/6e6bd85038843c164dc98cbe52e21234.pcap read complete, filesize = 908799 bytes
+no malware found for file extractedPcap/extractedPcap/6e6bd85038843c164dc98cbe52e21234.pcap
+file extractedPcap/extractedPcap/5417412828f7b4eaaa8df62b7fcfc7ac.pcap read complete, filesize = 14963 bytes
+no malware found for file extractedPcap/extractedPcap/5417412828f7b4eaaa8df62b7fcfc7ac.pcap
+file extractedPcap/extractedPcap/21b4d5c6255c37843902a2838e6f808e.pcap read complete, filesize = 1310 bytes
+no malware found for file extractedPcap/extractedPcap/21b4d5c6255c37843902a2838e6f808e.pcap
+file extractedPcap/extractedPcap/4c8c629904bfd3332df5113d075d688c.pcap read complete, filesize = 908 bytes
+no malware found for file extractedPcap/extractedPcap/4c8c629904bfd3332df5113d075d688c.pcap
+file extractedPcap/extractedPcap/32c9b5895898fa6fe96d1c0c002dbc7e.pcap read complete, filesize = 2701029 bytes
+no malware found for file extractedPcap/extractedPcap/32c9b5895898fa6fe96d1c0c002dbc7e.pcap
+file extractedPcap/extractedPcap/40afd75b73b931f9a54a3168b660ebbe.pcap read complete, filesize = 146656 bytes
+no malware found for file extractedPcap/extractedPcap/40afd75b73b931f9a54a3168b660ebbe.pcap
+file extractedPcap/extractedPcap/7437696da71adc7aed253d85437d9baa.pcap read complete, filesize = 287936 bytes
+no malware found for file extractedPcap/extractedPcap/7437696da71adc7aed253d85437d9baa.pcap
+file extractedPcap/extractedPcap/543045f749fe1fb34e6462580a7d7f56.pcap read complete, filesize = 370598 bytes
+no malware found for file extractedPcap/extractedPcap/543045f749fe1fb34e6462580a7d7f56.pcap
+file extractedPcap/extractedPcap/0714bdd76c97f82be63a1ad7442df087.pcap read complete, filesize = 332450 bytes
+no malware found for file extractedPcap/extractedPcap/0714bdd76c97f82be63a1ad7442df087.pcap
+file extractedPcap/extractedPcap/633244b42c5c522f6729c43f5c6ecef7.pcap read complete, filesize = 203944 bytes
+no malware found for file extractedPcap/extractedPcap/633244b42c5c522f6729c43f5c6ecef7.pcap
+file extractedPcap/extractedPcap/175f67a0fc232fe8c4f9ef29aa4853c5.pcap read complete, filesize = 983 bytes
+no malware found for file extractedPcap/extractedPcap/175f67a0fc232fe8c4f9ef29aa4853c5.pcap
+file extractedPcap/extractedPcap/7a42a5120ee142e08c765a0c07f82b99.pcap read complete, filesize = 9544 bytes
+no malware found for file extractedPcap/extractedPcap/7a42a5120ee142e08c765a0c07f82b99.pcap
+file extractedPcap/extractedPcap/46aa51400738b8f84f71b5430a5f905f.pcap read complete, filesize = 1220 bytes
+no malware found for file extractedPcap/extractedPcap/46aa51400738b8f84f71b5430a5f905f.pcap
+file extractedPcap/extractedPcap/49c92b36f966d840fd94b9c8fa56e718.pcap read complete, filesize = 4145 bytes
+no malware found for file extractedPcap/extractedPcap/49c92b36f966d840fd94b9c8fa56e718.pcap
+file extractedPcap/extractedPcap/4b1988df34f30528cf7f71aa347955ae.pcap read complete, filesize = 794267 bytes
+no malware found for file extractedPcap/extractedPcap/4b1988df34f30528cf7f71aa347955ae.pcap
+file extractedPcap/extractedPcap/15a93cffc320462bf3534e33ef2c3a87.pcap read complete, filesize = 1591 bytes
+no malware found for file extractedPcap/extractedPcap/15a93cffc320462bf3534e33ef2c3a87.pcap
+file extractedPcap/extractedPcap/71d4460a668ee6e87896f5637128d2b9.pcap read complete, filesize = 368197 bytes
+no malware found for file extractedPcap/extractedPcap/71d4460a668ee6e87896f5637128d2b9.pcap
+file extractedPcap/extractedPcap/47676f3837dd4760d51bbd603574042c.pcap read complete, filesize = 13725 bytes
+no malware found for file extractedPcap/extractedPcap/47676f3837dd4760d51bbd603574042c.pcap
+file extractedPcap/extractedPcap/56916fa09ce87c415fab7d966aff9e9b.pcap read complete, filesize = 186 bytes
+no malware found for file extractedPcap/extractedPcap/56916fa09ce87c415fab7d966aff9e9b.pcap
+file extractedPcap/extractedPcap/5a50865baac36544e66d58c512c524b9.pcap read complete, filesize = 17889 bytes
+no malware found for file extractedPcap/extractedPcap/5a50865baac36544e66d58c512c524b9.pcap
+file extractedPcap/extractedPcap/68ee4dc931c0a1e5b105ebfba64d16d5.pcap read complete, filesize = 15049 bytes
+no malware found for file extractedPcap/extractedPcap/68ee4dc931c0a1e5b105ebfba64d16d5.pcap
+file extractedPcap/extractedPcap/467f2dd58eb6d81bd86981a2541eec87.pcap read complete, filesize = 44872 bytes
+no malware found for file extractedPcap/extractedPcap/467f2dd58eb6d81bd86981a2541eec87.pcap
+file extractedPcap/extractedPcap/5c6408220ad6fdb06738dc85ce192a3b.pcap read complete, filesize = 898603 bytes
+no malware found for file extractedPcap/extractedPcap/5c6408220ad6fdb06738dc85ce192a3b.pcap
+file extractedPcap/extractedPcap/82c7de8034ea2440409f31156e7a9cbd.pcap read complete, filesize = 163009 bytes
+no malware found for file extractedPcap/extractedPcap/82c7de8034ea2440409f31156e7a9cbd.pcap
+file extractedPcap/extractedPcap/32f65f7f6a7773844fdbb29de8dab047.pcap read complete, filesize = 386551 bytes
+no malware found for file extractedPcap/extractedPcap/32f65f7f6a7773844fdbb29de8dab047.pcap
+file extractedPcap/extractedPcap/6263ea9ab867f06489e0d22aaa026fa6.pcap read complete, filesize = 443964 bytes
+no malware found for file extractedPcap/extractedPcap/6263ea9ab867f06489e0d22aaa026fa6.pcap
+file extractedPcap/extractedPcap/24365a17c866f62634d1e0e0c7c443c7.pcap read complete, filesize = 577900 bytes
+no malware found for file extractedPcap/extractedPcap/24365a17c866f62634d1e0e0c7c443c7.pcap
+file extractedPcap/extractedPcap/3bd65105416ca3a24e4153f7fc91dc91.pcap read complete, filesize = 319594 bytes
+no malware found for file extractedPcap/extractedPcap/3bd65105416ca3a24e4153f7fc91dc91.pcap
+file extractedPcap/extractedPcap/0776ae89e79ae1d13208a6f62d5e30bb.pcap read complete, filesize = 977 bytes
+no malware found for file extractedPcap/extractedPcap/0776ae89e79ae1d13208a6f62d5e30bb.pcap
+file extractedPcap/extractedPcap/6b3075d1e494b02c7f5d7a5ea3e813d6.pcap read complete, filesize = 10900 bytes
+no malware found for file extractedPcap/extractedPcap/6b3075d1e494b02c7f5d7a5ea3e813d6.pcap
+file extractedPcap/extractedPcap/3470d2010cced52dfaaf68f54aac1abb.pcap read complete, filesize = 2320 bytes
+no malware found for file extractedPcap/extractedPcap/3470d2010cced52dfaaf68f54aac1abb.pcap
+file extractedPcap/extractedPcap/34e29be05e50030cacd06bff8e8754ba.pcap read complete, filesize = 16846 bytes
+no malware found for file extractedPcap/extractedPcap/34e29be05e50030cacd06bff8e8754ba.pcap
+file extractedPcap/extractedPcap/01f5461764698e8b2779ea86dcfc5356.pcap read complete, filesize = 348098 bytes
+no malware found for file extractedPcap/extractedPcap/01f5461764698e8b2779ea86dcfc5356.pcap
+file extractedPcap/extractedPcap/61da37bf6b78ba86babfcfe7e5d978c9.pcap read complete, filesize = 317595 bytes
+no malware found for file extractedPcap/extractedPcap/61da37bf6b78ba86babfcfe7e5d978c9.pcap
+file extractedPcap/extractedPcap/50755ad2f901565e02327db38e361b89.pcap read complete, filesize = 454489 bytes
+no malware found for file extractedPcap/extractedPcap/50755ad2f901565e02327db38e361b89.pcap
+file extractedPcap/extractedPcap/81fd5129ffe4cb6338a0a7508fc584fe.pcap read complete, filesize = 984 bytes
+no malware found for file extractedPcap/extractedPcap/81fd5129ffe4cb6338a0a7508fc584fe.pcap
+file extractedPcap/extractedPcap/1b141c68218e7527d8dd843fa0cc0db1.pcap read complete, filesize = 10740 bytes
+no malware found for file extractedPcap/extractedPcap/1b141c68218e7527d8dd843fa0cc0db1.pcap
+file extractedPcap/extractedPcap/82192ee106aa1f01f0ebd1d7ba747c74.pcap read complete, filesize = 177638 bytes
+no malware found for file extractedPcap/extractedPcap/82192ee106aa1f01f0ebd1d7ba747c74.pcap

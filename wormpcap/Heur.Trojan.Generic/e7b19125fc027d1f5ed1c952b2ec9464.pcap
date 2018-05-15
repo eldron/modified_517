@@ -1,0 +1,23 @@
+:irc.undernet.org NOTICE AUTH :*** Looking up your hostname...
+:irc.undernet.org NOTICE AUTH :*** Couldn't resolve your hostname; using your IP address instead
+:irc.undernet.org 001 [USA|XP|blmtyjo] :Welcome to the UnderNet IRC IRC Network [USA|XP|blmtyjo]!xuvodvfy@95.154.230.33
+:irc.undernet.org 002 [USA|XP|blmtyjo] :Your host is irc.undernet.org, running version Unreal3.2.8.1
+:irc.undernet.org 003 [USA|XP|blmtyjo] :This server was created Sun Feb 20 2011 at 04:09:27 MSK
+:irc.undernet.org 004 [USA|XP|blmtyjo] irc.undernet.org Unreal3.2.8.1 iowghraAsORTVSxNCWqBzvdHtGp lvhopsmntikrRcaqOALQbSeIKVfMCuzNTGj
+:irc.undernet.org 005 [USA|XP|blmtyjo] UHNAMES NAMESX SAFELIST HCN MAXCHANNELS=30 CHANLIMIT=#:30 MAXLIST=b:60,e:60,I:60 NICKLEN=30 CHANNELLEN=32 TOPICLEN=307 KICKLEN=307 AWAYLEN=307 MAXTARGETS=20 :are supported by this server
+:irc.undernet.org 005 [USA|XP|blmtyjo] WALLCHOPS WATCH=128 WATCHOPTS=A SILENCE=15 MODES=12 CHANTYPES=# PREFIX=(qaohv)~&@%+ CHANMODES=beI,kfL,lj,psmntirRcOAQKVCuzNSMTG NETWORK=UnderNet-IRC CASEMAPPING=ascii EXTBAN=~,cqnr ELIST=MNUCT STATUSMSG=~&@%+ :are supported by this server
+:irc.undernet.org 005 [USA|XP|blmtyjo] EXCEPTS INVEX CMDS=KNOCK,MAP,DCCALLOW,USERIP :are supported by this server
+:irc.undernet.org 251 [USA|XP|blmtyjo] :There are 1 users and 31 invisible on 1 servers
+:irc.undernet.org 254 [USA|XP|blmtyjo] 1 :channels formed
+:irc.undernet.org 255 [USA|XP|blmtyjo] :I have 32 clients and 0 servers
+:irc.undernet.org 265 [USA|XP|blmtyjo] :Current Local Users: 32  Max: 40
+:irc.undernet.org 266 [USA|XP|blmtyjo] :Current Global Users: 32  Max: 40
+:irc.undernet.org 422 [USA|XP|blmtyjo] :MOTD File is missing
+:[USA|XP|blmtyjo] MODE [USA|XP|blmtyjo] :+iwRxG
+:[USA|XP|blmtyjo]!xuvodvfy@77096F28.FD2E6E08.E6D45B5E.IP JOIN :#BrEnKeR
+:irc.undernet.org 353 [USA|XP|blmtyjo] @ #BrEnKeR :[USA|XP|blmtyjo] 
+:irc.undernet.org 366 [USA|XP|blmtyjo] #BrEnKeR :End of /NAMES list.
+PASS serverpass
+NICK [USA|XP|blmtyjo]
+USER xuvodvfy "" "lol" :xuvodvfy
+JOIN #BrEnKeR lukosmon6458347

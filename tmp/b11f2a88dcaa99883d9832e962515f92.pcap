@@ -1,0 +1,85 @@
+HTTP/1.1 200 OK
+Cache-Control: max-age=86400
+Content-Length: 1677
+Content-Type: text/html
+Last-Modified: Thu, 03 May 2007 15:17:37 GMT
+Accept-Ranges: bytes
+ETag: "a493152f968dc71:24f"
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+Date: Sun, 20 Mar 2011 02:21:13 GMT
+Connection: close
+
+<html>
+<head>
+<title>Ripway.com - fast, free file hosting and website hosting</title>
+<meta http-equiv="refresh" content="10;url=http://www.ripway.com/"> 
+</head>
+<body>
+<font face=verdana size=2 color=#000000>
+<font size=5 face=verdana><b>Ripway Web Hosting</b></font>
+<hr>
+<p>This user account or file could not be located.
+
+<center>
+<script language="javascript" src="http://www.ripway.com/ads/ads.asp?size=leaderboard&site=RIPWAYERROR"></script>
+</center>
+
+
+<p>
+	<center>
+          <table>
+            <tr>
+              <td align="left" valign="top" class="footertext">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="103"><img src="http://www.ripway.com/images/small_rw_logo.gif" width="103" height="18"></td>
+                    <td width="91%" background="http://www.ripway.com/images/fotter_rule.gif">&nbsp;</td>
+                  </tr>
+                </table>
+                <font size=1 face=verdana>
+                All artwork, content, and programming, with the exception of content uploaded by our members copyright &copy; 2002, 2003 <a href="http://www.ripside.com">Ripside 
+                Interactive, L.L.C.</a> All photos and electronic content uploaded 
+                or installed by our customers are copyright their respective owner. 
+                View our <a href="/tos.asp">Terms of Service</a> for usage restrictions 
+                or the <a href="/privacy.asp">Privacy Statement</a> for information 
+                regarding your privacy.</font></td>
+            </tr>
+          </table>
+
+
+
+
+<p>
+
+</center>
+</body>
+</html>
+GET /asdb000/setting.ini HTTP/1.1
+User-Agent: AutoIt
+Host: h1.ripway.com
+Cache-Control: no-cache
+
+HTTP/1.1 404 Not Found
+Date: Sun, 20 Mar 2011 02:12:07 GMT
+Server: Apache/2.2.16 (Debian)
+Last-Modified: Tue, 01 Feb 2011 21:31:12 GMT
+ETag: "1802c4cc-123-49b3f40644f22"
+Accept-Ranges: bytes
+Content-Length: 291
+Vary: Accept-Encoding
+Content-Type: text/html
+
+<title>Search Page</title>
+</head>
+<body>
+<iframe src="http://searchportal.information.com/?o_id=65034&domainname=referer_detect"
+        name="search" id="search" width="100%" height="100%"
+        marginwidth="0" marginheight="0" frameborder="0" scrolling="auto">
+</iframe>
+</body>
+</html>GET /set/setting.ini HTTP/1.1
+User-Agent: AutoIt
+Host: www.balu000.0catch.com
+Cache-Control: no-cache
+

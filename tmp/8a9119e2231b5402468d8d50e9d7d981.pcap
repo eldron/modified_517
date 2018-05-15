@@ -1,0 +1,383 @@
+HTTP/1.1 200 OK
+Date: Thu, 03 Mar 2011 08:51:51 GMT
+Server: Microsoft-IIS/6.0
+P3P: CP=ALL CURa ADMa DEVa TAIa OUR BUS IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC OTC
+X-Powered-By: ASP.NET
+Content-Length: 40
+Content-Type: text/html
+Set-Cookie: ASPSESSIONIDCQCSARDR=GNOLAKEDMHBDDDFBDKFAKKIM; path=/
+Cache-control: private
+
+jjh1M_RECLOG_H UPDATE/M_RECLOG_D UPDATE/GET http://p.iekeyword.com/receive/r_autoidcnt.asp?mer_seq=3&realid=jjh1&cnt_type=e1&mac=0080c8825006 HTTP/1.1
+Host: p.iekeyword.com
+
+HTTP/1.1 200 OK
+Date: Thu, 03 Mar 2011 08:51:55 GMT
+Server: Microsoft-IIS/6.0
+Content-Length: 0
+Content-Type: text/html
+Set-Cookie: ASPSESSIONIDCARBTSAQ=JMGDCOEDJJBGMCFPKEECENOL; path=/
+Cache-control: private
+
+GET http://app.iekeyword.com/setup_b.asp?prj=3&pid=jjh1&mac=0080c8825006 HTTP/1.1
+Host: app.iekeyword.com
+
+HTTP/1.1 200 OK
+Date: Thu, 03 Mar 2011 08:51:53 GMT
+Server: Microsoft-IIS/6.0
+P3P: CP=ALL CURa ADMa DEVa TAIa OUR BUS IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC OTC
+X-Powered-By: ASP.NET
+Content-Length: 6
+Content-Type: text/html
+Set-Cookie: ASPSESSIONIDCQCSARDR=COOLAKEDNKEDHMAMPJHEKAID; path=/
+Cache-control: private
+
+jjh1OKGET http://p.iekeyword.com/receive/r_autoidcnt.asp?mer_seq=3&realid=jjh1&mac=0080c8825006&logdata=MacTryCnt:0 HTTP/1.1
+Host: p.iekeyword.com
+
+HTTP/1.1 200 OK
+Date: Thu, 03 Mar 2011 08:51:17 GMT
+Server: Apache/2.2.15 (Unix) PHP/5.2.14
+X-Powered-By: PHP/5.2.14
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html
+
+1f9f
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<title>주소줄도우미</title>
+<style>
+/* 초기화 */
+html{border:none;}
+*{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:1em;}
+ol,ul,dl,li{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;overflow:hidden;}
+fieldset, img, input{border:0;}
+address, caption, cite,code, dfn,em{font-style:normal;font-weight:normal;}
+hr{visibility:hidden;overflow:hidden;position:relative;width:0;height:0;line-height:0;border:0;}
+table{width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;overflow:hidden;}
+
+/* 폰트설정 */
+body,td,select,input,div,form,textarea,option,pre,blockquote,dd,dt,li {
+	font-size:12px;
+	font-family:"굴림",Gulim,"돋움",dotum,Verdana, Arial, Helvetica, sans-serif;
+	color:#444;
+}
+
+/* 링크관련 */
+a{color:#444;text-decoration:none;border:0;}
+a:hover{color:#000000;text-decoration:underline;}
+a.atitle{color:white;}
+
+/* 공통클래스 */
+.vt {vertical-align:top;}
+.vm {vertical-align:middle;}
+.vb {vertical-align:bottom;}
+.bold {font-weight:bold;}
+.btn {cursor:pointer;}
+
+img, input{vertical-align:middle;margin-top:-4px;border:0;}
+
+#iedoumi{position:relative;width:100%;}
+
+.line{position:relative;width:100%;height:18px;background:url('../images/line_bg.gif') repeat-x left 6px;overflow:hidden;}
+.line_txt_1{width:77px;height:14px;padding-left:10px;padding-top:6px;color:#6d6d6d;background-color:white;}
+.line_txt_2{width:54px;height:14px;padding-left:10px;padding-top:6px;color:#6d6d6d;background-color:white;}
+.line_txt_3{width:65px;height:14px;padding-left:10px;padding-top:6px;color:#6d6d6d;background-color:white;}
+.line_txt_4{width:69px;height:14px;padding-left:10px;padding-top:6px;color:#6d6d6d;background-color:white;}
+.line_txt_5{width:42px;height:14px;padding-left:10px;padding-top:6px;color:#6d6d6d;background-color:white;}
+.line_txt_6{width:79px;height:14px;padding-left:10px;padding-top:6px;color:#6d6d6d;background-color:white;}
+
+.line_end{position:absolute;width:38px;height:11px;right:0;top:7px;}
+.portal{width:100%;float:left;}
+.portal li{width:120px;float:left;height:20px;padding-top:4px;padding-left:30px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+</style>
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" onresize="reSize()">
+	<div id="iedoumi">
+		<ul class="line">
+			<li class="line_txt_1">포탈사이트</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+				<li><img src="../images/f_naver.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.naver.com&mac=0080c8825006&pid=jjh1" title="네이버 :: 나의 경쟁력,네이버" >네이버</a></li>
+				<li><img src="../images/f_daum.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.daum.net&mac=0080c8825006&pid=jjh1" title="Daum - 생활이 바뀐다! Life On Daum" >다음</a></li>
+				<li><img src="../images/f_nate.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.nate.com&mac=0080c8825006&pid=jjh1" title="네이트" >네이트</a></li>
+				<li><img src="../images/f_cyworld.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.cyworld.com%2Fpims%2Fmhsection%2Fmh_index.asp&mac=0080c8825006&pid=jjh1" title="싸이월드 미니홈피" >싸이월드</a></li>
+				<li><img src="../images/f_google.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fgoogle.co.kr&mac=0080c8825006&pid=jjh1" title="Google" >구글</a></li>
+				<li><img src="../images/f_yahoo.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fkr.yahoo.com%2F&mac=0080c8825006&pid=jjh1" title="야후! 코리아" >야후</a></li>
+				<li><img src="../images/f_dcinside.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.dcinside.com&mac=0080c8825006&pid=jjh1" title="IT is Life! 디시인사이드입니다." >디시</a></li>
+				<li><img src="../images/f_twitter.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.twitter.com&mac=0080c8825006&pid=jjh1" title="Twitter" >트위터</a></li>
+				<li><img src="../images/f_facebook.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.facebook.com&mac=0080c8825006&pid=jjh1" title="Facebook" >페이스북</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_2">쇼핑몰</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_gmarket.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.gmarket.co.kr&mac=0080c8825006&pid=jjh1" title="G마켓 - 새로운 세상을 여는 문, G마켓" >G마켓</a></li>
+			<li><img src="../images/f_auction.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.auction.co.kr&mac=0080c8825006&pid=jjh1" title="당신이 찾는 모든 스타일, 옥션" >옥션</a></li>
+			<li><img src="../images/f_11st.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.11st.co.kr&mac=0080c8825006&pid=jjh1" title="쇼핑 스트리트, 11번가" >11번가</a></li>
+			<li><img src="../images/f_interpark.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.interpark.com&mac=0080c8825006&pid=jjh1" title="Shopper's ♥ Heaven! 인터파크!" >인터파크</a></li>
+			<li><img src="../images/f_cjmall.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.cjmall.com&mac=0080c8825006&pid=jjh1" title="LifeStyle shopper - CJmall" >CJmall</a></li>
+			<li><img src="../images/f_akmall.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.akmall.com&mac=0080c8825006&pid=jjh1" title="AK몰 - 쇼핑의 신대륙" >AK몰</a></li>
+			<li><img src="../images/f_hmall.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.hmall.com&mac=0080c8825006&pid=jjh1" title="현대백화점 Hmall" >Hmall</a></li>
+			<li><img src="../images/f_shinsegae.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fmall.shinsegae.com&mac=0080c8825006&pid=jjh1" title="부러움을 사다. Beyond Shopping, 신세계몰" >신세계몰</a></li>
+			<li><img src="../images/f_shilla.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.dfsshilla.com&mac=0080c8825006&pid=jjh1" title="신라면세점은 당신을 여행하게 만듭니다." >신라면세점</a></li>
+			<li><img src="../images/f_dnshop.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.dnshop.com&mac=0080c8825006&pid=jjh1" title="디앤샵,시즌 2" >d&shop</a></li>
+			<li><img src="../images/f_gseshop.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.gsshop.com%2Findex.gs&mac=0080c8825006&pid=jjh1" title="GS SHOP GS이숍의 새이름,GS SHOP" >GS SHOP</a></li>
+			<li><img src="../images/f_nseshop.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.nseshop.com&mac=0080c8825006&pid=jjh1" title="생활쇼핑의 중심 - NS농수산홈쇼핑" >NS이숍</a></li>
+			<li><img src="../images/f_cjon.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.cjonmart.net&mac=0080c8825006&pid=jjh1" title="CJON mart - 건강,즐거움,편리 | 씨제이온 마트" >CJON mart</a></li>
+			<li><img src="../images/f_emart.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.emartmall.com%2Findex.jsp&mac=0080c8825006&pid=jjh1" title="이마트 인터넷 쇼핑몰" >이마트몰</a></li>
+			<li><img src="../images/f_lotte.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.lotteimall.com%2Fmain%2FIndex.jsp&mac=0080c8825006&pid=jjh1" title="기대 그 이상의 가치! 롯데홈쇼핑" >롯데홈쇼핑</a></li>				
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fmall.epost.go.kr%2F%2Fgoods.ShopHome.mall&mac=0080c8825006&pid=jjh1" title="ePOST - 실속과 신뢰의 우체국쇼핑" >우체국쇼핑</a></li>
+			<li><img src="../images/f_qooktvshop.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fqook.njoyny.com&mac=0080c8825006&pid=jjh1" title="영상으로 즐기는 신개념 쇼핑몰! QOOKTV쇼핑" >쿡TV쇼핑</a></li>
+			<li><img src="../images/f_wizwid.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=
+1f44
+http%3A%2F%2Fwww.wizwid.com&mac=0080c8825006&pid=jjh1" title="WIZWID" >WIZWID</a></li>
+			<li><img src="../images/f_onebyone.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.onebuy1.co.kr&mac=0080c8825006&pid=jjh1" title="하루의 행복지기 - 원바이원" >원바이원</a></li>
+			<li><img src="../images/f_oneaday.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.oneaday.co.kr&mac=0080c8825006&pid=jjh1" title="하루에 한가지만 판매,원어데이" >원어데이</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.converseshop.co.kr&mac=0080c8825006&pid=jjh1" title="ORIGINAL ★CONVERSE SHOPPINGMALL" >컨버스샵</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.2001outlet.com%2F&mac=0080c8825006&pid=jjh1" title="백화점을 할인한다 - 2001아울렛" >2001아울렛</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.banpumsale.com&mac=0080c8825006&pid=jjh1" title="가격비교 최저가나 옥션보다 싸다!! 반품세일닷컴!!" >반품세일닷컴</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Foneaday.diodeo.com&mac=0080c8825006&pid=jjh1" title="오늘만 특가! 디원(dione)쇼핑몰입니다." >오늘만특가!디원</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.carped1em.com&mac=0080c8825006&pid=jjh1" title="하루에 한가지 대한민국 최저가! 가격비교 사이트 최저가보다도 저렴한 가격!" >카르페디엠</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.discounter.co.kr&mac=0080c8825006&pid=jjh1" title="DISCOUNTER(할인점) - 하루에 한가지!! 황금알을 낳는 거위처럼.." >디스카운터</a></li>
+			<li><img src="../images/f_danawa.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.danawa.com&mac=0080c8825006&pid=jjh1" title="행복쇼핑의 시작 ! 다나와(가격비교)" >다나와</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_1">브랜드의류</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+			<ul class="portal">
+			<li><img src="../images/f_otto.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.otto.kr%2Fweb%2Feshop%2Fmain.jsp&mac=0080c8825006&pid=jjh1" title="OTTO - European Fashion & Lifestyle" >OTTO</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.lgfashionshop.co.kr&mac=0080c8825006&pid=jjh1" title="LG패션" >LG패션샵</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.ifumall.com&mac=0080c8825006&pid=jjh1" title="이프유와 함께하는 발랄한 여유 ~ 이프유몰에 오신것을 환영합니다" >이프유몰</a></li>
+			<li><img src="../images/f_wizholic.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.wizholic.com&mac=0080c8825006&pid=jjh1" title="위즈홀릭에 오신 것을 환영합니다." >위즈홀릭</a></li>
+			<li><img src="../images/f_istyle24.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.istyle24.com&mac=0080c8825006&pid=jjh1" title="아침에 주문하고,오늘 입자 iSTYLE24" >아이스타일24</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.fashionplus.co.kr&mac=0080c8825006&pid=jjh1" title="No.1 프리미엄 브랜드 쇼핑몰 FASHIONPLUS" >패션플러스</a></li>
+			<li><img src="../images/f_ogage.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.ogage.co.kr&mac=0080c8825006&pid=jjh1" title="OGAGE" >오가게</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.halfclub.com&mac=0080c8825006&pid=jjh1" title="하프클럽닷컴" >하프클럽</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.emessage.co.kr&mac=0080c8825006&pid=jjh1" title="E-MeSSAGE:온라인에서 만나는 메세지몰" >이메세지</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_3">주얼리</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://www.jewelrysoo.com/" title="주얼리수" >주얼리수</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_3">게임포탈</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.hangame.com&mac=0080c8825006&pid=jjh1" title="한게임 - 즐거움 쉼표,Go 한게임!" >한게임</a></li>
+			<li><img src="../images/f_netmarble.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.netmarble.net&mac=0080c8825006&pid=jjh1" title="넷마블 - 즐거운 게임세상 넷마블!" >넷마블</a></li>
+			<li><img src="../images/f_pimang.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.pmang.com&mac=0080c8825006&pid=jjh1" title="피망 - 대한민국 No.1 게임포털 피망!" >피망</a></li>
+			<li><img src="../images/f_nexon.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.nexon.com%2Fmain%2Fpage%2Fnx.aspx&mac=0080c8825006&pid=jjh1" title="넥슨 - www.nexon.com" >넥슨</a></li>		
+		</ul>
+		<ul class="line">
+			<li class="line_txt_4">음악,도서</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_mnet.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fmnet.com&mac=0080c8825006&pid=jjh1" title="My Music Style!! - Mnet" >엠넷닷컴</a></li>
+			<li><img src="../images/f_melon.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.melon.com&mac=0080c8825006&pid=jjh1" title="Melon::음악이 필요한 순간, 멜론" >멜론</a></li>
+			<li><img src="../images/f_bugs.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.bugs.co.kr&mac=0080c8825006&pid=jjh1" title="음악 그 이상의 즐거움! 벅스" >벅스</a></li>
+			<li><img src="../images/f_dosirak.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.dosirak.com&mac=0080c8825006&pid=jjh1" title="the 맛있는 음악, dosirak" >도시락</a></li>
+			<li><img src="../images/f_soribada.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.soribada.com&mac=0080c8825006&pid=jjh1" title="소리바다" >소리바다</a></li>
+			<li><img src="../images/f_ohdio.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.ohdio.com&mac=0080c8825006&pid=jjh1" title="Ohdio-나의 뮤직코디네이터! 오디오닷컴~♪" >오디오닷컴</a></li>
+			<li><img src="../images/f_winky.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.winky.co.kr&mac=0080c8825006&pid=jjh1" title="윙키 - 사랑하는 사람끼리" >윙키</a></li>
+			<li><img src="../images/f_yes24.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.yes24.com&mac=0080c8825006&pid=jjh1" title="YES24 - 대한민국 대표 인터넷서점" >yes24</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.bandinlunis.com&mac=0080c8825006&pid=jjh1" title="반디앤루니스 - 로그인만 해도 적립금 주는 최초 인터넷서점" >반디앤루니스</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.libro.co.kr&mac=0080c8825006&pid=jjh1" title="리브로,기분 좋은 인터넷 서점" >리브로</a></li>
+			<li><img src="../images/f_kyobobook.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.kyobobook.co.kr&mac=0080c8825006&pid=jjh1" title="[인터넷 교보문고] 꿈을 키우는 세상" >교보문고</a></li>
+			<li><img src="../images/f_ssbooks.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=
+1fb6
+http%3A%2F%2Fwww.ssbooks.com&mac=0080c8825006&pid=jjh1" title="삼성출판사 인터넷서점" >삼성북스</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.bookscan.co.kr&mac=0080c8825006&pid=jjh1" title="좋은 책을 읽는 사람들 - Bookscan" >대교북스캔</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.lovezigi.co.kr&mac=0080c8825006&pid=jjh1" title="사랑지기-맞춤동화전문사이트,연인선물,이벤트선물,백일선물,이솝우화" >사랑지기</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_5">은행</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_kbbank.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.kbstar.com&mac=0080c8825006&pid=jjh1" title="KB국민은행" >KB국민은행</a></li>
+			<li><img src="../images/f_wooribank.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.wooribank.com&mac=0080c8825006&pid=jjh1" title="우리은행::우리나라 우리은행" >우리은행</a></li>
+			<li><img src="../images/f_nhbank.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.nonghyup.com&mac=0080c8825006&pid=jjh1" title="NH농협 대한민국 NO.1 유통 금융리더">NH농협</a></li>
+			<li><img src="../images/f_shinhan.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.shinhan.com&mac=0080c8825006&pid=jjh1" title="신한은행" >신한은행</a></li>
+			<li><img src="../images/f_hanabank.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.hanabank.com&mac=0080c8825006&pid=jjh1" title="Hana Bank" >하나은행</a></li>
+			<li><img src="../images/f_ibk.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.ibk.co.kr&mac=0080c8825006&pid=jjh1" title="기업은행" >기업은행</a></li>
+			<li><img src="../images/f_keb.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.keb.co.kr&mac=0080c8825006&pid=jjh1" title="외환은행 - Smart Bank KEB" >외환은행</a></li>
+			<li><img src="../images/f_scbank.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.scfirstbank.com&mac=0080c8825006&pid=jjh1" title="SC제일은행" >제일은행</a></li>
+			<li><img src="../images/f_myasset.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.myasset.com&mac=0080c8825006&pid=jjh1" title="★ MyAsset 나의 맞춤 자산관리 - 동양종합금융증권" >동양종합금융증권</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_6">컴퓨터,가전</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_skype.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fskype.auction.co.kr&mac=0080c8825006&pid=jjh1" title="세계 최대 인터넷 전화, 저렴한 국제전화 - 옥션 스카이프" >스카이프</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.assacom.com&mac=0080c8825006&pid=jjh1" title="컴퓨터판매1위" >아싸컴</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.needscom.com&mac=0080c8825006&pid=jjh1" title="(주)니즈컴쇼핑몰에 오신것을 환영합니다" >니즈컴</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.e-himart.co.kr&mac=0080c8825006&pid=jjh1" title="믿고 살수 있는곳,전자제품 전문몰 하이마트쇼핑몰에 오신것을 환영합니다" >하이마트쇼핑몰</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.siren24.com&mac=0080c8825006&pid=jjh1" title="SIREN24" >사이렌24</a></li>	
+		</ul>
+		<ul class="line">
+			<li class="line_txt_3">파일공유</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwowdisk.com&mac=0080c8825006&pid=jjh1" title="와우디스크 - 국내 최고의 콘텐츠 다운로드" >와우디스크</a></li>
+			<li><img src="../images/f_megafile.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.megafile.co.kr&mac=0080c8825006&pid=jjh1" title="★ 메가파일 ★ 디지털 컨텐츠의 중심" >메가파일</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.quickdown.co.kr&mac=0080c8825006&pid=jjh1" title="퀵다운 - 빠르고 정확한 컨텐츠 나라" >퀵다운</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_6">팬시,꽃배달</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.miodio.co.kr&mac=0080c8825006&pid=jjh1" title="추억을 만지다,미오디오" >미오디오</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.egreenshop.co.kr&mac=0080c8825006&pid=jjh1" title="친환경적 생활공간연출 =====그린샵=====" >그린샵</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.1566flower.net&mac=0080c8825006&pid=jjh1" title="::F1566플라워::" >1566flower</a></li>
+			<li><img src="../images/f_99flower.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fclick.99flower.co.kr&mac=0080c8825006&pid=jjh1" title="기분좋은 전국꽃배달 ㈜99플라워_신속,정확한 당일전국 2시간 꽃배달서비스. 꽃바구니,꽃다발,동서양난,경조화환,관엽.화분등 전국 당일 꽃배달서비스" >㈜99플라워</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.flowernet114.com&mac=0080c8825006&pid=jjh1" title="꽃배달할인점::전국꽃배달넷114::20년 경력의 꽃배달서비스,해외신용카드결제가능,꽃배달서비스 빨리 싸게 잘하는곳,한국내 800여 시군구단위 전국 꽃배달 서비스 전문" >꽃배달넷114</a></li>
+			<li><img src="../images/f_119flower.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Flike.119flower.co.kr&mac=0080c8825006&pid=jjh1" title="전국꽃배달 ㈜119플라워_신속, 정확한 당일전국 2시간 꽃배달서비스.꽃바구니,꽃다발,동서양난,경조화환,관엽.화분등 전국 당일 꽃배달서비스" >119플라워</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.flower365.com&mac=0080c8825006&pid=jjh1" title="윤종신 꽃배달 플라워 365" >윤종신꽃배달 플라워365</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_4">미팅,채팅</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_79club.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.79club.net&mac=0080c8825006&pid=jjh1" title="친구클럽 - 외로운 솔로들에 설레이는 미팅,채팅,소개팅 천국" >친구클럽</a></li>
+			<li><img src="../images/f_kingka.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.kingca.com&mac=0080c8825006&pid=jjh1" title="킹카닷컴::즐거운 미팅 세상" >킹카닷컴</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.joyhunting.com&mac=0080c8825006&pid=jjh1" title="조이헌팅::즐거운 이야기 세상,조이헌팅!" >조이헌팅</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.club5678.com&mac=0080c8825006&pid=jjh1" title="CLUB5678에 오신 것을 환영합니다...좋은 시간 보내세요." >CLUB5678</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_4">건강,의료</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_katolic.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.dentalxpert.co.kr&mac=0080c8825006&pid=jjh1" title="임플란트전문치과병원" >가톨릭치과병원</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=
+188d
+http%3A%2F%2Fwww.2love.co.kr&mac=0080c8825006&pid=jjh1" title="이사랑치과 - 임플란트,휴먼브릿지,치아교정,잇몸치료,미백,잇몸성형,충치" >이사랑치과</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Feyemedi.com&mac=0080c8825006&pid=jjh1" title="대한민국 라섹의 역사! 아이메디안과" >아이메디안과</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_4">식품,음료</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.hh119.co.kr&mac=0080c8825006&pid=jjh1" title="건강119" >건강119</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.lovejuice.co.kr&mac=0080c8825006&pid=jjh1" title="참토식품(주) 양파즙,마늘진액,민들레즙,호박즙,정직한 제품만을 만드는 기업!" >참토식품주식회사</a></li>
+			<li><img src="../images/f_wellborn.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.wellborn.co.kr&mac=0080c8825006&pid=jjh1" title="웰본마트 :: 즐거운 먹거리를 창조하는 웰본마트" >웰본마트</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fcocovill.com&mac=0080c8825006&pid=jjh1" title="다이어트식품 전문 - 청솔 꼬꼬빌" >청솔꼬꼬빌</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_2">자동차</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.zeilcar.net&mac=0080c8825006&pid=jjh1" title="제일카넷 자동차용품 쇼핑몰,열차단 썬팅필름,자동차DIY,자동차방음,자동차튜닝,LED,사이드미러,릴레이,자동차용품도매,쇼핑몰분양" >제일카넷</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.bobaedream.co.kr&mac=0080c8825006&pid=jjh1" title="보배드림" >보배드림</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fauto.joins.com&mac=0080c8825006&pid=jjh1" title="오토조인스" >오토조인스</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.top-rider.com&mac=0080c8825006&pid=jjh1" title="" >탑라이더</a></li>
+		</ul>
+		<ul class="line">
+			<li class="line_txt_5">성인</li>
+			<li class="line_end"><img src="../images/line_bgr.gif" alt="" /></li>
+		</ul>
+		<ul class="portal">
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fagactv.com&mac=0080c8825006&pid=jjh1" title="아가씨TV" >아가씨TV</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.windyfox.co.kr&mac=0080c8825006&pid=jjh1" title="바람난 여우 - 최고의 섹시스타들의 화보" >바람난여우</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.lemontv.co.kr&mac=0080c8825006&pid=jjh1" title="섹스동영상 천국 - 레몬티비 -">레몬티비</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.joyhottv.com&mac=0080c8825006&pid=jjh1" title="★☆★☆조이~핫~티비 - 눈이 즐거운 인터넷 TV★☆★☆" >조이핫티비</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.muindomall.co.kr&mac=0080c8825006&pid=jjh1" title="전문성지식의 믿을수있는 성인용품 쇼핑몰 - 무인도몰" >무인도몰</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.joyhunt.co.kr&mac=0080c8825006&pid=jjh1" title="대한민국 No.1 신나는 아지트!!조이헌트!!" >조이헌트</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.redmanga.co.kr&mac=0080c8825006&pid=jjh1" title="망가전문사이트 Redmanga.co.kr" >레드망가</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fsexyidol.co.kr&mac=0080c8825006&pid=jjh1" title="섹시아이돌(sexyidol.co.kr) 매일 업데이트되는 상큼한 아이돌의 섹시한 포토!!" >섹시아이돌</a></li>
+			<li><img src="../images/f_default.gif" alt="" /><a href="http://link.iekeyword.com?siteUrl=http%3A%2F%2Fwww.erosjapans.com&mac=0080c8825006&pid=jjh1" title="☆★☆★ 일본 AV 전용관 erosjapans.com ★☆★☆" >에로스재팬</a></li>
+		</ul>
+		<p style="width:100%;text-align:right;height:40px;"><img src="../images/option_btn.gif" alt="환경설정" style="margin-right:25px;margin-top:10px;cursor:hand;" onclick="winOpen('option.php','','500','220');" /></p>
+	</div>
+<script type="text/javascript">
+	// 275
+	var maxHeight = 175;
+	var height = iedoumi.scrollHeight + (iedoumi.offsetHeight - iedoumi.clientHeight) + 10;
+	if ( height > maxHeight )
+		height = maxHeight;
+
+	location.href= 'app:setheight '+height;
+	location.href= 'app:interval 250';	//500
+	location.href= 'app:setkeywordsearch 1';
+	
+	function reSize() {
+		
+		var objBody = iedoumi;
+		ifrmHeight = objBody.scrollHeight + (objBody.offsetHeight - objBody.clientHeight) + 10;
+		
+		if (ifrmHeight > maxHeight)
+			ifrmHeight = maxHeight;
+
+		location.href= 'app:setheight '+ifrmHeight;
+		
+	}
+
+	function winOpen(src,name,width,height)
+	{
+		var win = window.open(src,name,"width="+width+", height="+height+",toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no");
+		return win;
+	}
+
+
+	var varspeed, varpopup, varsearch;
+	
+	function App_SetEnv(var1, var2, var3){	//속도,팝업온오프,서치온오프   //from app, ie새로 열리고 웹페이지 로딩될때 한번 보낸다
+		varspeed = var1;
+		varpopup = var2;
+		varsearch = var3;
+//		alert(varspeed+", "+varpopup+", "+varsearch);
+		//return 1;
+	}
+	
+	function getAppOption()
+	{
+		var Option = Array(varspeed,varpopup,varsearch);
+		return Option;
+	}
+
+	function App_SetEnv_ToApp(var1,var2,var3){  //send to app
+		location.href= 'app:appenv '+var1+','+var2+','+var3;
+	}
+
+	function focuson() {
+		document.all.iedoumi.focus();
+	}
+	
+	/*
+	function varcheck(){
+		alert(varspeed+", "+varpopup+", "+varsearch);
+	}
+	*/
+</script>
+</body>
+</html>
+0
+
+GET /app/?prj=3&pid=jjh1&mac=0080c8825006&logdata=MacTryCnt:0&code=default&ver=1.0.0.10 HTTP/1.1
+Accept: */*
+Accept-Language: en-us
+UA-CPU: x86
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)
+Host: iekeyword.com
+Connection: Keep-Alive
+

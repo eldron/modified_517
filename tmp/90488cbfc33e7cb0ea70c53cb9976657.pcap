@@ -1,0 +1,7 @@
+:Dont_Forget_To_Pay_Every_Month--www.SecurityDoesntExist.net NOTICE AUTH :*** Looking up your hostname...
+:Dont_Forget_To_Pay_Every_Month--www.SecurityDoesntExist.net NOTICE AUTH :*** Found your hostname
+:Dont_Forget_To_Pay_Every_Month--www.SecurityDoesntExist.net 433 * {New}[USA-1244024-XP] :Nickname is already in use.
+:Dont_Forget_To_Pay_Every_Month--www.SecurityDoesntExist.net 432  2840 :Erroneous Nickname: Illegal characters
+NICK {New}[USA-1244024-XP]
+USER 6963606 "" "lol" :6963606
+NICK 2840

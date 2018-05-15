@@ -36,6 +36,8 @@ void print_relation(int type, int min, int max){
 	}
 }
 
+
+// len is the length of the deleted signature fragment
 void recalculate_relation(int len, int deleted_type, int deleted_min, int deleted_max,
 	int successor_type,int successor_min, int successor_max,
 	int * re_type, int * re_min, int * re_max){
@@ -170,6 +172,7 @@ int main(int argc, char ** args){
 	int deleted_min;
 	int deleted_max;
 	int previous_one_deleted = 0;// if the previous signature fragment is deleted or not
+	int deleted_len;// length of the deleted signature fragment
 	while(1){
 		// print malware name
 		printf("%s", s);
@@ -216,17 +219,19 @@ int main(int argc, char ** args){
 								int re_type;
 								int re_min;
 								int re_max;
-								recalculate_relation(fragment_len, deleted_type, deleted_min, deleted_max,
+								recalculate_relation(deleted_len, deleted_type, deleted_min, deleted_max,
 									type, min, max,
 									&re_type, &re_min, &re_max);
 								deleted_type = re_type;
 								deleted_min = re_min;
 								deleted_max = re_max;
+								deleted_len = fragment_len;
 							} else {
 								// record the relation between the current signature fragment and its previous one
 								deleted_type = type;
 								deleted_min = min;
 								deleted_max = max;
+								deleted_len = fragment_len;
 							}
 						}
 						previous_one_deleted = 1;
@@ -241,7 +246,7 @@ int main(int argc, char ** args){
 								int re_type;
 								int re_min;
 								int re_max;
-								recalculate_relation(fragment_len, deleted_type, deleted_min, deleted_max,
+								recalculate_relation(deleted_len, deleted_type, deleted_min, deleted_max,
 									type, min, max,
 									&re_type, &re_min, &re_max);
 								print_relation(re_type, re_min, re_max);

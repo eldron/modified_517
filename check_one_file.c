@@ -18,8 +18,9 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include <errno.h>
+#include <sys/time.h>
 
-void check_file(char * filename, uint8_t * key, int socket_fd){
+void check_file(char * filename, SHA256_CTX * ctx, int socket_fd){
 	char * s = (char *) malloc(10 * 1024 * 1024);
 	struct client_user_token file_end_token;
 	memset(&file_end_token, 0, sizeof(struct client_user_token));
@@ -61,7 +62,10 @@ void check_file(char * filename, uint8_t * key, int socket_fd){
 			while(i < filesize - TOKEN_SIZE +1){
 				for(j = 0;j < BATCH_SIZE;j++){
 					user_tokens_batch[j].offset = htonl(i);
-					AES128_ECB_encrypt(&(s[i]), key, user_tokens_batch[j].token);
+					//AES128_ECB_encrypt(&(s[i]), key, user_tokens_batch[j].token);
+					sha256_init(ctx);
+					sha256_update(ctx, &(s[i]), TOKEN_SIZE);
+					sha256_final(ctx, user_tokens_batch[j].token);
 					i++;
 					if(i == filesize - TOKEN_SIZE + 1){
 						// reached the end of this file
@@ -135,9 +139,11 @@ int main(int argc, char ** args){
 
 	char * filename = args[3];
 	fprintf(stderr, "filename = %s\n", filename);
-	
-	uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
-	
+	struct timeval before;
+	struct timeval after;
+
+	//uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
+	SHA256_CTX ctx;
 	int len;
 	int client_fd;
 	struct sockaddr_in dest;
@@ -152,7 +158,13 @@ int main(int argc, char ** args){
 	} else {
 		fprintf(stderr, "connected to server\n");
 	}
-	check_file(filename, key, client_fd);
+
+	gettimeofday(&before, NULL);
+	check_file(filename, &ctx, client_fd);
+	gettimeofday(&after, NULL);
+
+	unsigned long long elapsed = (after.tv_sec - before.tv_sec)*1000000L + after.tv_usec - before.tv_usec;
+	fprintf(stderr, "elapsed = %llu\n", elapsed);
 	// close(client_fd);
 
 	return 0;

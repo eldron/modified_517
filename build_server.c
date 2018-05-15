@@ -69,7 +69,7 @@ int count_arrearance_times(uint8_t * plain_token, uint8_t * plain_signature_frag
 	return count;
 }
 // segment a signature fragment, encrypt the tokens, then insert the encrypted tokens into reversible sketch
-void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, uint8_t * aes_key, struct memory_pool * pool){
+void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signature_fragment * sf, struct memory_pool * pool, SHA256_CTX * ctx){
 	int i;
 	int len = 0;
 	i = 0;
@@ -81,7 +81,8 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 		len--;
 	}
 
-	uint8_t cipher[TOKEN_SIZE];
+	//uint8_t cipher[TOKEN_SIZE];
+	uint8_t hashed_token[HASHED_TOKEN_SIZE];
 	uint8_t tmp[10000];
 	for(i = 0;i < len / 2;i++){
 		tmp[i] = convert_hex_to_uint8(sf->s[i * 2], sf->s[i * 2 + 1]);
@@ -89,22 +90,26 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 	len = len / 2;
 
 	//fprintf(stderr, "signature is\n");
-	for(i = 0;i < len;i++){
-		//fprintf(stderr, "%c%c ", sf->s[2 * i], sf->s[2 * i + 1]);
-	}
-	//fprintf(stderr, "\ntmp is\n");
-	for(i = 0;i < len;i++){
-		//fprintf(stderr, "%u ", tmp[i]);
-	}
+	// for(i = 0;i < len;i++){
+	// 	//fprintf(stderr, "%c%c ", sf->s[2 * i], sf->s[2 * i + 1]);
+	// }
+	// //fprintf(stderr, "\ntmp is\n");
+	// for(i = 0;i < len;i++){
+	// 	//fprintf(stderr, "%u ", tmp[i]);
+	// }
 	//fprintf(stderr, "\n");
 
 	sf->number_of_encrypted_tokens = len - TOKEN_SIZE + 1;
 	sf->signature_fragment_len = len;
 	sf->encrypted_tokens_array = get_free_et_ptr_array(pool, sf->number_of_encrypted_tokens);
 	for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
-		AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
-		int arrearance_times = count_arrearance_times(&(tmp[i]), tmp, len);
-		insert_encrypted_token(rs, i, cipher, arrearance_times, TOKEN_SIZE, sf, pool);
+		//AES128_ECB_encrypt(&(tmp[i]), aes_key, cipher);
+		//int arrearance_times = count_arrearance_times(&(tmp[i]), tmp, len);
+		//insert_encrypted_token(rs, i, cipher, arrearance_times, TOKEN_SIZE, sf, pool);
+		sha256_init(ctx);
+		sha256_update(ctx, &(tmp[i]), TOKEN_SIZE);
+		sha256_final(ctx, hashed_token);
+		insert_encrypted_token(rs, hashed_token, sf, pool);
 	}
 
 	//if(sf->encrypted_tokens_list.count != sf->signature_fragment_len - TOKEN_SIZE + 1){
@@ -115,7 +120,7 @@ void insert_signature_fragment_to_rs(struct reversible_sketch * rs, struct signa
 // read rules and signatures from file
 // file should be the output of rule_normalizer
 // segment signature fragments for each rule, encrypt them, then feed them into the reversible sketch
-int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list, struct double_list * global_signatures_list, uint8_t * aes_key, struct memory_pool * pool){
+int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct double_list * rules_list, struct double_list * global_signatures_list, SHA256_CTX * ctx, struct memory_pool * pool){
 	FILE * fin = fopen(filename, "r");
 	char s[LINELEN];
 	memset(s, '\0', LINELEN);
@@ -197,23 +202,23 @@ int read_rules_from_file(char * filename, struct reversible_sketch * rs, struct 
 
 			if(rs){
 				// TODO: segment the current signature fragment, encrypt it, then insert it into the reversible sketch
-				insert_signature_fragment_to_rs(rs, sig_fra, aes_key, pool);
+				insert_signature_fragment_to_rs(rs, sig_fra, pool, ctx);
 				//fprintf(stderr, "isnerted rule %s signature fragment %s\n", r->rule_name, sig_fra->s);
 			}
 		}
 		if(tmp_tokens_count > max_rule_len){
 			max_rule_len = tmp_tokens_count;
 		}
-		if(i % 10000 == 0){
-			fprintf(stderr, "%d %s\n", i, r->rule_name);
-		}
+		// if(i % 10000 == 0){
+		// 	fprintf(stderr, "%d %s\n", i, r->rule_name);
+		// }
 	}
 
 	fclose(fin);
-	fprintf(stderr, "max_signature_fragment_len = %d\n", max_signature_fragment_len);
-	fprintf(stderr, "signature_fragments_count = %d\n", signature_fragments_count);
-	fprintf(stderr, "tokens_count = %d\n", tokens_count);
-	fprintf(stderr, "max_rule_len = %d\n", max_rule_len);
+	// fprintf(stderr, "max_signature_fragment_len = %d\n", max_signature_fragment_len);
+	// fprintf(stderr, "signature_fragments_count = %d\n", signature_fragments_count);
+	// fprintf(stderr, "tokens_count = %d\n", tokens_count);
+	// fprintf(stderr, "max_rule_len = %d\n", max_rule_len);
 	return number_of_rules;
 }
 

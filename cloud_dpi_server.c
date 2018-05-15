@@ -16,7 +16,7 @@
 
 #define TOKENS_IN_ONE_PACKET 70
 
-void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * pool, uint8_t * key, struct double_list * rules_list, int client_socket_fd){
+void batch_handle_client(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, int client_socket_fd){
 	struct client_user_token received_tokens[BATCH_SIZE * 2];
 	struct client_user_token file_end_token;
 	memset(&file_end_token, 0, sizeof(struct client_user_token));
@@ -105,10 +105,11 @@ int main(int argc, char ** args){
 	fprintf(stderr, "reversible sketch initialized\n");
 	//print_reversible_sketch(&rs);
 
-	uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
-	
+	//uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
+	SHA256_CTX ctx;
+
 	fprintf(stderr, "before read_rules_from_file\n");
-	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, NULL, key, &pool);
+	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, NULL, &ctx, &pool);
 	fprintf(stderr, "after read_rules_from_file\n");
 
 	// create server socket
@@ -150,7 +151,7 @@ int main(int argc, char ** args){
 		fprintf(stderr, "accepted client connection\n");
 		// perform DPI on the user tokens sent from client
 		//handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
-		batch_handle_client(&rs, &pool, key, &rules_list, client_socket_fd);
+		batch_handle_client(&rs, &pool, &rules_list, client_socket_fd);
 	}
 	return 0;
 }

@@ -1,0 +1,291 @@
+
+-------------------------------------------------------------------------------
+
+Scanning tmp/b90563df993c8920fd8afea783426774.pcap
+Scanning tmp/27b6a95606b8d69549e66d1e3e2e9c8e.pcap
+Scanning tmp/bde7174f2e6cd500b5b98e8c2167c1d6.pcap
+tmp/bde7174f2e6cd500b5b98e8c2167c1d6.pcap: Win.Downloader.94030-1 FOUND
+Scanning tmp/cd919dcf2bf2c005264e47beebb3a9cd.pcap
+tmp/cd919dcf2bf2c005264e47beebb3a9cd.pcap: Win.Trojan.Tdss-20932 FOUND
+Scanning tmp/dce4504031a6e4a0398dac24848af70c.pcap
+Scanning tmp/3bd65105416ca3a24e4153f7fc91dc91.pcap
+Scanning tmp/758db3d0ffbdbd4fe64b496540aee53a.pcap
+Scanning tmp/38700556ce4fb08055cc08eac3227544.pcap
+Scanning tmp/30120bbfdbc3564fcec5739850fe46ec.pcap
+Scanning tmp/b3c7101321f13916bfce5db1786ddf49.pcap
+Scanning tmp/cbc9849bfa8068d26587c9d60a72d0d0.pcap
+Scanning tmp/86e751610c962657ab7f8f56a0944cc0.pcap
+Scanning tmp/e255f65cf2f1c54479ec62cde75393e0.pcap
+Scanning tmp/713a946a8cba33cbdb2ed7b1234b114e.pcap
+Scanning tmp/93116ba2f5d5d36018558389c5bdfd3d.pcap
+Scanning tmp/7343fb472db39cb94030c18e24f2a439.pcap
+Scanning tmp/e0dfe7a4acb86b1a37ee4530a4ba00fb.pcap
+tmp/e0dfe7a4acb86b1a37ee4530a4ba00fb.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/f70506e6d39c123ac1f8e84e2e120abf.pcap
+tmp/f70506e6d39c123ac1f8e84e2e120abf.pcap: Win.Trojan.Delf-22926 FOUND
+Scanning tmp/43c6bafd4add8fb1296e6d89e1eeff01.pcap
+Scanning tmp/41f67e4fa3fd592ebe00eef20b6999dc.pcap
+tmp/41f67e4fa3fd592ebe00eef20b6999dc.pcap: Win.Trojan.Chifrax-567 FOUND
+Scanning tmp/6dc34add3fc68a117911db3f2522dff4.pcap
+Scanning tmp/749201194bb8eeb9469e15fa20791e7d.pcap
+Scanning tmp/7d8f39d2e0d2b7638677f3b3f01319d2.pcap
+tmp/7d8f39d2e0d2b7638677f3b3f01319d2.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/0bddc8c40e20c6f3a29e32ff7bababdc.pcap
+tmp/0bddc8c40e20c6f3a29e32ff7bababdc.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/93787486192b6d9cdd037c19452d3ca6.pcap
+Scanning tmp/0b2431752298db88f368bcaec2a00d5d.pcap
+Scanning tmp/f0ef8b245c2d84b4151077a603031ebc.pcap
+tmp/f0ef8b245c2d84b4151077a603031ebc.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/9b200ba883856a4525874c2697e8e5ca.pcap
+Scanning tmp/390f710181079084fc32efb786a631f6.pcap
+Scanning tmp/4899d97b8ae4005836ffba1f78eb6a8d.pcap
+Scanning tmp/f7afbf3fd8c7b390ff26e2339469c6b5.pcap
+tmp/f7afbf3fd8c7b390ff26e2339469c6b5.pcap: Win.Trojan.Bho-11423 FOUND
+Scanning tmp/3cb4ce5fc60ebff1285def867fe7064e.pcap
+Scanning tmp/e06297fbc9a2c34a2afb3ab027eb92fc.pcap
+Scanning tmp/0766e10a073175f9e7ff895eaa011c1e.pcap
+Scanning tmp/4ff6e682e179f8c57f812521abe553ed.pcap
+tmp/4ff6e682e179f8c57f812521abe553ed.pcap: Win.Downloader.120027-1 FOUND
+Scanning tmp/5f2bfd99df5e8c0ea1911ae4bc0b874e.pcap
+Scanning tmp/7227b37a08618f453a0a2b6e9bf45af6.pcap
+Scanning tmp/30192f96c7b6ae7ecdd7dada721e2c0f.pcap
+Scanning tmp/e83f763cc986cba4f72d278682059a67.pcap
+Scanning tmp/9c0a6bc2ca38d688ba6f95168280754c.pcap
+Scanning tmp/15c9ecd9253db8a4b70069ecbf296459.pcap
+Scanning tmp/5577bc8cc0dcbc25de9df9547c7de878.pcap
+Scanning tmp/816e5347de330bb98bb3273271be8d95.pcap
+Scanning tmp/6263ea9ab867f06489e0d22aaa026fa6.pcap
+Scanning tmp/c6bb01541fe39831d528355a23df9306.pcap
+Scanning tmp/2eed62a5eaf61335dd9759318d90a7dc.pcap
+Scanning tmp/40d3162bc061cb5aeddfa3fab62d5e09.pcap
+Scanning tmp/4b27f99eb0beb52bc6ac7e6da972b6f0.pcap
+Scanning tmp/bbba005f77f00f6b4b6dc3bda4aff175.pcap
+Scanning tmp/85b0740deceb2103bf41cfa27d46d9c1.pcap
+Scanning tmp/6de0cba17f0a2b1d940eebc73cf61656.pcap
+Scanning tmp/7ee5e2e440d4dd43f6b18c5435c40336.pcap
+Scanning tmp/ae6ed60f5ecff8e6777e77e576f91006.pcap
+Scanning tmp/8a9119e2231b5402468d8d50e9d7d981.pcap
+Scanning tmp/fde16deabc6967ae943c44bb25478e27.pcap
+tmp/fde16deabc6967ae943c44bb25478e27.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/0aa7bf6689578dd858905779cdcf6430.pcap
+Scanning tmp/a905540c29a857a01d0d92a8cbf5cd25.pcap
+Scanning tmp/9d1e64b70df787189fffdb93d650b69f.pcap
+Scanning tmp/43a2e02a56e1db74d4d2413dd5a163d6.pcap
+Scanning tmp/c4d3b4e1275e987e7b1a418af30af093.pcap
+tmp/c4d3b4e1275e987e7b1a418af30af093.pcap: Win.Trojan.Codecpack-25 FOUND
+Scanning tmp/036e61a32f717ec8d1872110d39fb8ef.pcap
+Scanning tmp/ddc314b952c4971acde4a978a54c7b3c.pcap
+Scanning tmp/f06e5a3f97b78060969da7fd7e10a6f1.pcap
+Scanning tmp/b7a81c3b23d051c134a7672b9a7f637b.pcap
+Scanning tmp/34918ab441c1f0078705a27ff20a054a.pcap
+Scanning tmp/eb5d4d843a87c977df9cee6f4ac474e9.pcap
+Scanning tmp/d5e843ef9ab7e47264dee8603c88d209.pcap
+Scanning tmp/1facb28757f84e6a87dc7f96de07e5e2.pcap
+Scanning tmp/5fe4900a7b3352308cf358664d25f7df.pcap
+Scanning tmp/f2ae83534193843cecd8cd14c07addf8.pcap
+Scanning tmp/9c113707384e4b1ebfe0b22586c531e1.pcap
+Scanning tmp/d06be791ece0d82f590e7d89ef0d1191.pcap
+Scanning tmp/b8a3e18c492d69beab6904b0cc1b8f03.pcap
+Scanning tmp/175f67a0fc232fe8c4f9ef29aa4853c5.pcap
+Scanning tmp/d240251add9ce4d3d39fb4ca03acc756.pcap
+Scanning tmp/38d19afdacdd9273226281b3fa3be22e.pcap
+Scanning tmp/e9356519de2959c7f3797aa9bfa7d429.pcap
+Scanning tmp/a919500e8f742293f69255fcc8909dce.pcap
+Scanning tmp/449bf2d99c5d479aba9aff5bb60a4311.pcap
+Scanning tmp/24dc9a9cb2dc6a050b52687c7d220e04.pcap
+Scanning tmp/04208e40db9309d85af033e687358191.pcap
+Scanning tmp/4d106868658da0ee422f52ea376f274c.pcap
+Scanning tmp/307217bfb0318ffd985bade1ae6d7900.pcap
+Scanning tmp/5ae12590936f982106dba71622c1eaac.pcap
+Scanning tmp/3741cc50ca000fc943369f9cbed915bd.pcap
+Scanning tmp/30b97ec4af06ba34396d6222ee110514.pcap
+Scanning tmp/330b8f3bdb5e6841a712712494e8d898.pcap
+Scanning tmp/6595f363a498e7ebe76e171747779f1f.pcap
+Scanning tmp/26a52030bf87eed2b5a6a33785147cf7.pcap
+Scanning tmp/cd34242ca690c540b175937903486a5b.pcap
+Scanning tmp/d6930d0d8b8dbd2ac3d2043ad4cf121e.pcap
+Scanning tmp/39254e963926303d5f98b83f2b4812a1.pcap
+tmp/39254e963926303d5f98b83f2b4812a1.pcap: Win.Trojan.Codecpack-36 FOUND
+Scanning tmp/7297842c28ce3887e5532ea75e823acc.pcap
+Scanning tmp/dc83b953fc4670c51a68dc45c962bb45.pcap
+Scanning tmp/3439cf6f4b9be5675f231369dd569bc0.pcap
+Scanning tmp/8837f6ff2b577a94c7fdee444917b5bd.pcap
+Scanning tmp/d316e4595d480a3d2fc0b22429ccb6a4.pcap
+Scanning tmp/48d0f18f96e46a0e8370751d9afc08ed.pcap
+Scanning tmp/4e1a5a1fe78c43139991d75ee7bb3716.pcap
+Scanning tmp/72cbe2b78be03cf9c81cee542b6ab020.pcap
+Scanning tmp/9da74319c1127cbc753aeca1cf8a404b.pcap
+Scanning tmp/f83dbb613db1a9362bea068a8da2bb48.pcap
+Scanning tmp/69e9fa38d880d6323d4674928282c913.pcap
+Scanning tmp/dcb3d839913a7403a8f904a03058b91b.pcap
+Scanning tmp/e517a7938f902bd6ea509b7a1174553a.pcap
+Scanning tmp/289056032a0c11f17b9a7042874aca1e.pcap
+Scanning tmp/CVE-2013-0025_8.pcap
+Scanning tmp/ab3480cf5470f0b7a8a275547e34dced.pcap
+tmp/ab3480cf5470f0b7a8a275547e34dced.pcap: Win.Downloader.94030-1 FOUND
+Scanning tmp/8b12e58cc15ceb987e42e02e8d85f723.pcap
+Scanning tmp/9e26548566e8c3805a49e35fbf1b457a.pcap
+Scanning tmp/f010990ab5e3898657ff6fa4d972e23c.pcap
+Scanning tmp/1b36ff478a694b3592be153506f9bdc7.pcap
+Scanning tmp/1e558c97f97c2443b981f5f9f5c85809.pcap
+tmp/1e558c97f97c2443b981f5f9f5c85809.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/050e3c8a517ab762cbaec795a108394a.pcap
+Scanning tmp/846d1729220b38df3b5d636a89c379fe.pcap
+Scanning tmp/c58089513914a670377107c1d7db7493.pcap
+Scanning tmp/e44280ff65db0fc1b640dc8ad0179825.pcap
+Scanning tmp/bbdc054eab76412086381c2df04015f9.pcap
+Scanning tmp/d581c470b26afdd520c96ea0fd129de4.pcap
+Scanning tmp/dd1fdb5b5ee33661e34e1208ff1856cb.pcap
+Scanning tmp/03b8d9dc6c738564a42cc555dd57784b.pcap
+Scanning tmp/a8fe51d922799804134879604adee8a7.pcap
+Scanning tmp/06b2453e05c3590f239b898ecb18286a.pcap
+Scanning tmp/18334750ca6e0b084c940905b53a7cc4.pcap
+Scanning tmp/04cff19d40e74bccf63ec4ceace89341.pcap
+Scanning tmp/d04cf4117687f9346eb2cac63fdfa280.pcap
+Scanning tmp/47f975e24d556918b9fda506e124fd8f.pcap
+Scanning tmp/920664f6f6b27182b17ee51fb0a95bcf.pcap
+tmp/920664f6f6b27182b17ee51fb0a95bcf.pcap: Win.Trojan.Rimecud-7437 FOUND
+Scanning tmp/76a82ed8258c95ebcb7126308aa15e8c.pcap
+Scanning tmp/fdb8df9766e1fee2e0209092cf1dd73c.pcap
+Scanning tmp/e7b19125fc027d1f5ed1c952b2ec9464.pcap
+Scanning tmp/1470db950a657976e8ab91b68ec7be62.pcap
+Scanning tmp/4d7a5cc4d4cfe29098144fd67bac84e7.pcap
+Scanning tmp/137cc07c9f10bae876ada8d35f13d020.pcap
+Scanning tmp/de20c5ccc5d1d631ca96b758adcc2d82.pcap
+Scanning tmp/e4c312f78933a01fc03decfebf3903ba.pcap
+Scanning tmp/9c1e38a4c7be2198a9c88d0291f4e4c3.pcap
+Scanning tmp/6aa8aeca2cfc8d09008e6b5ee56e9a82.pcap
+Scanning tmp/7b6ccaee1e950c39c413921ce19a4b83.pcap
+Scanning tmp/1045a1770e63f4981ee181a7d8b4b4f9.pcap
+Scanning tmp/2c30f52c531a022104119cd486dfdd78.pcap
+Scanning tmp/01684326aeb6335012527fa9c39e822a.pcap
+Scanning tmp/fd3bb50715f842c53f3e18b593c4119e.pcap
+Scanning tmp/33f0e2617215318b7a979adc0359db0d.pcap
+Scanning tmp/718f5c400fe6c8b1bf9eed0cb06108cb.pcap
+tmp/718f5c400fe6c8b1bf9eed0cb06108cb.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/828a3655200a68d4a6243c607bc65635.pcap
+Scanning tmp/920faca2feb7b53df73641f8ecbd3390.pcap
+Scanning tmp/ad32b68a8919e27ed45f023a3b6e5480.pcap
+Scanning tmp/0d0df9a7e35e38167b0806706b294d75.pcap
+Scanning tmp/4049e6c8b1f71ca516af33b354286260.pcap
+Scanning tmp/CVE-2013-0025_3.pcap
+Scanning tmp/682ea6178b7e95033e235de703adb7cd.pcap
+Scanning tmp/314a304dc23f2edd900075181dbe93f7.pcap
+tmp/314a304dc23f2edd900075181dbe93f7.pcap: Win.Trojan.Small-22912 FOUND
+Scanning tmp/22c2258640deaf191b4bff21c028237c.pcap
+Scanning tmp/f35693c8f1e11bc6d2ae7f0427ab8d50.pcap
+Scanning tmp/fc734b564e769dafc80809fbfcbec37a.pcap
+Scanning tmp/a45a5d9facec2d4d1c5ea67d0e5d6e80.pcap
+Scanning tmp/faf9cffda5f14306527a623b3465ff33.pcap
+Scanning tmp/770fde86ffe47bc11a4a6925982c1ed7.pcap
+Scanning tmp/9d8210f8726f145bcb15eb3755d71677.pcap
+Scanning tmp/d1c0202b970bc3a4eef137a320ede16e.pcap
+Scanning tmp/e034d610bcf9ee0d931168c56f7743c5.pcap
+Scanning tmp/6b2b901c7399afde542c9e080a166b3b.pcap
+Scanning tmp/373256fe7538680274cc619c4c357134.pcap
+Scanning tmp/90488cbfc33e7cb0ea70c53cb9976657.pcap
+Scanning tmp/CVE-2013-0025_9.pcap
+Scanning tmp/2b3c0b78ce543cb2d1c76b3d4f425606.pcap
+Scanning tmp/a3d70e6b2b6427687ebb76ae2e652476.pcap
+Scanning tmp/e6c7482e496ba741b0fde2e719693086.pcap
+tmp/e6c7482e496ba741b0fde2e719693086.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/9d73a8dc5917187ff094b1a6028960b6.pcap
+Scanning tmp/6e4ef5e181488f71c525b0616444c73c.pcap
+Scanning tmp/CVE-2013-0025_5.pcap
+Scanning tmp/ee60e673e0afacfa7a7df9b33609d328.pcap
+Scanning tmp/df58e9796ddff0ddeff9a2c3dacf3850.pcap
+Scanning tmp/1963b05165d295427f6b7c77c0479bbb.pcap
+Scanning tmp/f5da9783475d226d0039d8ca9e3a38a1.pcap
+Scanning tmp/CVE-2013-0025_10.pcap
+Scanning tmp/ca8c3d5309ca47723aac79d0963c36f0.pcap
+Scanning tmp/9129164769822d7266fc68300ac89c12.pcap
+tmp/9129164769822d7266fc68300ac89c12.pcap: Win.Trojan.Delf-33881 FOUND
+Scanning tmp/9d5d723824344c94ac25472fe8872669.pcap
+Scanning tmp/07450a809968ea88d7b44fc96fc26ba0.pcap
+tmp/07450a809968ea88d7b44fc96fc26ba0.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/CVE-2013-0025_6.pcap
+Scanning tmp/bc4733740e863ce7b740e220f83e12f9.pcap
+Scanning tmp/eb3fda7768e97dccc765e6f20f4519cb.pcap
+Scanning tmp/ba8786b968b468bd8c97bdd1638bb766.pcap
+Scanning tmp/39a1c97600038ec6b4c70d279ffc5c31.pcap
+Scanning tmp/abccdd6a46b2039a64f422d4ff05dcb4.pcap
+tmp/abccdd6a46b2039a64f422d4ff05dcb4.pcap: Win.Trojan.Delf-33881 FOUND
+Scanning tmp/282f61c3519b4d2695d5e28ef19aad64.pcap
+Scanning tmp/ad45a60639c1ed7a17ae2848692abc9f.pcap
+Scanning tmp/7aa58fa2a66ffc1040754251020dcdd1.pcap
+Scanning tmp/8dc0a560ab910eeaaa309e5c756af792.pcap
+Scanning tmp/49ac63df22f680303a3f8f94a734d3d3.pcap
+Scanning tmp/cdfe12a4b55cb060171fdf18a539592b.pcap
+Scanning tmp/e6385fb8e4edba5e1ae518177ca85f52.pcap
+Scanning tmp/aa14f36d8adfd4ebf661038a5c63ee3f.pcap
+Scanning tmp/95adb3ad11eec86f4cd522f0eaca4e3b.pcap
+Scanning tmp/044d3038955edc55f47c07eb69e5829a.pcap
+Scanning tmp/964b476696cd19e6fe7b190227d23d56.pcap
+Scanning tmp/7f87f170afc619edce135babf25c4fc7.pcap
+Scanning tmp/e3878d780a856dd257ec0c8bb7da1159.pcap
+Scanning tmp/f175bbc7a8f587e599aeee142270e58d.pcap
+Scanning tmp/77d0388914fd9dbb0a983fac972750a2.pcap
+Scanning tmp/d3555ef193c2b298bb2e8029f31f75dc.pcap
+Scanning tmp/CVE-2013-0025_4.pcap
+Scanning tmp/f9cdb03fd90e8ef12799df5ed35649bd.pcap
+Scanning tmp/40187d960cdd368a6db4130cd4ec01e3.pcap
+Scanning tmp/6541e8cc670518a70c2845d67b704d0e.pcap
+tmp/6541e8cc670518a70c2845d67b704d0e.pcap: Win.Downloader.94030-1 FOUND
+Scanning tmp/da670896f177379375a286be9c976129.pcap
+Scanning tmp/bc48f260ff2ab1e9747e106c2032f534.pcap
+Scanning tmp/317dfdbc8a1ce6cb5092365a00da48b5.pcap
+tmp/317dfdbc8a1ce6cb5092365a00da48b5.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/629943b89c4ec1041f438c2e2029b8f1.pcap
+Scanning tmp/e643ab70534b83597120a384017f7550.pcap
+Scanning tmp/ced3e9a053ea615f1e4a7a486be13c70.pcap
+Scanning tmp/CVE-2013-0025_1.pcap
+Scanning tmp/40dd0f48184b6cac75f19497d97266a9.pcap
+Scanning tmp/b3546e1aaf3c065304af5fb6c7fe81ea.pcap
+tmp/b3546e1aaf3c065304af5fb6c7fe81ea.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/da966400802969e319103a35d06ec19a.pcap
+Scanning tmp/b4d3b82bfcb21fac210431fec3843a18.pcap
+Scanning tmp/7d991604c3a1c9f2071aafa51ef53a46.pcap
+Scanning tmp/CVE-2013-0025_2.pcap
+Scanning tmp/CVE-2013-0025_7.pcap
+Scanning tmp/515a1d86c0ed930fac19991b69cdfc31.pcap
+Scanning tmp/bfc31c86d10235792fb9f73e8d34d497.pcap
+Scanning tmp/baa785939f97acfcae1e1a988ace7ee3.pcap
+Scanning tmp/a0edf843be26fdf8ce429d26e76051dd.pcap
+Scanning tmp/2ad1cc78387694f2eb0d35cb61f12ada.pcap
+Scanning tmp/41259995ee1f8fd01f81fc006fda9037.pcap
+tmp/41259995ee1f8fd01f81fc006fda9037.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/b11f2a88dcaa99883d9832e962515f92.pcap
+Scanning tmp/69a7aae4054f89f2bb98c358a8d47478.pcap
+Scanning tmp/93870b9c003e3a735079d8bb5ca3737b.pcap
+Scanning tmp/6e6bd85038843c164dc98cbe52e21234.pcap
+Scanning tmp/6d7c733a4308a2d01479859af23ba054.pcap
+Scanning tmp/1f7f73fa6595e859d46a1a710f53e531.pcap
+Scanning tmp/d9d0dee8e103e5249551a215ec61e112.pcap
+Scanning tmp/163904241b13368ad1d5ae556f96b292.pcap
+Scanning tmp/e6862048305f1f33b45cc0c6755929f2.pcap
+Scanning tmp/a6092a7a2d4476f5cb981c260c3c3a67.pcap
+Scanning tmp/dea3f8c3dd23844b5eb2756227ba9184.pcap
+Scanning tmp/5b7c4adab73ffb8534e3fdcf68a0933a.pcap
+Scanning tmp/59bb7347cc7d44b364264e19a22d794d.pcap
+Scanning tmp/52987b11361e02a25be993727aa95048.pcap
+Scanning tmp/b243a31d544bd5399afc607ca922ecd5.pcap
+tmp/b243a31d544bd5399afc607ca922ecd5.pcap: Win.Downloader.134615-1 FOUND
+Scanning tmp/d3082ac535529dc6e1192cc1464c3cb0.pcap
+Scanning tmp/b55a5c51cd0f44a74b15e797acab3005.pcap
+tmp/b55a5c51cd0f44a74b15e797acab3005.pcap: Win.Trojan.Agent-572352 FOUND
+Scanning tmp/a1c12953cc4a447feb956398e1cb6ffe.pcap
+Scanning tmp/1fde22918db4a6ca25dd4eb918fc1929.pcap
+Scanning tmp/b6c672db1e44a3db3cba4b55092bd915.pcap
+Scanning tmp/0ba370487e37fa76a742e57e8a387669.pcap
+
+----------- SCAN SUMMARY -----------
+Known viruses: 6279284
+Engine version: 0.99.2
+Scanned directories: 1
+Scanned files: 248
+Infected files: 28
+Data scanned: 194.11 MB
+Data read: 84.06 MB (ratio 2.31:1)
+Time: 31.250 sec (0 m 31 s)
+
+scan results of tmp

@@ -98,7 +98,7 @@ void initialize_memory_pool(struct memory_pool * pool){
 	}
 	memory_usage += ET_PTR_POOL_SIZE * sizeof(void *);
 
-	fprintf(stderr, "initialize_memory_pool succeeded, memory_usage = %u bytes\n", memory_usage);
+	//fprintf(stderr, "initialize_memory_pool succeeded, memory_usage = %u bytes\n", memory_usage);
 }
 
 struct double_list_node * get_free_double_list_node_helper(struct double_list_node * pool, unsigned int * idx){

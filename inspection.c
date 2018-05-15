@@ -11,67 +11,67 @@
 
 // real-time detection
 // called on every user token arrival
-int additive_inspection(struct client_user_token * ut, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list){
-	struct list_node * node = lookup_encrypted_token(rs, ut->token, TOKEN_SIZE);
-	if(node){
-		struct encrypted_token * et = (struct encrypted_token *) node->ptr;
-		struct list_node * head = et->signatures_list_head;
-		while(head){
-			// add the server user token to the signature fragment's matched_user_tokens array
-			//struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
-			//struct signature_fragment * sf = sfet->sf;
-			struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
-			struct server_user_token * sut = get_free_server_user_token(pool);
-			sut->offset = ut->offset;
-			sut->matched_et = et;
-			//sut->matched_idx_array = sfet->index_array;
-			//sut->length = sfet->number_of_idxes;
-			add_server_user_token_to_sf(sf, sut);
+// int additive_inspection(struct client_user_token * ut, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list){
+// 	struct list_node * node = lookup_encrypted_token(rs, ut->token, TOKEN_SIZE);
+// 	if(node){
+// 		struct encrypted_token * et = (struct encrypted_token *) node->ptr;
+// 		struct list_node * head = et->signatures_list_head;
+// 		while(head){
+// 			// add the server user token to the signature fragment's matched_user_tokens array
+// 			//struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
+// 			//struct signature_fragment * sf = sfet->sf;
+// 			struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
+// 			struct server_user_token * sut = get_free_server_user_token(pool);
+// 			sut->offset = ut->offset;
+// 			sut->matched_et = et;
+// 			//sut->matched_idx_array = sfet->index_array;
+// 			//sut->length = sfet->number_of_idxes;
+// 			add_server_user_token_to_sf(sf, sut);
 
-			if(check_matched_tokens(pool, sf)){
-				// add the signature fragment to the corresponding rule's matched_signature_fragments_candidates_list
-				// int found = 0;
-				struct rule * r = (struct rule *) sf->rule_ptr;
-				if(sf->added_to_rule == 0){
-					sf->added_to_rule = 1;
-					struct double_list_node * dln = get_free_double_list_node(pool);
-					dln->prev = dln->next = NULL;
-					dln->ptr = (void *) sf;
-					add_to_tail(&(r->matched_signature_fragments_candidates_list), dln);
-				}
-			}
-			head = head->next;
-		}
+// 			if(check_matched_tokens(pool, sf)){
+// 				// add the signature fragment to the corresponding rule's matched_signature_fragments_candidates_list
+// 				// int found = 0;
+// 				struct rule * r = (struct rule *) sf->rule_ptr;
+// 				if(sf->added_to_rule == 0){
+// 					sf->added_to_rule = 1;
+// 					struct double_list_node * dln = get_free_double_list_node(pool);
+// 					dln->prev = dln->next = NULL;
+// 					dln->ptr = (void *) sf;
+// 					add_to_tail(&(r->matched_signature_fragments_candidates_list), dln);
+// 				}
+// 			}
+// 			head = head->next;
+// 		}
 
-		// add the matched rules to matched_rules_list
-		head = et->signatures_list_head;
-		while(head){
-			//struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
-			//struct signature_fragment * sf = sfet->sf;
-			struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
-			struct rule * r = (struct rule *) sf->rule_ptr;
-			if(r->matched){
+// 		// add the matched rules to matched_rules_list
+// 		head = et->signatures_list_head;
+// 		while(head){
+// 			//struct signature_fragment_inside_encrypted_token * sfet = (struct signature_fragment_inside_encrypted_token *) head->ptr;
+// 			//struct signature_fragment * sf = sfet->sf;
+// 			struct signature_fragment * sf = (struct signature_fragment *) head->ptr;
+// 			struct rule * r = (struct rule *) sf->rule_ptr;
+// 			if(r->matched){
 
-			} else if(check_rule(pool, r)){
-				// add the matched rule to matched_rules_list
-				r->matched = 1;
-				struct double_list_node * dln = get_free_double_list_node(pool);
-				dln->prev = dln->next = NULL;
-				dln->ptr = (void *) r;
-				add_to_tail(matched_rules_list, dln);
-			}
-			head = head->next;
-		}
+// 			} else if(check_rule(pool, r)){
+// 				// add the matched rule to matched_rules_list
+// 				r->matched = 1;
+// 				struct double_list_node * dln = get_free_double_list_node(pool);
+// 				dln->prev = dln->next = NULL;
+// 				dln->ptr = (void *) r;
+// 				add_to_tail(matched_rules_list, dln);
+// 			}
+// 			head = head->next;
+// 		}
 
-		if(matched_rules_list->count == 0){
-			return 0;
-		} else {
-			return 1;
-		}
-	} else {
-		return 0;
-	}
-}
+// 		if(matched_rules_list->count == 0){
+// 			return 0;
+// 		} else {
+// 			return 1;
+// 		}
+// 	} else {
+// 		return 0;
+// 	}
+// }
 
 // batch inspection
 // called when BATCH_SIZE user tokens have been received
@@ -80,7 +80,7 @@ void batch_inspection(struct client_user_token * uts, int length, struct reversi
 	struct double_list local_signature_fragment_list;
 	initialize_double_list(&local_signature_fragment_list);
 	for(i = 0;i < length;i++){
-		struct list_node * node = lookup_encrypted_token(rs, uts[i].token, TOKEN_SIZE);
+		struct list_node * node = lookup_encrypted_token(rs, uts[i].token);
 		struct client_user_token * ut = &(uts[i]);
 		if(node){
 			struct encrypted_token * et = (struct encrypted_token *) node->ptr;
@@ -188,7 +188,7 @@ void batch_inspection_with_sut_array(struct client_user_token * uts, int length,
 	struct double_list local_signature_fragment_list;
 	initialize_double_list(&local_signature_fragment_list);
 	for(i = 0;i < length;i++){
-		struct list_node * node = lookup_encrypted_token(rs, uts[i].token, TOKEN_SIZE);
+		struct list_node * node = lookup_encrypted_token(rs, uts[i].token);
 		struct client_user_token * ut = &(uts[i]);
 		if(node){
 			struct encrypted_token * et = (struct encrypted_token *) node->ptr;

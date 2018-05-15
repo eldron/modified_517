@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Tue, 01 Mar 2011 13:55:53 GMT
+Server: Apache/2.2.8 (Ubuntu) PHP/5.2.4-2ubuntu5.14 with Suhosin-Patch
+X-Powered-By: PHP/5.2.4-2ubuntu5.14
+Content-Length: 42
+Content-Type: text/html
+
+You do not have permission to access here.GET /informacoes.php HTTP/1.1
+User-Agent: InternetClass
+Host: www.brazilianserver.com
+Cache-Control: no-cache
+

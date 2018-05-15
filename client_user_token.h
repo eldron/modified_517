@@ -7,6 +7,6 @@
 // encrypted tokens sent from end user
 struct client_user_token{
 	uint32_t offset;
-	uint8_t token[TOKEN_SIZE];
+	uint8_t token[HASHED_TOKEN_SIZE];
 };
 #endif

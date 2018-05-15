@@ -1,0 +1,61 @@
+HTTP/1.1 200 OK
+Server: nginx/0.8.54
+Date: Fri, 04 Mar 2011 04:16:40 GMT
+Content-Type: application/octet-stream
+Content-Length: 208
+Last-Modified: Mon, 21 Feb 2011 09:29:55 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Accept-Ranges: bytes
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /check was not found on this server.</p>
+<hr>
+</body></html>
+HTTP/1.1 200 OK
+Server: nginx/0.8.54
+Date: Fri, 04 Mar 2011 04:16:41 GMT
+Content-Type: text/html; charset=windows-1252
+Transfer-Encoding: chunked
+Connection: keep-alive
+Keep-Alive: timeout=5
+X-Powered-By: PHP/5.3.4
+
+2
+OK
+0
+
+HTTP/1.1 404 Not Found
+Server: nginx/0.8.54
+Date: Fri, 04 Mar 2011 04:16:41 GMT
+Content-Type: text/html; charset=windows-1252
+Content-Length: 169
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx/0.8.54</center>
+</body>
+</html>
+GET /check?pgid=11 HTTP/1.1
+User-Agent: Microsoft Internet Explorer
+Host: softenza.net
+Connection: Keep-Alive
+
+GET /percer.php?login=NzguOA== HTTP/1.1
+User-Agent: Microsoft Internet Explorer
+Host: softenza.net
+Connection: Keep-Alive
+
+GET /retro.jpg HTTP/1.1
+User-Agent: Microsoft Internet Explorer
+Host: softenza.net
+Connection: Keep-Alive
+

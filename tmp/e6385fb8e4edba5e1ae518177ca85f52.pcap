@@ -1,0 +1,70 @@
+HTTP/1.1 301 Moved Permanently
+Date: Fri, 04 Mar 2011 09:14:49 GMT
+Server: Apache
+Location: http://www.realsoftwaredevelopment.com/WindowsLiveWriter/web-2_0_thumb_1.gif?v89=76&tq=gHZutDyMv5rJfCG1J8K%2B1MWCJbP4lltXIA%3D%3D
+Vary: Accept-Encoding
+Content-Length: 341
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.realsoftwaredevelopment.com/WindowsLiveWriter/web-2_0_thumb_1.gif?v89=76&amp;tq=gHZutDyMv5rJfCG1J8K%2B1MWCJbP4lltXIA%3D%3D">here</a>.</p>
+</body></html>
+GET /WindowsLiveWriter/web-2_0_thumb_1.gif?v89=76&tq=gHZutDyMv5rJfCG1J8K%2B1MWCJbP4lltXIA%3D%3D HTTP/1.0
+Connection: close
+Host: realsoftwaredevelopment.com
+Accept: */*
+User-Agent: mozilla/2.0
+
+HTTP/1.1 404 Not Found
+Date: Fri, 04 Mar 2011 09:11:19 GMT
+Server: Apache/1.3.42 (Unix) PHP/5.2.14
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=iso-8859-1
+
+cc 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>404 Not Found</TITLE>
+</HEAD><BODY>
+<H1>Not Found</H1>
+The requested URL /index.html was not found on this server.<P>
+</BODY></HTML>
+
+0
+
+POST /index.html?tq=gKY0sHoL7L%2BN6yLhbz627sHdMfJkX%2BP9h%2BI0sDkX9PiwrGL2GUr0%2BbGucPdsX%2BaIwb51gW1f447GrXf0eU2S%2BsSodOFuTLiv0agD%2FGQ44I7NrAKCGkvi%2BLajcv0YQ%2Bfuxq00sD0OpLjRqAOhLgjh%2FMe%2BcoJuX%2BSNxlKv975Xlm5G HTTP/1.1
+Host: zonetf.com
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+Content-Length: 0
+Connection: close
+
+HTTP/1.1 404 Not Found
+Date: Fri, 04 Mar 2011 09:11:19 GMT
+Server: Apache/1.3.42 (Unix) PHP/5.2.14
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=iso-8859-1
+
+cc 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>404 Not Found</TITLE>
+</HEAD><BODY>
+<H1>Not Found</H1>
+The requested URL /index.html was not found on this server.<P>
+</BODY></HTML>
+
+0
+
+POST /index.html?tq=gKY0sHoL7L%2BN6yLhbz627sHdMfJkX%2BP9h%2BI0sDkX9PiwrGL2GUr0%2BbGucPdsX%2BaIwb51gW1f447GrXf0eU2S%2BsSodOFuTLiv0agD%2FGQ44I7NrAKCGkvi%2BLajcv0YQ%2Bfuxq00sD0OpLjRqAOhLgjh88y%2BcoJuX%2BSNxFKv975Xlm5G HTTP/1.1
+Host: zonetf.com
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+Content-Length: 0
+Connection: close
+

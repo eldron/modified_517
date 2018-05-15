@@ -26,15 +26,15 @@ struct reversible_sketch{
 	*/
 	uint32_t row_seed;
 	uint32_t column_seed;
+	uint32_t ht_count;// count the number of unique hashed tokens
 };
 
 void initialize_reversible_sketch(struct reversible_sketch * rs);
 
-int compare_token(uint8_t * a, uint8_t * b);
 // checks if a token is in the reversible sketch
-struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, uint8_t * token, int len);
+struct list_node * lookup_encrypted_token(struct reversible_sketch * rs, uint8_t * token);
 
-void insert_encrypted_token(struct reversible_sketch * rs, uint32_t token_idx, uint8_t * token, int arrearance_times, int len, struct signature_fragment * sf, struct memory_pool * pool);
+void insert_encrypted_token(struct reversible_sketch * rs, uint8_t * token, struct signature_fragment * sf, struct memory_pool * pool);
 
 void free_reversible_sketch(struct reversible_sketch * rs);
 

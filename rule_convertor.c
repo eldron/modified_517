@@ -234,6 +234,7 @@ int main(int argc, char ** args){
 	fin = fopen(args[1], "r");
 	char s[LINELEN];
 	int count = 0;
+	int unsupported = 0;
 	while(1){
 		memset(s, '\0', LINELEN);
 		if(fgets(s, LINELEN, fin)){
@@ -241,6 +242,7 @@ int main(int argc, char ** args){
 				normalize_line(s);
 				count++;
 			} else {
+				unsupported++;
 				fprintf(stderr, "%s", s);
 			}
 			//fprintf(stderr, "line %d processed\n", count);
@@ -250,5 +252,6 @@ int main(int argc, char ** args){
 	}
 	fclose(fin);
 	fprintf(stderr, "count = %d\n", count);
+	fprintf(stderr, "unsupported = %d\n", unsupported);
 	return 0;
 }

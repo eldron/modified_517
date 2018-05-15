@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Mon, 28 Feb 2011 02:37:01 GMT
+Server: Microsoft-IIS/6.0
+Content-Length: 61
+Content-Type: text/html
+Set-Cookie: ASPSESSIONIDAAQCSSAR=OINJICFBJFKGHLLGLBFHMNPM; path=/
+Cache-control: private
+
+http://downa.koreasys1.com/setup/p003_un1/setup.exe nobundle
+GET http://app2.winsoft1.com/setup_b.asp?prj=3&pid=un1&mac=0080c8824ffe HTTP/1.1
+Host: app2.winsoft1.com
+

@@ -1,0 +1,18 @@
+:irc.priv8net.com NOTICE AUTH :*** Looking up your hostname...
+:irc.priv8net.com NOTICE AUTH :*** Couldn't resolve your hostname; using your IP address instead
+:irc.priv8net.com 001 {NEW}[USA][]570239 
+:irc.priv8net.com 002 {NEW}[USA][]570239 :               M0dded by uNkn0wn Crew             
+:irc.priv8net.com 003 {NEW}[USA][]570239 
+:irc.priv8net.com 004 {NEW}[USA][]570239 :          www.uNkn0wn.eu - iD@uNkn0wn.eu          
+:irc.priv8net.com 005 {NEW}[USA][]570239 
+:irc.priv8net.com 005 {NEW}[USA][]570239 
+:irc.priv8net.com 005 {NEW}[USA][]570239 
+:irc.priv8net.com 422 {NEW}[USA][]570239 :MOTD File is missing
+:{NEW}[USA][]570239 MODE {NEW}[USA][]570239 :+iwG
+:irc.priv8net.com 474 {NEW}[USA][]570239 ##security-check## :Cannot join channel (+b)
+:{NEW}[USA][]570239!7937@89.238.173.245 JOIN :##spam##
+:irc.priv8net.com 332 {NEW}[USA][]570239 ##spam## :
+:irc.priv8net.com 333 {NEW}[USA][]570239 ##spam## Z3R0 1299774686
+NICK {NEW}[USA][]570239
+USER 7937 "" "lol" :7937
+JOIN ##spam## 

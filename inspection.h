@@ -9,7 +9,7 @@ struct client_user_token;
 
 // real-time detection
 // called on every user token arrival
-int additive_inspection(struct client_user_token * ut, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list);
+// int additive_inspection(struct client_user_token * ut, struct reversible_sketch * rs, struct memory_pool * pool, struct double_list * matched_rules_list);
 
 // batch inspection
 // called when BATCH_SIZE user tokens have been received

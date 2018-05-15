@@ -1,0 +1,79 @@
+x0x74641d1bb511aed00402daada8d8706f74b477e3172d0ca020deab3b43c16441a73dx7311x11410x5310x0155BEST 1172.16.2.13000DaveHOME-OFF-D5F0AC1Microsoft Windows XP16204.188B1E97E0newFebruary 23, 2011Wget [100%] http://tristan.ssdcorp.net/guidx7414UNITED KINGDOMx735-254x534701Wget [100%] http://tristan.ssdcorp.net/guidHTTP/1.1 200 OK
+Date: Wed, 23 Feb 2011 21:42:56 GMT
+Server: Apache/2.2.14 (Ubuntu)
+X-Powered-By: PHP/5.3.2-1ubuntu4.2
+Vary: Accept-Encoding
+Content-Length: 181
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Ip>95.154.230.33</Ip>
+	<Status>OK</Status>
+	<CountryCode>GB</CountryCode>
+	<CountryName>United Kingdom</CountryName>
+</Response>
+GET /v2/ip_query_country.php?key=1d1bb511aed00402daada8d8706f74b477e3172d0ca020deab3b43c16441a73d&timezone=off HTTP/1.1
+Host: api.ipinfodb.com
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1) Gecko/20090612 Firefox/3.5
+Connection: closed
+
+HTTP/1.1 200 OK
+Date: Wed, 23 Feb 2011 21:42:57 GMT
+Server: Apache/2.2.14 (Ubuntu)
+X-Powered-By: PHP/5.3.2-1ubuntu4.2
+Vary: Accept-Encoding
+Content-Length: 449
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Status>OK</Status>
+  <CountryCode>GB</CountryCode>
+  <CountryName>United Kingdom</CountryName>
+  <RegionCode></RegionCode>
+  <RegionName></RegionName>
+  <City></City>
+  <ZipPostalCode></ZipPostalCode>
+  <Latitude>54</Latitude>
+  <Longitude>-2</Longitude>
+  <Gmtoffset>0</Gmtoffset>
+  <Dstoffset>0</Dstoffset>
+  <TimezoneName></TimezoneName>
+  <Isdst></Isdst>
+  <Ip>95.154.230.33</Ip>
+</Response>
+GET /v2/ip_query.php?key=1d1bb511aed00402daada8d8706f74b477e3172d0ca020deab3b43c16441a73d&timezone=off HTTP/1.1
+Host: api.ipinfodb.com
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1) Gecko/20090612 Firefox/3.5
+Connection: closed
+
+x0x74641d1bb511aed00402daada8d8706f74b477e3172d0ca020deab3b43c16441a73dx7311x0155BEST 1172.16.2.13000DaveHOME-OFF-D5F0AC1Microsoft Windows XP21704.188B1E97E0oldFebruary 23, 2011Wget [100%] http://tristan.ssdcorp.net/guidx7414UNITED KINGDOMHTTP/1.1 200 OK
+Date: Wed, 23 Feb 2011 21:43:50 GMT
+Server: Apache/2.2.14 (Ubuntu)
+X-Powered-By: PHP/5.3.2-1ubuntu4.2
+Vary: Accept-Encoding
+Content-Length: 181
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Ip>95.154.230.33</Ip>
+	<Status>OK</Status>
+	<CountryCode>GB</CountryCode>
+	<CountryName>United Kingdom</CountryName>
+</Response>
+GET /v2/ip_query_country.php?key=1d1bb511aed00402daada8d8706f74b477e3172d0ca020deab3b43c16441a73d&timezone=off HTTP/1.1
+Host: api.ipinfodb.com
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1) Gecko/20090612 Firefox/3.5
+Connection: closed
+
+GET /v2/ip_query.php?key=1d1bb511aed00402daada8d8706f74b477e3172d0ca020deab3b43c16441a73d&timezone=off HTTP/1.1
+Host: api.ipinfodb.com
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1) Gecko/20090612 Firefox/3.5
+Connection: closed
+

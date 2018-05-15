@@ -1,0 +1,85 @@
+HTTP/1.1 200 OK
+Date: Mon, 21 Mar 2011 03:25:09 GMT
+Server: Apache
+Last-Modified: Thu, 17 Mar 2011 18:42:56 GMT
+ETag: "1c08441-7-49eb2079dec00"
+Accept-Ranges: bytes
+Content-Length: 7
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/plain
+
+noreadyGET /TheNextWay/updates11.txt HTTP/1.0
+Host: koskhatm.altervista.org
+Accept: www/source, text/html, video/mpeg, image/jpeg, image/x-tiff
+Accept: image/x-rgb, image/x-xbm, image/gif, */*, application/postscript
+Content-type: application/x-www-form-urlencoded
+
+HTTP/1.1 200 OK
+Date: Mon, 21 Mar 2011 03:25:19 GMT
+Server: Apache
+Last-Modified: Thu, 17 Mar 2011 18:42:56 GMT
+ETag: "1c08441-7-49eb2079dec00"
+Accept-Ranges: bytes
+Content-Length: 7
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/plain
+
+noreadyGET /TheNextWay/updates11.txt HTTP/1.0
+Host: koskhatm.altervista.org
+Accept: www/source, text/html, video/mpeg, image/jpeg, image/x-tiff
+Accept: image/x-rgb, image/x-xbm, image/gif, */*, application/postscript
+Content-type: application/x-www-form-urlencoded
+
+HTTP/1.1 200 OK
+Date: Mon, 21 Mar 2011 03:25:29 GMT
+Server: Apache
+Last-Modified: Thu, 17 Mar 2011 18:42:56 GMT
+ETag: "1c08441-7-49eb2079dec00"
+Accept-Ranges: bytes
+Content-Length: 7
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/plain
+
+noreadyGET /TheNextWay/updates11.txt HTTP/1.0
+Host: koskhatm.altervista.org
+Accept: www/source, text/html, video/mpeg, image/jpeg, image/x-tiff
+Accept: image/x-rgb, image/x-xbm, image/gif, */*, application/postscript
+Content-type: application/x-www-form-urlencoded
+
+HTTP/1.1 200 OK
+Date: Mon, 21 Mar 2011 03:25:39 GMT
+Server: Apache
+Last-Modified: Thu, 17 Mar 2011 18:42:56 GMT
+ETag: "1c08441-7-49eb2079dec00"
+Accept-Ranges: bytes
+Content-Length: 7
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/plain
+
+noreadyGET /TheNextWay/updates11.txt HTTP/1.0
+Host: koskhatm.altervista.org
+Accept: www/source, text/html, video/mpeg, image/jpeg, image/x-tiff
+Accept: image/x-rgb, image/x-xbm, image/gif, */*, application/postscript
+Content-type: application/x-www-form-urlencoded
+
+HTTP/1.1 200 OK
+Date: Mon, 21 Mar 2011 03:25:49 GMT
+Server: Apache
+Last-Modified: Thu, 17 Mar 2011 18:42:56 GMT
+ETag: "1c08441-7-49eb2079dec00"
+Accept-Ranges: bytes
+Content-Length: 7
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/plain
+
+noreadyGET /TheNextWay/updates11.txt HTTP/1.0
+Host: koskhatm.altervista.org
+Accept: www/source, text/html, video/mpeg, image/jpeg, image/x-tiff
+Accept: image/x-rgb, image/x-xbm, image/gif, */*, application/postscript
+Content-type: application/x-www-form-urlencoded
+

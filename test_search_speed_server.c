@@ -43,7 +43,7 @@ void handle_client(struct reversible_sketch * rs,  int client_socket_fd){
 					// lookup the tokens
 					int i;
 					for(i = 0;i < tokens_received - 1;i++){
-						struct list_node * node = lookup_encrypted_token(rs, received_tokens[i].token, TOKEN_SIZE);
+						struct list_node * node = lookup_encrypted_token(rs, received_tokens[i].token);
 						if(node){
 							matched_tokens_count++;
 						} else {
@@ -68,7 +68,7 @@ void handle_client(struct reversible_sketch * rs,  int client_socket_fd){
 				}
 				// lookup the tokens
 				for(i = 0;i < BATCH_SIZE;i++){
-					struct list_node * node = lookup_encrypted_token(rs, received_tokens[i].token, TOKEN_SIZE);
+					struct list_node * node = lookup_encrypted_token(rs, received_tokens[i].token);
 					if(node){
 						matched_tokens_count++;
 					} else {
@@ -101,10 +101,10 @@ int main(int argc, char ** args){
 	fprintf(stderr, "reversible sketch initialized\n");
 	//print_reversible_sketch(&rs);
 
-	uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
-	
+	//uint8_t key[16] = { (uint8_t) 0x2b, (uint8_t) 0x7e, (uint8_t) 0x15, (uint8_t) 0x16, (uint8_t) 0x28, (uint8_t) 0xae, (uint8_t) 0xd2, (uint8_t) 0xa6, (uint8_t) 0xab, (uint8_t) 0xf7, (uint8_t) 0x15, (uint8_t) 0x88, (uint8_t) 0x09, (uint8_t) 0xcf, (uint8_t) 0x4f, (uint8_t) 0x3c };
+	SHA256_CTX ctx;
 	fprintf(stderr, "before read_rules_from_file\n");
-	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, NULL, key, &pool);
+	int number_of_rules = read_rules_from_file(args[1], &rs, &rules_list, NULL, &ctx, &pool);
 	fprintf(stderr, "after read_rules_from_file\n");
 
 	// create server socket
